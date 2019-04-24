@@ -1,0 +1,43 @@
+Wireframes
+Menu - Inloggen en registreren samenvoegen.
+
+Homepage - Rubrieken niet horizontaal, maar gewoon links en verticaal, omdat ze uitgeklapt moeten worden.
+
+Bij biedingen geen rating systeem, alleen als iemand iets gekocht heeft. Ook compacter maken bij biedingsitem pagina.
+
+
+
+
+Concenteren op basis werking van de site - dus niet beheeromgeving
+Vooral de dingen die er echt in moeten. Inloggen/registreren. Item kunnen aanbieden. Bod kunnen uitbrengen. Afsluiten van een veiling moet goed lopen. Rest is allemaal extra.
+Als dat goed is gemaakt is het project gewoon geslaagd. Als beheer ofzo er niet goed in zit maakt niet heel erg uit want de site werkt verder gewoon. 
+
+Rein is zakenman, hij geeft ons de opdracht om de site te maken. Hij is ook onze klant. Ben is een intern iemand van ons bedrijf. 
+Functionaliteit(uiterlijk)/hoe(code) -> Rein
+Goede structuur en goed geteste code.
+
+Navigatiestuctuur zelf maken. Functioneel ontwerp -> homepage met lijnen/pijlen naar een volgende pagina. En zo alle pagina's linken.
+
+Mailen over database veranderingen. 
+
+
+
+
+Alles voorstellen aan rein, hij keurt het goed of fout en geeft feedback. 
+Hou document bij van wijzingen, ook of ze goed-/foutgekeurd zijn.
+Database model maken.
+
+
+
+Planning
+Alle statische pagina's. Vooral focus leggen op pagina's die belangrijk zijn. Geen php/echte functionaliteit, alleen die links.
+Database creeeren. Misschien niet constraints, hints tijdens workshop. Inloggen/registreren. Tijd over doe je wat extra's, mailen. 
+
+
+Altijd mailen bij veranderingen. 
+Mocht hij op school zijn kun je vragen of hij even wil komen kijken.
+
+
+Scrum puntensysteem. Taak heeft punten/uren. Burn-down chart, maar hoeft niet. Samen beslissen, ieTel dereen getal roepen en dan gemiddelde pakken. Elke user story punten geven.
+Kijken hoeveel uren wij hebben. Uitrekenen hoeveel uren er zijn per persoon. Aantal afhalen voor overhead(wat niks toevoegt aan het project maar wel tijd kost) (30%). 70% voor uren
+Tel alle punten op die horen bij een user story, kijken of er een factor tussen bestaat. Factor ophogen als sprint niet is gehaald en zo dus 'fine tunen'.
