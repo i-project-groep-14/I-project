@@ -38,6 +38,6 @@ Altijd mailen bij veranderingen.
 Mocht hij op school zijn kun je vragen of hij even wil komen kijken.
 
 
-Scrum puntensysteem. Taak heeft punten/uren. Burn-down chart, maar hoeft niet. Samen beslissen, ieTel dereen getal roepen en dan gemiddelde pakken. Elke user story punten geven.
+Scrum puntensysteem. Taak heeft punten/uren. Burn-down chart, maar hoeft niet. Samen beslissen, iedereen getal roepen en dan gemiddelde pakken. Elke user story punten geven.
 Kijken hoeveel uren wij hebben. Uitrekenen hoeveel uren er zijn per persoon. Aantal afhalen voor overhead(wat niks toevoegt aan het project maar wel tijd kost) (30%). 70% voor uren
 Tel alle punten op die horen bij een user story, kijken of er een factor tussen bestaat. Factor ophogen als sprint niet is gehaald en zo dus 'fine tunen'.
