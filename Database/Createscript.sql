@@ -58,7 +58,9 @@ create table gebruikerstelefoon (
 )
 
 alter table gebruiker
-add constraint fk_gebruiker_vraag foreign key (vraag) references vraag (vraagnummer)
+add constraint fk_gebruiker_vraag foreign key (vraag) references vraag (vraagnummer),
+constraint fk_gebruiker_gebruikersnaam foreign key (gebruikersnaam) references gebruikerstelefoon (gebruiker)
 
-alter table gebruiker
-add constraint fk_gebruiker_gebruikersnaam foreign key (gebruikersnaam) references gebruikerstelefoon (gebruiker)
+
+
+use master

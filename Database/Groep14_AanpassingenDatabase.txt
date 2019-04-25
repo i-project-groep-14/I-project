@@ -1,42 +1,41 @@
-Database toevoegingen en veranderingen
+Hallo meneer, wij hebben een aantal veranderingen m.b.t de database. Keurt u deze veranderingen goed of heeft u liever wat anders?
 
-Tabel gebruiker
-[EXTRA: Profielfoto	char(50)] 
-Gebruikersnaam van 	char(10) naar 	char(20)
-Voornaam van 		char(5) naar 	char(20)
-Achternaam van 		char(8) naar 	char(20)
-Adresregel 1 van 	char(15) naar 	char(20)
-Adresregel 2 van 	char(15) naar 	char(20)
-Plaatsnaam van 		char (12) naar 	char(20)
-land van 		char(9) naar 	char(20)
-GeboorteDag van 	char 	naar 	date
-mailbox			char(18) naar 	mailadres char(20)
-wachtwoord 		char(9) naar char(255)
-antwoordtekst		char(6) naar char(50)
-Verkoper 	van 	char(3) naar numeric(1)
-[EXTRA: geblokeerd	numeric(1)]
+In tabel gebruiker willen wij graag de volgende datatypes veranderen:
 
-Tabel vraag
-Tekstvraag van char(21) naar char(50)
+	gebruikersnaam 	van char(10) 	naar char(20)
+	voornaam 		van char(5)		naar char(20)
+	achternaam 		van char(8) 	naar char(20)
+	adresregel1 	van char(15) 	naar char(20)
+	adresregel2 	van char(15) 	naar char(20)
+	plaatsnaam 		van char (12) 	naar char(20)
+	land 			van char(9) 	naar char(20)
+	geboortedag 	van char 		naar date
+	mailbox			van char(18) 	naar mailadres char(20)
+	wachtwoord 		van char(9) 	naar char(255)
+	antwoordtekst	van char(6) 	naar char(50)
+	verkoper 		van char(3) 	naar numeric(1)
 
-Tabel gebruikerstelefoon:
-volgnr moet dit int(2) of numeric(2) zijn ?
-gebruikersnaam van char(10) naar char(20)
+De meeste van deze kolommen vinden wij dat ze te weinig characters hebben, vandaar dat wij die graag naar 20 of 50 veranderen.
+Een geboortedag is makkelijker op te slaan als een date, en makkelijker te gebruiken in php omdat hij dan in de goede format staat.
+Wachtwoorden willen wij graag gaan hashen als beveiliging, en gehashde wachtwoorden zijn erg lang en vandaar dat wij die graag naar 255 characters veranderen.
+Verkoper willen wij graag gaan opslaan als een boolean, omdat ons dat makkelijker lijkt in php als een 0 of een 1, in plaats van 'ja' of 'nee'.
 
+Wij willen ook graag de volgende kolom toevoegen aan tabel gebruiker:
+	
+	Profielfoto	(datatype onbekend)	en hij mag null zijn.
 
-
-vraag over kolom vraag er staat int(1) maar moet dit int zijn of numeric(1)
-indien het numeric moet zijn moet tabel vraagnummer ook aangepast worden
+Wij zouden het leuk vinden als gebruikers een profielfoto kunnen hebben, vandaar dat wij dit willen toevoegen.
 
 
+Dan is er nog een vraag over twee datatypes; in tabel gebruikerstelefoon staat dat kolom volgnr een integer(2) moet zijn, maar dat bestaat niet. Hoort dit een integer of een numeric(1) te zijn?
+Hetzelfde geld voor tabel gebruiker met kolom vraag, die heeft een datatype van integer(1).
+
+Dan is er nog een vraag. Er is een foreign key in tabel gebruiker van kolom vraag naar tabel vraag kolom vraagnummer. Maar die hebben allebei een ander datatype. Mogen wij deze twee kolommen hetzelfde datatype geven?
+Hetzelfde geld voor tabel gebruikerstelefoon, die heeft een foreign key op kolom gebruiker naar tabel gebruiker kolom gebruikersnaam.
 
 
+In tabel vraag is er ook nog een verandering aan datatype:
 
-Kolom Profiel foto toevoegen
+	Tekstvraag		van char(21) 	naar char(50)
 
-Kolom gebruikers blokkeren
-
-tabel favoriete producten voor gebruikers met kolom gebruikernaam + Voorwerpnummers
-
-
-
+Wij vinden dat ook dit character limiet aan de kleine kant is voor een vraag.
