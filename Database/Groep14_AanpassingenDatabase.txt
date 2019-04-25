@@ -1,0 +1,42 @@
+Database toevoegingen en veranderingen
+
+Tabel gebruiker
+[EXTRA: Profielfoto	char(50)] 
+Gebruikersnaam van 	char(10) naar 	char(20)
+Voornaam van 		char(5) naar 	char(20)
+Achternaam van 		char(8) naar 	char(20)
+Adresregel 1 van 	char(15) naar 	char(20)
+Adresregel 2 van 	char(15) naar 	char(20)
+Plaatsnaam van 		char (12) naar 	char(20)
+land van 		char(9) naar 	char(20)
+GeboorteDag van 	char 	naar 	date
+mailbox			char(18) naar 	mailadres char(20)
+wachtwoord 		char(9) naar char(255)
+antwoordtekst		char(6) naar char(50)
+Verkoper 	van 	char(3) naar numeric(1)
+[EXTRA: geblokeerd	numeric(1)]
+
+Tabel vraag
+Tekstvraag van char(21) naar char(50)
+
+Tabel gebruikerstelefoon:
+volgnr moet dit int(2) of numeric(2) zijn ?
+gebruikersnaam van char(10) naar char(20)
+
+
+
+vraag over kolom vraag er staat int(1) maar moet dit int zijn of numeric(1)
+indien het numeric moet zijn moet tabel vraagnummer ook aangepast worden
+
+
+
+
+
+Kolom Profiel foto toevoegen
+
+Kolom gebruikers blokkeren
+
+tabel favoriete producten voor gebruikers met kolom gebruikernaam + Voorwerpnummers
+
+
+
