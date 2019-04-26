@@ -12,6 +12,6 @@ require_once 'aanroepingen/connectie.php';
 
 <?php
 
-include_once 'aanroepingen/footer.html';
+include_once 'aanroepingen/footer.html'
 
 ?>
