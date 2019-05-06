@@ -1,0 +1,33 @@
+1:	8 - 5 - 5 - 8 - 13						8
+2:	8 - 8 - 3 - 13 - 5						8
+3:	Mail: 55 - 55 - 89 - 55 - 144					89
+	Melding: 5 - 3 - 8 - 5 - 13					5
+4:	Per stad filter: 2 - 2 - 5 - 5 - 1				3
+	Werkelijke afstand: 144 - 144 - 144 - 144 - 144			144
+5:	Meeste boden: 2 - 8 - 5 - 5 - 3					5
+	Meeste kliks: 21 - 21 - 21 - 55 - 21				21
+	Hoogste bod: 2 - 8 - 5 - 5 -3					5
+6:	2 - 8 - 5 - 5 - 3						5
+7:	Eigen veilingen/waar je op hebt geboden: 13 - 5 - 13 - 8 - 8	8
+8:	Mailadres/telefoon stuurt - 	Mail: 				144
+					Melding: 5 - 5 - 8 - 8 -8	8
+9:	Wat houdt betrouwbaarheid in?
+10:	8 - 13 - 5 - 13 - 34						13
+11:	5 - 8 - 8 - 8 - 5						8
+12:	2 - 3 - 3 - 2 - 2						2
+13:	Mail:								144
+	Melding: 13 - 21 - 21 - 21 - 34					21
+14:	2 - 3 - 3 - 2 - 3						3
+15:	5 - 3 - 5 - 5 - 5 						5
+16:	Mail:								144
+	Melding: 13 - 21 - 21 - 21 - 34					21
+17:	Mail:								144
+	Melding: 13 - 21 - 21 - 21 - 34					21
+18:	21 - 13 - 21 - 21 - 21						21
+19:	Vraag: is er een minimale en maximale tijd van een veiling? moeten wij dit zelf toevoegen of kan een
+	gebruiker dat doen.
+20:	
+21:	Wat houdt veilig in?
+22: 	21 - 34 - 55 - 55 - 34						34
+23:	Geen idee?
+24:	
