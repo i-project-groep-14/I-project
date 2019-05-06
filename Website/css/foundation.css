@@ -2833,7 +2833,8 @@ label {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
+  margin: auto;
+  width: 50%;
   margin-bottom: 1rem;
   -webkit-box-align: stretch;
   -webkit-align-items: stretch;
@@ -2902,7 +2903,7 @@ label {
     -webkit-align-self: stretch;
         -ms-flex-item-align: stretch;
             align-self: stretch;
-    height: auto;
+    height: 39px;
     padding-top: 0;
     padding-bottom: 0;
     font-size: 1rem; }

@@ -16,7 +16,12 @@
 <li class="menu-text">EenmaalAnderMaal</li>
 
 
-<input type="search" name="search" placeholder="Zoek..." class="zoek-form-header">
+<div class="input-group input-group-rounded">
+  <input class="input-group-field" type="search">
+  <div class="input-group-button">
+    <input type="submit" class="button" id="searchbutton"  value="Search">
+  </div>
+</div>
 
 
 
