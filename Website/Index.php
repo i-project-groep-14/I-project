@@ -1,30 +1,13 @@
-<!doctype html>
-
-<html lang="NL">
-<title>Home</title>
-<head>
-
-  <?php include_once "Header.php"; ?>
-  <?php include_once "aanroepingen/connectie.php"; ?>
-</head>
-
-<body>
-
-<?php 
-
-
-
-
-
-
+<?php
+  require_once 'aanroepingen/connectie.php';
+  include_once 'aanroepingen/header.html';
 ?>
 
-<aside  class="NavRubriekAside">
 
 
+<!-- <aside  class="NavRubriekAside">
+</aside> -->
 
-
-</aside>
-
-</body>
-</html>
+<?php
+  include_once 'aanroepingen/footer.html';
+?>
