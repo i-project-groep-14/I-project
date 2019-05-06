@@ -25,14 +25,14 @@ padding: 0px;
   
 }
 
-#searchbutton{
-margin: auto;
+#search{
+
 background-color: #F2552C;
 width: 75px;
 
 }
 
-#searchbutton:hover{
+#search:hover{
   margin: auto;
   background-color: black;
   
@@ -48,12 +48,15 @@ font-size: 20px;
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;
   padding-left: 1rem;
+  
+  margin-right: 20px;
+  
 }
 
 .input-group-rounded .input-group-button .button {
   border-radius: 0 5000px 5000px 0;
   font-size: 0.8rem;
-  
+ 
 }
 
 .NavRubriekAside{
@@ -73,16 +76,16 @@ margin-bottom: 100%;
   margin-left: 0px;
   margin-bottom: 0px;
   
-  vertical-align: center; 
+  
   width: 200px;
   border-bottom: 1px solid black;
   
   font-size: auto;
 }
 #NavRubriek:hover{
-width: 250px;
+
 border-bottom:  solid black;
-font-size: 35px;
+
 }
 
 .HomepaginaContainer
@@ -97,7 +100,7 @@ font-size: 35px;
   margin-left: 22.5%; 
   border-bottom: solid #F2552C 1px;
 }
-article
+.HomepaginaProducten
 {
     width: 20%;
     border-style: solid;
@@ -113,4 +116,6 @@ footer{
   text-align: center;
   position: relative;
 }
+
+
 
