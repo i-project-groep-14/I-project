@@ -1,3 +1,13 @@
+*{
+margin: 0px;
+padding: 0px;
+}
+.RubriekNav{
+  margin: 0px ;
+  
+}
+
+
 .Logo{
   width: 150px;
   height: 100px;
@@ -5,7 +15,7 @@
 }
 #loginbutton{
   margin: auto;
-  background-color: #f52;
+  background-color: #F2552C;
   width: 200px;
   
 }
@@ -17,7 +27,7 @@
 
 #searchbutton{
 margin: auto;
-background-color: #f52;
+background-color: #F2552C;
 width: 75px;
 
 }
@@ -46,38 +56,53 @@ font-size: 20px;
   
 }
 
-
-
-
-
 .NavRubriekAside{
 display: flex;
-justify-content: flex-start;
+justify-content: space-between;
 flex-direction: column;
-width: 20%;
+float:left;
+width: auto;
+margin-bottom: 100%;
 
 }
 
 
 #NavRubriek {
-  background:aqua;
+  background:#F2552C;
   list-style-type: none;
-  margin-left: -18px;
-  margin-bottom: -18px;
+  margin-left: 0px;
+  margin-bottom: 0px;
   
   vertical-align: center; 
   width: 200px;
-  border-bottom: 1px solid blue;
+  border-bottom: 1px solid black;
   
   font-size: auto;
 }
 #NavRubriek:hover{
 width: 250px;
-
-border-bottom: 3px solid blue;
+border-bottom:  solid black;
 font-size: 35px;
 }
 
+.HomepaginaContainer
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+}
+.HomepaginaKopjes{
+  font-size: 30px;
+}
+article
+{
+    width: 20%;
+    border-style: solid;
+    padding: 2px;
+    margin: 3px;
+    min-width: 200px;
+}
 
 
 footer{
@@ -86,3 +111,4 @@ footer{
   text-align: center;
   position: relative;
 }
+

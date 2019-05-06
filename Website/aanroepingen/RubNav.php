@@ -25,7 +25,7 @@ array("Rubriek19"),
 
 for ($row = 0; $row < 17; $row++) {
     
-    echo "<ul>";
+    echo "<ul class='RubriekNav'>";
     for ($col = 0; $col < 1; $col++) {
       
       echo '<li id="NavRubriek" class="button">'."<a href=".$cars[$row][$col].">".$cars[$row][$col].'</a>'."</li>";
