@@ -14,34 +14,37 @@
     <div class="homepaginaArtikelen">
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
-        <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
+        <a href="#" ><img src="images/fiets.JPG"  alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h2>24,99.-</h2>
+        <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
+        <input type='submit'value='Bekijk meer!' class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h2>24,99.-</h2>
+        <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
+        <input type='submit'value='Bekijk meer!' class='button'>
+</article>
+    <article class="HomepaginaProducten" >
+        <h3>Viking fiets</h3>
+        <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
+        <p>Huidige prijs:</p>
+        <h4>24,99.-</h4>
+        <p>Locatie: Arnhem</p>
+        <input type='submit'value='Bekijk meer!' class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h2>24,99.-</h2>
+        <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
-    </article>
-
-    <article class="HomepaginaProducten" >
-        <h3>Viking fiets</h3>
-        <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
-        <p>Huidige prijs:</p>
-        <h2>24,99.-</h2>
-        <p>Locatie: Arnhem</p>
+        <input type='submit'value='Bekijk meer!' class='button'>
     </article>
     </div>
     <h1 class="HomepaginaKopjes">Recent bekeken </h1>
@@ -50,32 +53,36 @@
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h2>24,99.-</h2>
+        <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
+        <input type='submit'value='Bekijk meer!' class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h2>24,99.-</h2>
+        <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
+        <input type='submit'value='Bekijk meer!' class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h2>24,99.-</h2>
+        <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
+        <input type='submit'value='Bekijk meer!' class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h2>24,99.-</h2>
+        <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
+        <input type='submit'value='Bekijk meer!' class='button'>
     </article>
 
     </div>
@@ -85,32 +92,36 @@
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h2>24,99.-</h2>
+        <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
+        <input type='submit'value='Bekijk meer!' class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h2>24,99.-</h2>
+        <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
+        <input type='submit'value='Bekijk meer!' class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h2>24,99.-</h2>
+        <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
+        <input type='submit'value='Bekijk meer!' class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h2>24,99.-</h2>
+        <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
+        <input type='submit'value='Bekijk meer!' class='button'>
     </article>
 
     </div>

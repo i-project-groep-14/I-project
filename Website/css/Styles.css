@@ -1,6 +1,10 @@
 *{
-  margin: 0px;
-  padding: 0px;
+margin: 0px;
+padding: 0px;
+}
+.RubriekNav{
+  margin: 0px ;
+  
 }
 
 
@@ -10,29 +14,23 @@
   border-radius: 50%;
   border: 1px solid black;
 }
-
-
-
 #loginbutton{
   margin: auto;
   background-color: #F2552C;
   width: 200px;
   
 }
-
 #loginbutton:hover{
   margin: auto;
   background-color: black;
   
 }
 
-
-
 #search{
-  
-  background-color: #F2552C;
-  width: 75px;
-  
+
+background-color: #F2552C;
+width: 75px;
+
 }
 
 #search:hover{
@@ -41,12 +39,9 @@
   
 }
 
-
-
-
 .menu-text{
-  margin: 35px 0px 0px 0px ;
-  font-size: 20px;
+margin: 35px 0px 0px 0px ;
+font-size: 20px;
 }
 
 
@@ -62,24 +57,20 @@
 .input-group-rounded .input-group-button .button {
   border-radius: 0 5000px 5000px 0;
   font-size: 0.8rem;
-  
+ 
 }
-
-
 
 .NavRubriekAside{
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  float:left;
-  width: auto;
-  margin-bottom: 100%;
-  
+display: flex;
+justify-content: space-between;
+flex-direction: column;
+float:left;
+width: auto;
+margin-bottom: 100%;
+
+
 }
 
-.RubriekNav{
-  margin: 0px;
-}
 
 #NavRubriek {
   background:#F2552C;
@@ -94,24 +85,23 @@
   
   font-size: auto;
 }
-
 #NavRubriek:hover{
-  border-bottom:  solid black;
+
+
+border-bottom:  solid black;
 }
-
-
 
 .homepaginaContainer{
   /* background: #A4E8F9; */
 }
 
-.homepaginaArtikelen{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: row;
+.homepaginaArtikelen
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
 }
-
 .HomepaginaKopjes{
   font-size: 30px;
   padding-top: 2%;
@@ -119,17 +109,23 @@
   margin-left: 22.5%; 
   border-bottom: solid #F2552C 1px;
 }
-
-.HomepaginaProducten{
-  width: 20%;
-  border-style: solid;
-  padding: 2px;
-  margin: 3px;
-  min-width: 200px;
-  background: white;
+.HomepaginaProducten
+{
+  text-align: center;
+    width: 260px;
+    height: 80%;
+    border-style: solid ;
+    padding: 2px;
+    margin: 3px;
+    min-width: 200px;
+    background: white;
+    box-shadow: 5px 10px 10px;
 }
 
-
+.HomepaginaProducten img{
+  height: 100px;
+  width: 150px;
+}
 
 footer{
   border-top: 1px solid #F2552C;
@@ -137,3 +133,6 @@ footer{
   text-align: center;
   position: relative;
 }
+
+
+
