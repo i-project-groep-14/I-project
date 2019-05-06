@@ -29,14 +29,12 @@
     
 
   }
- 
-  
   .zoek-form-header[type=search][type=search]:focus {
     width: 50%;
     background-position: 97% ;
     border: 0.125rem solid aqua;
   }
-.NavRubriekAside{
+/* .NavRubriekAside{
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -63,5 +61,5 @@
   border-bottom: 3px solid blue;
   font-size: 35px;
 }
-  
+   */
   
