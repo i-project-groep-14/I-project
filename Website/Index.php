@@ -5,13 +5,13 @@
 <head>
 
   <?php include_once "Header.php"; ?>
-  <?php include_once "database.php"; ?>
+  <?php include_once "aanroepingen/connectie.php"; ?>
 </head>
 
 <body>
 
 <?php 
-$data = $db->query("select * from Rubrieken");
+
 
 
 
