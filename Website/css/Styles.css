@@ -94,6 +94,8 @@ font-size: 35px;
 }
 .HomepaginaKopjes{
   font-size: 30px;
+  margin-left: 22.5%; 
+  border-bottom: solid #F2552C 1px;
 }
 article
 {
