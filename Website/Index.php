@@ -21,7 +21,7 @@ $data = $db->query("select * from Rubrieken");
 
 <aside  class="NavRubriekAside">
 
-<?php include_once "RubNav.php"; ?>
+
 
 
 </aside>
