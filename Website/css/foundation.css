@@ -219,6 +219,7 @@ button {
   border-radius: 0;
   background: transparent;
   line-height: 1;
+  
   cursor: auto; }
   [data-whatinput='mouse'] button {
     outline: 0; }
@@ -2469,6 +2470,7 @@ ul.no-bullet, ol.no-bullet {
   text-align: center;
   cursor: pointer;
   background-color: #1779ba;
+  
   color: #fefefe; }
   [data-whatinput='mouse'] .button {
     outline: 0; }
@@ -3651,7 +3653,9 @@ select {
     padding: 0.7rem 1rem;
     font-weight: bold;
     line-height: 1;
-    color: inherit; }
+    color: inherit; 
+    
+  }
 
 .menu-centered > .menu {
   -webkit-box-pack: center;
@@ -5365,34 +5369,34 @@ a.thumbnail {
     right: 10%; }
 
 .top-bar {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
+  display:-webkit-box;display:-webkit-flex;
+display:-ms-flexbox;display:flex;-webkit-flex-wrap:nowrap;
+-ms-flex-wrap:nowrap;
+flex-wrap:nowrap;
+-webkit-box-pack:justify;
+-webkit-justify-content:space-between;
+-ms-flex-pack:justify;
+justify-content:space-between;
+-webkit-box-align:center;
+-webkit-align-items:center;
+-ms-flex-align:center;
+align-items:center;
+padding:.5rem;
+-webkit-flex-wrap:wrap;
+-ms-flex-wrap:wrap;
+flex-wrap:wrap;
+  
   display: flex;
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0.5rem;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+  border-bottom-style: solid;
+  border-bottom-color: #14679e;
+  box-shadow: 1px 1px 10px;
+  }
   .top-bar,
   .top-bar ul {
-    background-color: #e6e6e6; }
-  .top-bar input {
-    max-width: 200px;
-    margin-right: 1rem; }
-  .top-bar .input-group-field {
-    width: 100%;
-    margin-right: 0; }
+    background-color: #ffffff;
+    
+ }
+  
   .top-bar input.button {
     width: auto; }
   .top-bar .top-bar-left,
@@ -6360,3 +6364,5 @@ a.thumbnail {
 .long-delay {
   -webkit-animation-delay: 700ms !important;
           animation-delay: 700ms !important; }
+
+
