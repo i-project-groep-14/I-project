@@ -132,8 +132,27 @@
 
 
 footer{
-  border-top: 1px solid #F2552C;
+  /* border-top: 1px solid #F2552C; */
   padding: 10px 0px;
-  text-align: center;
-  position: relative;
+  /* position: relative; */
+  background: #A4E8F9;
 }
+
+.center{
+  text-align: center;
+}
+
+.column{
+  display:flex;
+  flex-direction: column;
+  list-style: none;
+
+  margin: 0% 5%;
+}
+
+.row{
+  display:flex;
+  flex-direction: row;
+  list-style: none;
+}
+
