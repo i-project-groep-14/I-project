@@ -15,22 +15,44 @@
 <body>
     
     <div class="top-bar" id="realEstateMenu">
+            
         <div class="top-bar-left">
+                
             <ul class="menu" data-responsive-menu="accordion">
+                
                 <a href="Index.php"><img src="Images/LogoMetNaam.png" class="Logo" alt="Flowers in Chania"></a>
-                <li class="menu-text">EenmaalAndermaal</li>
+                <h1 class="menu-text">EenmaalAndermaal</h1>
+                
+                
                 <div class="input-group input-group-rounded">
-                    <input class="input-group-field" type="search">
+                        
+                        <input   type="text" placeholder="Postcode">
+                      
+                        <Select>
+                                <option value="1000">Alle afstanden...</option>
+                                <option value="10">10km</option>
+                                <option value="20">20km</option>
+                                <option value="30">30km</option>
+                                <option value="40">40km</option>
+                            </Select>
+                       
+                    <input  type="search">
                     <div class="input-group-button">
-                        <input type="submit" class="button" id="searchbutton"  value="Search">
+                    <input type="submit" class="button" id="search"  value="Search"><br>
+                        
                     </div>
+                    
                 </div>
+                
             </ul>
         </div>
+        
         <br>
         <div class="top-bar-right">
             <ul class="menu">
                 <li><a class="button" id="loginbutton">Login</a></li>
             </ul>
         </div>
+        
     </div>
+    
