@@ -22,6 +22,12 @@ width: 75px;
 
 }
 
+#searchbutton:hover{
+  margin: auto;
+  background-color: black;
+  
+}
+
 .menu-text{
 margin: 35px 0px 0px 0px ;
 font-size: 20px;
