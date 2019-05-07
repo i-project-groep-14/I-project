@@ -144,16 +144,25 @@
   width: 150px;
 }
 
-.holy-grail-footer{
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid #F2552C;
+
+#footer { 
+  
+  display: table;
+   width: 100%; 
+   table-layout: fixed;
+   border-top: 1px solid #F2552C;
   margin-top: 30px;
-  padding: 10px 0px;
+  padding: 10px 10px 10px 10px;
   position: relative;
   background: #A4E8F9;
+
 }
-.holy-grail-footer a{
+#footer > div { 
+  display: table-cell;
+  
+}
+
+#footer a{
   color: black;
 }
 .FooterItems{
