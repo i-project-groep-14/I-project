@@ -98,10 +98,20 @@
 {
     display: flex;
     justify-content: flex-end;
-    margin-right: 20px;
+    margin-right: 30px;
        
    
   }
+  @media only screen and (max-width: 1920px) {
+    .homepaginaArtikelen {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 10%;
+    }
+  }
+ 
+
+
 .HomepaginaKopjes{
   font-size: 30px;
   padding-top: 2%;
@@ -236,3 +246,5 @@ ul{
   float: left;
   margin-left: 3%;
 }
+
+
