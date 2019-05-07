@@ -1,68 +1,77 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <link href="" rel="stylesheet">
-    <title>EenmaalAndermaal registreren</title>
-</head>
-    <header>
-            <h1>EenmaalAndermaal</h1>    
-    </header>
-    <body>
-        <h2>Registreren</h2>
+<?php
+  require_once 'aanroepingen/connectie.php';
+  include_once 'aanroepingen/header.html';
+  if(isset($_POST['verzenden_pers'])){
+    header("Location: registratie_vraag.php");
+}
+?>
+
+<aside  class="NavRubriekAside">
+  <?php include_once 'aanroepingen/RubNav.php'; ?>
+</aside>
+
+<ol class="progress-indicator">
+  <li class="is-complete" data-step="">
+  <span>Verifiëren e-mail</span>
+  </li>
+  <li class="is-current" data-step="">
+  <span>Gegevens invullen</span>
+  </li>
+  <li class="" data-step="">
+  <span>Veiligheid</span>
+  </li>
+  <li class="" data-step="">
+      <span>Klaar</span>
+</li>
+</ol>
+ 
+        <h2 class="HomepaginaKopjes">Registreren</h2>
+        <div class="body-tekst">
         <p>
             Dit is de tweede stap van het registreren. Vul a.u.b uw persoonlijkegegevens hieronder in. 
         </p>
-        <form action="" >
+        <form action="registratie_persoonsgegevens.php" method="post" >
             Gebruikersnaam:
             <input type="text" placeholder="Gebruikersnaam" name="gebruikersnaam">
-            <br>
             Voornaam:
-            <input type="text" placeholder="Voornaam" name="voornaam" >
+            <input  type="text" placeholder="Voornaam" name="voornaam" >
             Achternaam:
             <input type="text" placeholder="Achternaam" naam="achternaam" >
-            <br>
             Adres:
-            <input type="text" placeholder="Adres" name="adres"><br>
-            Toevoeging Adres (Optioneel): <br>
+            <input type="text" placeholder="Adres" name="adres">
+            Toevoeging Adres (Optioneel): 
+            <div class="tooltip">Meer informatie?
+              <span class="tooltiptext">Dit is een extra adres regel voor mensen die buiten Nederland wonen.</span>
+            </div>
             <input type="text" placeholder="Tweede adres" name="oAdres">
-            <label>Meer informatie?</label>
-            <input type="checkbox"><p>Dit is een extra adres regel voor mensen die buiten Nederland wonen.</p>
-            <br>
             Postcode:
             <input type="text" placeholder="Postcode" name="postcode">
             Plaatsnaam:
             <input type="text" placeholder="Plaats" name="plaats">        
-            <br>
             Landsnaam:
             <input type="text" placeholder="Land" name="land">
-            <br>
             Telefoonnr:
-            <input type="tel" placeholder="Telefoonnr" >
+            <input type="tel" placeholder="Telefoonnr" name="telnr1">
             Telefoonnr 2 (Optioneel):
-            <input type="tel" placeholder="Telefoonnr"><br>
+            <input type="tel" placeholder="Telefoonnr" name="telnr2">
             Geboortedatum:
             <input type="date" name="geboortedatum">
-            <br>
             Wachtwoord:
             <input type="text" placeholder="Wachtwoord" name="wachtwoord">
-            <br>
             Bevestig Wachtwoord:
             <input type="text" placeholder="Bevestig wachtwoord" name="bWachtwoord">
-            <br>
-            Wordt dit een verkopersaccount?
-            <br>
-            <label for="wel">Wel</label>
+            Wordt dit een verkopersaccount?<br>
+            <label class="label-next" for="wel">Wel</label>
             <input type="radio" name="eenVerkoper" id="wel"> 
             <label for="niet">Niet</label>
-            <input type="radio" name="eenVerkoper" id="niet"> 
-            <br>
-            Dit kan na een normaal account, nog altijd een verkopersaccount worden. 
-            <br>
-            <input type="submit" name="verzenden_pers" value="Verzenden">
+            <input type="radio" name="eenVerkoper" id="niet"> <br>
+            Dit kan na een normaal account, nog altijd een verkopersaccount worden.<br><br>
+            <input class="button" type="submit" name="verzenden_pers" value="Verzenden">
         
         </form>
-    </body>
+</div>
 
-</html>
+<?php
+  include_once 'aanroepingen/footer.html';
+?>
 
