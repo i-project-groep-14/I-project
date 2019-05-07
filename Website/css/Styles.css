@@ -7,6 +7,9 @@
   float: left;
 }
 
+.fi-star {
+  margin-top: 1%;
+}
 
 .Logo{
   width: 150px;
@@ -23,14 +26,11 @@
 #loginbutton:hover{
   margin: auto;
   background-color: black;
-  
 }
 
 #search{
-  
   background-color: #F2552C;
   width: 75px;
-  
 }
 
 #search:hover{
@@ -194,13 +194,20 @@ ul{
   list-style-type: none;
 }
 
+.yellow {
+  color: rgb(255, 186, 0);
+}
+
+.grey {
+  color: grey;
+}
 
 
 
 .productfotocontainer{
-  border: 1px solid #F2552C;
+  border: 3px solid #F2552C;
   width: 40%;
-  height: 40%;
+  height: 540px;
   float: left;
   margin-left: 3%;
 }
@@ -213,7 +220,7 @@ ul{
 }
 
 .productfotocontainer>ul{
-  border-top: 1px solid #F2552C;
+  border-top: 3px solid #F2552C;
   margin-left: 1px;
   display: flex;
   justify-content: space-around;
@@ -221,15 +228,53 @@ ul{
 }
 
 .productfotocontainer>ul>li{
-  border: 1px solid #A4E8F9;
+  border: 1px solid black;
   width: 20%;
 }
 
 
 .producttekstcontainer{
-  border: 1px solid #F2552C;
+  border: 3px solid #F2552C;
   width: 40%;
-  height: 40%;
+  height: 540px;
   float: left;
   margin-left: 3%;
+  padding-left: 1%;
+}
+
+.producttekstcontainer>h1{
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 0px;
+  padding-left: -1%;
+}
+
+.producttekstcontainer>h4{
+  font-size: 1.2em;
+}
+
+.producttekstcontainer i:nth-child(2){
+  margin-left: 5%;
+}
+
+.producttekstcontainer> p{
+  margin-right: 2%;
+}
+
+.producttekstcontainer .productprijzen:nth-child(2){
+  margin-left: 20%;
+}
+
+.producttekstcontainer .tijd{
+  border: 1px solid #F2552C;
+  width: 3em;
+  text-align: center;
+}
+
+#productopeningstijd{
+  margin-left: 2%;
+}
+
+.producttekstcontainer>div>ul>li:nth-child(2), .producttekstcontainer>div>ul>li:nth-child(3){
+  border-left: none;
 }
