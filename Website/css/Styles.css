@@ -4,7 +4,6 @@ padding: 0px;
 }
 .RubriekNav{
   margin: 0px ;
-  
 }
 
 
@@ -66,7 +65,7 @@ justify-content: space-between;
 flex-direction: column;
 float:left;
 width: auto;
-margin-bottom: 50%;
+margin-bottom: auto;
 
 
 }
@@ -98,20 +97,23 @@ border-bottom:  solid black;
 .homepaginaArtikelen
 {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: row;
-}
+    justify-content: flex-end;
+    
+     
+   
+  }
 .HomepaginaKopjes{
   font-size: 30px;
   padding-top: 2%;
   margin-bottom: 2%;
   margin-left: 22.5%; 
   border-bottom: solid #F2552C 1px;
+  
 }
 .HomepaginaProducten
 {
   text-align: center;
+    
     width: 260px;
     height: 80%;
     border: solid 1px grey ;
@@ -120,6 +122,7 @@ border-bottom:  solid black;
     min-width: 200px;
     background: white;
     box-shadow: 5px 10px 10px;
+    
 }
 .HomepaginaProducten:hover{
   border: solid 2px #F2552C ;
@@ -169,7 +172,7 @@ border-bottom:  solid black;
   padding: 50px;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  
 }
 
 
@@ -189,3 +192,5 @@ a {
   color: white;
   text-decoration: none;
   }
+
+
