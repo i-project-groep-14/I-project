@@ -2255,16 +2255,6 @@ h6, .h6 {
   h6, .h6 {
     font-size: 1rem; } }
 
-a {
-  line-height: inherit;
-  color: white;
-  text-decoration: none;
-  cursor: pointer; }
-  a:hover, a:focus {
-    color: white; }
-  a img {
-    border: 0; }
-
 hr {
   clear: both;
   max-width: 75rem;
