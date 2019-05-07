@@ -114,13 +114,17 @@ border-bottom:  solid black;
   text-align: center;
     width: 260px;
     height: 80%;
-    border-style: solid ;
+    border: solid 1px grey ;
     padding: 2px;
     margin: 3px;
     min-width: 200px;
     background: white;
     box-shadow: 5px 10px 10px;
 }
+.HomepaginaProducten:hover{
+  border: solid 2px #F2552C ;
+}
+
 
 .HomepaginaProducten img{
   height: 100px;
@@ -128,9 +132,9 @@ border-bottom:  solid black;
 }
 
 footer{
-  /* border-top: 1px solid #F2552C; */
+  border-top: 1px solid #F2552C;
   padding: 10px 0px;
-  /* position: relative; */
+  position: relative;
   background: #A4E8F9;
 }
 
