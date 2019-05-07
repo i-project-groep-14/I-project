@@ -1,5 +1,5 @@
 <?php
-  require_once 'aanroepingen/connectie.php';
+  
   include_once 'aanroepingen/header.html';
 ?>
 
@@ -18,7 +18,7 @@
         <p>Huidige prijs:</p>
         <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
-        <input type='submit'value='Bekijk meer!' class='button'>
+        <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
@@ -27,7 +27,7 @@
         <p>Huidige prijs:</p>
         <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
-        <input type='submit'value='Bekijk meer!' class='button'>
+        <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
 </article>
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
@@ -35,7 +35,7 @@
         <p>Huidige prijs:</p>
         <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
-        <input type='submit'value='Bekijk meer!' class='button'>
+        <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
@@ -44,7 +44,7 @@
         <p>Huidige prijs:</p>
         <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
-        <input type='submit'value='Bekijk meer!' class='button'>
+        <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
     </div>
     <h1 class="HomepaginaKopjes">Recent bekeken </h1>
@@ -55,7 +55,7 @@
         <p>Huidige prijs:</p>
         <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
-        <input type='submit'value='Bekijk meer!' class='button'>
+        <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
@@ -64,7 +64,7 @@
         <p>Huidige prijs:</p>
         <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
-        <input type='submit'value='Bekijk meer!' class='button'>
+        <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
@@ -73,7 +73,7 @@
         <p>Huidige prijs:</p>
         <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
-        <input type='submit'value='Bekijk meer!' class='button'>
+        <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
@@ -82,11 +82,11 @@
         <p>Huidige prijs:</p>
         <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
-        <input type='submit'value='Bekijk meer!' class='button'>
+        <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
 
     </div>
-    <h1 class="HomepaginaKopjes"> uw biedingen </h1>
+    <h1 class="HomepaginaKopjes"> Uw biedingen </h1>
     <div class="homepaginaArtikelen">
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
@@ -94,7 +94,7 @@
         <p>Huidige prijs:</p>
         <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
-        <input type='submit'value='Bekijk meer!' class='button'>
+        <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
@@ -103,7 +103,7 @@
         <p>Huidige prijs:</p>
         <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
-        <input type='submit'value='Bekijk meer!' class='button'>
+        <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
@@ -112,7 +112,7 @@
         <p>Huidige prijs:</p>
         <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
-        <input type='submit'value='Bekijk meer!' class='button'>
+        <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
 
     <article class="HomepaginaProducten" >
@@ -121,7 +121,7 @@
         <p>Huidige prijs:</p>
         <h4>24,99.-</h4>
         <p>Locatie: Arnhem</p>
-        <input type='submit'value='Bekijk meer!' class='button'>
+        <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
 
     </div>

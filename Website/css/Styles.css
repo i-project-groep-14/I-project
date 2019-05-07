@@ -1,12 +1,14 @@
 *{
-margin: 0px;
-padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 .RubriekNav{
   margin: 0px ;
-  
 }
 
+.fi-star {
+  margin-top: 1%;
+}
 
 .Logo{
   width: 150px;
@@ -18,19 +20,20 @@ padding: 0px;
   margin: auto;
   background-color: #F2552C;
   width: 200px;
-  
+  border-radius: 2px;
+  box-shadow:   3px 3px #ccc;
 }
+
+
 #loginbutton:hover{
   margin: auto;
   background-color: black;
-  
+  border-radius: 0px;
 }
 
 #search{
-
-background-color: #F2552C;
-width: 75px;
-
+  background-color: #F2552C;
+  width: 75px;
 }
 
 #search:hover{
@@ -40,8 +43,8 @@ width: 75px;
 }
 
 .menu-text{
-margin: 35px 0px 0px 0px ;
-font-size: 20px;
+  margin: 35px 0px 0px 0px ;
+  font-size: 20px;
 }
 
 
@@ -57,18 +60,18 @@ font-size: 20px;
 .input-group-rounded .input-group-button .button {
   border-radius: 0 5000px 5000px 0;
   font-size: 0.8rem;
- 
+  
 }
 
 .NavRubriekAside{
-display: flex;
-justify-content: space-between;
-flex-direction: column;
-float:left;
-width: auto;
-margin-bottom: 100%;
-
-
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  float:left;
+  width: auto;
+  
+  
+  
 }
 
 
@@ -86,9 +89,9 @@ margin-bottom: 100%;
   font-size: auto;
 }
 #NavRubriek:hover{
-
-
-border-bottom:  solid black;
+  
+  
+  border-bottom:  solid black;
 }
 
 .homepaginaContainer{
@@ -98,40 +101,76 @@ border-bottom:  solid black;
 .homepaginaArtikelen
 {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: row;
-}
+    justify-content: flex-end;
+    margin-right: 30px;
+       
+   
+  }
+  @media only screen and (max-width: 1920px) {
+    .homepaginaArtikelen {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 10%;
+    }
+  }
+ 
+
+
 .HomepaginaKopjes{
   font-size: 30px;
   padding-top: 2%;
   margin-bottom: 2%;
   margin-left: 22.5%; 
   border-bottom: solid #F2552C 1px;
+  
 }
 .HomepaginaProducten
 {
   text-align: center;
+    
     width: 260px;
     height: 80%;
-    border-style: solid ;
+    border: solid 1px grey ;
     padding: 2px;
     margin: 3px;
     min-width: 200px;
     background: white;
     box-shadow: 5px 10px 10px;
+    
 }
+.HomepaginaProducten:hover{
+  border: solid 2px #F2552C ;
+}
+
 
 .HomepaginaProducten img{
   height: 100px;
   width: 150px;
 }
 
-footer{
-  /* border-top: 1px solid #F2552C; */
-  padding: 10px 0px;
-  /* position: relative; */
+
+#footer { 
+  
+  display: table;
+   width: 100%; 
+   table-layout: fixed;
+   border-top: 1px solid #F2552C;
+  margin-top: 30px;
+  padding: 10px 10px 10px 10px;
+  position: relative;
   background: #A4E8F9;
+
+}
+#footer > div { 
+  display: table-cell;
+  
+}
+
+#footer a{
+  color: black;
+}
+.FooterItems{
+  
 }
 
 .center{
@@ -142,7 +181,7 @@ footer{
   display:flex;
   flex-direction: column;
   list-style: none;
-
+  
   margin: 0% 5%;
 }
 
@@ -293,3 +332,161 @@ footer{
   color: #4eabe9;
 }
 
+.inlogpaginaContainer {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.inlogpaginaContainer a {
+  color: #F2552C;
+  border-bottom: 1px solid #F2552C;  
+}
+
+.InlogpaginaKopje {
+  text-align: center;
+  border-bottom: 1px solid #F2552C;
+}
+
+
+.inlogbutton {
+  background-color: #F2552C;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: solid;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.inlogbutton:hover {
+  background-color: black;
+}
+
+a { 
+  color: white;
+  text-decoration: none;
+}
+
+ul{
+  list-style-type: none;
+}
+
+.yellow {
+  color: rgb(255, 186, 0);
+}
+
+.grey {
+  color: grey;
+}
+
+
+
+.productfotocontainer{
+  border: 3px solid #F2552C;
+  width: 40%;
+  height: 540px;
+  float: left;
+  margin-left: 3%;
+}
+
+.productfotocontainer>img{
+  width: 70%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.productfotocontainer>ul{
+  border-top: 3px solid #F2552C;
+  margin-left: 1px;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 2%;
+}
+
+.productfotocontainer>ul>li{
+  border: 1px solid black;
+  width: 20%;
+}
+
+
+.producttekstcontainer{
+  border: 3px solid #F2552C;
+  width: 40%;
+  height: 540px;
+  float: left;
+  margin-left: 3%;
+  padding-left: 1%;
+}
+
+.producttekstcontainer>h1{
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 0px;
+  padding-left: -1%;
+}
+
+.producttekstcontainer>h4{
+  font-size: 1.2em;
+}
+
+.producttekstcontainer i:nth-child(2){
+  margin-left: 5%;
+}
+
+.producttekstcontainer> p{
+  margin-right: 2%;
+}
+
+.producttekstcontainer .productprijzen:nth-child(2){
+  margin-left: 20%;
+}
+
+.producttekstcontainer .tijd{
+  border: 1px solid #F2552C;
+  width: 3em;
+  text-align: center;
+}
+
+#productopeningstijd{
+  margin-left: 2%;
+}
+
+.producttekstcontainer>div>ul>li:nth-child(2), .producttekstcontainer>div>ul>li:nth-child(3){
+  border-left: none;
+}
+
+
+.productbieders{
+  float: left;
+  margin-left: 15%;
+}
+
+.productbieders>ul>li{
+  margin-top: 2em;
+  border: 3px solid #F2552C;
+  width: 70em;
+  
+  display: flex;
+  justify-content: space-around;
+}
+
+.productbieders>ul>li>img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+.productbieders>ul>li>h2{
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+.productbieders>ul>li>p{
+  font-size: 2em;
+  margin-top: 2%;
+}

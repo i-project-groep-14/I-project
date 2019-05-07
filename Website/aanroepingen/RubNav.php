@@ -1,16 +1,16 @@
 <?php 
 $cars = array
 (
-array("Rubriek1",),
-array("Rubriek2"),
-array("Rubriek3"),
-array("Rubriek4"),
-array("Rubriek5"),
-array("Rubriek6"),
-array("Rubriek7"),
-array("Rubriek8"),
-array("Rubriek9"),
-array("Rubriek10"),
+array("Antiek en Kunst",),
+array("Audio , Tv en Foto"),
+array("Auto's"),
+array("Auto-onderdelen"),
+array("Auto diversen"),
+array("Boeken"),
+array("Muziek en Instrumenten"),
+array("Sport en Fitness"),
+array("Watersport en Boten"),
+array("Diversen"),
 
 );
 
@@ -21,7 +21,7 @@ for ($row = 0; $row < 10; $row++) {
     echo "<ul class='RubriekNav'>";
     for ($col = 0; $col < 1; $col++) {
       
-      echo '<li id="NavRubriek" class="button">'."<a href=".$cars[$row][$col].">".$cars[$row][$col].'</a>'."</li>";
+      echo '<li id="NavRubriek" class="button">'.$cars[$row][$col]."</li>";
     }
     echo "</ul>";
   }
