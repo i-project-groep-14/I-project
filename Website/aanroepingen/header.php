@@ -2,31 +2,31 @@
     // global $config;
 
     if(isset($_POST['register'])){
-        $email = $_POST['email'];
+        $email = $_SESSION['email'];
 
-        $gebruikersnaam = $_POST['gebruikersnaam'];
-        $voornaam = $_POST['voornaam'];
-        $achternaam = $_POST['achternaam'];
-        $adres = $_POST['adres'];
-        $oAdres = $_POST['oAdres'];
-        $postcode = $_POST['postcode'];
-        $plaats = $_POST['plaats'];
-        $land = $_POST['land'];
-        $telefoonnr1 = $_POST['telnr1'];
-        if(isset($_POST['telnr2'])) {
-            $telefoonnr2 = $_POST['telnr2'];
+        $gebruikersnaam = $_SESSION['gebruikersnaam'];
+        $voornaam = $_SESSION['voornaam'];
+        $achternaam = $_SESSION['achternaam'];
+        $adres = $_SESSION['adres'];
+        $oAdres = $_SESSION['oAdres'];
+        $postcode = $_SESSION['postcode'];
+        $plaats = $_SESSION['plaats'];
+        $land = $_SESSION['land'];
+        $telefoonnr1 = $_SESSION['telnr1'];
+        if(isset($_SESSION['telnr2'])) {
+            $telefoonnr2 = $_SESSION['telnr2'];
         }
-        $geboortedatum = $_POST['geboortedatum'];
-        $wachtwoord = $_POST['wachtwoord'];
-        $wachtwoord_confirm = $_POST['bWachtwoord'];
-        $verkoper = $_POST['eenVerkoper'];
+        $geboortedatum = $_SESSION['geboortedatum'];
+        $wachtwoord = $_SESSION['wachtwoord'];
+        $wachtwoord_confirm = $_SESSION['bWachtwoord'];
+        $rol = $_SESSION['eenVerkoper'];
 
         $vraag = $_POST['veiligheidsvraag'];
         $antwoord = $_POST['veiligheidsvraag_antwoord'];
 
         if($wachtwoord == $wachtwoord_confirm) {
             $sql = "INSERT INTO gebruiker VALUES
-                    (:gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :postcode, :plaatsnaam, :land, :geboortedatum, :mailadres, :wachtwoord, :vraag, :antwoordtekst, :rol)";
+                    (:gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :postcode, :plaatsnaam, :land, :geboortedatum, :mailadres, :wachtwoord, :vraag, :antwoordtekst, :rol, :profielfoto)";
             $query = $dbh->prepare($sql);
             $query -> execute(array(
                 ':gebruikersnaam' => $gebruikersnaam,
@@ -42,7 +42,8 @@
                 ':wachtwoord' => password_hash($wachtwoord, PASSWORD_DEFAULT),
                 ':vraag' => $vraag,
                 ':antwoordtekst' => $antwoord,
-                ':rol' => 2
+                ':rol' => $rol,
+                ':profielfoto' => 'test'
                 )
             );
 

@@ -2,7 +2,7 @@
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 
-  if(isset($_POST['verzenden_vraag'])){
+  if(isset($_POST['verzenden_pers'])){
     // header("Location: registratie_klaar.php");
 
     $_POST['gebruikersnaam'] = $_SESSION['gebruikersnaam'];

@@ -2,9 +2,11 @@
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 
-  if(isset($_POST['verzenden_pers'])){
-    header("Location: registratie_vraag.php");
-    $_POST['email'] = $_SESSION['email'];
+  if(isset($_POST['verzenden_email'])){
+    // header("Location: registratie_vraag.php");
+    $_SESSION['email'] = "test";
+    //  $_POST['email'];
+    echo "$_SESSION['email']";
   }
 ?>
 
@@ -35,7 +37,7 @@
               Dit is de tweede stap van het registreren. Vul a.u.b uw persoonlijkegegevens hieronder in. 
           </p>
 
-          <form action="registratie_persoonsgegevens.php" method="post" >
+          <form action="registratie_vraag.php" method="post" >
               <label>Gebruikersnaam:</label>
               <input type="text" placeholder="Gebruikersnaam" name="gebruikersnaam">
 
@@ -79,12 +81,12 @@
               <label>Bevestig Wachtwoord:</label>
               <input type="text" placeholder="Bevestig wachtwoord" name="bWachtwoord">
 
-              <label>Wordt dit een verkopersaccount?</label>
-              <label class="label-next" for="wel">Wel</label>
-              <input type="radio" name="eenVerkoper" id="wel">
-              <label for="niet">Niet</label>
-              <input type="radio" name="eenVerkoper" id="niet"> <br>
-              Dit kan na een normaal account, nog altijd een verkopersaccount worden.<br><br>
+              <label>Wilt u spullen verkopen?</label>
+              <label class="label-next" for="wel">Ja</label>
+              <input type="radio" name="eenVerkoper" value="3" id="wel">
+              <label for="niet">Nee</label>
+              <input type="radio" name="eenVerkoper" value="2" id="niet"> <br>
+              Mocht u nu nog geen verkoper zijn, kunt u dit altijd later aanpassen.<br><br>
 
               <input class="button" type="submit" name="verzenden_pers" value="Verzenden">
           
