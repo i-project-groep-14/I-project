@@ -4,7 +4,6 @@
 }
 .RubriekNav{
   margin: 0px ;
-  float: left;
 }
 
 .fi-star {
@@ -66,7 +65,7 @@
   flex-direction: column;
   float:left;
   width: auto;
-  margin-bottom: 50%;
+  
   
   
 }
@@ -97,29 +96,43 @@
 
 .homepaginaArtikelen
 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: row;
-}
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+       
+   
+  }
+  @media only screen and (min-width: 1920px) {
+    .homepaginaArtikelen {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 10%;
+    }
+  }
+ 
+
+
 .HomepaginaKopjes{
   font-size: 30px;
   padding-top: 2%;
   margin-bottom: 2%;
   margin-left: 22.5%; 
   border-bottom: solid #F2552C 1px;
+  
 }
 .HomepaginaProducten
 {
   text-align: center;
-  width: 260px;
-  height: 80%;
-  border: solid 1px grey ;
-  padding: 2px;
-  margin: 3px;
-  min-width: 200px;
-  background: white;
-  box-shadow: 5px 10px 10px;
+    
+    width: 260px;
+    height: 80%;
+    border: solid 1px grey ;
+    padding: 2px;
+    margin: 3px;
+    min-width: 200px;
+    background: white;
+    box-shadow: 5px 10px 10px;
+    
 }
 .HomepaginaProducten:hover{
   border: solid 2px #F2552C ;
@@ -169,13 +182,22 @@
   padding: 50px;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+}
+
+.inlogpaginaContainer a {
+  color: #F2552C;
+  border-bottom: 1px solid #F2552C;  
+}
+
+.InlogpaginaKopje {
+  text-align: center;
+  border-bottom: 1px solid #F2552C;
 }
 
 
 .inlogbutton {
   background-color: #F2552C;
-  color: black;
+  color: white;
   padding: 16px 20px;
   margin: 8px 0;
   border: solid;
@@ -183,6 +205,10 @@
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+}
+
+.inlogbutton:hover {
+  background-color: black;
 }
 
 a { 
