@@ -16,7 +16,7 @@
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG"  alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h4>24,99.-</h4>
+        <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
         <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
@@ -25,7 +25,7 @@
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h4>24,99.-</h4>
+        <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
         <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
 </article>
@@ -33,7 +33,7 @@
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h4>24,99.-</h4>
+        <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
         <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
@@ -42,7 +42,7 @@
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h4>24,99.-</h4>
+        <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
         <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
@@ -53,7 +53,7 @@
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h4>24,99.-</h4>
+        <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
         <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
@@ -62,7 +62,7 @@
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h4>24,99.-</h4>
+        <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
         <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
@@ -71,7 +71,7 @@
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h4>24,99.-</h4>
+        <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
         <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
@@ -80,7 +80,7 @@
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h4>24,99.-</h4>
+        <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
         <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
@@ -92,7 +92,7 @@
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h4>24,99.-</h4>
+        <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
         <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
@@ -101,7 +101,7 @@
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h4>24,99.-</h4>
+        <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
         <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
@@ -110,7 +110,7 @@
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h4>24,99.-</h4>
+        <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
         <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
@@ -119,7 +119,7 @@
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
         <p>Huidige prijs:</p>
-        <h4>24,99.-</h4>
+        <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
         <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
