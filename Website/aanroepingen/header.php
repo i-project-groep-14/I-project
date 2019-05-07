@@ -143,7 +143,5 @@
     </div>
 
     
-    <div class="hero-full-screen top-bar">
-
-    </div>
+  
 

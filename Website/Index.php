@@ -4,7 +4,9 @@
 ?>
 
 
+<div class="hero-full-screen top-bar">
 
+</div>
 
 
 <aside  class="NavRubriekAside">
