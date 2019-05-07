@@ -1,35 +1,57 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <link href="" rel="stylesheet">
-    <title>EenmaalAndermaal registreren</title>
-</head>
-    <header>
-            <h1>EenmaalAndermaal</h1>    
-    </header>
-    <body>
-        <h2>Registreren</h2>
+<?php
+  require_once 'aanroepingen/connectie.php';
+  include_once 'aanroepingen/header.html';
+
+  if(isset($_POST['bevestigen_email'])){
+      header("Location: registratie_persoonsgegevens.php");
+  }
+?>
+<aside  class="NavRubriekAside">
+  <?php include_once 'aanroepingen/RubNav.php'; ?>
+</aside>
+
+<!--foundation-->
+
+<ol class="progress-indicator">
+  <li class="is-current" data-step="">
+    <span>Verifiëren e-mail</span>
+  </li>
+  <li class="" data-step="">
+    <span>Gegevens invullen</span>
+  </li>
+  <li class="" data-step="">
+    <span>Veiligheid</span>
+  </li>
+  <li class="" data-step="">
+      <span>Klaar</span>
+</li>
+</ol>
+<!--end-->
+
+ <h2 class="HomepaginaKopjes">Registreren</h2>
+    <div class="body-tekst">
         <p>
             Welkom op de registratiepagina. Vul hieronder uw geldige e-mailadres in om te verifiëren. 
         </p>
         <form action="">
             <input type="email" placeholder="E-mail"> 
-            <input type="submit" value="Verzenden" name="verzenden_email">
+            <input class="button" type="submit" value="Verzenden" name="verzenden_email">
         </form>
         <p>
             Vervolgens krijgt u een code toegestuurd, bevestig deze code hieronder om door te gaan met het registreren.
             <br>
             Heeft u geen e-mail ontvangen? 
-            <a href"">Klik hier</a> 
+            <a class="a-op-wit" href"#">Klik hier</a> 
             om de e-mail opnieuw te sturen.
         </p>
-        <form action="">
+        <form action="registratie_email.php" method="post">
             <input type="text" placeholder="Code"> 
-            <input type="submit" value="Bevestigen">
+            <input class="button" type="submit" value="Bevestigen" name="bevestigen_email">
         </form>
+
+    </div>
             
-    </body>
-    </html>
-    
-                
+<?php
+  include_once 'aanroepingen/footer.html';
+?>
+   

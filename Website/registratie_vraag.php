@@ -1,21 +1,40 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <link href="" rel="stylesheet">
-    <title>EenmaalAndermaal veiligheidsvraag</title>
-</head>
-    <header>
-            <h1>EenmaalAndermaal</h1>    
-    </header>
-    <body>
-        <h2>Veiligheidsvraag</h2>
+<?php
+  require_once 'aanroepingen/connectie.php';
+  include_once 'aanroepingen/header.html';
+  if(isset($_POST['verzenden_vraag'])){
+    header("Location: registratie_klaar.php");
+}
+?>
+<aside  class="NavRubriekAside">
+  <?php include_once 'aanroepingen/RubNav.php'; ?>
+</aside>
+
+<!--foundation-->
+
+<ol class="progress-indicator">
+  <li class="is-complete" data-step="">
+    <span>Verifiëren e-mail</span>
+  </li>
+  <li class="is-complete" data-step="">
+    <span>Gegevens invullen</span>
+  </li>
+  <li class="is-current" data-step="">
+    <span>Veiligheid</span>
+  </li>
+  <li class="" data-step="">
+      <span>Klaar</span>
+</li>
+</ol>
+<!--end-->
+
+    <h2 class="HomepaginaKopjes">Veiligheidsvraag</h2>
+    <div class="body-tekst">
         <p>
             Dit is de derde stap van het registreren. 
             Hierin wordt naar een veiligheidsvraag gevraagd die wordt gevraagd als de gebruiker het wachtwoord is vergeten.
             Kies hieronder uit welke vraag en geef een antwoordt. Dit antwoordt is nodig om uw wachtwoord te herstellen. 
         </p>
-        <form action="">
+        <form action="registratie_vraag.php" methode="post">
             <p>Kies één veiligeheidsvraag.</p>
             <select>
                 <option>Vragen</option>
@@ -30,9 +49,9 @@
             <input type="text" name="vraag_antwoord">
             </label>
             <br>
-            <input type="submit" value="Verzenden">
+            <input class="button" type="submit" value="Verzenden" name="verzenden_vraag">
         </form>
-
-    </body>
-</head>
-<html>
+</div>
+<?php
+  include_once 'aanroepingen/footer.html';
+?>
