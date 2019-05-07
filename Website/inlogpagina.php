@@ -16,8 +16,8 @@
         <input type="password" placeholder="Voer Wachtwoord in" name="psw" required>
          <hr>
         <button type="submit" class="button inlogbutton">Log in</button>
-        <input type="button" class="button inlogbutton" onclick="window.location.href = 'index.php';" value="Wachtwoord vergeten?"/>
-        <p>Als je nog geen account voor EenmaalAndermaal hebt maak dan <a href="registratie_email.php">hier</a> een account</p>
+        <input type="button" class="button inlogbutton" onclick="window.location.href = 'wachtwoordvergeten.php';" value="Wachtwoord vergeten?"/>
+        <p>Als je nog geen account voor EenmaalAndermaal hebt maak dan <a href="registratie_email.php">hier</a> een account.</p>
         </div>
  
  </form>
