@@ -165,3 +165,26 @@ border-bottom:  solid black;
   list-style: none;
 }
 
+.inlogpaginaContainer {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+.inlogbutton {
+  background-color: #F2552C;
+  color: black;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: solid;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+a: :hover { 
+
+}
