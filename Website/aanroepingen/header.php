@@ -127,14 +127,23 @@
                     </div> 
                 </div> 
             </ul>
-        </div>
+
+            
+        </div>       
         
         <br>
         <div class="top-bar-right">
             <ul class="menu">
                 <li><a class="button loginbutton" onclick="window.location.href = 'inlogpagina.php';" id="loginbutton">Login</a></li>
             </ul>
+        
         </div>
         
+        
     </div>
+
     
+    <div class="hero-full-screen top-bar">
+
+    </div>
+
