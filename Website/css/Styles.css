@@ -66,7 +66,7 @@ justify-content: space-between;
 flex-direction: column;
 float:left;
 width: auto;
-margin-bottom: 100%;
+margin-bottom: 50%;
 
 
 }
@@ -122,7 +122,7 @@ border-bottom:  solid black;
     box-shadow: 5px 10px 10px;
 }
 .HomepaginaProducten:hover{
-  border: solid 2px #F2552C ;
+  border: solid 1px #F2552C ;
 }
 
 
@@ -131,11 +131,20 @@ border-bottom:  solid black;
   width: 150px;
 }
 
-footer{
+.holy-grail-footer{
+  display: flex;
+  justify-content: space-between;
   border-top: 1px solid #F2552C;
+  margin-top: 30px;
   padding: 10px 0px;
   position: relative;
   background: #A4E8F9;
+}
+.holy-grail-footer a{
+  color: black;
+}
+.FooterItems{
+  
 }
 
 .center{
