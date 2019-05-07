@@ -60,17 +60,17 @@
 
 <section class="productbieders">
   <ul>
-    <li>
+    <li class="row">
       <img src="images/profielfotoPlaceholder.png">
       <h2>Username</h2>
       <p><i class="fi-euro"></i>46,20</p>
     </li>
-    <li>
+    <li class="row">
       <img src="images/profielfotoPlaceholder.png">
       <h2>Username</h2>
       <p><i class="fi-euro"></i>46,20</p>
     </li>
-    <li>
+    <li class="row">
       <img src="images/profielfotoPlaceholder.png">
       <h2>Username</h2>
       <p><i class="fi-euro"></i>46,20</p>
