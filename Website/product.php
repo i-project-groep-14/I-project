@@ -9,17 +9,17 @@
 
 <h1><a href="">Rubriek/subrubriek/subsubrubriek/subsubsubrubriek</a></h1>
 
-<div class="productfoto">
+<div class="productfotocontainer">
   <img src="images/fiets.jpg">
-  <div class="kleinereproductfoto">
-    <img src="images/fiets.jpg">
-    <img src="images/fiets.jpg">
-    <img src="images/fiets.jpg">
-    <img src="images/fiets.jpg">
-  </div>
+  <ul class="row">
+    <li><img src="images/fiets.jpg"></li>
+    <li><img src="images/fiets.jpg"></li>
+    <li><img src="images/fiets.jpg"></li>
+    <li><img src="images/fiets.jpg"></li>
+  </ul>
 </div>
 
-<article class="producttekst">
+<article class="producttekstcontainer">
   <h1>Fietstitel</h1>
 
   <h4><a href=""><i>Username</i></a></h4>
