@@ -188,7 +188,7 @@
 
 .inlogbutton {
   background-color: #F2552C;
-  color: black;
+  color: white;
   padding: 16px 20px;
   margin: 8px 0;
   border: solid;
@@ -196,6 +196,10 @@
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+}
+
+.inlogbutton:hover {
+  background-color: black;
 }
 
 a { 
@@ -247,4 +251,12 @@ ul{
   margin-left: 3%;
 }
 
+.inlogpaginaContainer a {
+  color: #F2552C;
+  border-bottom: 1px solid #F2552C;  
+}
 
+.InlogpaginaKopje {
+  text-align: center;
+  border-bottom: 1px solid #F2552C;
+}
