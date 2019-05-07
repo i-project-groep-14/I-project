@@ -20,11 +20,15 @@
   margin: auto;
   background-color: #F2552C;
   width: 200px;
-  
+  border-radius: 2px;
+  box-shadow:   3px 3px #ccc;
 }
+
+
 #loginbutton:hover{
   margin: auto;
   background-color: black;
+  border-radius: 0px;
 }
 
 #search{
