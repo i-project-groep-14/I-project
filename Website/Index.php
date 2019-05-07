@@ -3,6 +3,12 @@
   include_once 'aanroepingen/header.php';
 ?>
 
+
+<div class="hero-full-screen top-bar">
+
+</div>
+
+
 <aside  class="NavRubriekAside">
   <?php include_once 'aanroepingen/RubNav.php'; ?>
 </aside>

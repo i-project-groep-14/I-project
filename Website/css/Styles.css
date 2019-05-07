@@ -490,3 +490,203 @@ ul{
   font-size: 2em;
   margin-top: 2%;
 }
+
+/* navigatie */
+
+/* Reset */
+.nav,
+.nav a,
+.nav ul,
+.nav li,
+.nav div,
+.nav form,
+.nav input {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+}
+
+
+
+.nav a { text-decoration: none; }
+
+.nav li { list-style: none; }
+
+/* Menu Container */
+.nav {
+	display: inline-block;
+	position: relative;
+	
+	cursor: default;
+	z-index: 500;
+}
+
+/* Menu List */
+.nav > li {
+	display: block;
+	
+	
+}
+
+/* Menu Links */
+.nav > li > a {
+	position: relative;
+	
+	display: block;
+	z-index: 510;
+	height: 54px;
+	padding: 0 20px;
+	line-height: 54px;
+	
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	color: hsl(0, 2%, 82%);
+	text-shadow: 0 0 1px rgba(0,0,0,.35);
+
+	background: #f2552c;
+	box-shadow: black 2px 2px 20px;
+
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+.nav > li:hover > a { 
+  
+  background: #f83f11;
+  color: white;
+}
+
+.nav > li:first-child > a {
+	
+	border-left: none;
+}
+
+
+/* Menu Dropdown */
+.nav > li > div {
+	position: absolute;
+	
+	top: 50px;
+	left: 200px;
+	opacity: 0;
+	visibility: hidden;
+	overflow: hidden;
+	width: 1000px;
+	background: #ffffff;
+	border-radius: 0 0 3px 3px;
+
+	-webkit-transition: all .3s ease .15s;
+	-moz-transition: all .3s ease .15s;
+	-o-transition: all .3s ease .15s;
+	-ms-transition: all .3s ease .15s;
+	transition: all .3s ease .15s;
+}
+
+.nav > li:hover > div {
+	
+	opacity: 1;
+	visibility: visible;
+	
+	overflow: visible;
+}
+
+
+
+/* Menu Content Styles */
+.nav .nav-column {
+	
+	float: left;
+	width: 20%;
+	padding: 2.5%;
+	
+}
+
+.nav .nav-column h3 {
+	
+	line-height: 18px;
+	
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	color: #372f2b;
+	text-transform: uppercase;
+}
+
+.nav .nav-column h3.orange { color: #ff722b; }
+
+.nav .nav-column li a {
+	display: block;
+	line-height: 26px;
+	
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	color: #888888;
+}
+
+.nav .nav-column li a:hover { color: #666666; 
+
+}
+
+
+
+/* home screen afbeelding */ 
+
+
+.hero-full-screen {
+  height: 350px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: url("../Images/auction-home-page.png") center center no-repeat ;
+  background-size: 100%;
+}
+
+
+
+.hero-full-screen .middle-content-section {
+  text-align: center;
+  color: #fefefe;
+}
+
+
+
+
+
+.hero-full-screen .bottom-content-section svg {
+  height: 3.75rem;
+  width: 3.75rem;
+  fill: #fefefe;
+}
+
+.hero-full-screen .top-bar {
+  background: transparent;
+  
+}
+
+.hero-full-screen .top-bar .menu {
+  background: transparent;
+}
+
+.hero-full-screen .top-bar .menu-text {
+  color: #fefefe;
+}
+
+
+
+
+
