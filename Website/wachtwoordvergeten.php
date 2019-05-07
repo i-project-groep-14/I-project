@@ -1,65 +1,33 @@
 <?php
-  include_once 'aanroepingen/header.html';
+  include_once 'aanroepingen/header.php';
 ?>
 
 <aside  class="NavRubriekAside">
   <?php include_once 'aanroepingen/RubNav.php'; ?>
 </aside>
-<br>
-<h1 class="InlogpaginaKopje"> Wachtwoord vergeten? </h1>
 
+<br>
+
+ <h1 class="InlogpaginaKopje"> Wachtwoord Vergeten? </h1>
 <form class="inlogpaginaContainer">
         <div>
-        <input type="text" placeholder="Voer Email in" name="email" required>
+        <input type="text" placeholder="Voer e-mail in" name="email" required>
         <h5>Kies een veiligheidsvraag</h5>
         <select>
-            <option>Vraag 1</option>
-            <option>Vraag 2</option>
-            <option>Vraag 3</option>
-            <option>Vraag 4</option>
+            <option>Vragen</option>
+            <option>In welke straat ben je geboren?</option>
+            <option>Wat is de meisjesnaam van je moeder?</option>
+            <option>Wat is je lievelingsgerecht?</option>
+            <option>Hoe heet je oudste zusje?</option>
+            <option>Hoe heet je huisdier?</option>
         </select>
+        <hr>
         <h5>Antwoord op de veiligheidsvraag</h5>
         <input type="text" placeholder="Antwoord op de veiligheidsvraag" name="text" required>
-        <hr>
-        <button type="submit" class="button inlogbutton">Nieuw wachtwoord aanvragen</button>
+        <input type="button" class="button inlogbutton" onclick="window.location.href = 'wachtwoordvergeten.php';" value="Nieuw wachtwoord aanvragen"/>
+        <p>Antwoord op de veiligheidsvraag vergeten? Neem contact op met ons.</p>
         </div>
  </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
   include_once 'aanroepingen/footer.html';
 ?>

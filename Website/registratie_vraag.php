@@ -39,11 +39,11 @@
             <p>Kies één veiligeheidsvraag.</p>
             <select>
                 <option>Vragen</option>
-                <option>Vraag 1</option>
-                <option>Vraag 2</option>
-                <option>Vraag 3</option>
-                <option>Vraag 4</option>
-                <option>Vraag 5</option>
+                <option>In welke straat ben je geboren?</option>
+                <option>Wat is de meisjesnaam je moeder?</option>
+                <option>Wat is je lievelingsgerecht?</option>
+                <option>Hoe heet je oudste zusje?</option>
+                <option>Hoe heet je huisdier?</option>
             </select>
             <br><br>
             <label>Vul het antwoordt in a.u.b. 
