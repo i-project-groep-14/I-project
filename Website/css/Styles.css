@@ -65,7 +65,7 @@
   flex-direction: column;
   float:left;
   width: auto;
-  margin-bottom: 50%;
+  
   
   
 }
@@ -98,8 +98,7 @@
 {
     display: flex;
     justify-content: flex-end;
-    
-     
+       
    
   }
 .HomepaginaKopjes{
