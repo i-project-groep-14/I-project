@@ -1,31 +1,78 @@
 <?php 
-    global $config;
+    // global $config;
 
     if(isset($_POST['register'])){
-        $accountnaam = $_POST['gebruikersnaam'];
-        $wachtwoord = $_POST['wachtwoord'];
-        $wachtwoord_confirm = $_POST['wachtwoord_confirm'];
-        $naam = $_POST['naam'];
-        $telefoon = $_POST['telefoon'];
         $email = $_POST['email'];
-    
+
+        $gebruikersnaam = $_POST['gebruikersnaam'];
+        $voornaam = $_POST['voornaam'];
+        $achternaam = $_POST['achternaam'];
+        $adres = $_POST['adres'];
+        $oAdres = $_POST['oAdres'];
+        $postcode = $_POST['postcode'];
+        $plaats = $_POST['plaats'];
+        $land = $_POST['land'];
+        $telefoonnr1 = $_POST['telnr1'];
+        if(isset($_POST['telnr2'])) {
+            $telefoonnr2 = $_POST['telnr2'];
+        }
+        $geboortedatum = $_POST['geboortedatum'];
+        $wachtwoord = $_POST['wachtwoord'];
+        $wachtwoord_confirm = $_POST['bWachtwoord'];
+        $verkoper = $_POST['eenVerkoper'];
+
+        $vraag = $_POST['veiligheidsvraag'];
+        $antwoord = $_POST['veiligheidsvraag_antwoord'];
+
         if($wachtwoord == $wachtwoord_confirm) {
-            $sql = "INSERT INTO bezoekers VALUES
-                    (:email, :accountnaam, :wachtwoord, :naam, :telefoon)";
+            $sql = "INSERT INTO gebruiker VALUES
+                    (:gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :postcode, :plaatsnaam, :land, :geboortedatum, :mailadres, :wachtwoord, :vraag, :antwoordtekst, :rol)";
             $query = $dbh->prepare($sql);
             $query -> execute(array(
-                ':email' => $email,
-                ':accountnaam' => $accountnaam,
+                ':gebruikersnaam' => $gebruikersnaam,
+                ':voornaam' => $voornaam,
+                ':achternaam' => $achternaam,
+                ':adresregel1' => $adres,
+                ':adresregel2' => $oAdres,
+                ':postcode' => $postcode,
+                ':plaatsnaam' => $plaats,
+                ':land' => $land,
+                ':geboortedatum' => $geboortedatum,
+                ':mailadres' => $email,
                 ':wachtwoord' => password_hash($wachtwoord, PASSWORD_DEFAULT),
-                ':naam' => $naam,
-                ':telefoon' => $telefoon
+                ':vraag' => $vraag,
+                ':antwoordtekst' => $antwoord,
+                ':rol' => 2
                 )
             );
+
+            $sql = "INSERT INTO gebruikerstelefoon VALUES (:gebruiker, :telefoon)";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+                ':gebruiker' => $gebruikersnaam,
+                ':telefoon' => $telefoonnr1
+                )
+            );
+
+            if(isset($telefoonnr2)) {
+                $sql = "INSERT INTO gebruikerstelefoon VALUES (:gebruiker, :telefoon)";
+                $query = $dbh->prepare($sql);
+                $query -> execute(array(
+                    ':gebruiker' => $gebruikersnaam,
+                    ':telefoon' => $telefoonnr2
+                    )
+                );
+            }
+
+
             session_start();
             session_destroy();
             session_start();
 
-            $sql = "SELECT email_adres, gebruikersnaam FROM bezoekers 
+
+
+
+            $sql = "SELECT email_adres, gebruikersnaam FROM bezoekers
                     WHERE email_adres like :email";
             $query = $dbh->prepare($sql);
             $query -> execute(array(
@@ -36,45 +83,49 @@
             $_SESSION['gebruikersnaam'] = $row['gebruikersnaam'];
             $_SESSION['email'] = $email;
 
-            header ('Location: index.php');
+            echo "test";
+
+
+
+            // header ('Location: index.php');
         } else {
-            $_POST['melding'] = "Gegevens kloppen niet";
+            $_POST['melding'] = "De wachtwoorden komen niet met elkaar overeen.";
         }
     }
 
-    if(isset($_POST['login'])){
-        $email = $_POST['email'];
-        $wachtwoord = $_POST['wachtwoord'];
+    // if(isset($_POST['login'])){
+    //     $email = $_POST['email'];
+    //     $wachtwoord = $_POST['wachtwoord'];
     
-        $sql = "SELECT wachtwoord FROM bezoekers 
-                WHERE email_adres like :email";
-        $query = $dbh->prepare($sql);
-        $query -> execute(array(
-            ':email' => $email
-        ));
+    //     $sql = "SELECT wachtwoord FROM bezoekers 
+    //             WHERE email_adres like :email";
+    //     $query = $dbh->prepare($sql);
+    //     $query -> execute(array(
+    //         ':email' => $email
+    //     ));
 
-        $row = $query -> fetch();
-        if(password_verify($wachtwoord, $row['wachtwoord'])){
-            session_start();
-            session_destroy();
-            session_start();
+    //     $row = $query -> fetch();
+    //     if(password_verify($wachtwoord, $row['wachtwoord'])){
+    //         session_start();
+    //         session_destroy();
+    //         session_start();
 
-            $sql = "SELECT email_adres, gebruikersnaam FROM bezoekers 
-                    WHERE email_adres like :email";
-            $query = $dbh->prepare($sql);
-            $query -> execute(array(
-                ':email' => $email
-            ));
+    //         $sql = "SELECT email_adres, gebruikersnaam FROM bezoekers 
+    //                 WHERE email_adres like :email";
+    //         $query = $dbh->prepare($sql);
+    //         $query -> execute(array(
+    //             ':email' => $email
+    //         ));
             
-            $row = $query -> fetch();
-            $_SESSION['gebruikersnaam'] = $row['gebruikersnaam'];
-            $_SESSION['email'] = $email;
+    //         $row = $query -> fetch();
+    //         $_SESSION['gebruikersnaam'] = $row['gebruikersnaam'];
+    //         $_SESSION['email'] = $email;
 
-            header ('Location: index.php');
-        } else {
-            $_POST['melding'] = "Wachtwoord of email onjuist";
-        }
-    }
+    //         header ('Location: index.php');
+    //     } else {
+    //         $_POST['melding'] = "Wachtwoord of email onjuist";
+    //     }
+    // }
 
     if(!isset($_SESSION)) {
         session_start();
