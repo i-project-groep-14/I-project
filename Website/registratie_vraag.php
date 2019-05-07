@@ -1,9 +1,10 @@
 <?php
   require_once 'aanroepingen/connectie.php';
-  include_once 'aanroepingen/header.html';
+  include_once 'aanroepingen/header.php';
+
   if(isset($_POST['verzenden_vraag'])){
     header("Location: registratie_klaar.php");
-}
+  }
 ?>
 <aside  class="NavRubriekAside">
   <?php include_once 'aanroepingen/RubNav.php'; ?>

@@ -1,6 +1,6 @@
 <?php
-  
-  include_once 'aanroepingen/header.html';
+  require_once 'aanroepingen/connectie.php';
+  include_once 'aanroepingen/header.php';
 ?>
 
 <aside  class="NavRubriekAside">
