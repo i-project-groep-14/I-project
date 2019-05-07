@@ -10,7 +10,7 @@
 
 <div class="homepaginaContainer">
 
-    <h1 class="HomepaginaKopjes">Aangeraden producten </h1>
+    <h1 class="HomepaginaKopjes">   Uw biedingen  </h1>
     <div class="homepaginaArtikelen">
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
@@ -47,7 +47,7 @@
         <input type='submit'value='Bekijk meer!' onclick="window.location.href = 'product.php';" class='button'>
     </article>
     </div>
-    <h1 class="HomepaginaKopjes">Recent bekeken </h1>
+    <h1 class="HomepaginaKopjes">Aangeraden producten </h1>
     <div class="homepaginaArtikelen">
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
@@ -86,7 +86,7 @@
     </article>
 
     </div>
-    <h1 class="HomepaginaKopjes"> Uw biedingen </h1>
+    <h1 class="HomepaginaKopjes"> Recent bekeken</h1>
     <div class="homepaginaArtikelen">
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
