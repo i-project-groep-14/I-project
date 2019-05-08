@@ -4,7 +4,7 @@
 }
 
 
-.fi-star{
+.fi-star {
   margin-top: 1%;
 }
 
@@ -14,20 +14,20 @@
   border-radius: 50%;
   border: 1px solid black;
 }
-
 #loginbutton{
   margin: auto;
+  background-color: #F2552C;
   width: 200px;
   border-radius: 2px;
   box-shadow:   3px 3px #ccc;
 }
+
 
 #loginbutton:hover{
   margin: auto;
   background-color: black;
   border-radius: 0px;
 }
-
 
 #search{
   background-color: #F2552C;
@@ -39,7 +39,6 @@
   background-color: black;
   
 }
-
 
 .menu-text{
   margin: 35px 0px 0px 0px ;
@@ -111,13 +110,11 @@
 }
 
 .HomepaginaKopjes{
-  
   font-size: 30px;
   padding-top: 2%;
   margin-bottom: 2%;
   margin-left: 22.5%; 
   border-bottom: solid #F2552C 1px;
-  
   
 }
 .Product-Flex-End{
@@ -130,8 +127,6 @@
 
 
 
-
-/*   EINDE HOME PAGINA ARTIKELEN */
 #footer { 
   
   display: table;
@@ -199,7 +194,7 @@
   color: #fff;
   text-align: center;
   border-radius: 6px;
-  
+  padding: 5px 0;
   
   position: absolute;
   z-index: 1;
@@ -290,63 +285,30 @@
 }
 
 .progress-indicator > li.is-complete {
-  color: #2CC9f2;  /*#2CC9f2;*/
+  color: #1779ba;
 }
 
 .progress-indicator > li.is-complete::before, .progress-indicator > li.is-complete::after {
   color: #fefefe;
-  background: #2cc9f2;
+  background: #1779ba;
 }
 
 .progress-indicator > li.is-complete span {
-  color: #2cc9f2;
+  color: #1779ba;
 }
 
 .progress-indicator > li.is-current {
-  color: #A4E8F9; /*#4eabe9*/
+  color: #4eabe9;
 }
 
 .progress-indicator > li.is-current::before {
   color: #fefefe;
-  background: #A4E8F9;
+  background: #4eabe9;
 }
 
 .progress-indicator > li.is-current span {
-  color: #A4E8F9;
+  color: #4eabe9;
 }
-
-.btn-pos-right {
- float: right;
- 
- 
-}
-
-.side-label::after {
-  display: none;
-
-  /* other styles */
-}
-
-input:checked + .side-label::after {
-  display: block;
-}
-
-.wel-verkopergegevens, .controle-creditcard-gegevens{
-  display: none;
-}
-
-#wel:checked ~ .wel-verkopergegevens , #controle-creditcard:checked ~ .controle-creditcard-gegevens {
-  display: block;
-}
-
-.small-input{
-  display: inline-block;
-  width: 49.77%;
-}
-
-
-
-/**/
 
 .inlogpaginaContainer {
   padding: 50px;
@@ -366,6 +328,7 @@ input:checked + .side-label::after {
 
 
 .inlogbutton {
+  background-color: #F2552C;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
@@ -530,7 +493,7 @@ ul{
 
 /* Menu Container */
 .nav {
-	
+	display: inline-block;
 	position: relative;
 	
 	cursor: default;
@@ -632,9 +595,7 @@ ul{
 	text-transform: uppercase;
 }
 
-.nav .nav-column h3.orange { 
-  color: #ff722b; 
-}
+.nav .nav-column h3.orange { color: #ff722b; }
 
 .nav .nav-column li a {
 	display: block;
@@ -645,150 +606,11 @@ ul{
 	font-size: 13px;
 	color: #888888;
 }
-.nav .nav-column li a:hover { 
-  color: #666666; 
-}
-.MobileNav{
-  visibility: hidden;
-}
 
-@media (max-width: 1000px) {
-  .nav {
-    display:none;
-    
-  }
-  .MobileNav{
-    visibility: visible;
-    
-  }
-
-  .MobileNavLink {
-    
-    visibility: visible;
-    text-decoration: none;
-    color: red;
-    opacity:1;
-    font-family: 'work sans', sans serif;
-    font-size: 1.5em;
-    font-weight: 400;
-    transition: 200ms;
-  }
-  .MobileNavLink:hover {
-    opacity:0.5;
-  }
-  ul {
-    padding: 0;
-    list-style-type: none;
-    
-  }
-  
-  .MobileNav {
-    background-color: #1E1E23;
-    height: 65px;
-    width: 100px;
-    
-  }
-  
-  
-  #menuToggle {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    
-    top: 25px;
-    left: 25px;
-    z-index: 1;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-  
-  #menuToggle input
-  {
-    display: flex;
-    width: 40px;
-    height: 32px;
-    position: absolute;
-    cursor: pointer;
-    opacity: 0;
-    z-index: 2;
-  }
-  
-  #menuToggle span
-  {
-    display: flex;
-    width: 29px;
-    height: 2px;
-    margin-bottom: 5px;
-    position: relative;
-    background: #ffffff;
-    border-radius: 3px;
-    z-index: 1;
-    transform-origin: 5px 0px;
-    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-                opacity 0.55s ease;
-  }
-  
-  #menuToggle span:first-child
-  {
-    transform-origin: 0% 0%;
-  }
-  
-  #menuToggle span:nth-last-child(2)
-  {
-    transform-origin: 0% 100%;
-  }
-  
-  #menuToggle input:checked ~ span
-  {
-    opacity: 1;
-    transform: rotate(45deg) translate(-3px, -1px);
-    background: #36383F;
-  }
-  #menuToggle input:checked ~ span:nth-last-child(3)
-  {
-    opacity: 0;
-    transform: rotate(0deg) scale(0.2, 0.2);
-  }
-  
-  #menuToggle input:checked ~ span:nth-last-child(2)
-  {
-    transform: rotate(-45deg) translate(0, -1px);
-  }
-  
-  #MobileMenu
-  {
-    position: absolute;
-    left: -50px;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 0 10px #85888C;
-    margin: -50px 0 0 -50px;
-    padding: 50px;
-    padding-top: 125px;
-    background-color: #F5F6FA;
-    -webkit-font-smoothing: antialiased;
-    transform-origin: 0% 0%;
-    transform: translate(-100%, 0);
-    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-  }
-  
-  #menu li
-  {
-    padding: 10px 0;
-    transition-delay: 2s;
-  }
-  
-  #menuToggle input:checked ~ ul
-  {
-    transform: none;
-    left: auto;
-    width: 300px;
-    height: auto;
-  }
+.nav .nav-column li a:hover { color: #666666; 
 
 }
+
 
 
 /* home screen afbeelding */ 
@@ -842,46 +664,7 @@ ul{
   color: #fefefe;
 }
 
-.RubriekenProducten {
-  text-align: left;   
-  width: auto;
-  height: 300px;
-  border: solid 1px grey ;
-  padding: 2px;
-  margin: 3px;
-  min-width: 200px;
-  background: white;
-  box-shadow: 5px 10px 10px;  
-}
 
-.rubriekenContainer
-{
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    margin-left: 200px;   
-}
 
-.meerkeuzevak {
-  width: 300px;
-  display: inline;
-  margin-left: 50px;
-}
 
-.rechts {
-  float: right;
-}
 
-.midden {
-  display: inline;
-}
-
-.marginlinks {
-  margin-left: 50px
-}
-
-.rubriekenContainer img {
-  width: 200px;
-  height: 200px;
-  float: right;
-}
