@@ -75,54 +75,40 @@
 
 /*   HOME pagina artikelen   */
 
-.photo-grid-container {
+.Product-grid-container {
   display: flex;
   justify-content: center;
   
+  
 }
-
-.photo-grid {
+.Product-grid {
   width: 100%;
   display: flex;
-  
   flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-right: 150px;
+  
   
 }
+.Product-grid-item {
+    width: 27%;
 
-.photo-grid-item {
-  
-  width: 250px;
-  height: fit-content;
     border: solid 1px grey ;
     padding: 2px;
     margin: 5px;
+    box-shadow: #1E1E23 2px 2px 2px;
+    
 }
 
-.photo-grid-item img{
-  width: 250px;
-  height: 250px;
+.Product-grid-item:hover{
+  border: solid 2px #F2552C ;
 }
 
-
-.homepaginaContainer{
-  /* background: #A4E8F9; */
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  flex-wrap: wrap;
+.Product-grid-item img{
+ 
+  width: 150px;
+  height: 150px;
 }
-
-.homepaginaArtikelen
-{
-  display: flex ;
-    margin-right: 30px;  
-  justify-content: center; 
-  flex-wrap: wrap;
-  
-  
-  }
-   
-
 
 .HomepaginaKopjes{
   
@@ -134,34 +120,14 @@
   
   
 }
-.HomepaginaProducten
-{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-    
-    width: 100%;
-    height: 80%;
-    border: solid 1px grey ;
-    padding: 2px;
-    margin: 5px;
-    
-    min-width: 200px;
-    background: white;
-    box-shadow: 5px 10px 10px;
-    
-    
-}
-
-.HomepaginaProducten:hover{
-  border: solid 2px #F2552C ;
+.Product-Flex-End{
+  
 }
 
 
-.HomepaginaProducten img{
-  height: 100px;
-  width: 150px;
-}
+
+
+
 
 
 
