@@ -73,40 +73,6 @@
         session_destroy();
         session_start();
     }
-
-    // if(isset($_POST['login'])){
-    //     $email = $_POST['email'];
-    //     $wachtwoord = $_POST['wachtwoord'];
-    
-    //     $sql = "SELECT wachtwoord FROM bezoekers 
-    //             WHERE email_adres like :email";
-    //     $query = $dbh->prepare($sql);
-    //     $query -> execute(array(
-    //         ':email' => $email
-    //     ));
-
-    //     $row = $query -> fetch();
-    //     if(password_verify($wachtwoord, $row['wachtwoord'])){
-    //         session_start();
-    //         session_destroy();
-    //         session_start();
-
-    //         $sql = "SELECT email_adres, gebruikersnaam FROM bezoekers 
-    //                 WHERE email_adres like :email";
-    //         $query = $dbh->prepare($sql);
-    //         $query -> execute(array(
-    //             ':email' => $email
-    //         ));
-            
-    //         $row = $query -> fetch();
-    //         $_SESSION['gebruikersnaam'] = $row['gebruikersnaam'];
-    //         $_SESSION['email'] = $email;
-
-    //         header ('Location: index.php');
-    //     } else {
-    //         $_POST['melding'] = "Wachtwoord of email onjuist";
-    //     }
-    // }
 ?>
 
 <!DOCTYPE html>

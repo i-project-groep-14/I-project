@@ -4,7 +4,7 @@
 }
 
 
-.fi-star {
+.fi-star{
   margin-top: 1%;
 }
 
@@ -14,20 +14,20 @@
   border-radius: 50%;
   border: 1px solid black;
 }
+
 #loginbutton{
   margin: auto;
-  background-color: #F2552C;
   width: 200px;
   border-radius: 2px;
   box-shadow:   3px 3px #ccc;
 }
-
 
 #loginbutton:hover{
   margin: auto;
   background-color: black;
   border-radius: 0px;
 }
+
 
 #search{
   background-color: #F2552C;
@@ -39,6 +39,7 @@
   background-color: black;
   
 }
+
 
 .menu-text{
   margin: 35px 0px 0px 0px ;
@@ -357,7 +358,6 @@ input:checked + .side-label::after {
 
 
 .inlogbutton {
-  background-color: #F2552C;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
