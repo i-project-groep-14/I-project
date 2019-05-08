@@ -17,7 +17,7 @@
 
 <div class="homepaginaContainer">
 
-    <h1 class="HomepaginaKopjes">   Uw biedingen  </h1>
+    <h1 class="HomepaginaKopjes">Uw biedingen</h1>
     <div class="homepaginaArtikelen">
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>

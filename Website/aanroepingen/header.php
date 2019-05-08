@@ -1,14 +1,20 @@
 <?php 
     // global $config;
 
-    if(isset($_POST['register'])){
+    if(!isset($_SESSION)) {
+        session_start();
+    }
+
+    if(isset($_POST['register']) && isset($_POST['veiligheidsvraag']) && $_POST['veiligheidsvraag'] != "0") {
         $email = $_SESSION['email'];
 
         $gebruikersnaam = $_SESSION['gebruikersnaam'];
         $voornaam = $_SESSION['voornaam'];
         $achternaam = $_SESSION['achternaam'];
         $adres = $_SESSION['adres'];
-        $oAdres = $_SESSION['oAdres'];
+        if(isset($_SESSION['oAdres'])) {
+            $oAdres = $_SESSION['oAdres'];
+        }
         $postcode = $_SESSION['postcode'];
         $plaats = $_SESSION['plaats'];
         $land = $_SESSION['land'];
@@ -18,120 +24,55 @@
         }
         $geboortedatum = $_SESSION['geboortedatum'];
         $wachtwoord = $_SESSION['wachtwoord'];
-        $wachtwoord_confirm = $_SESSION['bWachtwoord'];
+        // $wachtwoord_confirm = $_SESSION['bWachtwoord'];
         $rol = $_SESSION['eenVerkoper'];
 
         $vraag = $_POST['veiligheidsvraag'];
         $antwoord = $_POST['veiligheidsvraag_antwoord'];
 
-        if($wachtwoord == $wachtwoord_confirm) {
-            $sql = "INSERT INTO gebruiker VALUES
-                    (:gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :postcode, :plaatsnaam, :land, :geboortedatum, :mailadres, :wachtwoord, :vraag, :antwoordtekst, :rol, :profielfoto)";
-            $query = $dbh->prepare($sql);
-            $query -> execute(array(
-                ':gebruikersnaam' => $gebruikersnaam,
-                ':voornaam' => $voornaam,
-                ':achternaam' => $achternaam,
-                ':adresregel1' => $adres,
-                ':adresregel2' => $oAdres,
-                ':postcode' => $postcode,
-                ':plaatsnaam' => $plaats,
-                ':land' => $land,
-                ':geboortedatum' => $geboortedatum,
-                ':mailadres' => $email,
-                ':wachtwoord' => password_hash($wachtwoord, PASSWORD_DEFAULT),
-                ':vraag' => $vraag,
-                ':antwoordtekst' => $antwoord,
-                ':rol' => $rol,
-                ':profielfoto' => 'test'
-                )
-            );
+        $sql = "INSERT INTO gebruiker VALUES
+                (:gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :postcode, :plaatsnaam, :land, :geboortedatum, :mailadres, :wachtwoord, :vraag, :antwoordtekst, :rol, :profielfoto)";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(
+            ':gebruikersnaam' => $gebruikersnaam,
+            ':voornaam' => $voornaam,
+            ':achternaam' => $achternaam,
+            ':adresregel1' => $adres,
+            ':adresregel2' => $oAdres,
+            ':postcode' => $postcode,
+            ':plaatsnaam' => $plaats,
+            ':land' => $land,
+            ':geboortedatum' => $geboortedatum,
+            ':mailadres' => $email,
+            ':wachtwoord' => password_hash($wachtwoord, PASSWORD_DEFAULT),
+            ':vraag' => $vraag,
+            ':antwoordtekst' => $antwoord,
+            ':rol' => $rol,
+            ':profielfoto' => NULL
+            )
+        );
 
+        $sql = "INSERT INTO gebruikerstelefoon VALUES (:gebruiker, :telefoon)";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(
+            ':gebruiker' => $gebruikersnaam,
+            ':telefoon' => $telefoonnr1
+            )
+        );
+
+        if(isset($telefoonnr2)) {
             $sql = "INSERT INTO gebruikerstelefoon VALUES (:gebruiker, :telefoon)";
             $query = $dbh->prepare($sql);
             $query -> execute(array(
                 ':gebruiker' => $gebruikersnaam,
-                ':telefoon' => $telefoonnr1
+                ':telefoon' => $telefoonnr2
                 )
             );
-
-            if(isset($telefoonnr2)) {
-                $sql = "INSERT INTO gebruikerstelefoon VALUES (:gebruiker, :telefoon)";
-                $query = $dbh->prepare($sql);
-                $query -> execute(array(
-                    ':gebruiker' => $gebruikersnaam,
-                    ':telefoon' => $telefoonnr2
-                    )
-                );
-            }
-
-
-            session_start();
-            session_destroy();
-            session_start();
-
-
-
-
-            $sql = "SELECT email_adres, gebruikersnaam FROM bezoekers
-                    WHERE email_adres like :email";
-            $query = $dbh->prepare($sql);
-            $query -> execute(array(
-                ':email' => $email
-            ));
-
-            $row = $query -> fetch();
-            $_SESSION['gebruikersnaam'] = $row['gebruikersnaam'];
-            $_SESSION['email'] = $email;
-
-            echo "test";
-
-
-
-            // header ('Location: index.php');
-        } else {
-            $_POST['melding'] = "De wachtwoorden komen niet met elkaar overeen.";
         }
-    }
-
-    // if(isset($_POST['login'])){
-    //     $email = $_POST['email'];
-    //     $wachtwoord = $_POST['wachtwoord'];
-    
-    //     $sql = "SELECT wachtwoord FROM bezoekers 
-    //             WHERE email_adres like :email";
-    //     $query = $dbh->prepare($sql);
-    //     $query -> execute(array(
-    //         ':email' => $email
-    //     ));
-
-    //     $row = $query -> fetch();
-    //     if(password_verify($wachtwoord, $row['wachtwoord'])){
-    //         session_start();
-    //         session_destroy();
-    //         session_start();
-
-    //         $sql = "SELECT email_adres, gebruikersnaam FROM bezoekers 
-    //                 WHERE email_adres like :email";
-    //         $query = $dbh->prepare($sql);
-    //         $query -> execute(array(
-    //             ':email' => $email
-    //         ));
-            
-    //         $row = $query -> fetch();
-    //         $_SESSION['gebruikersnaam'] = $row['gebruikersnaam'];
-    //         $_SESSION['email'] = $email;
-
-    //         header ('Location: index.php');
-    //     } else {
-    //         $_POST['melding'] = "Wachtwoord of email onjuist";
-    //     }
-    // }
-
-    if(!isset($_SESSION)) {
+        
+        session_destroy();
         session_start();
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -165,13 +106,13 @@
                         
                         <input   type="text" placeholder="Postcode">
                       
-                        <Select>
+                        <select>
                                 <option value="1000">Alle afstanden...</option>
                                 <option value="10">10km</option>
                                 <option value="20">20km</option>
                                 <option value="30">30km</option>
                                 <option value="40">40km</option>
-                            </Select>
+                            </select>
                        
                     <input  type="search" placeholder="Zoek product...">
                     <div class="input-group-button">

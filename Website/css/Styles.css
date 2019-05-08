@@ -4,7 +4,7 @@
 }
 
 
-.fi-star {
+.fi-star{
   margin-top: 1%;
 }
 
@@ -14,20 +14,20 @@
   border-radius: 50%;
   border: 1px solid black;
 }
+
 #loginbutton{
   margin: auto;
-  background-color: #F2552C;
   width: 200px;
   border-radius: 2px;
   box-shadow:   3px 3px #ccc;
 }
-
 
 #loginbutton:hover{
   margin: auto;
   background-color: black;
   border-radius: 0px;
 }
+
 
 #search{
   background-color: #F2552C;
@@ -39,6 +39,7 @@
   background-color: black;
   
 }
+
 
 .menu-text{
   margin: 35px 0px 0px 0px ;
@@ -283,30 +284,63 @@
 }
 
 .progress-indicator > li.is-complete {
-  color: #1779ba;
+  color: #2CC9f2;  /*#2CC9f2;*/
 }
 
 .progress-indicator > li.is-complete::before, .progress-indicator > li.is-complete::after {
   color: #fefefe;
-  background: #1779ba;
+  background: #2cc9f2;
 }
 
 .progress-indicator > li.is-complete span {
-  color: #1779ba;
+  color: #2cc9f2;
 }
 
 .progress-indicator > li.is-current {
-  color: #4eabe9;
+  color: #A4E8F9; /*#4eabe9*/
 }
 
 .progress-indicator > li.is-current::before {
   color: #fefefe;
-  background: #4eabe9;
+  background: #A4E8F9;
 }
 
 .progress-indicator > li.is-current span {
-  color: #4eabe9;
+  color: #A4E8F9;
 }
+
+.btn-pos-right {
+ float: right;
+ 
+ 
+}
+
+.side-label::after {
+  display: none;
+
+  /* other styles */
+}
+
+input:checked + .side-label::after {
+  display: block;
+}
+
+.wel-verkopergegevens, .controle-creditcard-gegevens{
+  display: none;
+}
+
+#wel:checked ~ .wel-verkopergegevens , #controle-creditcard:checked ~ .controle-creditcard-gegevens {
+  display: block;
+}
+
+.small-input{
+  display: inline-block;
+  width: 49.77%;
+}
+
+
+
+/**/
 
 .inlogpaginaContainer {
   padding: 50px;
@@ -326,7 +360,6 @@
 
 
 .inlogbutton {
-  background-color: #F2552C;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
