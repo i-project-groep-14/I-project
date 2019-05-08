@@ -1,5 +1,9 @@
 <?php 
-    // global $config;
+    // global $email;
+
+    if(!isset($_SESSION)) {
+        session_start();
+    }
 
     if(isset($_POST['register'])){
         $email = $_SESSION['email'];
@@ -8,7 +12,9 @@
         $voornaam = $_SESSION['voornaam'];
         $achternaam = $_SESSION['achternaam'];
         $adres = $_SESSION['adres'];
-        $oAdres = $_SESSION['oAdres'];
+        if(isset($_SESSION['oAdres'])) {
+            $oAdres = $_SESSION['oAdres'];
+        }
         $postcode = $_SESSION['postcode'];
         $plaats = $_SESSION['plaats'];
         $land = $_SESSION['land'];
@@ -43,7 +49,7 @@
                 ':vraag' => $vraag,
                 ':antwoordtekst' => $antwoord,
                 ':rol' => $rol,
-                ':profielfoto' => 'test'
+                ':profielfoto' => NULL
                 )
             );
 
@@ -64,27 +70,25 @@
                     )
                 );
             }
-
-
-            session_start();
+            
             session_destroy();
             session_start();
 
 
 
 
-            $sql = "SELECT email_adres, gebruikersnaam FROM bezoekers
-                    WHERE email_adres like :email";
-            $query = $dbh->prepare($sql);
-            $query -> execute(array(
-                ':email' => $email
-            ));
+            // $sql = "SELECT email_adres, gebruikersnaam FROM bezoekers
+            //         WHERE email_adres like :email";
+            // $query = $dbh->prepare($sql);
+            // $query -> execute(array(
+            //     ':email' => $email
+            // ));
 
-            $row = $query -> fetch();
-            $_SESSION['gebruikersnaam'] = $row['gebruikersnaam'];
-            $_SESSION['email'] = $email;
+            // $row = $query -> fetch();
+            // $_SESSION['gebruikersnaam'] = $row['gebruikersnaam'];
+            // $_SESSION['email'] = $email;
 
-            echo "test";
+            echo "test5";
 
 
 

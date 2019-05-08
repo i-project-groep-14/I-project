@@ -3,10 +3,7 @@
   include_once 'aanroepingen/header.php';
 
   if(isset($_POST['verzenden_email'])){
-    // header("Location: registratie_vraag.php");
-    $_SESSION['email'] = "test";
-    //  $_POST['email'];
-    echo "$_SESSION['email']";
+    $_SESSION['email'] = $_POST['email'];
   }
 ?>
 
@@ -39,16 +36,16 @@
 
           <form action="registratie_vraag.php" method="post" >
               <label>Gebruikersnaam:</label>
-              <input type="text" placeholder="Gebruikersnaam" name="gebruikersnaam">
+              <input type="text" placeholder="Gebruikersnaam" name="gebruikersnaam" required>
 
               <label>Voornaam:</label>
-              <input  type="text" placeholder="Voornaam" name="voornaam" >
+              <input  type="text" placeholder="Voornaam" name="voornaam" required>
 
               <label>Achternaam:</label>
-              <input type="text" placeholder="Achternaam" naam="achternaam" >
+              <input type="text" placeholder="Achternaam" name="achternaam" required>
 
               <label>Adres:</label>
-              <input type="text" placeholder="Adres" name="adres">
+              <input type="text" placeholder="Adres" name="adres" required>
 
               <label>Toevoeging Adres (Optioneel): </label>
               <div class="tooltip">Meer informatie?
@@ -57,29 +54,28 @@
               <input type="text" placeholder="Tweede adres" name="oAdres">
 
               <label>Postcode:</label>
-              <input type="text" placeholder="Postcode" name="postcode">
+              <input type="text" placeholder="Postcode" name="postcode" required>
 
               <label>Plaatsnaam:</label>
-              <input type="text" placeholder="Plaats" name="plaats">
+              <input type="text" placeholder="Plaats" name="plaats" required>
 
               <label>Landsnaam:</label>
-              <input type="text" placeholder="Land" name="land">
+              <input type="text" placeholder="Land" name="land" required>
 
               <label>Telefoonnr:</label>
-              <input type="tel" placeholder="Telefoonnr" name="telnr1">
+              <input type="tel" placeholder="Telefoonnr" name="telnr1" required>
 
               <label>Telefoonnr 2 (Optioneel):</label>
               <input type="tel" placeholder="Telefoonnr" name="telnr2">
-              <!-- Achterhalen of dit kan/mag -->
 
               <label>Geboortedatum:</label>
-              <input type="date" name="geboortedatum">
+              <input type="date" name="geboortedatum" required>
 
               <label>Wachtwoord:</label>
-              <input type="text" placeholder="Wachtwoord" name="wachtwoord">
+              <input type="text" placeholder="Wachtwoord" name="wachtwoord" required>
 
               <label>Bevestig Wachtwoord:</label>
-              <input type="text" placeholder="Bevestig wachtwoord" name="bWachtwoord">
+              <input type="text" placeholder="Bevestig wachtwoord" name="bWachtwoord" required>
 
               <label>Wilt u spullen verkopen?</label>
               <label class="label-next" for="wel">Ja</label>

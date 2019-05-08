@@ -3,25 +3,31 @@
   include_once 'aanroepingen/header.php';
 
   if(isset($_POST['verzenden_pers'])){
-    // header("Location: registratie_klaar.php");
-
-    $_POST['gebruikersnaam'] = $_SESSION['gebruikersnaam'];
-    $_POST['voornaam'] = $_SESSION['voornaam'];
-    $_POST['achternaam'] = $_SESSION['achternaam'];
-    $_POST['oAdres'] = $_SESSION['oAdres'];
-    $_POST['postcode'] = $_SESSION['postcode'];
-    $_POST['plaats'] = $_SESSION['plaats'];
-    $_POST['land'] = $_SESSION['land'];
-    $_POST['telnr1'] = $_SESSION['telnr1'];
-    if(isset($_POST['telnr2'])) {
-      $_POST['telnr2'] = $_SESSION['telnr2'];
+    $_SESSION['gebruikersnaam'] = $_POST['gebruikersnaam'];
+    $_SESSION['voornaam'] = $_POST['voornaam'];
+    $_SESSION['achternaam'] = $_POST['achternaam'];
+    $_SESSION['adres'] = $_POST['adres'];
+    if(isset($_POST['oAdres'])) {
+      $_SESSION['oAdres'] = $_POST['oAdres'];
     }
-    $_POST['geboortedatum'] = $_SESSION['geboortedatum'];
-    $_POST['wachtwoord'] = $_SESSION['wachtwoord'];
-    $_POST['bWachtwoord'] = $_SESSION['bWachtwoord'];
-    $_POST['eenVerkoper'] = $_SESSION['eenVerkoper'];
+    $_SESSION['postcode'] = $_POST['postcode'];
+    $_SESSION['plaats'] = $_POST['plaats'];
+    $_SESSION['land'] = $_POST['land'];
+    $_SESSION['telnr1'] = $_POST['telnr1'];
+    if(isset($_POST['telnr2'])) {
+      $_SESSION['telnr2'] = $_POST['telnr2'];
+    }
+    $_SESSION['geboortedatum'] = $_POST['geboortedatum'];
+    $_SESSION['wachtwoord'] = $_POST['wachtwoord'];
+    $_SESSION['bWachtwoord'] = $_POST['bWachtwoord'];
+    if(isset($_POST['eenVerkoper'])) {
+      $_SESSION['eenVerkoper'] = $_POST['eenVerkoper'];
+    } else {
+      $_SESSION['eenVerkoper'] = 2;
+    }
   }
 ?>
+
 <aside  class="NavRubriekAside">
   <?php include_once 'aanroepingen/RubNav.php'; ?>
 </aside>
@@ -53,7 +59,7 @@
       
       <form action="index.php" method="post">
         <label>Kies één veiligeheidsvraag.</label>
-        <select name="veiligheidsvraag">
+        <select name="veiligheidsvraag" required>
           <option>...</option>
           <option value="1">Vraag 1</option>
           <option value="2">Vraag 2</option>
@@ -66,7 +72,7 @@
         <br>
 
         <label>Vul het antwoordt in a.u.b.</label>
-        <input type="text" name="veiligheidsvraag_antwoord">
+        <input type="text" name="veiligheidsvraag_antwoord" required>
 
         <br>
 
@@ -75,5 +81,7 @@
     </div>
 
 <?php
+echo "$email";
+
   include_once 'aanroepingen/footer.html';
 ?>
