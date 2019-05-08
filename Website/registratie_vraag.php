@@ -2,28 +2,11 @@
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 
-  if(isset($_POST['verzenden_pers'])){
-    $_SESSION['gebruikersnaam'] = $_POST['gebruikersnaam'];
-    $_SESSION['voornaam'] = $_POST['voornaam'];
-    $_SESSION['achternaam'] = $_POST['achternaam'];
-    $_SESSION['adres'] = $_POST['adres'];
-    if(isset($_POST['oAdres'])) {
-      $_SESSION['oAdres'] = $_POST['oAdres'];
-    }
-    $_SESSION['postcode'] = $_POST['postcode'];
-    $_SESSION['plaats'] = $_POST['plaats'];
-    $_SESSION['land'] = $_POST['land'];
-    $_SESSION['telnr1'] = $_POST['telnr1'];
-    if(isset($_POST['telnr2'])) {
-      $_SESSION['telnr2'] = $_POST['telnr2'];
-    }
-    $_SESSION['geboortedatum'] = $_POST['geboortedatum'];
-    $_SESSION['wachtwoord'] = $_POST['wachtwoord'];
-    $_SESSION['bWachtwoord'] = $_POST['bWachtwoord'];
-    if(isset($_POST['eenVerkoper'])) {
-      $_SESSION['eenVerkoper'] = $_POST['eenVerkoper'];
-    } else {
-      $_SESSION['eenVerkoper'] = 2;
+  if(isset($_POST['register']) && $_POST['veiligheidsvraag'] != "0") {
+    header('Location: index.php');
+  } else {
+    if (isset($_POST['veiligheidsvraag'])) {
+      echo "U moet nog een veiligheidsvraag selecteren.";
     }
   }
 ?>
@@ -57,10 +40,10 @@
         Kies hieronder uit welke vraag en geef een antwoordt. Dit antwoordt is nodig om uw wachtwoord te herstellen. 
       </p>
       
-      <form action="index.php" method="post">
+      <form action="" method="post">
         <label>Kies één veiligeheidsvraag.</label>
-        <select name="veiligheidsvraag" required>
-          <option>...</option>
+        <select name="veiligheidsvraag">
+          <option value="0">...</option>
           <option value="1">Vraag 1</option>
           <option value="2">Vraag 2</option>
           <option value="3">Vraag 3</option>
@@ -81,7 +64,5 @@
     </div>
 
 <?php
-echo "$email";
-
   include_once 'aanroepingen/footer.html';
 ?>

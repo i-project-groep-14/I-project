@@ -1,6 +1,11 @@
 <?php
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
+
+  if(isset($_POST['verzenden_email'])){
+    $_SESSION['email'] = $_POST['email'];
+    header('Location: registratie_persoonsgegevens.php');
+  }
 ?>
 
 <aside  class="NavRubriekAside">
@@ -31,7 +36,7 @@
           Welkom op de registratiepagina. Vul hieronder uw geldige e-mailadres in om te verifiëren. 
         </p>
         
-        <form action="registratie_persoonsgegevens.php" method="post">
+        <form action="" method="post">
           <input type="email" placeholder="E-mail" name="email" required> 
           <input class="button" type="submit" value="Verzenden" name="verzenden_email">
         </form>
@@ -43,7 +48,7 @@
           <a class="a-op-wit" href="#">Klik hier</a>
           om de e-mail opnieuw te sturen.
         </p>
-        <form action="registratie_email.php" method="post">
+        <form action="" method="post">
           <input type="text" placeholder="Code" required> 
           <input class="button" type="submit" value="Bevestigen" name="bevestigen_email">
         </form>

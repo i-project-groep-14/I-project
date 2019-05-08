@@ -2,8 +2,47 @@
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 
-  if(isset($_POST['verzenden_email'])){
-    $_SESSION['email'] = $_POST['email'];
+  if(isset($_POST['verzenden_pers'])){
+    $sql = "SELECT gebruikersnaam FROM gebruiker 
+            WHERE gebruikersnaam like :gebruikersnaam";
+    $query = $dbh->prepare($sql);
+    $query -> execute(array(
+      ':gebruikersnaam' => $_POST['gebruikersnaam']
+    ));
+
+    $row = $query -> fetch();
+    if($_POST['gebruikersnaam'] != $row['gebruikersnaam']) {
+      if($_POST['wachtwoord'] == $_POST['bWachtwoord']) {
+        $_SESSION['gebruikersnaam'] = $_POST['gebruikersnaam'];
+        $_SESSION['voornaam'] = $_POST['voornaam'];
+        $_SESSION['achternaam'] = $_POST['achternaam'];
+        $_SESSION['adres'] = $_POST['adres'];
+        if(isset($_POST['oAdres'])) {
+          $_SESSION['oAdres'] = $_POST['oAdres'];
+        }
+        $_SESSION['postcode'] = $_POST['postcode'];
+        $_SESSION['plaats'] = $_POST['plaats'];
+        $_SESSION['land'] = $_POST['land'];
+        $_SESSION['telnr1'] = $_POST['telnr1'];
+        if(isset($_POST['telnr2'])) {
+          $_SESSION['telnr2'] = $_POST['telnr2'];
+        }
+        $_SESSION['geboortedatum'] = $_POST['geboortedatum'];
+        $_SESSION['wachtwoord'] = $_POST['wachtwoord'];
+        // $_SESSION['bWachtwoord'] = $_POST['bWachtwoord'];
+        if(isset($_POST['eenVerkoper'])) {
+          $_SESSION['eenVerkoper'] = $_POST['eenVerkoper'];
+        } else {
+          $_SESSION['eenVerkoper'] = 2;
+        }
+
+        header('Location: registratie_vraag.php');
+      } else {
+        echo "De wachtwoorden komen niet met elkaar overeen.";
+      }
+    } else {
+      echo "Gebruikersnaam is al in gebruik.";
+    }
   }
 ?>
 
@@ -34,7 +73,7 @@
               Dit is de tweede stap van het registreren. Vul a.u.b uw persoonlijkegegevens hieronder in. 
           </p>
 
-          <form action="registratie_vraag.php" method="post" >
+          <form action="" method="post" >
               <label>Gebruikersnaam:</label>
               <input type="text" placeholder="Gebruikersnaam" name="gebruikersnaam" required>
 
