@@ -151,8 +151,9 @@
 </head>
 <body>
     
+    
     <div class="top-bar" id="realEstateMenu">
-            
+    
         <div class="top-bar-left">
                 
             <ul class="menu" data-responsive-menu="accordion">
@@ -174,12 +175,14 @@
                             </Select>
                        
                     <input  type="search" placeholder="Zoek product...">
+                    
                     <div class="input-group-button">
                     <input type="submit" class="button" id="search"  value="Search"><br>         
                     </div> 
                 </div> 
+                
             </ul>
-
+            
             
         </div>       
         
