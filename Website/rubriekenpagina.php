@@ -71,7 +71,7 @@
 
     <div class="rubriekenContainer">
     <article class="RubriekenProducten">
-    <h3>Een Salade wel over datum</h3>
+    <h3>Een     Salade wel over datum</h3>
     <div class ="rechts">
        <input type='submit'value='Bieden!' onclick="window.location.href = 'product.php';" class='button'>
        <p> Hele fijne salade wel over datum helaas </p> 
