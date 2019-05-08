@@ -14,8 +14,31 @@ drop database EenmaalAndermaal
 create database EenmaalAndermaal
 
 use EenmaalAndermaal
+/*
+use eenmaalandermaal
+insert into vraag values ('1', 'vraag1')
+select * from vraag
+use master
 
+use eenmaalandermaal
+select * from gebruiker
+use master
 
+use eenmaalandermaal
+delete from gebruiker
+select * from gebruiker
+use master
+
+use eenmaalandermaal
+select * from gebruikerstelefoon
+use master
+
+use eenmaalandermaal
+delete from gebruikerstelefoon
+select * from gebruikerstelefoon
+use master
+
+*/
 /*==============================================================*/
 /* Table: Gebruiker												*/
 /*==============================================================*/
@@ -30,7 +53,7 @@ create table gebruiker (
    land						varchar(20)			not null,
    geboortedatum			date				not null,
    mailadres				varchar(20)			not null,
-   wachtwoord				varchar(20)			not null,
+   wachtwoord				varchar(255)		not null,
    vraag					numeric(2)			not null,
    antwoordtekst			varchar(20)			not null,
    rol						numeric(1)			not null,
@@ -51,7 +74,7 @@ create table vraag (
 /* Table: Gebruikerstelefoon									*/
 /*==============================================================*/
 create table gebruikerstelefoon (
-	volgnr					numeric(2)			not null,
+	volgnr					numeric(2)			identity(1,1) not null,
 	gebruiker				varchar(20)			not null,
 	telefoon				char(11)			not null
 	constraint pk_gebruikerstelefoon_volgnr primary key (volgnr),
