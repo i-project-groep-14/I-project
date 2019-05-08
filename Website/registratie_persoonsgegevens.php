@@ -31,32 +31,28 @@
         <h2 class="HomepaginaKopjes">Registreren</h2>
         <div class="body-tekst">
         <p>
-            Dit is de tweede stap van het registreren. Vul a.u.b uw persoonlijkegegevens hieronder in. 
+            Dit is de tweede stap van het registreren. Vul a.u.b al uw gevraagde gegevens hieronder in. 
         </p>
         <form action="registratie_persoonsgegevens.php" method="post" >
             Gebruikersnaam:
             <input type="text" placeholder="Gebruikersnaam" name="gebruikersnaam">
-            Voornaam:
-            <input  type="text" placeholder="Voornaam" name="voornaam" >
-            Achternaam:
-            <input type="text" placeholder="Achternaam" naam="achternaam" >
-            Adres:
-            <input type="text" placeholder="Adres" name="adres">
-            Toevoeging Adres (Optioneel): 
+            Voornaam & Achternaam:<br>
+            <input  type="text" placeholder="Voornaam" name="voornaam" class="small-input">
+            <input type="text" placeholder="Achternaam" naam="achternaam" class="small-input" >
+            Adres & Toevoeging Adres (Optioneel): 
             <div class="tooltip">Meer informatie?
-              <span class="tooltiptext">Dit is een extra adres regel voor mensen die buiten Nederland wonen.</span>
-            </div>
-            <input type="text" placeholder="Tweede adres" name="oAdres">
-            Postcode:
-            <input type="text" placeholder="Postcode" name="postcode">
-            Plaatsnaam:
-            <input type="text" placeholder="Plaats" name="plaats">        
+              <span class="tooltiptext">Een toevoeging bij het adres is een extra adres regel voor mensen die buiten Nederland wonen.</span>
+            </div><br>
+            <input type="text" placeholder="Adres" name="adres" class="small-input" > 
+            <input type="text" placeholder="Toevoeging adres" name="oAdres" class="small-input" >
+            Postcode & Plaatsnaam:<br>
+            <input type="text" placeholder="Postcode" name="postcode" class="small-input">
+            <input type="text" placeholder="Plaats" name="plaats" class="small-input" id="plaatsnaam">        
             Landsnaam:
             <input type="text" placeholder="Land" name="land">
-            Telefoonnr:
-            <input type="tel" placeholder="Telefoonnr" name="telnr1">
-            Telefoonnr 2 (Optioneel):
-            <input type="tel" placeholder="Telefoonnr" name="telnr2">
+            Telefoonnr & Telefoonnr 2 (Optioneel): <br>
+            <input type="tel" placeholder="Telefoonnr" name="telnr1" class="small-input">
+            <input type="tel" placeholder="Telefoonnr" name="telnr2" class="small-input">
             Geboortedatum:
             <input type="date" name="geboortedatum">
             Wachtwoord:

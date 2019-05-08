@@ -286,29 +286,29 @@
 }
 
 .progress-indicator > li.is-complete {
-  color: #1779ba;
+  color: #2CC9f2;  /*#2CC9f2;*/
 }
 
 .progress-indicator > li.is-complete::before, .progress-indicator > li.is-complete::after {
   color: #fefefe;
-  background: #1779ba;
+  background: #2cc9f2;
 }
 
 .progress-indicator > li.is-complete span {
-  color: #1779ba;
+  color: #2cc9f2;
 }
 
 .progress-indicator > li.is-current {
-  color: #4eabe9;
+  color: #A4E8F9; /*#4eabe9*/
 }
 
 .progress-indicator > li.is-current::before {
   color: #fefefe;
-  background: #4eabe9;
+  background: #A4E8F9;
 }
 
 .progress-indicator > li.is-current span {
-  color: #4eabe9;
+  color: #A4E8F9;
 }
 
 .btn-pos-right {
@@ -333,6 +333,11 @@ input:checked + .side-label::after {
 
 #wel:checked ~ .wel-verkopergegevens , #controle-creditcard:checked ~ .controle-creditcard-gegevens {
   display: block;
+}
+
+.small-input{
+  display: inline-block;
+  width: 49.77%;
 }
 
 
