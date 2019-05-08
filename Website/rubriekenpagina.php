@@ -5,7 +5,10 @@
 
 <div class = "inline">
 <aside class="NavRubriekAside">
-<?php include_once 'aanroepingen/RubNav.php'; ?>
+<?php include_once 'aanroepingen/RubNav.php';
+include_once 'aanroepingen/RubNavMobiel.php'
+
+?>
 </aside>
 <br>
 <h5 class="marginlinks"> Antiek en Kunst > Kasten > Kaaskasten </h5>
