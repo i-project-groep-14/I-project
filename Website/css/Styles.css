@@ -61,6 +61,16 @@
   
 }
 
+.NavRubriekAside{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  float:left;
+  width: auto;
+  
+  
+}
+
 
 
 .homepaginaContainer{
