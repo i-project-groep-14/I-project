@@ -735,6 +735,12 @@ ul{
 
 .rubriekenContainer img {
   width: 200px;
-  height: 200px;
-  float: right;
+  height:200px;
+  z-index: 100;
+  border-image: 3px black;
+  float: left;
+}
+
+h3 {
+  padding: 0;
 }
