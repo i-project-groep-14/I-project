@@ -48,9 +48,10 @@
             <label>Vul het antwoordt in a.u.b. 
             <input type="text" name="vraag_antwoord">
             </label>
-            <br>
             <input class="button" type="submit" value="Verzenden" name="verzenden_vraag">
+            <button class="button btn-pos-right" onclick="window.location.href = 'registratie_persoonsgegevens.php';">Terug</button>
         </form>
+        
 </div>
 <?php
   include_once 'aanroepingen/footer.html';

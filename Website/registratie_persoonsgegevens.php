@@ -61,10 +61,24 @@
             Bevestig Wachtwoord:
             <input type="text" placeholder="Bevestig wachtwoord" name="bWachtwoord">
             Wordt dit een verkopersaccount?<br>
-            <label class="label-next" for="wel">Wel</label>
+            <label class="label-next side-label" for="wel">Wel</label>
             <input type="radio" name="eenVerkoper" id="wel"> 
             <label for="niet">Niet</label>
             <input type="radio" name="eenVerkoper" id="niet"> <br>
+            <div class="wel-verkopergegevens">
+              <label for="verkoopgegevens-rekeningnr">Rekeningnummer:</label>
+              <input type="text" name="verkoopgegevens-rekeningnr" placeholder="Rekeningnummer">
+              <label for="verkoopgegevens-bank">Bank:</label>
+              <input type="text" name="verkoopgegevens-bank" placeholder="Bank">
+              <label for="controle-creditcard" class="label-next side-label">Creditcard:</label>
+              <input type="radio" name="controle" id="controle-creditcard">
+              <label for="controle-post">Post:</label>
+              <input type="radio" name="controle" id="controle-post">
+              <div class="controle-creditcard-gegevens">
+                <label for="creditcard-gegevens">Creditcardnummer</label>
+                <input type="text" name="creditcardnummer" id="creditcard-gegevens" placeholder="Creditcardnummer">
+              </div>
+            </div> 
             Dit kan na een normaal account, nog altijd een verkopersaccount worden.<br><br>
             <input class="button" type="submit" name="verzenden_pers" value="Verzenden">
         

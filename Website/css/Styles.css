@@ -332,6 +332,34 @@
   color: #4eabe9;
 }
 
+.btn-pos-right {
+ float: right;
+ 
+ 
+}
+
+.side-label::after {
+  display: none;
+
+  /* other styles */
+}
+
+input:checked + .side-label::after {
+  display: block;
+}
+
+.wel-verkopergegevens, .controle-creditcard-gegevens{
+  display: none;
+}
+
+#wel:checked ~ .wel-verkopergegevens , #controle-creditcard:checked ~ .controle-creditcard-gegevens {
+  display: block;
+}
+
+
+
+/**/
+
 .inlogpaginaContainer {
   padding: 50px;
   display: flex;
