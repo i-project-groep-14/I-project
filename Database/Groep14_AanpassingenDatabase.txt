@@ -1,3 +1,6 @@
+Database model maken, wijzigingen in rood aangeven
+
+
 Tabel gebruiker:
 
 	gebruikersnaam 	van char(10) 	naar varchar(20)
@@ -31,3 +34,69 @@ Tabel gebruikerstelefoon:
 	volgnr			van integer(2)	naar numeric(2)
 	gebruiker		van char(10)	naar varchar(20)
 
+
+
+
+
+
+Streven naar 100% conversersie
+Default verkoper (onbekend) aanmaken
+
+database maken van puur vuile data 
+Script 	|
+	   	|
+	   \/
+Nieuwe database
+
+
+
+bodMoment -> datetime	not null default getdate()
+
+land-> varchar(56) maken
+
+
+voorwerp -> database laten bereken hoelang
+
+
+create function fnWieIsVerkoper (@voorwerpNummer INT) 	
+RETURNS varchar(20)
+as
+begin
+	return
+		( Select verkoper from voorwerp where voorwerpnummer = @voorwerpNummer)\
+end
+
+alter table bod
+add constraint ck_bod_nietBiedenEigenProduct check (dbo.fnWieIsVerkoper(voorwerpNummer) <> gebruikersNaam)
+
+
+
+
+create function fnveilingisgesloten (@voorwerpnummer INT) returns bit 
+as
+begin
+return(
+	select veilinggesloten
+	from voorwerp
+	where voorwerpnummer = @voorwerpNummer
+)
+
+alter table bod
+add constraint .. check (functie(ding)=0)
+
+
+
+
+hoogstebieder @voornummer integerreturn varchar 20
+return (
+	select TOP 1 b.gebruikersnaam
+	from voorwerp v
+	inner join bod B on v.voorwerpnummer = b.voorwerpnummer
+	where v.voorwerpnummer = @voorwerpNummer and veilinggesloten - 1
+	group by 1 ding
+)
+
+
+
+raiserror
+throw
