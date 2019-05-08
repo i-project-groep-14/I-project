@@ -1,6 +1,4 @@
-
-
-
+<div id="menu-wrapper">
 
 	<ul class="nav">
 		<li>
@@ -642,15 +640,4 @@
 		</li>
 	</ul>
 
-
-<?php include_once "aanroepingen/RubNavMobiel.php"?>
-
-      
-        
-          
-
-        
-       
-   
-
-
+</div>
