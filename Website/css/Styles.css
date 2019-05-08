@@ -4,7 +4,7 @@
 }
 
 
-.fi-star {
+.fi-star{
   margin-top: 1%;
 }
 
@@ -14,20 +14,20 @@
   border-radius: 50%;
   border: 1px solid black;
 }
+
 #loginbutton{
   margin: auto;
-  background-color: #F2552C;
   width: 200px;
   border-radius: 2px;
   box-shadow:   3px 3px #ccc;
 }
-
 
 #loginbutton:hover{
   margin: auto;
   background-color: black;
   border-radius: 0px;
 }
+
 
 #search{
   background-color: #F2552C;
@@ -39,6 +39,7 @@
   background-color: black;
   
 }
+
 
 .menu-text{
   margin: 35px 0px 0px 0px ;
@@ -65,49 +66,34 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  float:left; 
-}
-
-
-
-
-
-/*   HOME pagina artikelen   */
-
-.Product-grid-container {
-  display: flex;
-  justify-content: center;
+  float:left;
+  width: auto;
   
   
 }
-.Product-grid {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  margin-right: 150px;
-  
-  
-}
-.Product-grid-item {
-    width: 27%;
 
-    border: solid 1px grey ;
-    padding: 2px;
-    margin: 5px;
-    box-shadow: #1E1E23 2px 2px 2px;
-    
+
+
+.homepaginaContainer{
+  /* background: #A4E8F9; */
 }
 
-.Product-grid-item:hover{
-  border: solid 2px #F2552C ;
-}
+.homepaginaArtikelen
+{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;   
+  }
 
-.Product-grid-item img{
+  @media only screen and (max-width: 1920px) {
+    .homepaginaArtikelen {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 10%;
+    }
+  }
  
-  width: 150px;
-  height: 150px;
-}
+
 
 .HomepaginaKopjes{
   font-size: 30px;
@@ -117,14 +103,27 @@
   border-bottom: solid #F2552C 1px;
   
 }
-.Product-Flex-End{
-  
+.HomepaginaProducten {
+    text-align: center;   
+    width: 260px;
+    height: 80%;
+    border: solid 1px grey ;
+    padding: 2px;
+    margin: 3px;
+    min-width: 200px;
+    background: white;
+    box-shadow: 5px 10px 10px;  
+}
+
+.HomepaginaProducten:hover{
+  border: solid 2px #F2552C ;
 }
 
 
-
-
-
+.HomepaginaProducten img{
+  height: 100px;
+  width: 150px;
+}
 
 
 #footer { 
@@ -285,30 +284,63 @@
 }
 
 .progress-indicator > li.is-complete {
-  color: #1779ba;
+  color: #2CC9f2;  /*#2CC9f2;*/
 }
 
 .progress-indicator > li.is-complete::before, .progress-indicator > li.is-complete::after {
   color: #fefefe;
-  background: #1779ba;
+  background: #2cc9f2;
 }
 
 .progress-indicator > li.is-complete span {
-  color: #1779ba;
+  color: #2cc9f2;
 }
 
 .progress-indicator > li.is-current {
-  color: #4eabe9;
+  color: #A4E8F9; /*#4eabe9*/
 }
 
 .progress-indicator > li.is-current::before {
   color: #fefefe;
-  background: #4eabe9;
+  background: #A4E8F9;
 }
 
 .progress-indicator > li.is-current span {
-  color: #4eabe9;
+  color: #A4E8F9;
 }
+
+.btn-pos-right {
+ float: right;
+ 
+ 
+}
+
+.side-label::after {
+  display: none;
+
+  /* other styles */
+}
+
+input:checked + .side-label::after {
+  display: block;
+}
+
+.wel-verkopergegevens, .controle-creditcard-gegevens{
+  display: none;
+}
+
+#wel:checked ~ .wel-verkopergegevens , #controle-creditcard:checked ~ .controle-creditcard-gegevens {
+  display: block;
+}
+
+.small-input{
+  display: inline-block;
+  width: 49.77%;
+}
+
+
+
+/**/
 
 .inlogpaginaContainer {
   padding: 50px;
@@ -328,7 +360,6 @@
 
 
 .inlogbutton {
-  background-color: #F2552C;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
@@ -664,9 +695,43 @@ ul{
   color: #fefefe;
 }
 
+.RubriekenProducten {
+  text-align: left;   
+  width: auto;
+  height: 300px;
+  border: solid 1px grey ;
+  padding: 2px;
+  margin: 3px;
+  min-width: 200px;
+  background: white;
+  box-shadow: 5px 10px 10px;  
+}
 
+.rubriekenContainer
+{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    margin-left: 200px;   
+}
 
+.meerkeuzevak {
+  width: 300px;
+  display: inline;
+  margin-left: 50px;
+}
 
+.rechts {
+  float: right;
+}
+
+.midden {
+  display: inline;
+}
+
+.marginlinks {
+  margin-left: 50px
+}
 
 .rubriekenContainer img {
   width: 200px;

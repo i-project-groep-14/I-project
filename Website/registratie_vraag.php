@@ -2,26 +2,15 @@
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 
-  if(isset($_POST['verzenden_pers'])){
-    // header("Location: registratie_klaar.php");
-
-    $_POST['gebruikersnaam'] = $_SESSION['gebruikersnaam'];
-    $_POST['voornaam'] = $_SESSION['voornaam'];
-    $_POST['achternaam'] = $_SESSION['achternaam'];
-    $_POST['oAdres'] = $_SESSION['oAdres'];
-    $_POST['postcode'] = $_SESSION['postcode'];
-    $_POST['plaats'] = $_SESSION['plaats'];
-    $_POST['land'] = $_SESSION['land'];
-    $_POST['telnr1'] = $_SESSION['telnr1'];
-    if(isset($_POST['telnr2'])) {
-      $_POST['telnr2'] = $_SESSION['telnr2'];
+  if(isset($_POST['register']) && $_POST['veiligheidsvraag'] != "0") {
+    header('Location: index.php');
+  } else {
+    if (isset($_POST['veiligheidsvraag'])) {
+      echo "U moet nog een veiligheidsvraag selecteren.";
     }
-    $_POST['geboortedatum'] = $_SESSION['geboortedatum'];
-    $_POST['wachtwoord'] = $_SESSION['wachtwoord'];
-    $_POST['bWachtwoord'] = $_SESSION['bWachtwoord'];
-    $_POST['eenVerkoper'] = $_SESSION['eenVerkoper'];
   }
 ?>
+
 <aside  class="NavRubriekAside">
   <?php include_once 'aanroepingen/RubNav.php'; ?>
 </aside>
@@ -45,16 +34,40 @@
 
     <h2 class="HomepaginaKopjes">Veiligheidsvraag</h2>
     <div class="body-tekst">
+        <p>
+            Dit is de derde stap van het registreren. 
+            Hierin wordt naar een veiligheidsvraag gevraagd die wordt gevraagd als de gebruiker het wachtwoord is vergeten.
+            Kies hieronder uit welke vraag en geef een antwoordt. Dit antwoordt is nodig om uw wachtwoord te herstellen. 
+        </p>
+        <form action="registratie_vraag.php" methode="post">
+            <p>Kies één veiligeheidsvraag.</p>
+            <select>
+                <option>Vragen</option>
+                <option>Vraag 1</option>
+                <option>Vraag 2</option>
+                <option>Vraag 3</option>
+                <option>Vraag 4</option>
+                <option>Vraag 5</option>
+            </select>
+            <br><br>
+            <label>Vul het antwoordt in a.u.b. 
+            <input type="text" name="vraag_antwoord">
+            </label>
+            <input class="button" type="submit" value="Verzenden" name="verzenden_vraag">
+            <button class="button btn-pos-right" onclick="window.location.href = 'registratie_persoonsgegevens.php';">Terug</button>
+        </form>
+        
+</div>
       <p>
         Dit is de derde stap van het registreren. 
         Hierin wordt naar een veiligheidsvraag gevraagd die wordt gevraagd als de gebruiker het wachtwoord is vergeten.
         Kies hieronder uit welke vraag en geef een antwoordt. Dit antwoordt is nodig om uw wachtwoord te herstellen. 
       </p>
       
-      <form action="index.php" method="post">
+      <form action="" method="post">
         <label>Kies één veiligeheidsvraag.</label>
         <select name="veiligheidsvraag">
-          <option>...</option>
+          <option value="0">...</option>
           <option value="1">Vraag 1</option>
           <option value="2">Vraag 2</option>
           <option value="3">Vraag 3</option>
@@ -66,7 +79,7 @@
         <br>
 
         <label>Vul het antwoordt in a.u.b.</label>
-        <input type="text" name="veiligheidsvraag_antwoord">
+        <input type="text" name="veiligheidsvraag_antwoord" required>
 
         <br>
 

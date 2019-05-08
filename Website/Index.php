@@ -1,6 +1,7 @@
 <?php
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
+  include_once 'timerfunctie.php';
 ?>
 
 
@@ -16,12 +17,12 @@
 
 <div class="homepaginaContainer">
 
-    <h1 class="HomepaginaKopjes">   Uw biedingen  </h1>
+    <h1 class="HomepaginaKopjes">Uw biedingen</h1>
     <div class="homepaginaArtikelen">
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG"  alt="filmje1"/></a>
-        <p>tijd: <?php getdate(); ?></p>
+        <p>Sluit over: 6d 18u</p>
         <p>Huidige prijs:</p>
         <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
@@ -32,6 +33,7 @@
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
+        <p>Sluit over: 6d 18u</p>
         <p>Huidige prijs:</p>
         <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
@@ -40,6 +42,7 @@
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
+        <p>Sluit over: 6d 18u</p>
         <p>Huidige prijs:</p>
         <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
@@ -49,6 +52,7 @@
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
+        <p>Sluit over: 6d 18u</p>
         <p>Huidige prijs:</p>
         <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
@@ -60,6 +64,7 @@
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
+        <p>Sluit over: 6d 18u</p>
         <p>Huidige prijs:</p>
         <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
@@ -69,6 +74,7 @@
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
+        <p>Sluit over: 6d 18u</p>
         <p>Huidige prijs:</p>
         <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
@@ -78,6 +84,7 @@
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
+        <p>Sluit over: 6d 18u</p>
         <p>Huidige prijs:</p>
         <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
@@ -87,6 +94,7 @@
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
+        <p>Sluit over: 6d 18u</p>
         <p>Huidige prijs:</p>
         <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
@@ -99,6 +107,7 @@
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
+        <p>Sluit over: 6d 18u</p>
         <p>Huidige prijs:</p>
         <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
@@ -108,6 +117,7 @@
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
+        <p>Sluit over: 6d 18u</p>
         <p>Huidige prijs:</p>
         <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
@@ -117,6 +127,7 @@
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
+        <p>Sluit over: 6d 18u</p>
         <p>Huidige prijs:</p>
         <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
@@ -126,6 +137,7 @@
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
         <a href="#" ><img src="images/fiets.JPG" alt="filmje1"/></a>
+        <p>Sluit over: 6d 18u</p>
         <p>Huidige prijs:</p>
         <h4>€24,99</h4>
         <p>Locatie: Arnhem</p>
