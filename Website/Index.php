@@ -1,8 +1,6 @@
 <?php
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
-
-//   echo "$email";
 ?>
 
 
@@ -18,7 +16,7 @@
 
 <div class="homepaginaContainer">
 
-    <h1 class="HomepaginaKopjes">   Uw biedingen  </h1>
+    <h1 class="HomepaginaKopjes">Uw biedingen</h1>
     <div class="homepaginaArtikelen">
     <article class="HomepaginaProducten" >
         <h3>Viking fiets</h3>
