@@ -905,18 +905,15 @@ h1 {
 .rubrieken { 
   
   display: table;
-   width: 100%; 
-   table-layout: fixed;
-   border-top: 1px solid #F2552C;
-  margin-top: 30px;
-  padding: 10px 10px 10px 10px;
-  position: relative;
+  width: 1200px; 
+  
+   border: 1px solid #F2552C;
+  padding: 10px;
   background: #A4E8F9;
+  margin-left: 230px;
 
 }
 .rubrieken > div { 
   display: table-cell;
 }
 
-h5 {
-  border-style: solid;
