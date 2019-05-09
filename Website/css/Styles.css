@@ -162,14 +162,10 @@ input{
   display:flex;
   flex-direction: row;
   list-style: none;
-  
+  margin: 20px;
 }
-.row>.MarginProduct{
-  margin-left: 200px;
-}
-#MarginProductNav{
-  margin-left: 200px;
-  }
+
+
 
 
 
@@ -399,112 +395,6 @@ ul{
 
 
 
-.productfotocontainer{
-  border: 3px solid #F2552C;
-  width: 40%;
-  height: 540px;
-  float: left;
-  margin-left: 3%;
-}
-
-.productfotocontainer>img{
-  width: 70%;
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.productfotocontainer>ul{
-  border-top: 3px solid #F2552C;
-  margin-left: 1px;
-  display: flex;
-  justify-content: space-around;
-  padding-top: 2%;
-}
-
-.productfotocontainer>ul>li{
-  border: 1px solid black;
-  width: 20%;
-}
-
-
-.producttekstcontainer{
-  border: 3px solid #F2552C;
-  width: 40%;
-  height: 540px;
-  float: left;
-  margin-left: 3%;
-  padding-left: 1%;
-}
-
-.producttekstcontainer>h1{
-  text-align: center;
-  font-size: 3em;
-  margin-bottom: 0px;
-  padding-left: -1%;
-}
-
-.producttekstcontainer>h4{
-  font-size: 1.2em;
-}
-
-.producttekstcontainer i:nth-child(2){
-  margin-left: 5%;
-}
-
-.producttekstcontainer> p{
-  margin-right: 2%;
-}
-
-.producttekstcontainer .productprijzen:nth-child(2){
-  margin-left: 20%;
-}
-
-.producttekstcontainer .tijd{
-  border: 1px solid #F2552C;
-  width: 3em;
-  text-align: center;
-}
-
-#productopeningstijd{
-  margin-left: 2%;
-}
-
-.producttekstcontainer>div>ul>li:nth-child(2), .producttekstcontainer>div>ul>li:nth-child(3){
-  border-left: none;
-}
-
-
-.productbieders{
-  float: left;
-  margin-left: 15%;
-}
-
-.productbieders>ul>li{
-  margin-top: 2em;
-  border: 3px solid #F2552C;
-  width: 70em;
-  
-  display: flex;
-  justify-content: space-around;
-}
-
-.productbieders>ul>li>img{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 5px solid white;
-}
-
-.productbieders>ul>li>h2{
-  margin-top: 2%;
-  margin-left: 2%;
-}
-
-.productbieders>ul>li>p{
-  font-size: 2em;
-  margin-top: 2%;
-}
 
 /* navigatie */
 
@@ -939,7 +829,7 @@ width: 100%;
 
 .meerkeuzevak {
   width: 300px;
-  margin-left: 50px;
+  
 }
 
 .rechts {
