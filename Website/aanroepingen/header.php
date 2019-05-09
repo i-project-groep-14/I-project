@@ -5,7 +5,7 @@
         session_start();
     }
 
-    if(isset($_POST['register']) && isset($_POST['veiligheidsvraag']) && $_POST['veiligheidsvraag'] != "0") {
+    if(isset($_POST['register']) && isset($_POST['veiligheidsvraag']) && $_POST['veiligheidsvraag'] != "0" && strlen($_POST['veiligheidsvraag_antwoord']) <= 50) {
         $email = $_SESSION['email'];
 
         $gebruikersnaam = $_SESSION['gebruikersnaam'];
@@ -128,3 +128,4 @@
             </ul>
         </div>
     </div>
+    <?php include_once 'aanroepingen/RubNav.php' ?>

@@ -4,83 +4,147 @@
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 ?>
-
+<?php  ; ?>
 <aside  class="NavRubriekAside">
-  <?php include_once 'aanroepingen/RubNav.php'; ?>
-</aside>
+<?php
+    include_once 'aanroepingen/RubNavMobiel.php';
+  
+  ?>
+</aside><br>
 
-<h1><a href="">Rubriek/subrubriek/subsubrubriek/subsubsubrubriek</a></h1>
 
-<div class="productfotocontainer">
-  <img src="images/fiets.jpg">
-  <ul class="row">
-    <li><img src="images/fiets.jpg"></li>
-    <li><img src="images/fiets.jpg"></li>
-    <li><img src="images/fiets.jpg"></li>
-    <li><img src="images/fiets.jpg"></li>
-  </ul>
+<div class="row columns  " id="MarginProductNav">
+  <nav aria-label="You are here:" role="navigation">
+    <ul class="breadcrumbs">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Antiek en Kunst</a></li>
+      <li><a href="#">Kasten</a></li>
+      <li>    
+      <span class="show-for-sr">Current: </span> Viking Fiets
+      </li>
+    </ul>
+  </nav>
 </div>
 
-<article class="producttekstcontainer">
-  <h1>Fietstitel</h1>
 
-  <section class="row">
-    <h4><a href="" class="grey"><i>Username</i></a></h4>
+<div class="row Margin">
+  <div class="medium-6 columns MarginProduct">
+    <img class="thumbnail Fthumbnail" src="Images/Fiets.jpg">
+<div class="row small-up-4">
+  <div class="column">
+    <img class="thumbnail" src="images/fiets.jpg">
+</div>
+  <div class="column">
+    <img class="thumbnail" src="images/fiets.jpg">
+</div>
+  <div class="column">
+    <img class="thumbnail" src="images/fiets.jpg">
+</div>
+  <div class="column">
+    <img class="thumbnail" src="images/fiets.jpg">
+    </div>
+  </div>
+</div>
+<div class="medium-6 large-5 columns">
+<h3>My Awesome Product</h3>
+<section class="row">
+<h4><a href="" class="grey"><i>Username</i></a></h4>
     <i class="fi-star yellow"></i>
     <i class="fi-star yellow"></i>
     <i class="fi-star yellow"></i>
     <i class="fi-star grey"></i>
     <i class="fi-star grey"></i>
-  </section>
-
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-  <div class="row">
-    <section class="productprijzen">
-      <h4>Startprijs</h4>
-      <p><i class="fi-euro"></i>39,99</p>
-    </section>
-
-    <section class="productprijzen">
-      <h4>Hoogstebod</h4>
-      <p><i class="fi-euro"></i>46,20</p>
-    </section>
-  </div>
-
-  <div class="row">
-    <a class="button">Bieden</a>
-    <p id="productopeningstijd">Nog open tot:</p>
-
-    <ul class="row">
-      <li class="tijd">1 d</li>
-      <li class="tijd">8 u</li>
-      <li class="tijd">22 m</li>
-    </ul>
-  </div>
-    
-</article>
-
-<section class="productbieders">
-  <ul>
-    <li class="row">
-      <img src="images/profielfotoPlaceholder.png">
-      <h2>Username</h2>
-      <p><i class="fi-euro"></i>46,20</p>
-    </li>
-    <li class="row">
-      <img src="images/profielfotoPlaceholder.png">
-      <h2>Username</h2>
-      <p><i class="fi-euro"></i>46,20</p>
-    </li>
-    <li class="row">
-      <img src="images/profielfotoPlaceholder.png">
-      <h2>Username</h2>
-      <p><i class="fi-euro"></i>46,20</p>
-    </li>
-  </ul>
 </section>
+<p>Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in.</p>
+<div class="InfoVeiling">
+<div class="row">
+<div class="small-3 columns">
+<label for="middle-label" class="middle">Hoogste bod:</label>
+</div>
+<div class="small-9 columns">
+<p>€ 39,99 </p>
+</div>
+</div>
+<div class="row">
+<div class="small-3 columns">
+<label for="middle-label" class="middle">Start Prijs:</label>
+</div>
+<div class="small-9 columns">
+<p>€ 24,99 </p>
+</div>
+</div>
+<div class="row">
+<div class="small-3 columns">
+<label for="middle-label" class="middle">Sluit over:</label>
+</div>
+<div class="small-9 columns">
+<p>08:54:43 </p>
+</div>
+</div>
 
-<br><br><br><br><br>
+<a href="#" class="button large expanded">Bied Mee</a>
+<div class="small secondary expanded button-group">
+<a class="button">Bericht</a>
+<a class="button">Bel</a>
+<a class="button">E-mail</a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="column row">
+<hr>
+
+<div class="tabs-content MarginProduct" data-tabs-content="example-tabs">
+<div class="tabs-panel is-active" id="panel1">
+<h4>Reviews</h4>
+<div class="media-object stack-for-small">
+<div class="media-object-section">
+<img class="thumbnail" src="images/profielfotoPlaceholder.png">
+</div>
+<div class="media-object-section">
+<h5>Mike Stevenson</h5>
+<p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
+</div>
+</div>
+<div class="media-object stack-for-small">
+<div class="media-object-section">
+<img class="thumbnail" src="images/profielfotoPlaceholder.png">
+</div>
+<div class="media-object-section">
+<h5>Mike Stevenson</h5>
+<p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you</p>
+</div>
+</div>
+<div class="media-object stack-for-small">
+<div class="media-object-section">
+<img class="thumbnail" src="images/profielfotoPlaceholder.png">
+</div>
+<div class="media-object-section">
+<h5>Mike Stevenson</h5>
+<p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you</p>
+</div>
+</div>
+<label>
+My Review
+<textarea placeholder="None"></textarea>
+</label>
+<button class="button">Submit Review</button>
+</div>
+<div class="tabs-panel" id="panel2">
+
+</div>
+</div>
+</div>
+	
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+<script>
+      $(document).foundation();
+    </script>
+
+
 
 <?php
   include_once 'aanroepingen/footer.html';

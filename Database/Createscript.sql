@@ -30,10 +30,10 @@ create table gebruiker (
    plaatsnaam				varchar(20)			not null,
    land						varchar(20)			not null,
    geboortedatum			date				not null,
-   mailadres				varchar(20)			not null,
+   mailadres				varchar(50)			not null,
    wachtwoord				varchar(255)		not null,
    vraag					numeric(2)			not null,
-   antwoordtekst			varchar(20)			not null,
+   antwoordtekst			varchar(50)			not null,
    rol						numeric(1)			not null,
    profielfoto				varchar(255)		null
    constraint pk_gebruiker_gebruikersnaam primary key (gebruikersnaam)
@@ -58,9 +58,6 @@ create table gebruikerstelefoon (
 	constraint pk_gebruikerstelefoon_volgnr primary key (volgnr),
 	constraint fk_gebruikerstelefoon_gebruiker foreign key (gebruiker) references gebruiker (gebruikersnaam)
 )
-
-
-
 
 alter table gebruiker
 add constraint fk_gebruiker_vraag foreign key (vraag) references vraag (vraagnummer)

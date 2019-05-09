@@ -12,7 +12,7 @@ include_once 'aanroepingen/RubNavMobiel.php'
 </aside>
 
 <br>
-<div id="footer">
+<div class="rubrieken">
     <div class = "marginlinks">
     <input type="radio" name="Kaas" value="op">Prijs Oplopend<br>
     <input type="radio" name="Kaas" value="af">Prijs Aflopend<br>
@@ -34,9 +34,12 @@ include_once 'aanroepingen/RubNavMobiel.php'
     <div>
     <ul>
         <h3>Prijs</h3>
-            <div class="slidecontainer">
-  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-  <h5> van: 10 Tot: 100 </h5>
+
+ <p> Van: </p> <input type="text"> 
+ <p> Tot: </p> <input type="text"> 
+</div>
+</div>
+</div>
 </div>
             </ul>
     </div>
@@ -65,7 +68,7 @@ include_once 'aanroepingen/RubNavMobiel.php'
        <input type='submit'value='Bieden!' onclick="window.location.href = 'product.php';" class='button'>
        </div>
         <div class ="center">
-        <a href="#"><img src="images/Eend.jpg"  alt="filmje1"/></a>
+        <img src="images/Eend.jpg"  alt="filmje1"/>
         <p>Locatie: Arnhem</p>
         <p>Huidige hoogste bod:</p>
         <h4>189,99</h4>

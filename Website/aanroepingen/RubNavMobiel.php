@@ -5,16 +5,16 @@
                 <span></span>
                 <span></span>
             <ul id="MobileMenu">
-              <li><a class="MobileNavLink"  href="#">Antiek en Kunst</a></li>
-              <li><a class="MobileNavLink"  href="#">Audio, Tv en Foto</a></li>
-              <li><a class="MobileNavLink"  href="#">Auto's</a></li>
-			  <li><a class="MobileNavLink"  href="#">Auto-onderdelen</a></li>
-			  <li><a class="MobileNavLink"  href="#">Auto diversen</a></li>
-			  <li><a class="MobileNavLink"  href="#">Muziek en Instrumenten</a></li>
-			  <li><a class="MobileNavLink"  href="#">Diversen</a></li>
-			  <li><a class="MobileNavLink"  href="#">Watersport en Boten</a></li>
-			  <li><a class="MobileNavLink"  href="#">Diversen</a></li>
-			  <li><a class="MobileNavLink"  href="#">Sport en Fitness</a></li>
+              <li><a class="MobileNavLink"  href="rubriekenpagina.php">Antiek en Kunst</a></li>
+              <li><a class="MobileNavLink"  href="rubriekenpagina.php">Audio, Tv en Foto</a></li>
+              <li><a class="MobileNavLink"  href="rubriekenpagina.php">Auto's</a></li>
+			  <li><a class="MobileNavLink"  href="rubriekenpagina.php">Auto-onderdelen</a></li>
+			  <li><a class="MobileNavLink"  href="rubriekenpagina.php">Auto diversen</a></li>
+			  <li><a class="MobileNavLink"  href="rubriekenpagina.php">Muziek en Instrumenten</a></li>
+			  <li><a class="MobileNavLink"  href="rubriekenpagina.php">Diversen</a></li>
+			  <li><a class="MobileNavLink"  href="rubriekenpagina.php">Watersport en Boten</a></li>
+			  <li><a class="MobileNavLink"  href="rubriekenpagina.php">Diversen</a></li>
+			  <li><a class="MobileNavLink"  href="rubriekenpagina.php">Sport en Fitness</a></li>
             </ul>
            </div>
           </nav>

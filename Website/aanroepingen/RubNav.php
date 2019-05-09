@@ -636,7 +636,71 @@
 				</div>
 			</div>
 			</li>
+			<li><a href="rubriekenpagina.php">Diversen</a>
+		<div>
+				<div class="nav-column">
+					<h3 class="orange">Related Categories</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Diapers</a></li>
+					</ul>
+
+					<h3 class="orange">Brands</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
+						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
+					</ul>
+				</div>
+
+				<div class="nav-column">
+					<h3>Home</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Seventh Generation</a></li>
+						<li><a href="rubriekenpagina.php">Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Derbies</a></li>
+						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
+						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
+						<li><a href="rubriekenpagina.php">Loafers</a></li>
+					</ul>
+				</div>
+
+				<div class="nav-column">
+					<h3>Home</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
+						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
+						<li><a href="rubriekenpagina.php">Loafers</a></li>
+					</ul>
+
+					<h3>Home</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
+						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
+						<li><a href="rubriekenpagina.php">Loafers</a></li>
+					</ul>
+				</div>
+
+				<div class="nav-column">
+					<h3>Home</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Seventh Generation</a></li>
+						<li><a href="rubriekenpagina.php">Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Derbies</a></li>
+						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
+						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
+						<li><a href="rubriekenpagina.php">Loafers</a></li>
+					</ul>
+				</div>
+			</div>
+			</li>
 		
+		</li>
+		</li>
 		</li>
 	</ul>
 

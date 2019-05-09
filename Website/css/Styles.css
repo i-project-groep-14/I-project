@@ -50,10 +50,7 @@ input{
 }
 
 .menu-text{
-  
   font-size: 50px;
-  text-align: center;
-  border-bottom: 1px solid #f2552c;
 }
 
 
@@ -80,8 +77,8 @@ input{
 .Product-grid-container {
   display: flex;
   justify-content: center;
-  width: 80%;
-  margin-left: 20%;
+  
+  
 }
 
 .Product-grid {
@@ -114,15 +111,11 @@ input{
   font-size: 30px;
   padding-top: 2%;
   margin-bottom: 2%;
-  margin-left: 22.5%; 
+ 
   border-bottom: solid #F2552C 1px; 
 }
 
 /*   EINDE HOME PAGINA ARTIKELEN */
-
-
-
-
 
 #footer { 
   
@@ -145,6 +138,10 @@ input{
   color: black;
 }
 
+
+
+
+
 .center{
   text-align: center;
 }
@@ -161,7 +158,12 @@ input{
   display:flex;
   flex-direction: row;
   list-style: none;
+  margin: 20px;
 }
+
+
+
+
 
 /*Registratie pagina*/
 
@@ -396,112 +398,6 @@ ul{
 
 
 
-.productfotocontainer{
-  border: 3px solid #F2552C;
-  width: 40%;
-  height: 540px;
-  float: left;
-  margin-left: 3%;
-}
-
-.productfotocontainer>img{
-  width: 70%;
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.productfotocontainer>ul{
-  border-top: 3px solid #F2552C;
-  margin-left: 1px;
-  display: flex;
-  justify-content: space-around;
-  padding-top: 2%;
-}
-
-.productfotocontainer>ul>li{
-  border: 1px solid black;
-  width: 20%;
-}
-
-
-.producttekstcontainer{
-  border: 3px solid #F2552C;
-  width: 40%;
-  height: 540px;
-  float: left;
-  margin-left: 3%;
-  padding-left: 1%;
-}
-
-.producttekstcontainer>h1{
-  text-align: center;
-  font-size: 3em;
-  margin-bottom: 0px;
-  padding-left: -1%;
-}
-
-.producttekstcontainer>h4{
-  font-size: 1.2em;
-}
-
-.producttekstcontainer i:nth-child(2){
-  margin-left: 5%;
-}
-
-.producttekstcontainer> p{
-  margin-right: 2%;
-}
-
-.producttekstcontainer .productprijzen:nth-child(2){
-  margin-left: 20%;
-}
-
-.producttekstcontainer .tijd{
-  border: 1px solid #F2552C;
-  width: 3em;
-  text-align: center;
-}
-
-#productopeningstijd{
-  margin-left: 2%;
-}
-
-.producttekstcontainer>div>ul>li:nth-child(2), .producttekstcontainer>div>ul>li:nth-child(3){
-  border-left: none;
-}
-
-
-.productbieders{
-  float: left;
-  margin-left: 15%;
-}
-
-.productbieders>ul>li{
-  margin-top: 2em;
-  border: 3px solid #F2552C;
-  width: 70em;
-  
-  display: flex;
-  justify-content: space-around;
-}
-
-.productbieders>ul>li>img{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 5px solid white;
-}
-
-.productbieders>ul>li>h2{
-  margin-top: 2%;
-  margin-left: 2%;
-}
-
-.productbieders>ul>li>p{
-  font-size: 2em;
-  margin-top: 2%;
-}
 
 /* navigatie */
 
@@ -516,10 +412,8 @@ ul{
 	margin: 0;
 	padding: 0;
 	border: none;
-	outline: none;
+  outline: none;
 }
-
-
 
 .nav a { text-decoration: none; }
 
@@ -529,22 +423,20 @@ ul{
 .nav {
 	display: inline-block;
 	position: relative;
-	
 	cursor: default;
-	z-index: 500;
+  z-index: 500;
+  width: 100%;
 }
 
 /* Menu List */
 .nav > li {
-	display: block;
-	
-	
+  display: block;
+  float: left;
 }
 
 /* Menu Links */
 .nav > li > a {
 	position: relative;
-	
 	display: block;
 	z-index: 510;
 	height: 54px;
@@ -554,11 +446,12 @@ ul{
 	font-family: Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	font-size: 13px;
-	color: hsl(0, 2%, 82%);
+	color: #fcfcfc;
 	text-shadow: 0 0 1px rgba(0,0,0,.35);
 
 	background: #f2552c;
-	box-shadow: black 2px 2px 20px;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
 
 	-webkit-transition: all .3s ease;
 	-moz-transition: all .3s ease;
@@ -567,28 +460,92 @@ ul{
 	transition: all .3s ease;
 }
 
-.nav > li:hover > a { 
-  
-  background: #f83f11;
-  color: white;
-}
+.nav > li:hover > a { background: black; }
 
 .nav > li:first-child > a {
-	
+	border-radius: 3px 0 0 3px;
 	border-left: none;
 }
 
+/* Search Form */
+.nav > li.nav-search > form {
+	position: relative;
+	width: inherit;
+	height: 54px;
+	z-index: 510;
+	border-left: 1px solid #4b4441;
+}
+
+.nav > li.nav-search input[type="text"] {
+	display: block;
+	float: left;
+	width: 1px;
+	height: 24px;
+	padding: 15px 0;
+	line-height: 24px;
+
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	color: #999999;
+	text-shadow: 0 0 1px rgba(0,0,0,.35);
+
+	background: #372f2b;
+
+	-webkit-transition: all .3s ease 1s;
+	-moz-transition: all .3s ease 1s;
+	-o-transition: all .3s ease 1s;
+	-ms-transition: all .3s ease 1s;
+	transition: all .3s ease 1s;
+}
+
+.nav > li.nav-search input[type="text"]:focus { color: #fcfcfc; }
+
+.nav > li.nav-search input[type="text"]:focus,
+.nav > li.nav-search:hover input[type="text"] {
+	width: 110px;
+	padding: 15px 20px;
+
+	-webkit-transition: all .3s ease .1s;
+	-moz-transition: all .3s ease .1s;
+	-o-transition: all .3s ease .1s;
+	-ms-transition: all .3s ease .1s;
+	transition: all .3s ease .1s;
+}
+
+.nav > li.nav-search input[type="submit"] {
+	display: block;
+	float: left;
+	width: 20px;
+	height: 54px;
+	padding: 0 25px;
+	cursor: pointer;
+
+	background: #372f2b url(../img/search-icon.png) no-repeat center center;
+
+	border-radius: 0 3px 3px 0;
+
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+.nav > li.nav-search input[type="submit"]:hover { background-color: #4b4441; }
 
 /* Menu Dropdown */
 .nav > li > div {
 	position: absolute;
-	
+	display: block;
+	width: 100%;
 	top: 50px;
-	left: 200px;
+	left: 0;
+
 	opacity: 0;
 	visibility: hidden;
 	overflow: hidden;
-	width: 1000px;
+
 	background: #ffffff;
 	border-radius: 0 0 3px 3px;
 
@@ -600,26 +557,20 @@ ul{
 }
 
 .nav > li:hover > div {
-	
 	opacity: 1;
 	visibility: visible;
-	
 	overflow: visible;
 }
 
-
-
 /* Menu Content Styles */
 .nav .nav-column {
-	
 	float: left;
 	width: 20%;
 	padding: 2.5%;
-	
 }
 
 .nav .nav-column h3 {
-	
+	margin: 20px 0 10px 0;
 	line-height: 18px;
 	
 	font-family: Helvetica, Arial, sans-serif;
@@ -641,9 +592,7 @@ ul{
 	color: #888888;
 }
 
-.nav .nav-column li a:hover { color: #666666; 
-
-}
+.nav .nav-column li a:hover { color: #666666; }
 .MobileNav{
   visibility: hidden;
 }
@@ -785,6 +734,18 @@ ul{
     height: auto;
   }
 
+  #footer{
+    visibility: hidden;
+width: 100%;
+   
+  }
+  #footerMobiel{
+    visibility: visible;
+    width: 100%;
+    background: #A4E8F9;
+    color: black;
+  }
+
 }
 
 
@@ -866,12 +827,12 @@ ul{
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    margin-left: 200px;   
+     
 }
 
 .meerkeuzevak {
   width: 300px;
-  margin-left: 50px;
+  
 }
 
 .rechts {
@@ -882,9 +843,7 @@ ul{
   display: inline;
 }
 
-.marginlinks {
-  margin-left: 200px;
-}
+
 
 .rubriekenContainer img {
   width: 300px;
@@ -913,18 +872,81 @@ h1 {
 .rubrieken { 
   
   display: table;
-   width: 100%; 
-   table-layout: fixed;
-   border-top: 1px solid #F2552C;
-  margin-top: 30px;
-  padding: 10px 10px 10px 10px;
-  position: relative;
+  width: 100%; 
+  
+   border: 1px solid #F2552C;
+  padding: 10px;
   background: #A4E8F9;
+  
 
 }
 .rubrieken > div { 
   display: table-cell;
 }
 
-h5 {
-  border-style: solid;
+
+.thumbnail{
+  border:4px solid #fefefe;
+  box-shadow:0 0 0 1px rgba(10,10,10,.2);
+  display:inline-block;line-height:0;
+  max-width:100%;
+  transition:box-shadow .2s ease-out;border-radius:0;
+  margin-bottom:1rem;
+  
+}
+
+.Fthumbnail{
+  width: 80%;
+  height: 250px;
+}
+.thumbnail:focus,.thumbnail:hover{
+  box-shadow:0 0 6px 1px #F2552C;
+}
+.title-bar{
+  background:#0a0a0a;color:#fefefe;
+  padding:.5rem
+}
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 60%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #f2552c; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #f2552c; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.nav {
+  display: flex;
+  justify-content: center;  
+}
