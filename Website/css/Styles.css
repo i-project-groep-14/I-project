@@ -117,10 +117,6 @@ input{
 
 /*   EINDE HOME PAGINA ARTIKELEN */
 
-
-
-
-
 #footer { 
   
   display: table;
@@ -537,8 +533,8 @@ ul{
 
 /* Menu List */
 .nav > li {
-	display: block;
-	float: left;
+  display: block;
+  float: left;
 }
 
 /* Menu Links */
@@ -556,9 +552,9 @@ ul{
 	color: #fcfcfc;
 	text-shadow: 0 0 1px rgba(0,0,0,.35);
 
-	background: #372f2b;
-	border-left: 1px solid #4b4441;
-	border-right: 1px solid #312a27;
+	background: #f2552c;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
 
 	-webkit-transition: all .3s ease;
 	-moz-transition: all .3s ease;
@@ -567,7 +563,7 @@ ul{
 	transition: all .3s ease;
 }
 
-.nav > li:hover > a { background: #4b4441; }
+.nav > li:hover > a { background: black; }
 
 .nav > li:first-child > a {
 	border-radius: 3px 0 0 3px;
@@ -979,7 +975,7 @@ h1 {
 .rubrieken { 
   
   display: table;
-  width: 1250px; 
+  width: 100%; 
   
    border: 1px solid #F2552C;
   padding: 10px;
