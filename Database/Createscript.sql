@@ -33,7 +33,7 @@ create table gebruiker (
    mailadres				varchar(50)			not null,
    wachtwoord				varchar(255)		not null,
    vraag					numeric(2)			not null,
-   antwoordtekst			varchar(20)			not null,
+   antwoordtekst			varchar(50)			not null,
    rol						numeric(1)			not null,
    profielfoto				varchar(255)		null
    constraint pk_gebruiker_gebruikersnaam primary key (gebruikersnaam)

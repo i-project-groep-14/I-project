@@ -5,8 +5,11 @@
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 
-  if(isset($_POST['register']) && $_POST['veiligheidsvraag'] != "0") {
-    header('Location: index.php');
+  if(isset($_POST['register']) && $_POST['veiligheidsvraag'] != 0) {
+    if (strlen($_POST['veiligheidsvraag_antwoord']) > 50) {
+      echo "Het aantal karakters is te groot. Het maximale toegestane aantal karakters is 50.";
+    } else {
+      header('Location: index.php');
   } else {
     if (isset($_POST['veiligheidsvraag'])) {
       echo "U moet nog een veiligheidsvraag selecteren.";

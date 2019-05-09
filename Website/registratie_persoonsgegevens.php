@@ -22,7 +22,7 @@
         echo "Het aantal karakters van uw achternaam is te groot. Het maximale toegestane aantal karakters is 20.";
       } else if (strlen($_POST['adresregel1']) > 20) {
         echo "Het aantal karakters van uw eerste adresregel is te groot. Het maximale toegestane aantal karakters is 20.";
-      } else if (isset($_POST['adresregel2']) {
+      } else if (isset($_POST['adresregel2'])) {
         if (strlen($_POST['adresregel2']) > 20) {
           echo "Het aantal karakters van uw tweede adresregel is te groot. Het maximale toegestane aantal karakters is 20.";
         }
