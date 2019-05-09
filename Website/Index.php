@@ -1,4 +1,6 @@
 <?php
+  $config = ['pagina' => 'index'];
+
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
   include_once 'aanroepingen/timerfunctie.php';
@@ -18,7 +20,7 @@
 </aside>
 
 
-<?php include_once "HomepageProducten.php" ?>
+<?php include_once "aanroepingen/HomepageProducten.php" ?>
 
 
 

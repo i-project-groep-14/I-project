@@ -31,7 +31,6 @@
         }
         $_SESSION['geboortedatum'] = $_POST['geboortedatum'];
         $_SESSION['wachtwoord'] = $_POST['wachtwoord'];
-        // $_SESSION['bWachtwoord'] = $_POST['bWachtwoord'];
         if(isset($_POST['eenVerkoper'])) {
           $_SESSION['eenVerkoper'] = $_POST['eenVerkoper'];
         } else {
