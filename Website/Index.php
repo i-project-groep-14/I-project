@@ -6,7 +6,7 @@
 
 
 <div class="hero-full-screen top-bar">
-
+<?php  include_once 'aanroepingen/Zoekfunctie.php';?>
 </div>
 
 

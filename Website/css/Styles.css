@@ -35,11 +35,13 @@
 }
 
 #search:hover{
-  margin: auto;
+  
   background-color: black;
   
 }
-
+input{
+  margin-right: 200px;
+}
 
 .menu-text{
   margin: 35px 0px 0px 0px ;
@@ -74,67 +76,49 @@
 
 
 /*   HOME pagina artikelen   */
-
 .Product-grid-container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  
 }
+
 .Product-grid {
-  
+  width: 1000px;
   display: flex;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  width: 80%;
-  justify-content: space-around;
-  
-  margin-right: 150px;
-  
-  
 }
+
 .Product-grid-item {
+  box-shadow: #1E1E23 2px 2px 2px;
+  border: solid 1px grey ;
+  width: 250px;
+  height: fit-content;
   text-align: center;
-    width: 27%;
-    height: auto;
-    
-    border: solid 1px grey ;
-    
-    margin: 5px;
-    box-shadow: #1E1E23 2px 2px 2px;
-    
 }
+
+
+
+
 
 .Product-grid-item:hover{
   border: solid 2px #F2552C ;
 }
 
 .Product-grid-item img{
- 
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 100px;
 }
 
 .HomepaginaKopjes{
-  
   font-size: 30px;
   padding-top: 2%;
   margin-bottom: 2%;
   margin-left: 22.5%; 
-  border-bottom: solid #F2552C 1px;
-  
-  
+  border-bottom: solid #F2552C 1px; 
 }
 .Product-Flex-End{
   
 }
-
-
-
-
-
-
-
-
 /*   EINDE HOME PAGINA ARTIKELEN */
 
 
