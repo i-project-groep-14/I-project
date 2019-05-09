@@ -4,9 +4,13 @@
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 
-  if(isset($_POST['verzenden_email'])){
-    $_SESSION['email'] = $_POST['email'];
-    header('Location: registratie_persoonsgegevens.php');
+  if (isset($_POST['verzenden_email'])) {
+    if (strlen($_POST['email']) > 50) {
+      echo "Het aantal karakters is te groot. Het maximale toegestane aantal karakters is 50.";
+    } else {
+      $_SESSION['email'] = $_POST['email'];
+      header('Location: registratie_persoonsgegevens.php');
+    }
   }
 ?>
 
