@@ -1,4 +1,6 @@
 <?php
+ $config = ['pagina' => 'registratie_persoonsgegevens'];
+
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 
@@ -50,22 +52,9 @@
   <?php include_once 'aanroepingen/RubNav.php'; ?>
 </aside>
 
-<!--foundation-->
-<ol class="progress-indicator">
-  <li class="is-complete" data-step="">
-  <span>Verifiëren e-mail</span>
-  </li>
-  <li class="is-current" data-step="">
-  <span>Gegevens invullen</span>
-  </li>
-  <li class="" data-step="">
-  <span>Veiligheid</span>
-  </li>
-  <li class="" data-step="">
-      <span>Klaar</span>
-</li>
-</ol>
-<!--end-->
+<?php
+  include_once 'aanroepingen/registratie_progressbar.php';
+?>
 
         <h2 class="HomepaginaKopjes">Registreren</h2>
         <div class="body-tekst">
