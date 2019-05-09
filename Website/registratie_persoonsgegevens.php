@@ -134,11 +134,11 @@
                     </div>
                     <div class="medium-12 cell">
                       <label>Wachtwoord:</label>
-                      <input type="text" placeholder="Wachtwoord" name="wachtwoord" required>                    
+                      <input type="password" placeholder="Wachtwoord" name="wachtwoord" required>                    
                     </div>
                     <div class="medium-12 cell">
                       <label>Bevestig Wachtwoord:</label>
-                      <input type="text" placeholder="Bevestig wachtwoord" name="bWachtwoord" required>
+                      <input type="password" placeholder="Bevestig wachtwoord" name="bWachtwoord" required>
                     </div>
                     <fieldset class="fieldset medium-12 cell">
                       <legend>Wilt u spullen verkopen?</legend>
