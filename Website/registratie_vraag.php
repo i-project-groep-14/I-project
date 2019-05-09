@@ -6,7 +6,7 @@
   include_once 'aanroepingen/header.php';
 
   if(isset($_POST['register']) && $_POST['veiligheidsvraag'] != "0") {
-    header('Location: index.php');
+    header('Location: registratie_klaar.php');
   } else {
     if (isset($_POST['veiligheidsvraag'])) {
       echo "U moet nog een veiligheidsvraag selecteren.";
@@ -21,7 +21,7 @@
 <?php
   include_once 'aanroepingen/registratie_progressbar.php';
 ?>
-
+   
     <h2 class="HomepaginaKopjes">Veiligheidsvraag</h2>
     <div class="body-tekst">
       <p>

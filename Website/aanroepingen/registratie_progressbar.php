@@ -1,5 +1,6 @@
 <?php
 echo"
+<div class='body-tekst' >
 <ol class='progress-indicator'>
   <li class=";
   if($config['pagina'] == 'registratie_email') {
@@ -36,6 +37,7 @@ echo"
   <li class='' data-step=''>
       <span>Klaar</span>
 </li>
+</div>
 </ol>";
 
 // <ol class="progress-indicator">

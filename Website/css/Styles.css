@@ -201,7 +201,7 @@ input{
 }
 
 .body-tekst {
- margin-left: 19%;
+ margin-left: 22.6%;
 }
 
 
@@ -214,6 +214,13 @@ input{
   justify-content: center;
 }
 
+.scroll-box{
+  overflow: auto; 
+  padding: 1em;
+  width:90%; 
+  height:200px;
+  border: solid black;
+}
 
 .a-op-wit{
   color:#F2552C;
@@ -222,9 +229,9 @@ input{
 
 .progress-indicator {
   list-style: none;
-  width: 75%;
-  margin: 1em auto;
-  padding: 0;
+  width: 100%;
+  margin: 1.5em auto;
+  padding: 0.1;
   display: table;
   table-layout: fixed;
 }
@@ -233,7 +240,7 @@ input{
   position: relative;
   display: table-cell;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .progress-indicator > li span {
@@ -336,7 +343,7 @@ input:checked + .side-label::after {
 
 
 
-/**/
+/*Einde registratie*/
 
 .inlogpaginaContainer {
   padding: 50px;

@@ -27,13 +27,11 @@
     <div class="body-tekst">
         <p>
           Welkom op de registratiepagina. Vul hieronder uw geldige e-mailadres in om te verifiëren. 
-        </p>
-        
+        </p>      
         <form action="" method="post">
           <input type="email" placeholder="E-mail" name="email" required> 
           <input class="button" type="submit" value="Verzenden" name="verzenden_email">
         </form>
-
         <p>
           Vervolgens krijgt u een code toegestuurd, bevestig deze code hieronder om door te gaan met het registreren.
           <br>

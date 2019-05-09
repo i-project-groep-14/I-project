@@ -55,6 +55,7 @@
   <?php include_once 'aanroepingen/RubNav.php'; ?>
 </aside>
 
+
 <?php
   include_once 'aanroepingen/registratie_progressbar.php';
 ?>
@@ -63,7 +64,7 @@
         <div class="body-tekst">
           <p>Dit is de tweede stap van het registreren. Vul a.u.b uw persoonlijkegegevens hieronder in.</p>
           <form action="" method="post" class="form-body-center" > 
-            <div class="row">
+
               <div class="grid-container">  
                 <div class="grid-x grid-padding-x">          
                   <div class="medium-12 cell">
@@ -115,11 +116,11 @@
                     </div>
                     <div class="medium-12 cell">
                       <label>Wachtwoord:</label>
-                      <input type="text" placeholder="Wachtwoord" name="wachtwoord" required>                    
+                      <input type="password" placeholder="Wachtwoord" name="wachtwoord" required>                    
                     </div>
                     <div class="medium-12 cell">
                       <label>Bevestig Wachtwoord:</label>
-                      <input type="text" placeholder="Bevestig wachtwoord" name="bWachtwoord" required>
+                      <input type="password" placeholder="Bevestig wachtwoord" name="bWachtwoord" required>
                     </div>
                     <fieldset class="fieldset medium-12 cell">
                       <legend>Wilt u spullen verkopen?</legend>
@@ -136,7 +137,7 @@
                       <input type="text" name="verkoopgegevens-bank" placeholder="Bank">
                       <p>
                         Om uw verkopersaccount te activeren heeft u een code nodig. Deze code kan opgestuurd worden
-                        bij post of er wordt naar uw creditcard gegevens gevraagd. Maak een keuze hieronder.
+                        via post of er wordt naar uw creditcard gegevens gevraagd. Maak een keuze hieronder.
                       </p>
                       <input type="radio" name="controle" id="controle-creditcard">
                       <label for="controle-creditcard" class="label-next side-label">Creditcard:</label>
@@ -148,7 +149,7 @@
                         <input type="text" name="creditcardnummer" id="creditcard-gegevens" placeholder="Creditcardnummer">
                       </div>
                       </div>
-                      </div>
+
                       </fieldset>
                   </div>
               </div>
