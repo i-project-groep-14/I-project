@@ -12,7 +12,7 @@ include_once 'aanroepingen/RubNavMobiel.php'
 </aside>
 
 <br>
-<div id="footer">
+<div class="rubrieken">
     <div class = "marginlinks">
     <input type="radio" name="Kaas" value="op">Prijs Oplopend<br>
     <input type="radio" name="Kaas" value="af">Prijs Aflopend<br>
@@ -35,8 +35,8 @@ include_once 'aanroepingen/RubNavMobiel.php'
     <ul>
         <h3>Prijs</h3>
             <div class="slidecontainer">
-  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-  <h5> van: 10 Tot: 100 </h5>
+  <input type="range" min="1" max="100" value="50" class="slider">
+  <h5> Van: 10 Tot: 100</h5>
 </div>
             </ul>
     </div>
