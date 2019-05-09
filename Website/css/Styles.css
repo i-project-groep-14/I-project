@@ -15,17 +15,22 @@
   border: 1px solid black;
 }
 
-#loginbutton{
-  margin-right: 30px;
+.loginbutton{
+  margin: auto;
   width: 200px;
   border-radius: 2px;
   box-shadow:   3px 3px #ccc;
 }
 
-#loginbutton:hover{
-  margin: 30px;
+.loginbutton:hover{
+  margin: auto;
   background-color: black;
   border-radius: 0px;
+}
+
+.uitlogknop>input{
+  text-decoration: none;
+  all: unset;
 }
 
 
@@ -40,6 +45,9 @@
   
 }
 
+input{
+  margin-right: 200px;
+}
 
 .menu-text{
   
@@ -813,11 +821,20 @@ ul{
 
 .hero-full-screen .top-bar {
   background: transparent;
-  
 }
 
 .hero-full-screen .top-bar .menu {
   background: transparent;
+}
+
+.menu>.gebruiker{
+  margin: auto;
+  border-radius: 2px;
+  margin-right: 10px;
+  padding: .5em 10px;
+  background: #A4E8F9;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-full-screen .top-bar .menu-text {
@@ -903,4 +920,3 @@ h1 {
 
 h5 {
   border-style: solid;
-}
