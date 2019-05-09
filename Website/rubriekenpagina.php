@@ -12,7 +12,7 @@ include_once 'aanroepingen/RubNavMobiel.php'
 </aside>
 
 <br>
-<footer id="footer">
+<div id="footer">
     <div class = "marginlinks">
     <input type="radio" name="Kaas" value="op">Prijs Oplopend<br>
     <input type="radio" name="Kaas" value="af">Prijs Aflopend<br>
@@ -40,10 +40,7 @@ include_once 'aanroepingen/RubNavMobiel.php'
 </div>
             </ul>
     </div>
-</footer>
-</body>
-</html>
-
+</div>
     <div class="rubriekenContainer">
     <article class="RubriekenProducten" >
         <h3>Een Mooie Kaaskast</h3>
