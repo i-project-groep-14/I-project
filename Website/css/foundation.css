@@ -2824,7 +2824,7 @@ label {
   display: -ms-flexbox;
   display: flex;
   margin: auto;
-  width: 50%;
+  width: fit-content;
   -webkit-box-align: stretch;
   -webkit-align-items: stretch;
       -ms-flex-align: stretch;

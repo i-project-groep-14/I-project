@@ -5,6 +5,8 @@
     <h1 class="HomepaginaKopjes">   Uw biedingen  </h1>
 <div class='Product-grid-container'>
 
+
+
   <div class='Product-grid'>
     <div class='Product-grid-item first-item'>
     <h3>Viking fiets</h3>

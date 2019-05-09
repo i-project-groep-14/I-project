@@ -1,10 +1,16 @@
 <?php
+  $config = ['pagina' => 'registratie_email'];
+
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 
-  if(isset($_POST['verzenden_email'])){
-    $_SESSION['email'] = $_POST['email'];
-    header('Location: registratie_persoonsgegevens.php');
+  if (isset($_POST['verzenden_email'])) {
+    if (strlen($_POST['email']) > 50) {
+      echo "Het aantal karakters is te groot. Het maximale toegestane aantal karakters is 50.";
+    } else {
+      $_SESSION['email'] = $_POST['email'];
+      header('Location: registratie_persoonsgegevens.php');
+    }
   }
 ?>
 
@@ -12,22 +18,9 @@
   <?php include_once 'aanroepingen/RubNav.php'; ?>
 </aside>
 
-<!--foundation-->
-<ol class="progress-indicator">
-  <li class="is-current" data-step="">
-    <span>Verifiëren e-mail</span>
-  </li>
-  <li class="" data-step="">
-    <span>Gegevens invullen</span>
-  </li>
-  <li class="" data-step="">
-    <span>Veiligheid</span>
-  </li>
-  <li class="" data-step="">
-      <span>Klaar</span>
-</li>
-</ol>
-<!--end-->
+<?php
+  include_once 'aanroepingen/registratie_progressbar.php';
+?>
 
 
  <h2 class="HomepaginaKopjes">Registreren</h2>

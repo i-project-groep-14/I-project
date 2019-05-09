@@ -1,4 +1,6 @@
 <?php
+  $config = ['pagina' => 'wachtwoordvergeten'];
+
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 ?>

@@ -15,17 +15,22 @@
   border: 1px solid black;
 }
 
-#loginbutton{
+.loginbutton{
   margin: auto;
   width: 200px;
   border-radius: 2px;
   box-shadow:   3px 3px #ccc;
 }
 
-#loginbutton:hover{
+.loginbutton:hover{
   margin: auto;
   background-color: black;
   border-radius: 0px;
+}
+
+.uitlogknop>input{
+  text-decoration: none;
+  all: unset;
 }
 
 
@@ -35,15 +40,20 @@
 }
 
 #search:hover{
-  margin: auto;
+  
   background-color: black;
   
 }
 
+input{
+  margin-right: 200px;
+}
 
 .menu-text{
-  margin: 35px 0px 0px 0px ;
-  font-size: 20px;
+  
+  font-size: 50px;
+  text-align: center;
+  border-bottom: 1px solid #f2552c;
 }
 
 
@@ -59,49 +69,36 @@
 .input-group-rounded .input-group-button .button {
   border-radius: 0 5000px 5000px 0;
   font-size: 0.8rem;
-  
 }
 
 .NavRubriekAside{
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  float:left;
-  width: auto;
-  
-  
+  height: 0px;
+    width: 20%;  
 }
 
-
 /*   HOME pagina artikelen   */
-
 .Product-grid-container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  
-}
-.Product-grid {
-  
-  display: flex;
-  flex-wrap: wrap;
   width: 80%;
-  justify-content: space-around;
-  
-  margin-right: 150px;
-  
-  
+  margin-left: 20%;
 }
+
+.Product-grid {
+  width: 1000px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  
+
+}
+
 .Product-grid-item {
+  box-shadow: #1E1E23 2px 2px 2px;
+  border: solid 1px grey ;
+  width: 250px;
+  height: fit-content;
   text-align: center;
-    width: 27%;
-    height: auto;
-    
-    border: solid 1px grey ;
-    
-    margin: 5px;
-    box-shadow: #1E1E23 2px 2px 2px;
-    
 }
 
 .Product-grid-item:hover{
@@ -109,31 +106,17 @@
 }
 
 .Product-grid-item img{
- 
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 100px;
 }
 
 .HomepaginaKopjes{
-  
   font-size: 30px;
   padding-top: 2%;
   margin-bottom: 2%;
   margin-left: 22.5%; 
-  border-bottom: solid #F2552C 1px;
-  
-  
+  border-bottom: solid #F2552C 1px; 
 }
-.Product-Flex-End{
-  
-}
-
-
-
-
-
-
-
 
 /*   EINDE HOME PAGINA ARTIKELEN */
 
@@ -160,9 +143,6 @@
 
 #footer a{
   color: black;
-}
-.FooterItems{
-  
 }
 
 .center{
@@ -668,6 +648,7 @@ ul{
   }
   .MobileNav{
     visibility: visible;
+    position: relative;
     
   }
 
@@ -841,11 +822,20 @@ ul{
 
 .hero-full-screen .top-bar {
   background: transparent;
-  
 }
 
 .hero-full-screen .top-bar .menu {
   background: transparent;
+}
+
+.menu>.gebruiker{
+  margin: auto;
+  border-radius: 2px;
+  margin-right: 10px;
+  padding: .5em 10px;
+  background: #A4E8F9;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-full-screen .top-bar .menu-text {
@@ -874,7 +864,6 @@ ul{
 
 .meerkeuzevak {
   width: 300px;
-  display: inline;
   margin-left: 50px;
 }
 
@@ -903,3 +892,32 @@ h3 {
 .inline {
   display: inline;
 }
+
+h1 {
+  text-align: center;
+}
+
+.overonsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+
+.rubrieken { 
+  
+  display: table;
+   width: 100%; 
+   table-layout: fixed;
+   border-top: 1px solid #F2552C;
+  margin-top: 30px;
+  padding: 10px 10px 10px 10px;
+  position: relative;
+  background: #A4E8F9;
+
+}
+.rubrieken > div { 
+  display: table-cell;
+}
+
+h5 {
+  border-style: solid;

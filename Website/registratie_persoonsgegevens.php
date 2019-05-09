@@ -1,4 +1,6 @@
 <?php
+  $config = ['pagina' => 'registratie_persoonsgegevens'];
+
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 
@@ -9,36 +11,39 @@
     $query -> execute(array(
       ':gebruikersnaam' => $_POST['gebruikersnaam']
     ));
-
     $row = $query -> fetch();
     if($_POST['gebruikersnaam'] != $row['gebruikersnaam']) {
-      if($_POST['wachtwoord'] == $_POST['bWachtwoord']) {
-        $_SESSION['gebruikersnaam'] = $_POST['gebruikersnaam'];
-        $_SESSION['voornaam'] = $_POST['voornaam'];
-        $_SESSION['achternaam'] = $_POST['achternaam'];
-        $_SESSION['adres'] = $_POST['adres'];
-        if(isset($_POST['oAdres'])) {
-          $_SESSION['oAdres'] = $_POST['oAdres'];
-        }
-        $_SESSION['postcode'] = $_POST['postcode'];
-        $_SESSION['plaats'] = $_POST['plaats'];
-        $_SESSION['land'] = $_POST['land'];
-        $_SESSION['telnr1'] = $_POST['telnr1'];
-        if(isset($_POST['telnr2'])) {
-          $_SESSION['telnr2'] = $_POST['telnr2'];
-        }
-        $_SESSION['geboortedatum'] = $_POST['geboortedatum'];
-        $_SESSION['wachtwoord'] = $_POST['wachtwoord'];
-        // $_SESSION['bWachtwoord'] = $_POST['bWachtwoord'];
-        if(isset($_POST['eenVerkoper'])) {
-          $_SESSION['eenVerkoper'] = $_POST['eenVerkoper'];
-        } else {
-          $_SESSION['eenVerkoper'] = 2;
-        }
 
-        header('Location: registratie_vraag.php');
+      if (strlen($_POST['gebruikersnaam']) > 50) {
+        echo "Het aantal karakters is te groot. Het maximale toegestane aantal karakters is 50.";
       } else {
-        echo "De wachtwoorden komen niet met elkaar overeen.";
+        if($_POST['wachtwoord'] == $_POST['bWachtwoord']) {
+          $_SESSION['gebruikersnaam'] = $_POST['gebruikersnaam'];
+          $_SESSION['voornaam'] = $_POST['voornaam'];
+          $_SESSION['achternaam'] = $_POST['achternaam'];
+          $_SESSION['adres'] = $_POST['adres'];
+          if(isset($_POST['oAdres'])) {
+            $_SESSION['oAdres'] = $_POST['oAdres'];
+          }
+          $_SESSION['postcode'] = $_POST['postcode'];
+          $_SESSION['plaats'] = $_POST['plaats'];
+          $_SESSION['land'] = $_POST['land'];
+          $_SESSION['telnr1'] = $_POST['telnr1'];
+          if(isset($_POST['telnr2'])) {
+            $_SESSION['telnr2'] = $_POST['telnr2'];
+          }
+          $_SESSION['geboortedatum'] = $_POST['geboortedatum'];
+          $_SESSION['wachtwoord'] = $_POST['wachtwoord'];
+          if(isset($_POST['eenVerkoper'])) {
+            $_SESSION['eenVerkoper'] = $_POST['eenVerkoper'];
+          } else {
+            $_SESSION['eenVerkoper'] = 2;
+          }
+
+          header('Location: registratie_vraag.php');
+        } else {
+          echo "De wachtwoorden komen niet met elkaar overeen.";
+        }
       }
     } else {
       echo "Gebruikersnaam is al in gebruik.";
@@ -50,22 +55,10 @@
   <?php include_once 'aanroepingen/RubNav.php'; ?>
 </aside>
 
-<!--foundation-->
-<ol class="progress-indicator">
-  <li class="is-complete" data-step="">
-  <span>Verifiëren e-mail</span>
-  </li>
-  <li class="is-current" data-step="">
-  <span>Gegevens invullen</span>
-  </li>
-  <li class="" data-step="">
-  <span>Veiligheid</span>
-  </li>
-  <li class="" data-step="">
-      <span>Klaar</span>
-</li>
-</ol>
-<!--end-->
+<?php
+  include_once 'aanroepingen/registratie_progressbar.php';
+?>
+
         <h2 class="HomepaginaKopjes">Registreren</h2>
         <div class="body-tekst">
           <p>Dit is de tweede stap van het registreren. Vul a.u.b uw persoonlijkegegevens hieronder in.</p>
