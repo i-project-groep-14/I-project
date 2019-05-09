@@ -34,9 +34,12 @@ include_once 'aanroepingen/RubNavMobiel.php'
     <div>
     <ul>
         <h3>Prijs</h3>
-            <div class="slidecontainer">
-  <input type="range" min="1" max="100" value="50" class="slider">
-  <h5> Van: 10 Tot: 100</h5>
+        <div class="slidecontainer">
+  <input type="range" min="1" max="300" value="50" class="slider" id="myRange">
+  <p>Max Prijs: <span id="demo"></span></p>
+</div>
+</div>
+</div>
 </div>
             </ul>
     </div>
@@ -65,7 +68,7 @@ include_once 'aanroepingen/RubNavMobiel.php'
        <input type='submit'value='Bieden!' onclick="window.location.href = 'product.php';" class='button'>
        </div>
         <div class ="center">
-        <a href="#"><img src="images/Eend.jpg"  alt="filmje1"/></a>
+        <img src="images/Eend.jpg"  alt="filmje1"/>
         <p>Locatie: Arnhem</p>
         <p>Huidige hoogste bod:</p>
         <h4>189,99</h4>
@@ -96,5 +99,15 @@ include_once 'aanroepingen/RubNavMobiel.php'
 include_once 'aanroepingen/footer.html';
 ?>
 
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
 
 
