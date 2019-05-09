@@ -99,14 +99,7 @@
             <ul class="menu" data-responsive-menu="accordion">
                 
                 <a href="Index.php"><img src="Images/LogoMetNaam.png" class="Logo" alt="Flowers in Chania"></a>
-                <h1 class="menu-text">EenmaalAndermaal</h1>
-                
-                
-                
-                        
-                        
-
-            
+                <h1 class="menu-text">EenmaalAndermaal</h1>          
         </div>       
         
         <br>
