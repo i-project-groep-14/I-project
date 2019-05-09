@@ -1,5 +1,5 @@
 <?php 
-    // global $config;
+    global $config;
 
     if(!isset($_SESSION)) {
         session_start();
