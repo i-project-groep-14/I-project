@@ -20,18 +20,20 @@
         echo "Het aantal karakters van uw voornaam is te groot. Het maximale toegestane aantal karakters is 20.";
       } else if (strlen($_POST['achternaam']) > 20) {
         echo "Het aantal karakters van uw achternaam is te groot. Het maximale toegestane aantal karakters is 20.";
-      } else if (strlen($_POST['adresregel1']) > 20) {
+      } else if (strlen($_POST['adres']) > 20) {
         echo "Het aantal karakters van uw eerste adresregel is te groot. Het maximale toegestane aantal karakters is 20.";
-      } else if (isset($_POST['adresregel2'])) {
-        if (strlen($_POST['adresregel2']) > 20) {
-          echo "Het aantal karakters van uw tweede adresregel is te groot. Het maximale toegestane aantal karakters is 20.";
-        }
+      } else if (isset($_POST['oAdres']) && strlen($_POST['oAdres']) > 20) {
+        echo "Het aantal karakters van uw tweede adresregel is te groot. Het maximale toegestane aantal karakters is 20.";
       } else if (strlen($_POST['postcode']) > 7) {
         echo "Het aantal karakters van uw postcode is te groot. Het maximale toegestane aantal karakters is 7.";
-      } else if (strlen($_POST['plaatsnaam']) > 20) {
+      } else if (strlen($_POST['plaats']) > 20) {
         echo "Het aantal karakters van uw plaatsnaam is te groot. Het maximale toegestane aantal karakters is 20.";
       } else if (strlen($_POST['land']) > 20) {
         echo "Het aantal karakters van uw land is te groot. Het maximale toegestane aantal karakters is 20.";
+      } else if (strlen($_POST['telnr1']) > 11) {
+        echo "Het aantal karakters van uw eerste telefoonnummer is te groot. Het maximale toegestane aantal karakters is 11.";
+      } else if (isset($_POST['telnr2']) && strlen($_POST['telnr2']) > 11) {
+        echo "Het aantal karakters van uw tweede telefoonnummer is te groot. Het maximale toegestane aantal karakters is 11.";
       } else {
         // wachtwoord check
         if($_POST['wachtwoord'] == $_POST['bWachtwoord']) {
