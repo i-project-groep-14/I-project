@@ -34,9 +34,9 @@ include_once 'aanroepingen/RubNavMobiel.php'
     <div>
     <ul>
         <h3>Prijs</h3>
-        <div class="slidecontainer">
-  <input type="range" min="1" max="300" value="50" class="slider" id="myRange">
-  <p>Max Prijs: <span id="demo"></span></p>
+
+ <p> Van: </p> <input type="text"> 
+ <p> Tot: </p> <input type="text"> 
 </div>
 </div>
 </div>
@@ -99,15 +99,5 @@ include_once 'aanroepingen/RubNavMobiel.php'
 include_once 'aanroepingen/footer.html';
 ?>
 
-<script>
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
-</script>
 
 
