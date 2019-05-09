@@ -216,19 +216,24 @@
   left: 105%;
 }
 
-
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
 
 .body-tekst {
- margin-left: 21em;
- margin-right: 14em;
+ margin-left: 19%;
 }
 
-.label-next {
-  display: inline-block;
+
+.form-body-center{
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
 }
+
 
 .a-op-wit{
   color:#F2552C;
@@ -326,14 +331,10 @@
 
 .btn-pos-right {
  float: right;
- 
- 
 }
 
 .side-label::after {
   display: none;
-
-  /* other styles */
 }
 
 input:checked + .side-label::after {
