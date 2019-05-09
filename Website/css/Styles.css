@@ -15,22 +15,17 @@
   border: 1px solid black;
 }
 
-.loginbutton{
-  margin: auto;
+#loginbutton{
+  margin-right: 30px;
   width: 200px;
   border-radius: 2px;
   box-shadow:   3px 3px #ccc;
 }
 
-.loginbutton:hover{
-  margin: auto;
+#loginbutton:hover{
+  margin: 30px;
   background-color: black;
   border-radius: 0px;
-}
-
-.uitlogknop>input{
-  text-decoration: none;
-  all: unset;
 }
 
 
@@ -45,9 +40,6 @@
   
 }
 
-input{
-  margin-right: 200px;
-}
 
 .menu-text{
   
@@ -821,20 +813,11 @@ ul{
 
 .hero-full-screen .top-bar {
   background: transparent;
+  
 }
 
 .hero-full-screen .top-bar .menu {
   background: transparent;
-}
-
-.menu>.gebruiker{
-  margin: auto;
-  border-radius: 2px;
-  margin-right: 10px;
-  padding: .5em 10px;
-  background: #A4E8F9;
-  display: flex;
-  justify-content: center;
 }
 
 .hero-full-screen .top-bar .menu-text {
@@ -899,4 +882,25 @@ h1 {
 .overonsContainer {
   display: flex;
   justify-content: center;
+}
+
+
+.rubrieken { 
+  
+  display: table;
+   width: 100%; 
+   table-layout: fixed;
+   border-top: 1px solid #F2552C;
+  margin-top: 30px;
+  padding: 10px 10px 10px 10px;
+  position: relative;
+  background: #A4E8F9;
+
+}
+.rubrieken > div { 
+  display: table-cell;
+}
+
+h5 {
+  border-style: solid;
 }
