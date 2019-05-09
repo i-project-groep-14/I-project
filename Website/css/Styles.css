@@ -61,15 +61,15 @@ input{
 .input-group-rounded .input-group-button .button {
   border-radius: 0 5000px 5000px 0;
   font-size: 0.8rem;
-  
 }
 
 .NavRubriekAside{
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  float:left;
-  width: auto;
+  height: 0px;
+  
+  width: 20%;
+  
+
+  
   
   
 }
@@ -79,6 +79,7 @@ input{
 .Product-grid-container {
   display: flex;
   justify-content: center;
+  
 }
 
 .Product-grid {
@@ -651,6 +652,7 @@ ul{
   }
   .MobileNav{
     visibility: visible;
+    position: relative;
     
   }
 
