@@ -938,3 +938,8 @@ h1 {
   background: #f2552c; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
+
+.nav {
+  display: flex;
+  justify-content: center;  
+}
