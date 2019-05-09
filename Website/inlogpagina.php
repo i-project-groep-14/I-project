@@ -1,4 +1,6 @@
 <?php
+  $config = ['pagina' => 'inlogpagina'];
+
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 
@@ -19,8 +21,11 @@
         session_destroy();
         session_start();
 
+        $_SESSION['login'] = $_POST['login'];
+        $_SESSION['gebruikersnaam'] = $inlognaam;
+
         echo "U bent succesvol ingelogd.";
-        // header ('Location: index.php');
+        header ('Location: index.php');
     } else {
       echo "Gebruikersnaam of wachtwoord onjuist.";
     }

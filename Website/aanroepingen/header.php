@@ -24,7 +24,6 @@
         }
         $geboortedatum = $_SESSION['geboortedatum'];
         $wachtwoord = $_SESSION['wachtwoord'];
-        // $wachtwoord_confirm = $_SESSION['bWachtwoord'];
         $rol = $_SESSION['eenVerkoper'];
 
         $vraag = $_POST['veiligheidsvraag'];
@@ -72,6 +71,8 @@
         
         session_destroy();
         session_start();
+        $_SESSION['login'] = true;
+        $_SESSION['gebruikersnaam'] = $gebruikersnaam;
     }
 ?>
 
@@ -93,26 +94,37 @@
 <body>
     
     <div class="top-bar" id="realEstateMenu">
-            
         <div class="top-bar-left">
-                
             <ul class="menu" data-responsive-menu="accordion">
-                
                 <a href="Index.php"><img src="Images/LogoMetNaam.png" class="Logo" alt="Flowers in Chania"></a>
-                <h1 class="menu-text">EenmaalAndermaal</h1>          
-        </div>       
-        
+                <h1 class="menu-text">EenmaalAndermaal</h1>
+        </div>
+
         <br>
+
         <div class="top-bar-right">
             <ul class="menu">
-                <li><a class="button loginbutton" onclick="window.location.href = 'inlogpagina.php';" id="loginbutton">Login</a></li>
+                <?php
+                    if(isset($_SESSION['login'])) {
+                        echo "<li class='gebruiker'>Welkom ".strip_tags($_SESSION['gebruikersnaam']."!</li>");
+                        
+                        echo "<li> 
+                                <form action='index.php' method='post'>
+                                    <input type='submit' value='Uitloggen' name='loguit' class='button loginbutton uitlogknop'>
+                                </form>
+                            </li>";
+                        
+                        if(isset($_POST['loguit'])) {
+                            if(isset($_SESSION)) {
+                                session_destroy();
+                                header ('Location: '.$config['pagina'].'.php');
+                                // om een of andere reden gaat hij altijd naar index
+                            }
+                        }
+                    } else {
+                        echo "<li><a class='button loginbutton' href='inlogpagina.php'>Login</a></li>";
+                    }
+                ?>
             </ul>
-        
         </div>
-        
-        
     </div>
-
-    
-  
-
