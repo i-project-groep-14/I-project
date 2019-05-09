@@ -71,11 +71,8 @@ input{
   justify-content: space-between;
   flex-direction: column;
   float:left;
-  width: auto;
-  
-  
+  width: auto; 
 }
-
 
 /*   HOME pagina artikelen   */
 .Product-grid-container {
@@ -98,10 +95,6 @@ input{
   text-align: center;
 }
 
-
-
-
-
 .Product-grid-item:hover{
   border: solid 2px #F2552C ;
 }
@@ -118,9 +111,7 @@ input{
   margin-left: 22.5%; 
   border-bottom: solid #F2552C 1px; 
 }
-.Product-Flex-End{
-  
-}
+
 /*   EINDE HOME PAGINA ARTIKELEN */
 
 
@@ -146,9 +137,6 @@ input{
 
 #footer a{
   color: black;
-}
-.FooterItems{
-  
 }
 
 .center{
@@ -859,7 +847,6 @@ ul{
 
 .meerkeuzevak {
   width: 300px;
-  display: inline;
   margin-left: 50px;
 }
 
