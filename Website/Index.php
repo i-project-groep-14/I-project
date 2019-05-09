@@ -8,13 +8,14 @@
 
 
 <div class="hero-full-screen top-bar">
-<?php  include_once 'aanroepingen/Zoekfunctie.php';?>
-</div>
+<?php  include_once 'aanroepingen/Zoekfunctie.php';
+
+ ?>
 
 
 <aside  class="NavRubriekAside">
   <?php 
-    include_once 'aanroepingen/RubNav.php' ; 
+    
     include_once 'aanroepingen/RubNavMobiel.php';
   ?>
 </aside>
