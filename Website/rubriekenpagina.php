@@ -1,3 +1,6 @@
+
+
+
 <?php
   $config = ['pagina' => 'rubriekenpagina'];
 
@@ -9,10 +12,11 @@
 <aside class="NavRubriekAside">
 <?php include_once 'aanroepingen/RubNav.php';
 include_once 'aanroepingen/RubNavMobiel.php'
-
 ?>
 </aside>
+
 <br>
+<div class="rubrieken">
 <h5 class="marginlinks"> Antiek en Kunst > Kasten > Kaaskasten </h5>
        
 <select class = "meerkeuzevak"> 
@@ -27,7 +31,7 @@ include_once 'aanroepingen/RubNavMobiel.php'
 <input type="radio" name="Kaas" value="af">Prijs Aflopend<br>
 <input type="radio" name="Kaas" value="op">Looptijd Oplopend<br>
 <input type="radio" name="Kaas" value="af">Looptijd Aflopend<br>
-
+</div>
 </div>
 
     <div class="rubriekenContainer">

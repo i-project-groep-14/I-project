@@ -891,3 +891,12 @@ h3 {
 .inline {
   display: inline;
 }
+
+h1 {
+  text-align: center;
+}
+
+.overonsContainer {
+  display: flex;
+  justify-content: center;
+}
