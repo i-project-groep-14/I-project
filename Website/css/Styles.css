@@ -142,6 +142,8 @@ input{
   color: black;
 }
 
+
+
 .center{
   text-align: center;
 }
@@ -782,6 +784,10 @@ ul{
     left: auto;
     width: 300px;
     height: auto;
+  }
+
+  #footer{
+    width:auto;
   }
 
 }
