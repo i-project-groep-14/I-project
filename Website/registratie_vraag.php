@@ -1,7 +1,6 @@
 <?php
 $config = ['pagina' => 'registratie_vraag'];
 
-
 require_once 'aanroepingen/connectie.php';
 include_once 'aanroepingen/header.php';
 
