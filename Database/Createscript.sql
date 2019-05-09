@@ -30,7 +30,7 @@ create table gebruiker (
    plaatsnaam				varchar(20)			not null,
    land						varchar(20)			not null,
    geboortedatum			date				not null,
-   mailadres				varchar(20)			not null,
+   mailadres				varchar(50)			not null,
    wachtwoord				varchar(255)		not null,
    vraag					numeric(2)			not null,
    antwoordtekst			varchar(20)			not null,
