@@ -1,4 +1,4 @@
-<p id="demo"></p>
+
 
 <script>
 function timer() {

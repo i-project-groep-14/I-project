@@ -14,31 +14,9 @@ drop database EenmaalAndermaal
 create database EenmaalAndermaal
 
 use EenmaalAndermaal
-/*
-use eenmaalandermaal
-insert into vraag values ('1', 'vraag1')
-select * from vraag
-use master
 
-use eenmaalandermaal
-select * from gebruiker
-use master
 
-use eenmaalandermaal
-delete from gebruiker
-select * from gebruiker
-use master
 
-use eenmaalandermaal
-select * from gebruikerstelefoon
-use master
-
-use eenmaalandermaal
-delete from gebruikerstelefoon
-select * from gebruikerstelefoon
-use master
-
-*/
 /*==============================================================*/
 /* Table: Gebruiker												*/
 /*==============================================================*/
@@ -87,7 +65,8 @@ create table gebruikerstelefoon (
 alter table gebruiker
 add constraint fk_gebruiker_vraag foreign key (vraag) references vraag (vraagnummer)
 
-
+/*			Weghalen		*/
+insert into vraag values ('1', 'vraag1')
 
 
 use master

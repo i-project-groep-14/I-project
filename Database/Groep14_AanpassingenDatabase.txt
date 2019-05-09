@@ -11,7 +11,7 @@ Tabel gebruiker:
 	plaatsnaam 		van char (12) 	naar varchar(20)
 	land 			van char(9) 	naar varchar(20)
 	geboortedag 	veranderd naar 'geboortedatum' met een date ipv char
-	mailbox			veranderd naar 'mailadres' met een varchar(20) ipv char(18)
+	mailbox			veranderd naar 'mailadres' met een varchar(50) ipv char(18)
 	wachtwoord 		van char(9) 	naar varchar(255)
 	vraag			van integer(2) 	naar numeric(2)
 	antwoordtekst	van char(6) 	naar varchar(50)

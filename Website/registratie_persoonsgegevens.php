@@ -11,9 +11,9 @@
     $query -> execute(array(
       ':gebruikersnaam' => $_POST['gebruikersnaam']
     ));
-
     $row = $query -> fetch();
     if($_POST['gebruikersnaam'] != $row['gebruikersnaam']) {
+      
       if($_POST['wachtwoord'] == $_POST['bWachtwoord']) {
         $_SESSION['gebruikersnaam'] = $_POST['gebruikersnaam'];
         $_SESSION['voornaam'] = $_POST['voornaam'];
