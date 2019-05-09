@@ -1,7 +1,7 @@
 <?php
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
-  include_once 'timerfunctie.php';
+  include_once 'aanroepingen/timerfunctie.php';
 ?>
 
 
