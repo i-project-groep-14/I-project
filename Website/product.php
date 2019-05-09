@@ -32,16 +32,16 @@
     <img class="thumbnail Fthumbnail" src="Images/Fiets.jpg">
 <div class="row small-up-4">
   <div class="column">
-    <img class="thumbnail" src="https://placehold.it/250x200">
+    <img class="thumbnail" src="images/fiets.jpg">
 </div>
   <div class="column">
-    <img class="thumbnail" src="https://placehold.it/250x200">
+    <img class="thumbnail" src="images/fiets.jpg">
 </div>
   <div class="column">
-    <img class="thumbnail" src="https://placehold.it/250x200">
+    <img class="thumbnail" src="images/fiets.jpg">
 </div>
   <div class="column">
-    <img class="thumbnail" src="https://placehold.it/250x200">
+    <img class="thumbnail" src="images/fiets.jpg">
     </div>
   </div>
 </div>
@@ -100,7 +100,7 @@
 <h4>Reviews</h4>
 <div class="media-object stack-for-small">
 <div class="media-object-section">
-<img class="thumbnail" src="https://placehold.it/200x200">
+<img class="thumbnail" src="images/profielfotoPlaceholder.png">
 </div>
 <div class="media-object-section">
 <h5>Mike Stevenson</h5>
@@ -109,7 +109,7 @@
 </div>
 <div class="media-object stack-for-small">
 <div class="media-object-section">
-<img class="thumbnail" src="https://placehold.it/200x200">
+<img class="thumbnail" src="images/profielfotoPlaceholder.png">
 </div>
 <div class="media-object-section">
 <h5>Mike Stevenson</h5>
@@ -118,7 +118,7 @@
 </div>
 <div class="media-object stack-for-small">
 <div class="media-object-section">
-<img class="thumbnail" src="https://placehold.it/200x200">
+<img class="thumbnail" src="images/profielfotoPlaceholder.png">
 </div>
 <div class="media-object-section">
 <h5>Mike Stevenson</h5>
