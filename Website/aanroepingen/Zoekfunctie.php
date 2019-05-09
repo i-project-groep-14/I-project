@@ -2,7 +2,7 @@
                 
                 
                 <div class="input-group input-group-rounded">
-                        
+                <input  type="search" placeholder="Zoek product..."><br>
                         <input   type="text" placeholder="Postcode">
                       
                         <select>
@@ -13,7 +13,7 @@
                                 <option value="40">40km</option>
                             </select>
                        
-                    <input  type="search" placeholder="Zoek product...">
+                    
                     <div class="input-group-button">
                     <input type="submit" class="button" id="search"  value="Zoek"><br>         
                     </div> 

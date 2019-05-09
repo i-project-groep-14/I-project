@@ -13,8 +13,9 @@
 
 
 <aside  class="NavRubriekAside">
-  <?php include_once 'aanroepingen/RubNav.php'; 
-        include_once 'aanroepingen/RubNavMobiel.php'
+  <?php include_once 'aanroepingen/RubNav.php' ; 
+        include_once 'aanroepingen/RubNavMobiel.php';
+        
   ?>
 
 </aside>
