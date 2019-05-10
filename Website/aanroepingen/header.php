@@ -130,7 +130,7 @@
     </div>
 
 <?php
-    if ($config['pagina'] != 'inlogpagina') {
+    if ($config['pagina'] != 'inlogpagina' || $config['pagina'] != 'registratie_email') {
         include_once 'aanroepingen/RubNav.php';
         include_once 'aanroepingen/RubNavMobiel.php';
     }

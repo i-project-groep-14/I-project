@@ -12,6 +12,9 @@
       header('Location: registratie_persoonsgegevens.php');
     }
   }
+
+  include_once 'aanroepingen/RubNav.php';
+  include_once 'aanroepingen/RubNavMobiel.php';
 ?>
 
 <?php
