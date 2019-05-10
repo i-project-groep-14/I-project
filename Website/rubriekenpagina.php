@@ -25,7 +25,6 @@
     <input type="radio" name="Kaas" value="op">Looptijd Oplopend<br>
     <input type="radio" name="Kaas" value="af">Looptijd Aflopend<br>
 </div>
-
 <div class="tabelvorm">
         <h3>Locatie</h3>
         <select class = "meerkeuzevak"> 
@@ -46,42 +45,39 @@
     <div class="rubriekenContainer">
     <article class="RubriekenProducten" >
         <h3>Een Mooie Kaaskast</h3>
-        <div class ="rechts">
-       <input type='submit'value='Bieden!' onclick="window.location.href = 'product.php';" class='button'>
-       </div>
         <div class ="center">
-        <img src="Images/Kaaskast.jpg" alt="Italian Trulli">
+        <img src="Images/Kaaskast.jpg" alt="Kaaskast">
         <p>Locatie: Arnhem</p>
         <p>Huidige hoogste bod:</p>
         <h4>189,99</h4>
         <p>Veiling sluit over: </p>
         <h4>6d 11u 12m</h4>
+        <div class ="rechts">
+       <input type='submit'value='Bieden!' onclick="window.location.href = 'product.php';" class='button'>
+       </div>
         </div>
     </div>
     </article>
-
+<br>
     <div class="rubriekenContainer">
     <article class="RubriekenProducten">
     <h3>Een Geweldige Rubberen Eend</h3>
-    <div class = "rechts"> 
-       <input type='submit'value='Bieden!' onclick="window.location.href = 'product.php';" class='button'>
-       </div>
         <div class ="center">
-        <img src="images/Eend.jpg"  alt="filmje1"/>
+        <img src="images/Eend.jpg"  alt="Eend"/>
         <p>Locatie: Arnhem</p>
         <p>Huidige hoogste bod:</p>
         <h4>189,99</h4>
         <p>Veiling sluit over:</p>
         <h4>6d 11u 12m</h4>
+        <div class ="rechts"> 
+       <input type='submit'value='Bieden!' onclick="window.location.href = 'product.php';" class='button'>
+       </div>
        </div>
     </article>
-
+<br>
     <div class="rubriekenContainer">
     <article class="RubriekenProducten">
     <h3>Een Salade wel over datum</h3>
-    <div class ="rechts">
-       <input type='submit'value='Bieden!' onclick="window.location.href = 'product.php';" class='button'>
-       </div>
         <div class ="center">
        <img src="images/Salade.jpg"  alt="filmje1"/>
         <p>Locatie: Arnhem</p>
@@ -89,6 +85,9 @@
         <h4>189,99</h4>
         <p>Veiling sluit over:</p>
         <h4>6d 11u 12m</h4>
+        <div class ="rechts">
+       <input type='submit'value='Bieden!' onclick="window.location.href = 'product.php';" class='button'>
+       </div>
         </div>
         </article>
         </div>
