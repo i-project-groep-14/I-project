@@ -5199,6 +5199,10 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
   border: 1px solid #e6e6e6;
   border-left: 0; }
 
+  .tabs-content.vertical {
+    border: 1px solid #e6e6e6;
+    border-left: 0; }
+
 .tabs-panel {
   display: none;
   padding: 1rem; }

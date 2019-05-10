@@ -15,7 +15,7 @@
 </div>
 
 
-<span style="font-size:40px;cursor:pointer" onclick="openNav()">&nbsp; &#9776;</span>
+<span class="MobileButton" onclick="openNav()">&nbsp; &#9776;</span>
 
 <script>
 function openNav() {

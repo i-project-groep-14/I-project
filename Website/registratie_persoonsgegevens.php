@@ -74,12 +74,10 @@
 			echo "Gebruikersnaam is al in gebruik.";
 		}
 	}
+
+	include_once 'aanroepingen/RubNav.php';
+	include_once 'aanroepingen/RubNavMobiel.php';
 ?>
-
-<aside  class="NavRubriekAside">
-	<?php include_once 'aanroepingen/RubNav.php'; ?>
-</aside>
-
 
 <?php
 	include_once 'aanroepingen/registratie_progressbar.php';
