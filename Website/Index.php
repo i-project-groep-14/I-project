@@ -16,7 +16,7 @@
 <aside  class="NavRubriekAside">
   <?php 
     
-    include_once 'aanroepingen/RubNavMobiel.php';
+    
   ?>
 </aside>
 

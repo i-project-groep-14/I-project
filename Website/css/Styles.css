@@ -413,6 +413,7 @@ ul{
 	padding: 0;
 	border: none;
   outline: none;
+  
 }
 
 .nav a { text-decoration: none; }
@@ -421,17 +422,72 @@ ul{
 
 /* Menu Container */
 .nav {
-	display: inline-block;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 	position: relative;
 	cursor: default;
   z-index: 500;
-  width: 100%;
+  
+  
 }
 
 /* Menu List */
 .nav > li {
   display: block;
   float: left;
+  
+}
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #f2552c;
+  color: black;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 15%;
+  width: 100%;
+  text-align: center;
+  
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  
+  }
 }
 
 /* Menu Links */
@@ -439,19 +495,18 @@ ul{
 	position: relative;
 	display: block;
 	z-index: 510;
-	height: 54px;
+	height: auto;
 	padding: 0 20px;
-	line-height: 54px;
+  line-height: 54px;
+  
 	
-	font-family: Helvetica, Arial, sans-serif;
-	font-weight: bold;
+	text-align: center;
+	
 	font-size: 13px;
 	color: #fcfcfc;
 	text-shadow: 0 0 1px rgba(0,0,0,.35);
 
 	background: #f2552c;
-	border-left: 1px solid black;
-	border-right: 1px solid black;
 
 	-webkit-transition: all .3s ease;
 	-moz-transition: all .3s ease;
@@ -467,72 +522,7 @@ ul{
 	border-left: none;
 }
 
-/* Search Form */
-.nav > li.nav-search > form {
-	position: relative;
-	width: inherit;
-	height: 54px;
-	z-index: 510;
-	border-left: 1px solid #4b4441;
-}
 
-.nav > li.nav-search input[type="text"] {
-	display: block;
-	float: left;
-	width: 1px;
-	height: 24px;
-	padding: 15px 0;
-	line-height: 24px;
-
-	font-family: Helvetica, Arial, sans-serif;
-	font-weight: bold;
-	font-size: 13px;
-	color: #999999;
-	text-shadow: 0 0 1px rgba(0,0,0,.35);
-
-	background: #372f2b;
-
-	-webkit-transition: all .3s ease 1s;
-	-moz-transition: all .3s ease 1s;
-	-o-transition: all .3s ease 1s;
-	-ms-transition: all .3s ease 1s;
-	transition: all .3s ease 1s;
-}
-
-.nav > li.nav-search input[type="text"]:focus { color: #fcfcfc; }
-
-.nav > li.nav-search input[type="text"]:focus,
-.nav > li.nav-search:hover input[type="text"] {
-	width: 110px;
-	padding: 15px 20px;
-
-	-webkit-transition: all .3s ease .1s;
-	-moz-transition: all .3s ease .1s;
-	-o-transition: all .3s ease .1s;
-	-ms-transition: all .3s ease .1s;
-	transition: all .3s ease .1s;
-}
-
-.nav > li.nav-search input[type="submit"] {
-	display: block;
-	float: left;
-	width: 20px;
-	height: 54px;
-	padding: 0 25px;
-	cursor: pointer;
-
-	background: #372f2b url(../img/search-icon.png) no-repeat center center;
-
-	border-radius: 0 3px 3px 0;
-
-	-webkit-transition: all .3s ease;
-	-moz-transition: all .3s ease;
-	-o-transition: all .3s ease;
-	-ms-transition: all .3s ease;
-	transition: all .3s ease;
-}
-
-.nav > li.nav-search input[type="submit"]:hover { background-color: #4b4441; }
 
 /* Menu Dropdown */
 .nav > li > div {
@@ -546,7 +536,7 @@ ul{
 	visibility: hidden;
 	overflow: hidden;
 
-	background: #ffffff;
+	background: #ffff;
 	border-radius: 0 0 3px 3px;
 
 	-webkit-transition: all .3s ease .15s;
@@ -594,8 +584,8 @@ ul{
 
 .nav .nav-column li a:hover { color: #666666; }
 .MobileNav{
-  visibility: hidden;
-}
+  display:none;
+  }
 
 @media (max-width: 1000px) {
   .nav {
@@ -603,7 +593,7 @@ ul{
     
   }
   .MobileNav{
-    visibility: visible;
+    display: flex;
     position: relative;
     
   }
@@ -735,17 +725,24 @@ ul{
   }
 
   #footer{
-    visibility: hidden;
-width: 100%;
+    display: none;
+    width: 100%;
+    
    
   }
   #footerMobiel{
-    visibility: visible;
+    
+    
     width: 100%;
     background: #A4E8F9;
     color: black;
+    height: 50px;
   }
 
+}
+
+#footerMobiel{
+  display: none;
 }
 
 
@@ -946,7 +943,3 @@ h1 {
   cursor: pointer; /* Cursor on hover */
 }
 
-.nav {
-  display: flex;
-  justify-content: center;  
-}

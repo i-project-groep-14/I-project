@@ -128,4 +128,6 @@
             </ul>
         </div>
     </div>
-    <?php include_once 'aanroepingen/RubNav.php' ?>
+    <?php include_once 'aanroepingen/RubNav.php';
+    include_once 'aanroepingen/RubNavMobiel.php'; ?>
+    

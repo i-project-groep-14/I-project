@@ -1,3 +1,5 @@
+
+
 <?php
   $config = ['pagina' => 'product'];
 
@@ -13,7 +15,7 @@
 </aside><br>
 
 
-<div class="row columns  " id="MarginProductNav">
+<div class="row columns"> 
   <nav aria-label="You are here:" role="navigation">
     <ul class="breadcrumbs">
       <li><a href="#">Home</a></li>
