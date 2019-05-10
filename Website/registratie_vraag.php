@@ -15,6 +15,8 @@ if(isset($_POST['register']) && isset($_POST['veiligheidsvraag'])) {
 }
 ?>
   
+
+  
 <?php
   include_once 'aanroepingen/registratie_progressbar.php';
 ?>

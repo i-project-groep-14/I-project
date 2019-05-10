@@ -5,6 +5,8 @@
   include_once 'aanroepingen/header.php';
 ?>
 
+
+
 <br>
 
  <h1 class="InlogpaginaKopje"> Wachtwoord Vergeten? </h1>

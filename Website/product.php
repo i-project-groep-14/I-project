@@ -6,8 +6,8 @@
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 ?>
+<?php  ; ?>
 
-<br>
 
 
 <div class="row columns"> 
