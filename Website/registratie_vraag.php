@@ -10,7 +10,7 @@ if(isset($_POST['register']) && isset($_POST['veiligheidsvraag'])) {
   } else if ($_POST['veiligheidsvraag'] == 0) {
     echo "U moet nog een veiligheidsvraag selecteren.";
   } else {
-    header('Location: index.php');
+    header('Location: registratie_klaar.php');
   }
 }
 
