@@ -5,11 +5,6 @@
   include_once 'aanroepingen/header.php';
 ?>
 
-<aside class="NavRubriekAside">
-<?php include_once 'aanroepingen/RubNav.php';
-include_once 'aanroepingen/RubNavMobiel.php'
-?>
-</aside>
 <div class="row columns"> 
   <nav aria-label="You are here:" role="navigation">
     <ul class="breadcrumbs">
@@ -22,6 +17,7 @@ include_once 'aanroepingen/RubNavMobiel.php'
   </nav>
 </div>
 <br>
+
 <div class="rubrieken">
 <div class ="tabelvorm">
     <input type="radio" name="Kaas" value="op">Prijs Oplopend<br>
