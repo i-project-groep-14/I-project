@@ -74,6 +74,9 @@
 			echo "Gebruikersnaam is al in gebruik.";
 		}
 	}
+
+	include_once 'aanroepingen/RubNav.php';
+	include_once 'aanroepingen/RubNavMobiel.php';
 ?>
 
 <?php
