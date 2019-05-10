@@ -22,8 +22,10 @@
 
 
 <div class="row Margin">
-  <div class="medium-6 columns MarginProduct">
+  <div class="medium-6 columns ">
+    <div class="center">
     <img class="thumbnail Fthumbnail" src="Images/Fiets.jpg">
+</div>
 <div class="row small-up-4">
   <div class="column">
     <img class="thumbnail" src="images/fiets.jpg">
@@ -85,29 +87,21 @@
 </div>
 </div>
 </div>
-
-<div class="column row">
 <hr>
+<div class=" column flex-center">
 
-<div class="tabs-content MarginProduct" data-tabs-content="example-tabs">
+
+<div class="tabs-content rows" data-tabs-content="example-tabs">
 <div class="tabs-panel is-active" id="panel1">
-<h4>Reviews</h4>
+<h4>Biedingen</h4>
 <div class="media-object stack-for-small">
 <div class="media-object-section">
 <img class="thumbnail" src="images/profielfotoPlaceholder.png">
 </div>
+
 <div class="media-object-section">
-<h5>Mike Stevenson</h5>
-<p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
-</div>
-</div>
-<div class="media-object stack-for-small">
-<div class="media-object-section">
-<img class="thumbnail" src="images/profielfotoPlaceholder.png">
-</div>
-<div class="media-object-section">
-<h5>Mike Stevenson</h5>
-<p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you</p>
+<h5>Mike Stevenson  &nbsp; &nbsp; &nbsp; <span class="rechts ProductBod">€39,99</span></h5>
+
 </div>
 </div>
 <div class="media-object stack-for-small">
@@ -115,17 +109,20 @@
 <img class="thumbnail" src="images/profielfotoPlaceholder.png">
 </div>
 <div class="media-object-section">
-<h5>Mike Stevenson</h5>
-<p>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you</p>
+<h5>Mike Stevenson &nbsp; &nbsp; &nbsp; <span class="rechts ProductBod">€29,99</span></h5>
 </div>
 </div>
-<label>
-My Review
-<textarea placeholder="None"></textarea>
-</label>
-<button class="button">Submit Review</button>
+<div class="media-object stack-for-small">
+<div class="media-object-section">
+<img class="thumbnail" src="images/profielfotoPlaceholder.png">
 </div>
-<div class="tabs-panel" id="panel2">
+<div class="media-object-section">
+<h5>Mike Stevenson &nbsp; &nbsp; &nbsp; <span class="rechts ProductBod">€19,99</span></h5>
+</div>
+</div>
+
+</div>
+
 
 </div>
 </div>

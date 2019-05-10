@@ -135,7 +135,10 @@ input{
   color: black;
 }
 
-
+.flex-center{
+  display:flex;
+  justify-content: center;
+}
 
 
 
@@ -148,15 +151,14 @@ input{
   display:flex;
   flex-direction: column;
   list-style: none;
-  
-  margin: 0% 5%;
+  margin-right: 3px;
 }
 
 .row{
   display:flex;
   flex-direction: row;
   list-style: none;
-  margin: 20px;
+  margin: 30px;
 }
 
 
@@ -485,6 +487,11 @@ ul{
   top: 20px;
   right: 45px;
   font-size: 60px;
+}
+
+.row .small-up-4{
+  width: 80%;
+  margin: 0px;
 }
 
 @media screen and (max-height: 450px) {
@@ -839,8 +846,14 @@ ul{
   display: inline;
 }
 
+.row .center{
+  padding-left: 100px;
+}
 
-
+.ProductBod{
+  color:red;
+  
+}
 .rubriekenContainer img {
   width: 300px;
   height: 230px;
@@ -882,23 +895,25 @@ h1 {
 
 
 .thumbnail{
+  display:flex;
   border:4px solid #fefefe;
   box-shadow:0 0 0 1px rgba(10,10,10,.2);
-  display:inline-block;line-height:0;
-  max-width:100%;
-  transition:box-shadow .2s ease-out;border-radius:0;
-  margin-bottom:1rem;
   
+  line-height:0;
+  
+  transition:box-shadow .2s ease-out;border-radius:0;
 }
 
 .Fthumbnail{
-  width: 80%;
+  width: 350px;
+  align-content: center;
   height: 250px;
 }
 .thumbnail:focus,.thumbnail:hover{
   box-shadow:0 0 6px 1px #F2552C;
 }
 .title-bar{
-  background:#0a0a0a;color:#fefefe;
+  background:#0a0a0a;
+  color:#fefefe;
   padding:.5rem
 }
