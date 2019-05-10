@@ -23,7 +23,7 @@ if(isset($_POST['register']) && isset($_POST['veiligheidsvraag'])) {
   include_once 'aanroepingen/registratie_progressbar.php';
 ?>
   
-  <h2 class="HomepaginaKopjes">Veiligheidsvraag</h2>
+  <h2 class="HomepaginaKopjes center">Veiligheidsvraag</h2>
   <div class="body-tekst">
     <p>
     Dit is de derde stap van het registreren. 
@@ -32,26 +32,35 @@ if(isset($_POST['register']) && isset($_POST['veiligheidsvraag'])) {
     </p>
   
     <form action="" method="post">
-      <label>Kies één veiligeheidsvraag.</label>
-      <select name="veiligheidsvraag">
-        <option value="0">...</option>
-        <option value="1">Vraag 1</option>
-        <option value="2">Vraag 2</option>
-        <option value="3">Vraag 3</option>
-        <option value="4">Vraag 4</option>
-        <option value="5">Vraag 5</option>
-      </select>
-    
-      <br>
-      <br>
-  
-      <label>Vul het antwoordt in a.u.b.</label>
-      <input type="text" name="veiligheidsvraag_antwoord" required>
-  
-      <br> 
-  
-      <input class="button" type="submit" value="Verzenden" name="register">
-      <button class="button btn-pos-right" onclick="window.location.href = 'registratie_persoonsgegevens.php';">Terug</button>
+    <div class="grid-container">  
+      <div class="grid-x grid-padding-x">
+        <div class="medium-12 cell">
+      
+          <label>Kies één veiligeheidsvraag.</label>
+          <select name="veiligheidsvraag">
+            <option value="0">...</option>
+            <option value="1">Vraag 1</option>
+            <option value="2">Vraag 2</option>
+            <option value="3">Vraag 3</option>
+            <option value="4">Vraag 4</option>
+            <option value="5">Vraag 5</option>
+          </select>
+        </div>
+          <br>
+          <br>
+        <div class="medium-12 cell">
+          <label>Vul het antwoordt in a.u.b.</label>
+          <input type="text" name="veiligheidsvraag_antwoord" required>
+        </div>
+        <div class="center">
+          <input class="button" type="submit" value="Verzenden" name="register">
+          <div class=" btn-pos-right">
+            <button class="button" onclick="window.location.href = 'registratie_persoonsgegevens.php';">Terug</button>
+          </div>
+        </div>
+
+          </div>
+          </div>
     </form>
   </div>
   

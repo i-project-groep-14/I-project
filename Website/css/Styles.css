@@ -202,26 +202,35 @@ input{
   visibility: visible;
 }
 
+
 .body-tekst {
- margin-left: 22.6%;
+ /*margin-left: 22.6%;*/
+ /*margin: 1em auto;*/
+ display: flex;
+ justify-content: center;
+ align-content: flex-start;
+ text-align: left;
+ flex-direction: column;
+ margin-left: 12%;
+ margin-right: 12%;
 }
 
 
 .form-body-center{
-  display: flex;
-  justify-content: center;
-  align-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: center;
+  border: solid black;
+  border-width: 1px;
+  padding: 1em;
 }
 
 .scroll-box{
   overflow: auto; 
   padding: 1em;
-  width:90%; 
+  border-width: 1px;
+  width:80%; 
   height:200px;
   border: solid black;
+  margin: auto;
+  text-align: start;
 }
 
 .a-op-wit{

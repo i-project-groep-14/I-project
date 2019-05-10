@@ -84,12 +84,11 @@
 <?php
 	include_once 'aanroepingen/registratie_progressbar.php';
 ?>
-
-				<h2 class="HomepaginaKopjes">Registreren</h2>
+			<h2 class="HomepaginaKopjes center">Registreren</h2>
 				<div class="body-tekst">
-					<p>Dit is de tweede stap van het registreren. Vul a.u.b uw persoonlijkegegevens hieronder in.</p>
+					<p class="center">Dit is de tweede stap van het registreren. Vul a.u.b uw persoonlijkegegevens hieronder in.</p>
 					<form action="" method="post" class="form-body-center" > 
-						<div class="row">
+						<div class="">
 							<div class="grid-container">  
 								<div class="grid-x grid-padding-x">  
 
@@ -194,8 +193,10 @@
 								</div>
 							</div>
 						</div>
+						<div class="center">
 						<p>Mocht u nu nog geen verkoper zijn, kunt u dit altijd later aanpassen.<p>         
-						<input class="button" type="submit" name="verzenden_pers" value="Verzenden">        
+						<input class="button" type="submit" name="verzenden_pers" value="Verzenden">    
+						</div>    
 					</form>
 				</div>
 

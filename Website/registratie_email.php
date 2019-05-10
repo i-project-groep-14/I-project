@@ -23,14 +23,21 @@
 ?>
 
 
- <h2 class="HomepaginaKopjes">Registreren</h2>
-    <div class="body-tekst">
+ <h2 class="HomepaginaKopjes center">Registreren</h2>
+    <div class=" body-tekst">
         <p>
           Welkom op de registratiepagina. Vul hieronder uw geldige e-mailadres in om te verifiëren. 
-        </p>      
+        </p> 
+           
         <form action="" method="post">
-          <input type="email" placeholder="E-mail" name="email" required> 
-          <input class="button" type="submit" value="Verzenden" name="verzenden_email">
+        <div class="grid-container">  
+          <div class="grid-x grid-padding-x">
+            <div class="medium-12 cell">
+              <input type="email" placeholder="E-mail" name="email" required> 
+              <input class="button" type="submit" value="Verzenden" name="verzenden_email">
+            </div>
+          </div>
+        </div>
         </form>
         <p>
           Vervolgens krijgt u een code toegestuurd, bevestig deze code hieronder om door te gaan met het registreren.
@@ -40,9 +47,16 @@
           om de e-mail opnieuw te sturen.
         </p>
         <form action="" method="post">
-          <input type="text" placeholder="Code" required> 
-          <input class="button" type="submit" value="Bevestigen" name="bevestigen_email">
+          <div class="grid-container">  
+            <div class="grid-x grid-padding-x">
+              <div class="medium-12 cell">
+                <input type="text" placeholder="Code" required> 
+                <input class="button" type="submit" value="Bevestigen" name="bevestigen_email">
+              </div>
+            </div>
+          </div>
         </form>
+        
     </div>
       
 <?php
