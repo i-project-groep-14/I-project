@@ -27,7 +27,7 @@
                 <h4>€24,99</h4>
                 <p>Locatie: Arnhem</p>
                 
-                <input type='submit'value='Bekijk meer!' onclick='window.location.href = 'product.php';' class='button'>
+                <a href='product.php'><input type='submit'value='Bekijk meer!' class='button'></a>
             </div>
             <div class='Product-grid-item first-item'>
                 <h3>Viking fiets</h3>
@@ -37,7 +37,7 @@
                 <h4>€24,99</h4>
                 <p>Locatie: Arnhem</p>
                 
-                <input type='submit'value='Bekijk meer!' onclick='window.location.href = 'product.php';' class='button'>
+                <a href='product.php'><input type='submit'value='Bekijk meer!' class='button'></a>
             </div>
             <div class='Product-grid-item first-item'>
                 <h3>Viking fiets</h3>
@@ -47,7 +47,7 @@
                 <h4>€24,99</h4>
                 <p>Locatie: Arnhem</p>
                 
-                <input type='submit'value='Bekijk meer!' onclick='window.location.href = 'product.php';' class='button'>
+                <a href='product.php'><input type='submit'value='Bekijk meer!' class='button'></a>
             </div>
             <div class='Product-grid-item first-item'>
                 <h3>Viking fiets</h3>
@@ -57,7 +57,7 @@
                 <h4>€24,99</h4>
                 <p>Locatie: Arnhem</p>
                 
-                <input type='submit'value='Bekijk meer!' onclick='window.location.href = 'product.php';' class='button'>
+                <a href='product.php'><input type='submit'value='Bekijk meer!' class='button'></a>
             </div>
         </div>  
     </div>
