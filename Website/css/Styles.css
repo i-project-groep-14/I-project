@@ -51,6 +51,8 @@ input{
 
 .menu-text{
   font-size: 50px;
+  align-self: center;
+  
 }
 
 
@@ -612,7 +614,12 @@ ul{
   .MobileNav {
     background-color: #1E1E23;
     height: 65px;
-    width: 100px;
+    width: 100%;
+  }
+  .MobileButton{
+    font-size:40px;
+    cursor:pointer;
+    color:#F2552C;
     
   }
   
