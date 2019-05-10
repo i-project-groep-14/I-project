@@ -76,9 +76,7 @@
 	}
 ?>
 
-<aside  class="NavRubriekAside">
-	<?php include_once 'aanroepingen/RubNav.php'; ?>
-</aside>
+
 
 
 <?php

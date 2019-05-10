@@ -7,12 +7,7 @@
   include_once 'aanroepingen/header.php';
 ?>
 <?php  ; ?>
-<aside  class="NavRubriekAside">
-<?php
-    include_once 'aanroepingen/RubNavMobiel.php';
-  
-  ?>
-</aside><br>
+
 
 
 <div class="row columns"> 

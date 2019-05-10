@@ -15,9 +15,7 @@ if(isset($_POST['register']) && isset($_POST['veiligheidsvraag'])) {
 }
 ?>
   
-<aside  class="NavRubriekAside">
-  <?php include_once 'aanroepingen/RubNav.php'; ?>
-</aside>
+
   
 <?php
   include_once 'aanroepingen/registratie_progressbar.php';

@@ -13,12 +13,10 @@
  ?>
 
 
-<aside  class="NavRubriekAside">
-  <?php 
+
     
     
-  ?>
-</aside>
+ 
 
 
 <?php include_once "aanroepingen/HomepageProducten.php" ?>
