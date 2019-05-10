@@ -6,13 +6,8 @@
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 ?>
-<?php  ; ?>
-<aside  class="NavRubriekAside">
-<?php
-    include_once 'aanroepingen/RubNavMobiel.php';
-  
-  ?>
-</aside><br>
+
+<br>
 
 
 <div class="row columns"> 

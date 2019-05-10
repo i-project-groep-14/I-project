@@ -3,10 +3,6 @@
      include_once 'aanroepingen/header.php';
 ?>
 
-<aside  class="NavRubriekAside">
-  <?php include_once 'aanroepingen/RubNav.php'; ?>
-</aside>
-
 <?php
   include_once 'aanroepingen/registratie_progressbar.php';
 ?>
