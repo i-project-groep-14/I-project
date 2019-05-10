@@ -5,7 +5,8 @@
   include_once 'aanroepingen/header.php';
 ?>
 
-<br>
+
+
 
 <?php
   include_once 'aanroepingen/footer.html';

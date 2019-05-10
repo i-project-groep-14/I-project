@@ -1,5 +1,5 @@
 <div id="menu-wrapper">
-	
+
 	<ul class="nav">
 		<li>
 			<a href="rubriekenpagina.php">Antiek en Kunst</a>
@@ -18,7 +18,7 @@
 						
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Schilderijen</h3>
 					<ul>
@@ -26,7 +26,7 @@
 						<li><a href="rubriekenpagina.php">Aquarel</a></li>
 						<li><a href="rubriekenpagina.php">Landschap Schilderijen</a></li>
 					</ul>
-					<br>
+<br>
 					<h3>Kunst</h3>
 					<ul>
 						<li><a href="rubriekenpagina.php">Beelden</a></li>
@@ -34,7 +34,7 @@
 						<li><a href="rubriekenpagina.php">Knikkers</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home3</h3>
 					<ul>
@@ -48,7 +48,7 @@
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3 class="orange">Gerelateerde Categorieën</h3>
 					<ul>
@@ -56,7 +56,7 @@
 						<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
 						<li><a href="rubriekenpagina.php">Diapers</a></li>
 					</ul>
-					
+
 					<h3 class="orange">Brands</h3>
 					<ul>
 						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
@@ -66,7 +66,7 @@
 			</div>
 		</li>
 		<li><a href="rubriekenpagina.php">Audio , Tv en Foto</a>
-			<div>
+		<div>
 				<div class="nav-column">
 					<h3 class="orange">Related Categories</h3>
 					<ul>
@@ -74,14 +74,14 @@
 						<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
 						<li><a href="rubriekenpagina.php">Diapers</a></li>
 					</ul>
-					
+
 					<h3 class="orange">Brands</h3>
 					<ul>
 						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
 						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home</h3>
 					<ul>
@@ -95,7 +95,7 @@
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home</h3>
 					<ul>
@@ -103,7 +103,7 @@
 						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
-					
+
 					<h3>Home</h3>
 					<ul>
 						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
@@ -111,7 +111,7 @@
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home</h3>
 					<ul>
@@ -137,14 +137,14 @@
 						<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
 						<li><a href="rubriekenpagina.php">Diapers</a></li>
 					</ul>
-					
+
 					<h3 class="orange">Brands</h3>
 					<ul>
 						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
 						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home</h3>
 					<ul>
@@ -158,7 +158,7 @@
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home</h3>
 					<ul>
@@ -166,7 +166,7 @@
 						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
-					
+
 					<h3>Home</h3>
 					<ul>
 						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
@@ -174,7 +174,7 @@
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home</h3>
 					<ul>
@@ -191,8 +191,8 @@
 			</div>
 		</li>
 		<li><a href="rubriekenpagina.php">Auto-onderdelen</a>
-			<div>
-				
+		<div>
+    
 				<div class="nav-column">
 					<h3 class="orange">Related Categories</h3>
 					<ul>
@@ -200,14 +200,14 @@
 						<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
 						<li><a href="rubriekenpagina.php">Diapers</a></li>
 					</ul>
-					
+
 					<h3 class="orange">Brands</h3>
 					<ul>
 						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
 						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home</h3>
 					<ul>
@@ -221,7 +221,7 @@
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home</h3>
 					<ul>
@@ -229,7 +229,7 @@
 						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
-					
+
 					<h3>Home</h3>
 					<ul>
 						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
@@ -237,7 +237,7 @@
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home</h3>
 					<ul>
@@ -252,12 +252,12 @@
 					</ul>
 				</div>
 			</div>
-			
-			
+		
+		
 		</li>
 		
 		<li><a href="rubriekenpagina.php">Auto diversen</a>
-			<div>
+		<div>
 				<div class="nav-column">
 					<h3 class="orange">Related Categories</h3>
 					<ul>
@@ -265,14 +265,14 @@
 						<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
 						<li><a href="rubriekenpagina.php">Diapers</a></li>
 					</ul>
-					
+
 					<h3 class="orange">Brands</h3>
 					<ul>
 						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
 						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home</h3>
 					<ul>
@@ -286,7 +286,7 @@
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home</h3>
 					<ul>
@@ -294,7 +294,7 @@
 						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
-					
+
 					<h3>Home</h3>
 					<ul>
 						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
@@ -302,7 +302,7 @@
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home</h3>
 					<ul>
@@ -319,7 +319,7 @@
 			</div>
 		</li>
 		<li><a href="rubriekenpagina.php">Boeken</a>
-			<div>
+		<div>
 				<div class="nav-column">
 					<h3 class="orange">Related Categories</h3>
 					<ul>
@@ -327,14 +327,14 @@
 						<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
 						<li><a href="rubriekenpagina.php">Diapers</a></li>
 					</ul>
-					
+
 					<h3 class="orange">Brands</h3>
 					<ul>
 						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
 						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home</h3>
 					<ul>
@@ -348,7 +348,7 @@
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home</h3>
 					<ul>
@@ -356,7 +356,7 @@
 						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
-					
+
 					<h3>Home</h3>
 					<ul>
 						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
@@ -364,7 +364,7 @@
 						<li><a href="rubriekenpagina.php">Loafers</a></li>
 					</ul>
 				</div>
-				
+
 				<div class="nav-column">
 					<h3>Home</h3>
 					<ul>
@@ -379,6 +379,8 @@
 					</ul>
 				</div>
 			</div>
+			</li>
+		
 		</li>
 		<li><a href="rubriekenpagina.php">Muziek</a>
 		<div>
@@ -446,19 +448,64 @@
 		</li>
 		<li><a href="rubriekenpagina.php">Watersport</a>
 		<div>
-			<div class="nav-column">
-				<h3 class="orange">Related Categories</h3>
-				<ul>
-					<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
-					<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
-					<li><a href="rubriekenpagina.php">Diapers</a></li>
-				</ul>
-				
-				<h3 class="orange">Brands</h3>
-				<ul>
-					<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-					<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				</ul>
+				<div class="nav-column">
+					<h3 class="orange">Related Categories</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Diapers</a></li>
+					</ul>
+
+					<h3 class="orange">Brands</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
+						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
+					</ul>
+				</div>
+
+				<div class="nav-column">
+					<h3>Home</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Seventh Generation</a></li>
+						<li><a href="rubriekenpagina.php">Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Derbies</a></li>
+						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
+						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
+						<li><a href="rubriekenpagina.php">Loafers</a></li>
+					</ul>
+				</div>
+
+				<div class="nav-column">
+					<h3>Home</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
+						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
+						<li><a href="rubriekenpagina.php">Loafers</a></li>
+					</ul>
+
+					<h3>Home</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
+						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
+						<li><a href="rubriekenpagina.php">Loafers</a></li>
+					</ul>
+				</div>
+
+				<div class="nav-column">
+					<h3>Home</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Seventh Generation</a></li>
+						<li><a href="rubriekenpagina.php">Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Derbies</a></li>
+						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
+						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
+						<li><a href="rubriekenpagina.php">Loafers</a></li>
+					</ul>
+				</div>
 			</div>
 			</li>
 		
@@ -524,264 +571,76 @@
 					</ul>
 				</div>
 			</div>
-			
-			<div class="nav-column">
-				<h3>Home</h3>
-				<ul>
-					<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-					<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-					<li><a href="rubriekenpagina.php">Loafers</a></li>
-				</ul>
-				
-				<h3>Home</h3>
-				<ul>
-					<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-					<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-					<li><a href="rubriekenpagina.php">Loafers</a></li>
-				</ul>
+			</li>
+		
+		</li>
+						<li><a href="rubriekenpagina.php">Sport en Fitness</a>
+		<div>
+				<div class="nav-column">
+					<h3 class="orange">Related Categories</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Diapers</a></li>
+					</ul>
+
+					<h3 class="orange">Brands</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
+						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
+					</ul>
+				</div>
+
+				<div class="nav-column">
+					<h3>Home</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Seventh Generation</a></li>
+						<li><a href="rubriekenpagina.php">Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Derbies</a></li>
+						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
+						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
+						<li><a href="rubriekenpagina.php">Loafers</a></li>
+					</ul>
+				</div>
+
+				<div class="nav-column">
+					<h3>Home</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
+						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
+						<li><a href="rubriekenpagina.php">Loafers</a></li>
+					</ul>
+
+					<h3>Home</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
+						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
+						<li><a href="rubriekenpagina.php">Loafers</a></li>
+					</ul>
+				</div>
+
+				<div class="nav-column">
+					<h3>Home</h3>
+					<ul>
+						<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Seventh Generation</a></li>
+						<li><a href="rubriekenpagina.php">Diapers</a></li>
+						<li><a href="rubriekenpagina.php">Derbies</a></li>
+						<li><a href="rubriekenpagina.php">Driving shoes</a></li>
+						<li><a href="rubriekenpagina.php">Espadrilles</a></li>
+						<li><a href="rubriekenpagina.php">Loafers</a></li>
+					</ul>
+				</div>
 			</div>
 			</li>
 			
 		
-		<div class="nav-column">
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Seventh Generation</a></li>
-				<li><a href="rubriekenpagina.php">Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Derbies</a></li>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-		</div>
-		
-		<div class="nav-column">
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-			
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-		</div>
-		
-		<div class="nav-column">
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Seventh Generation</a></li>
-				<li><a href="rubriekenpagina.php">Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Derbies</a></li>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-		</div>
-	</div>
-</li>
-
-</li>
-<li><a href="rubriekenpagina.php">Diversen</a>
-	<div>
-		<div class="nav-column">
-			<h3 class="orange">Related Categories</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Diapers</a></li>
-			</ul>
-			
-			<h3 class="orange">Brands</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-			</ul>
-		</div>
-		
-		<div class="nav-column">
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Seventh Generation</a></li>
-				<li><a href="rubriekenpagina.php">Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Derbies</a></li>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-		</div>
-		
-		<div class="nav-column">
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-			
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-		</div>
-		
-		<div class="nav-column">
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Seventh Generation</a></li>
-				<li><a href="rubriekenpagina.php">Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Derbies</a></li>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-		</div>
-	</div>
-</li>
-
-</li>
-<li><a href="rubriekenpagina.php">Sport en Fitness</a>
-	<div>
-		<div class="nav-column">
-			<h3 class="orange">Related Categories</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Diapers</a></li>
-			</ul>
-			
-			<h3 class="orange">Brands</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-			</ul>
-		</div>
-		
-		<div class="nav-column">
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Seventh Generation</a></li>
-				<li><a href="rubriekenpagina.php">Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Derbies</a></li>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-		</div>
-		
-		<div class="nav-column">
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-			
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-		</div>
-		
-		<div class="nav-column">
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Seventh Generation</a></li>
-				<li><a href="rubriekenpagina.php">Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Derbies</a></li>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-		</div>
-	</div>
-</li>
-<li><a href="rubriekenpagina.php">Diversen</a>
-	<div>
-		<div class="nav-column">
-			<h3 class="orange">Related Categories</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Diapers</a></li>
-			</ul>
-			
-			<h3 class="orange">Brands</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-			</ul>
-		</div>
-		
-		<div class="nav-column">
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Seventh Generation</a></li>
-				<li><a href="rubriekenpagina.php">Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Derbies</a></li>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-		</div>
-		
-		<div class="nav-column">
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-			
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-		</div>
-		
-		<div class="nav-column">
-			<h3>Home</h3>
-			<ul>
-				<li><a href="rubriekenpagina.php">Pampers Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Huggies Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Seventh Generation</a></li>
-				<li><a href="rubriekenpagina.php">Diapers</a></li>
-				<li><a href="rubriekenpagina.php">Derbies</a></li>
-				<li><a href="rubriekenpagina.php">Driving shoes</a></li>
-				<li><a href="rubriekenpagina.php">Espadrilles</a></li>
-				<li><a href="rubriekenpagina.php">Loafers</a></li>
-			</ul>
-		</div>
-	</div>
-</li>
-
-</li>
-</li>
-</li>
-</ul>
+		</li>
+		</li>
+		</li>
+	</ul>
 
 </div>
