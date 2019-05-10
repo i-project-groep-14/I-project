@@ -77,17 +77,13 @@ input{
 .Product-grid-container {
   display: flex;
   justify-content: center;
-  
-  
 }
 
 .Product-grid {
-  width: 1000px;
+  /* width: 1000px; */
   display: flex;
-  justify-content: flex-start;
   flex-wrap: wrap;
-  
-
+  /* align-items: space-between; */
 }
 
 .Product-grid-item {
@@ -96,6 +92,7 @@ input{
   width: 250px;
   height: fit-content;
   text-align: center;
+  margin: 0px 20px;
 }
 
 .Product-grid-item:hover{
@@ -103,8 +100,8 @@ input{
 }
 
 .Product-grid-item img{
-  width: 180px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
 
 .HomepaginaKopjes{
@@ -118,16 +115,14 @@ input{
 /*   EINDE HOME PAGINA ARTIKELEN */
 
 #footer { 
-  
   display: table;
-   width: 100%; 
-   table-layout: fixed;
-   border-top: 1px solid #F2552C;
+  width: 100%; 
+  table-layout: fixed;
+  border-top: 1px solid #F2552C;
   margin-top: 30px;
   padding: 10px 10px 10px 10px;
   position: relative;
   background: #A4E8F9;
-
 }
 #footer > div { 
   display: table-cell;
@@ -903,43 +898,3 @@ h1 {
   background:#0a0a0a;color:#fefefe;
   padding:.5rem
 }
-
-.slidecontainer {
-  width: 100%; /* Width of the outside container */
-}
-
-/* The slider itself */
-.slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
-  appearance: none;
-  width: 60%; /* Full-width */
-  height: 25px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
-}
-
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
-}
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #f2552c; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
-
-.slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #f2552c; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
-
