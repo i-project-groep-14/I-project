@@ -128,9 +128,11 @@
             </ul>
         </div>
     </div>
-<?php 
-    include_once 'aanroepingen/RubNav.php';
-    include_once 'aanroepingen/RubNavMobiel.php'; 
+<?php
+    if ($config['pagina'] != 'inlogpagina') {
+        include_once 'aanroepingen/RubNav.php';
+        include_once 'aanroepingen/RubNavMobiel.php';
+    }
 ?>
 
     
