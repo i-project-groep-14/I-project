@@ -18,29 +18,30 @@
     $row = $query -> fetch();
 
     if(password_verify($wachtwoord, $row['wachtwoord'])){
-        session_destroy();
-        session_start();
+      session_destroy();
+      session_start();
 
-        $_SESSION['login'] = $_POST['login'];
-        $_SESSION['gebruikersnaam'] = $inlognaam;
+      $_SESSION['login'] = $_POST['login'];
+      $_SESSION['gebruikersnaam'] = $inlognaam;
 
-        echo "U bent succesvol ingelogd.";
-        header ('Location: index.php');
+      // echo "U bent succesvol ingelogd.";
+      header ('Location: index.php');
     } else {
       echo "Gebruikersnaam of wachtwoord onjuist.";
     }
-}
+  }
+
+  include_once 'aanroepingen/RubNav.php';
+  include_once 'aanroepingen/RubNavMobiel.php';
 ?>
-
-
 
 <br>
 
 <h1 class="InlogpaginaKopje"> Inloggen </h1>
 <form class="inlogpaginaContainer" method="post" action="">
   <div>
-    <input type="text" placeholder="Voer Gebruikersnaam in" name="inlogAccNaam" required>
-    <input type="password" placeholder="Voer Wachtwoord in" name="inlogWw" required>
+    <input type="text" placeholder="Voer gebruikersnaam in" name="inlogAccNaam" required>
+    <input type="password" placeholder="Voer wachtwoord in" name="inlogWw" required>
     <hr>
     <button type="submit" class="button inlogbutton" name="login">Log in</button>
 

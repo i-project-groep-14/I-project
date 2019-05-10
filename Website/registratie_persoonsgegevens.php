@@ -76,9 +76,6 @@
 	}
 ?>
 
-
-
-
 <?php
 	include_once 'aanroepingen/registratie_progressbar.php';
 ?>
