@@ -6,9 +6,6 @@
   require_once 'aanroepingen/connectie.php';
   include_once 'aanroepingen/header.php';
 ?>
-<?php  ; ?>
-
-
 
 <div class="row columns"> 
   <nav aria-label="You are here:" role="navigation">

@@ -5,9 +5,8 @@
   include_once 'aanroepingen/header.php';
 ?>
 
-
-
 <br>
+
 <div class="rubrieken">
     <div class = "marginlinks">
     <input type="radio" name="Kaas" value="op">Prijs Oplopend<br>
