@@ -36,10 +36,26 @@ echo"
   }
   echo"
   data-step=''>
-    <span>Veiligheidsvraag</span>
+    <span>Veiligheid</span>
   </li>
+  <li class=";
+  if($config['pagina'] == 'registratie_klaar') {
+      echo"'is-current'";
+  } else if($config['pagina'] == 'registratie_vraag'){
+      echo"''";
+  } else if($config['pagina'] == 'registratie_email'){
+      echo"''";
+  }else if($config['pagina'] == 'registratie_persoonsgegevens'){
+      echo"''";
+  }else {
+      echo "'is-complete'";
+  }
+  echo"
+  data-step=''>
+      <span>Klaar</span>
+</li>
 </div>
-</ol><br>";
+</ol>";
 
 // <ol class="progress-indicator">
 //   <li class="is-complete" data-step="">

@@ -96,20 +96,18 @@
       
     </div>
 
-    <div class="holy-grail-middle">
-      
 
-
-    </div>
-
-
-    <div class="holy-grail-footer">
-      
-      <?php include_once 'aanroepingen/footer.html' ?>
-    </div>
-
-  
 
   </div>
+
+
+  <div class="holy-grail-footer">
+    
+    <?php include_once 'aanroepingen/footer.html' ?>
+  </div>
+
+ 
+
+</div>
 
 
