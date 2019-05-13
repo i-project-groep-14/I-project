@@ -9,7 +9,9 @@
   </div>
 
   <div class="holy-grail-middle">
-  
+    <div class="Pro">
+
+    </div>
 
 
 
@@ -17,8 +19,11 @@
 
 
   <div class="holy-grail-footer">
-    <h3>Footer</h3>
+    
+    <?php include_once 'aanroepingen/footer.html' ?>
   </div>
+
+ 
 
 </div>
 
