@@ -5,7 +5,7 @@
 
 	if(isset($_POST['verzenden_pers'])){
 		$sql = "SELECT gebruikersnaam FROM gebruiker 
-						WHERE gebruikersnaam like :gebruikersnaam";
+				WHERE gebruikersnaam like :gebruikersnaam";
 		$query = $dbh->prepare($sql);
 		$query -> execute(array(
 			':gebruikersnaam' => $_POST['gebruikersnaam']

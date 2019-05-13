@@ -24,6 +24,8 @@ Tabel gebruiker:
 
 	kolom toegevoegd genaamd 'profielfoto' met een datatype van varchar(255) en hij mag null zijn.
 
+	3 constraints toegevoegd; geboortedatum mag niet na vandaag zijn, wachtwoord moet langer zijn dan 7 karakters en minimaal 1 letter en 1 nummer bevatten
+
 Tabel vraag:
 
 	vraagnummer		van char(21) 	naar numeric(2)
