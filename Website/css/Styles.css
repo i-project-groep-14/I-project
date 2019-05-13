@@ -1,3 +1,55 @@
+li{
+  list-style-type: none;
+}
+.top-bar{
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  
+}
+.Top-bar-links{
+  
+  width: 60px;
+  height: 100%;
+}
+.top-bar-middle{
+ 
+  height: 100%;
+}
+
+.top-bar-rechts{
+  
+  height: 100%;
+}
+
+.loginbutton{
+  margin: auto;
+  width: 200px;
+  border-radius: 2px;
+  box-shadow:   3px 3px #ccc;
+}
+
+.loginbutton:hover{
+  margin: auto;
+  background-color: black;
+  border-radius: 0px;
+}
+
+.uitlogknop>input{
+  text-decoration: none;
+  all: unset;
+}
+
+.Logo{
+  height: 50px;
+  width: 60px;
+  border: 1px solid black;
+  border-radius: 280px;
+}
+
+
+
+
 
 /*Progressbar*/
 
@@ -216,7 +268,7 @@ footer{
   border: none;
   padding: 12px;
   color: white;
-  background-color: #000;
+  background-color: #F2552C;
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -224,7 +276,9 @@ footer{
 }
 
 .Product button:hover {
-  opacity: 0.7;
+  background-color: black;
+  cursor: pointer;
+  
 }
 
 
@@ -260,7 +314,7 @@ footer{
 	
   padding: 1rem;
   border: 1px solid #ededed;
-  background-color: #ededed;
+  background-color: white;
 }
 
 .holy-grail-header {

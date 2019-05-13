@@ -100,18 +100,15 @@
 <body>
     
     <div class="top-bar" id="realEstateMenu">
-        <div class="top-bar-left">
-            <ul class="menu" data-responsive-menu="accordion">
-                <a href="Index.php"><img src="Images/LogoMetNaam.png" class="Logo" alt="Flowers in Chania"></a>
-                
+        <div class="Top-bar-links">
+        <a href="Index.php"><img src="Images/LogoMetNaam.png" class="Logo" alt="Flowers in Chania"></a>
         </div>
-
-        <br>
-
-        <div class="top-bar-right">
-            <ul class="menu">
-                <?php
-                    if(isset($_SESSION['login'])) {
+        <div class="top-bar-middle">
+        <?php include_once "Zoekfunctie.php" ?>
+        </div>
+        <div class="top-bar-rechts">
+            <?php
+if(isset($_SESSION['login'])) {
                         echo "<li class='gebruiker'>Welkom ".strip_tags($_SESSION['gebruikersnaam']."!</li>");
                         
                         echo "<li> 
@@ -130,8 +127,7 @@
                     } else {
                         echo "<li><a class='button loginbutton' href='inlogpagina.php'>Login</a></li>";
                     }
-                ?>
-            </ul>
+                    ?>
         </div>
     </div>
 
