@@ -2,7 +2,7 @@
   $config = ['pagina' => 'registratie_email'];
 
   require_once 'aanroepingen/connectie.php';
-  include_once 'aanroepingen/header.php';
+  //include_once 'aanroepingen/header.php';
 
   if (isset($_POST['verzenden_email'])) {
     if (strlen($_POST['email']) > 50) {
@@ -13,21 +13,30 @@
     }
   }
 
-  include_once 'aanroepingen/RubNav.php';
-  include_once 'aanroepingen/RubNavMobiel.php';
-?>
-
-<?php
-  include_once 'aanroepingen/registratie_progressbar.php';
 ?>
 
 
- <h2 class="HomepaginaKopjes center">Registreren</h2>
-    <div class=" body-tekst">
+
+<div class="holy-grail-grid">
+    <div class="holy-grail-header">
+      <?php  include_once 'aanroepingen/header.php'?>
+    </div>
+
+    <div class="holy-grail-left">
+    <?php   include_once 'aanroepingen/RubNav.php'?>
+    </div>
+
+    <div class="holy-grail-middle">
+      <?php
+           include_once 'aanroepingen/registratie_progressbar.php';
+      ?>
+
+      <br>  
+      <h2 class="">Registreren</h2>
+      <div class=" body-tekst">
         <p>
           Welkom op de registratiepagina. Vul hieronder uw geldige e-mailadres in om te verifiëren. 
-        </p> 
-           
+        </p>      
         <form action="" method="post">
         <div class="grid-container">  
           <div class="grid-x grid-padding-x">
@@ -57,8 +66,17 @@
         </form>
         
     </div>
+
+    </div>
+
+
+    <div class="holy-grail-footer">
       
-<?php
-  include_once 'aanroepingen/footer.html';
-?>
-   
+      <?php include_once 'aanroepingen/footer.html' ?>
+    </div>
+
+  
+
+  </div>
+
+ 
