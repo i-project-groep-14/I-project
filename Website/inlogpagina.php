@@ -2,7 +2,7 @@
   $config = ['pagina' => 'inlogpagina'];
 
   require_once 'aanroepingen/connectie.php';
-  include_once 'aanroepingen/header.php';
+  //include_once 'aanroepingen/header.php';
 
   if(isset($_POST['login'])){
     $inlognaam = $_POST['inlogAccNaam'];
@@ -31,25 +31,36 @@
     }
   }
 
-  include_once 'aanroepingen/RubNav.php';
-  include_once 'aanroepingen/RubNavMobiel.php';
 ?>
 
-<br>
+<div class="holy-grail-grid">
+    <div class="holy-grail-header">
+      <?php  include_once 'aanroepingen/header.php'?>
+    </div>
 
-<h1 class="InlogpaginaKopje"> Inloggen </h1>
-<form class="inlogpaginaContainer" method="post" action="">
-  <div>
-    <input type="text" placeholder="Voer gebruikersnaam in" name="inlogAccNaam" required>
-    <input type="password" placeholder="Voer wachtwoord in" name="inlogWw" required>
-    <hr>
-    <button type="submit" class="button inlogbutton" name="login">Log in</button>
+    <div class="holy-grail-left">
+    <?php   include_once 'aanroepingen/RubNav.php'?>
+    </div>
 
-    <input type="button" class="button inlogbutton" onclick="window.location.href = 'wachtwoordvergeten.php';" value="Wachtwoord vergeten?"/>
-    <p>Als je nog geen account voor EenmaalAndermaal hebt maak dan <a href="registratie_email.php">hier</a> een account.</p>
+    <div class="holy-grail-middle">
+    <h1 class="InlogpaginaKopje"> Inloggen </h1>
+    <form class="inlogpaginaContainer" method="post" action="">
+      <div>
+        <input type="text" placeholder="Voer gebruikersnaam in" name="inlogAccNaam" required>
+        <input type="password" placeholder="Voer wachtwoord in" name="inlogWw" required>
+        <hr>
+        <button type="submit" class="button inlogbutton" name="login">Log in</button>
+
+        <input type="button" class="button inlogbutton" onclick="window.location.href = 'wachtwoordvergeten.php';" value="Wachtwoord vergeten?"/>
+        <p>Als je nog geen account voor EenmaalAndermaal hebt maak dan <a href="registratie_email.php">hier</a> een account.</p>
+      </div>
+    </form>
+    </div>
+
+
+    <div class="holy-grail-footer">
+      
+      <?php include_once 'aanroepingen/footer.html' ?>
+    </div>
+
   </div>
-</form>
- 
-<?php
-  include_once 'aanroepingen/footer.html';
-?>
