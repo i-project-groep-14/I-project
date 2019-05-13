@@ -4,10 +4,10 @@
     
     <select>
         <option value="1000">Alle afstanden...</option>
-        <option value="10">10km</option>
-        <option value="20">20km</option>
-        <option value="30">30km</option>
-        <option value="40">40km</option>
+        <option value="10">0 - 10km</option>
+        <option value="20">10 - 30km</option>
+        <option value="30">30 - 50km</option>
+        <option value="40">50 - 100km</option>
     </select>
     
     
