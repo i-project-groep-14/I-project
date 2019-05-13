@@ -60,10 +60,18 @@ create table gebruikerstelefoon (
 )
 
 alter table gebruiker
-add constraint fk_gebruiker_vraag foreign key (vraag) references vraag (vraagnummer)
+add constraint fk_gebruiker_vraag foreign key (vraag) references vraag (vraagnummer),
+	constraint ck_gebruiker_geboortedatumVoorVandaag check (geboortedatum < getDate()),
+	constraint ck_gebruiker_wachtwoordLangerDan7Karakters check (LEN(wachtwoord) >= 7),
+	constraint ck_gebruiker_wachtwoordMinimaal1LetterEn1Cijfer check (wachtwoord like '%[A-Za-z]%' and wachtwoord like '%[0-9]%')
+	
+
+
+
 
 /*			Weghalen		*/
 insert into vraag values ('1', 'vraag1')
+
 
 
 use master
