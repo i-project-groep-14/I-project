@@ -82,6 +82,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
     <meta name='description' content='EenmaalAndermaal - Groep14'>
     <link rel='icon' href='images/Logo.png' type='image/x-icon'/>
     <title>EenmaalAndermaal</title>
