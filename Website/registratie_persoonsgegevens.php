@@ -2,7 +2,6 @@
 	$config = ['pagina' => 'registratie_persoonsgegevens'];
 
 	require_once 'aanroepingen/connectie.php';
-	include_once 'aanroepingen/header.php';
 
 	if(isset($_POST['verzenden_pers'])){
 		$sql = "SELECT gebruikersnaam FROM gebruiker 
@@ -75,14 +74,24 @@
 		}
 	}
 
-	include_once 'aanroepingen/RubNav.php';
-	include_once 'aanroepingen/RubNavMobiel.php';
+	
 ?>
 
-<?php
-	include_once 'aanroepingen/registratie_progressbar.php';
-?>
-			<h2 class="HomepaginaKopjes center">Registreren</h2>
+<div class="holy-grail-grid">
+    <div class="holy-grail-header">
+      <?php  include_once 'aanroepingen/header.php'?>
+    </div>
+
+    <div class="holy-grail-left">
+    <?php   include_once 'aanroepingen/RubNav.php'?>
+    </div>
+
+    <div class="holy-grail-middle">
+		<?php
+			include_once 'aanroepingen/registratie_progressbar.php';
+		?>  
+		<br>
+		<h2 class="HomepaginaKopjes center">Registreren</h2>
 				<div class="body-tekst">
 					<p class="center">Dit is de tweede stap van het registreren. Vul a.u.b uw persoonlijkegegevens hieronder in.</p>
 					<form action="" method="post" class="form-body-center" > 
@@ -196,9 +205,14 @@
 						<input class="button" type="submit" name="verzenden_pers" value="Verzenden">    
 						</div>    
 					</form>
-				</div>
+				</div>    
 
-<?php
-	include_once 'aanroepingen/footer.html';
-?>
+
+    </div>
+    <div class="holy-grail-footer">
+      
+      <?php include_once 'aanroepingen/footer.html' ?>
+    </div>
+  </div>
+
 
