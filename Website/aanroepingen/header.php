@@ -135,8 +135,8 @@
     if ($config['pagina'] == 'inlogpagina' || $config['pagina'] == 'registratie_email' || $config['pagina'] == 'registratie_persoonsgegevens' || $config['pagina'] == 'registratie_vraag') {
         
     } else {
-        include_once 'aanroepingen/RubNav.php';
-        include_once 'aanroepingen/RubNavMobiel.php';
+        // include_once 'aanroepingen/RubNav.php';
+        // include_once 'aanroepingen/RubNavMobiel.php';
     }
 ?>
     
