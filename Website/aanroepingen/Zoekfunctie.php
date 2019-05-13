@@ -1,4 +1,4 @@
-<div class="input-group input-group-rounded">
+<div class="input-group ">
     <input  type="search" placeholder="Zoek product..."><br>
     <input   type="text" placeholder="Postcode">
     
@@ -15,13 +15,3 @@
         <input type="submit" class="button" id="search"  value="Zoek"><br>         
     </div> 
 </div> 
-<!-- </ul>
-
-
-</div>       
-
-<br>
-
-
-
-</div> -->
