@@ -9,8 +9,91 @@
   </div>
 
   <div class="holy-grail-middle">
-    <div class="Pro">
+  <h3> Aflopend</h3>
+    <div class="ProductenContainer">
+      <div class="Product">
+        <img src="/images/fiets.jpg" >
+        <h3>Viking fiets</h3>
+        <p>tijd:99:99:99 <span style="float:right"> $1999999999.99</span></p>
+        <button>Bekijk meer</button>
+      </div>  
+      <div class="Product">
+        <img src="/images/fiets.jpg" >
+        <h3>Viking fiets</h3>
+        <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
+        <button>Bekijk meer</button>
+      </div>  
+      <div class="Product">
+        <img src="/images/fiets.jpg" >
+        <h3>Viking fiets</h3>
+        <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
+        <button>Bekijk meer</button>
+      </div> 
+      <div class="Product">
+        <img src="/images/fiets.jpg" >
+        <h3>Viking fiets</h3>
+        <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
+        <button>Bekijk meer</button>
+      </div> 
+     
+    </div>
 
+
+    <h3> Aflopend</h3>
+    <div class="ProductenContainer">
+      <div class="Product">
+        <img src="/images/fiets.jpg" >
+        <h3>Viking fiets</h3>
+        <p>tijd:99:99:99 <span style="float:right"> $1999999999.99</span></p>
+        <button>Bekijk meer</button>
+      </div>  
+      <div class="Product">
+        <img src="/images/fiets.jpg" >
+        <h3>Viking fiets</h3>
+        <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
+        <button>Bekijk meer</button>
+      </div>  
+      <div class="Product">
+        <img src="/images/fiets.jpg" >
+        <h3>Viking fiets</h3>
+        <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
+        <button>Bekijk meer</button>
+      </div> 
+      <div class="Product">
+        <img src="/images/fiets.jpg" >
+        <h3>Viking fiets</h3>
+        <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
+        <button>Bekijk meer</button>
+      </div> 
+     
+    </div>
+    <h3> Aflopend</h3>
+    <div class="ProductenContainer">
+      <div class="Product">
+        <img src="/images/fiets.jpg" >
+        <h3>Viking fiets</h3>
+        <p>tijd:99:99:99 <span style="float:right"> $1999999999.99</span></p>
+        <button>Bekijk meer</button>
+      </div>  
+      <div class="Product">
+        <img src="/images/fiets.jpg" >
+        <h3>Viking fiets</h3>
+        <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
+        <button>Bekijk meer</button>
+      </div>  
+      <div class="Product">
+        <img src="/images/fiets.jpg" >
+        <h3>Viking fiets</h3>
+        <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
+        <button>Bekijk meer</button>
+      </div> 
+      <div class="Product">
+        <img src="/images/fiets.jpg" >
+        <h3>Viking fiets</h3>
+        <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
+        <button>Bekijk meer</button>
+      </div> 
+      
     </div>
 
 
