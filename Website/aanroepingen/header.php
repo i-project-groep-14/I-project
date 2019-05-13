@@ -92,6 +92,13 @@
     <link rel='stylesheet' href='css/styles.css'>
     <script src="js/jquery.min.js"></script>
     <script src="js/foundation.min.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+   
+
+    
 </head>
 <body>
     
@@ -99,7 +106,7 @@
         <div class="top-bar-left">
             <ul class="menu" data-responsive-menu="accordion">
                 <a href="Index.php"><img src="Images/LogoMetNaam.png" class="Logo" alt="Flowers in Chania"></a>
-                <h1 class="menu-text">EenmaalAndermaal</h1>
+                
         </div>
 
         <br>
