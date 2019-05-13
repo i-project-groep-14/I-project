@@ -92,6 +92,10 @@
     <link rel='stylesheet' href='css/styles.css'>
     <script src="js/jquery.min.js"></script>
     <script src="js/foundation.min.js"></script>
+    
+   
+
+    
 </head>
 <body>
     
@@ -99,7 +103,7 @@
         <div class="top-bar-left">
             <ul class="menu" data-responsive-menu="accordion">
                 <a href="Index.php"><img src="Images/LogoMetNaam.png" class="Logo" alt="Flowers in Chania"></a>
-                <h1 class="menu-text">EenmaalAndermaal</h1>
+                
         </div>
 
         <br>
@@ -135,8 +139,8 @@
     if ($config['pagina'] == 'inlogpagina' || $config['pagina'] == 'registratie_email' || $config['pagina'] == 'registratie_persoonsgegevens' || $config['pagina'] == 'registratie_vraag') {
         
     } else {
-        include_once 'aanroepingen/RubNav.php';
-        include_once 'aanroepingen/RubNavMobiel.php';
+        // include_once 'aanroepingen/RubNav.php';
+        // include_once 'aanroepingen/RubNavMobiel.php';
     }
 ?>
     
