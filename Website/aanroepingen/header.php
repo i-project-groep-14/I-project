@@ -84,7 +84,7 @@
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
     <meta name='description' content='EenmaalAndermaal - Groep14'>
-    <link rel='icon' href='images/Logo.png' type='image/x-icon'/>
+    <link rel='icon' href='images/LogoIcoon.png' type='image/x-icon'/>
     <title>EenmaalAndermaal</title>
     <link rel='stylesheet' href='css/foundation.min.css'>
     <link rel='stylesheet' href='css/foundation.css'>
@@ -102,7 +102,7 @@
     <div class="top-bar" id="realEstateMenu">
         <div class="top-bar-left">
             <ul class="menu" data-responsive-menu="accordion">
-                <a href="Index.php"><img src="Images/LogoMetNaam.png" class="Logo" alt="Flowers in Chania"></a>
+                <a href="Index.php"><img src="Images/Logo.png" class="Logo" alt="Flowers in Chania"></a>
                 
         </div>
 
