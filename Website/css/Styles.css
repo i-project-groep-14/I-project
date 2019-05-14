@@ -13,21 +13,28 @@ li{
   height: 100%;
 }
 .top-bar-middle{
- width: 500px;
+  
+ width: 900px;
   height: 100%;
 }
-.input-group{
-  width: 100%;
+.top-bar-rechts{
+  height: 100%;
+}
+.ZoekProduct{
+  display: flex;
+  width: 80%;
+}
+.InputZoekProduct{
+  width: 800px;
 }
 .ProductButton{
   width: 100%;
   margin-bottom: -5px;
 }
-
-.top-bar-rechts{
-  
-  height: 100%;
+.ZoekRubrieken{
+  width: fit-content;
 }
+
 
 .loginbutton{
   margin: auto;
