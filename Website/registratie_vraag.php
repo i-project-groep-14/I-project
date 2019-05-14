@@ -9,10 +9,10 @@
         } else if ($_POST['veiligheidsvraag'] == 0) {
           echo "U moet nog een veiligheidsvraag selecteren.";
         } else {
+          // $_SESSION['register'] = 'Verzonden';
           header('Location: index.php');
         }
       }
-
       include_once 'aanroepingen/header.php';
     ?>
 
@@ -29,8 +29,8 @@
           Kies hieronder uit welke vraag en geef een antwoordt. Dit antwoordt is nodig om uw wachtwoord te herstellen. 
         </p>
           
-        <form action="registratie_vraag" method="post">
-          <div class="grid-container">  
+        <form action="registratie_vraag.php" method="post">
+          <div class="grid-container">
             <div class="grid-x grid-padding-x">
               <div class="medium-12 cell">
                 <label>Kies één veiligeheidsvraag.</label>
@@ -60,7 +60,7 @@
         </form>
       </div>
     </div>
-          
+    
     <?php 
       include_once 'aanroepingen/footer.html';
     ?>
