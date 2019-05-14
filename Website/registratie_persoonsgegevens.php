@@ -85,7 +85,7 @@
 			<h2 class="HomepaginaKopjes center">Registreren</h2>
 			<div class="body-tekst">
 				<p class="center">Dit is de tweede stap van het registreren. Vul a.u.b uw persoonlijkegegevens hieronder in.</p>
-				<form action="registratie_persoonsgegevens" method="post" class="form-body-center" >
+				<form action="registratie_persoonsgegevens.php" method="post" class="form-body-center" >
 					<div class="grid-container">
 						<div class="grid-x grid-padding-x">
 							<div class="medium-12 cell">
