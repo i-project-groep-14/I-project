@@ -236,7 +236,7 @@ footer{
 .ProductenContainer{
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-content: center;
   height: fit-content;
   padding: 10px;

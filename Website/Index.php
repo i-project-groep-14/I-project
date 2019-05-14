@@ -3,8 +3,8 @@
     ?>
 
     <div class="holy-grail-middle">
-      <h3>De populairste veilingen</h3>
-      <hr>
+      <h3 class="HomePageTitel">De populairste veilingen</h3>
+      
       <div class="ProductenContainer">
         <div class="Product">
           <img src="/images/fiets.jpg">
@@ -32,8 +32,8 @@
         </div>
       </div>
 
-      <h3>Loopt bijna af!</h3>
-      <hr>
+      <h3 class="HomePageTitel">Loopt bijna af!</h3>
+      
       <div class="ProductenContainer">
         <div class="Product">
           <img src="/images/fiets.jpg">
@@ -61,8 +61,8 @@
         </div>
       </div>
 
-      <h3>Nieuwe veilingen</h3>
-      <hr>
+      <h3 class="HomePageTitel">Nieuwe veilingen</h3>
+      
       <div class="ProductenContainer">
         <div class="Product">
           <img src="/images/fiets.jpg" >
