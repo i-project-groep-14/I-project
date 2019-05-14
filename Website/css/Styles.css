@@ -280,12 +280,6 @@ body{
   
 }
 
-
-
-
-
-
-
 .holy-grail-grid {
   display: -ms-grid;
   display: grid;
@@ -364,4 +358,76 @@ body{
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 4;
+}
+
+.RubriekenProducten img {
+  width: 250px;
+  height: 200px;
+}
+
+.rubriekenTop {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  height: fit-content;
+  border-style: solid;
+}
+
+.tabelvorm-links {
+  width: 500px;
+  height: fit-content;
+  padding: 10px;
+}
+
+.tabelvorm-middel {
+  width: 650px;
+  height: fit-content;
+
+}
+
+.tabelvorm-rechts {
+  width: 350px;
+  height: fit-content;
+  margin-left: 200px;
+}
+
+.center{
+  text-align: center;
+  align-items: center;
+}
+
+.prijsbreedte {
+  width: 100px;
+}
+
+.rubrieken { 
+  display: flex;
+  justify-content: space-around;
+  width: 1400px; 
+  border: 1px solid #F2552C;
+  padding-right: 400px;
+  padding-left: 300px;
+}
+
+.rubriekenContainer img {
+  width: 300px;
+  height: 230px;
+  float: left;
+}
+
+.rubriekenContainer
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.RubriekenProducten {
+  text-align: left;   
+  width: auto;
+  height: auto;
+  border: solid 1px grey ;
+  padding: 3px;
+  min-width: 200px;
+  background: white;
+  box-shadow: 1px 2px 2px;  
 }
