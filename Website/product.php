@@ -94,9 +94,11 @@
 <!--De bieding tab onderin-->
     <div class="column row">
       <hr>
+
       <ul class="tabs" data-tabs id="example-tabs">
         <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Biedingen</a></li>
       </ul>
+
       <div class="tabs-content" data-tabs-content="example-tabs">
         <div class="tabs-panel is-active" id="panel1">
         <h4>Biedingen</h4>
@@ -104,6 +106,7 @@
         <div class="media-object-section">
         <img class="thumbnail" src="images/profielfotoPlaceholder.png">
       </div>
+
       <div class="media-object-section">
         <h5>Mike Stevenson</h5>
         <p>Geboden: 1.00 Euro</p>
@@ -115,6 +118,7 @@
       <div class="media-object-section">
         <img class="thumbnail" src="images/profielfotoPlaceholder.png">
       </div>
+
       <div class="media-object-section">
         <h5>Mike Stevenson</h5>
         <p>Geboden: 2.00 Euro</p>
@@ -126,6 +130,7 @@
       <div class="media-object-section">
         <img class="thumbnail" src="images/profielfotoPlaceholder.png">
       </div>
+      
       <div class="media-object-section">
         <h5>Mike Stevenson</h5>
         <p>Geboden: 3.00 Euro</p>
@@ -134,7 +139,6 @@
     </div>
       <button class="button">Bied mee!</button>
     </div>
-      
       
     </div>
   </div>

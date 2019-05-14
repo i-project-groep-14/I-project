@@ -2262,8 +2262,9 @@ hr {
   margin: 1.25rem auto;
   border-top: 0;
   border-right: 0;
-  border-bottom: 1px solid #cacaca;
-  border-left: 0; }
+  border-bottom: 1px solid #F2552C;
+  border-left: 0;
+ }
 
 ul,
 ol,
@@ -2709,6 +2710,7 @@ a.button:hover, a.button:focus {
 [type='text'], [type='password'], [type='date'], [type='datetime'], [type='datetime-local'], [type='month'], [type='week'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], [type='url'], [type='color'],
 textarea {
   display: block;
+  
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
@@ -5400,7 +5402,7 @@ flex-wrap:wrap;
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
-    max-width: 100%; }
+    }
   @media print, screen and (min-width: 40em) {
     .top-bar {
       -webkit-flex-wrap: nowrap;

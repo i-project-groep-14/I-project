@@ -1,3 +1,80 @@
+li{
+  list-style-type: none;
+}
+.top-bar{
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  
+}
+.Top-bar-links{
+  
+  width: fit-content;
+  height: 100%;
+}
+.top-bar-middle{
+  
+ width: 900px;
+  height: 100%;
+}
+.top-bar-rechts{
+  height: 100%;
+}
+.ZoekProduct{
+  display: flex;
+  width: 80%;
+}
+.InputZoekProduct{
+  width: 100%;
+  float: left;
+}
+.ProductButton{
+  width: 100%;
+  margin-bottom: -5px;
+}
+.ZoekRubrieken{
+  width: fit-content;
+}
+.InlogContainer{
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  
+}
+.InlogpaginaKopje {
+  text-align: center;
+  border-bottom: 1px solid #F2552C;
+}
+
+.loginbutton{
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: solid;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.loginbutton:hover{
+  background-color: black;
+  border-radius: 0px;
+}
+
+.uitlogknop>input{
+  text-decoration: none;
+  all: unset;
+}
+
+.Logo{
+  height: 100px;
+  
+}
+
+
+
+
 
 /*Progressbar*/
 
@@ -128,7 +205,6 @@
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
-
 .side-label::after {
   display: none;
 }
@@ -175,12 +251,16 @@ input:checked + .side-label::after {
 footer{
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   height: fit-content;
 }
 
 .ContainerFooter{
   width: 100%;
+}
+
+.HomePageTitel{
+  border-bottom: #F2552C 1px solid;
 }
 
 .ContainerFooterLinks{
@@ -201,7 +281,7 @@ footer{
 .ProductenContainer{
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-content: center;
   height: fit-content;
   padding: 10px;
@@ -229,12 +309,14 @@ footer{
 }
 
 
-
+body{
+  background-color: rgb(10, 168, 207);
+}
 .Product button {
   border: none;
   padding: 12px;
   color: white;
-  background-color: #000;
+  background-color: #F2552C;
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -242,14 +324,10 @@ footer{
 }
 
 .Product button:hover {
-  opacity: 0.7;
+  background-color: black;
+  cursor: pointer;
+  
 }
-
-
-
-
-
-
 
 .holy-grail-grid {
   display: -ms-grid;
@@ -271,14 +349,20 @@ footer{
 
 
 
+.holy-grail-left{
+  height: fit-content;
+  width: 100%;
+}
+
 .holy-grail-left,
 .holy-grail-middle,
 .holy-grail-right,
 .holy-grail-footer {
-	
+  box-shadow: black 5px 5px 5px;
+  
   padding: 1rem;
   border: 1px solid #ededed;
-  background-color: #ededed;
+  background-color: rgb(255, 255, 255);
 }
 
 .holy-grail-header {
@@ -323,4 +407,72 @@ footer{
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 4;
+}
+
+.RubriekenProducten img {
+  width: 250px;
+  height: 200px;
+}
+
+.rubriekenTop {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  height: fit-content;
+  border-style: solid;
+}
+
+.tabelvorm-links {
+  width: 500px;
+  height: fit-content;
+  padding: 10px;
+}
+
+.tabelvorm-middel {
+  width: 650px;
+  height: fit-content;
+
+}
+
+.tabelvorm-rechts {
+  width: 350px;
+  height: fit-content;
+  margin-left: 200px;
+}
+
+.center{
+  text-align: center;
+  align-items: center;
+}
+
+.prijsbreedte {
+  width: 100px;
+}
+
+.rubrieken { 
+  display: flex;
+  width: auto; 
+  border: 1px solid #F2552C;
+}
+
+.rubriekenContainer img {
+  width: 300px;
+  height: 230px;
+  float: left;
+}
+
+.rubriekenContainer
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.RubriekenProducten {
+  text-align: left;   
+  width: auto;
+  height: auto;
+  border: solid 1px grey ;
+  padding: 3px;
+  background: white;
+  box-shadow: 1px 2px 2px;  
 }

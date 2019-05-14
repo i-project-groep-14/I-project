@@ -82,9 +82,8 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
     <meta name='description' content='EenmaalAndermaal - Groep14'>
-    <link rel='icon' href='images/Logo.png' type='image/x-icon'/>
+    <link rel='icon' href='images/LogoIcoon.png' type='image/x-icon'/>
     <title>EenmaalAndermaal</title>
     <link rel='stylesheet' href='css/foundation.min.css'>
     <link rel='stylesheet' href='css/foundation.css'>
@@ -92,55 +91,52 @@
     <link rel='stylesheet' href='css/styles.css'>
     <script src="js/jquery.min.js"></script>
     <script src="js/foundation.min.js"></script>
-    
-   
-
-    
 </head>
 <body>
-    
-    <div class="top-bar" id="realEstateMenu">
-        <div class="top-bar-left">
-            <ul class="menu" data-responsive-menu="accordion">
-                <a href="Index.php"><img src="Images/LogoMetNaam.png" class="Logo" alt="Flowers in Chania"></a>
-                
-        </div>
-
-        <br>
-
-        <div class="top-bar-right">
-            <ul class="menu">
-                <?php
-                    if(isset($_SESSION['login'])) {
-                        echo "<li class='gebruiker'>Welkom ".strip_tags($_SESSION['gebruikersnaam']."!</li>");
+    <div class="holy-grail-grid">
+        <div class="holy-grail-header">
+            <div class="top-bar" id="realEstateMenu">
+                <div class="Top-bar-links">
+                    <a href="Index.php"><img src="Images/Logo.png" class="Logo" alt="EenmaalAndermaal"></a>
+                </div>
+                <div class="top-bar-middle">
+                    <?php include_once "Zoekfunctie.php" ?>
+                </div>
+                <div class="top-bar-rechts">
+                    <?php
+                        if(isset($_SESSION['login'])) {
+                            echo "<li class='gebruiker'>Welkom ".strip_tags($_SESSION['gebruikersnaam']."!</li>");
                         
-                        echo "<li> 
+                            echo "<li> 
                                 <form action='index.php' method='post'>
                                     <input type='submit' value='Uitloggen' name='loguit' class='button loginbutton uitlogknop'>
                                 </form>
                             </li>";
                         
-                        if(isset($_POST['loguit'])) {
-                            if(isset($_SESSION)) {
-                                session_destroy();
-                                header ('Location: '.$config['pagina'].'.php');
-                                // om een of andere reden gaat hij altijd naar index
+                            if(isset($_POST['loguit'])) {
+                                if(isset($_SESSION)) {
+                                    session_destroy();
+                                    header ('Location: '.$config['pagina'].'.php');
+                                    // om een of andere reden gaat hij altijd naar index
+                                }
                             }
+                        } else {
+                            echo "<a class='button loginbutton' href='inlogpagina.php'>Login</a>";
                         }
-                    } else {
-                        echo "<li><a class='button loginbutton' href='inlogpagina.php'>Login</a></li>";
-                    }
-                ?>
-            </ul>
+                    ?>
+                </div>
+            </div>
         </div>
-    </div>
 
-<?php
-    if ($config['pagina'] == 'inlogpagina' || $config['pagina'] == 'registratie_email' || $config['pagina'] == 'registratie_persoonsgegevens' || $config['pagina'] == 'registratie_vraag') {
-        
-    } else {
-        // include_once 'aanroepingen/RubNav.php';
-        // include_once 'aanroepingen/RubNavMobiel.php';
-    }
-?>
-    
+        <?php
+            if ($config['pagina'] == 'inlogpagina' || $config['pagina'] == 'registratie_email' || $config['pagina'] == 'registratie_persoonsgegevens' || $config['pagina'] == 'registratie_vraag') {
+                
+            } else {
+                // include_once 'aanroepingen/RubNav.php';
+                // include_once 'aanroepingen/RubNavMobiel.php';
+            }
+        ?>
+
+        <div class="holy-grail-left">
+            <?php include_once 'aanroepingen/RubNav.php'?>
+        </div>
