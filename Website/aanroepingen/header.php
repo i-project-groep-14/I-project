@@ -91,27 +91,24 @@
     <link rel='stylesheet' href='css/foundation-icons.css'>
     <link rel='stylesheet' href='css/styles.css'>
     <script src="js/jquery.min.js"></script>
-    <script src="js/foundation.min.js"></script>
-    
-   
-
-    
+    <script src="js/foundation.min.js"></script>  
 </head>
 <body>
-    
-    <div class="top-bar" id="realEstateMenu">
-        <div class="Top-bar-links">
-        <a href="Index.php"><img src="Images/Logo.png" class="Logo" alt="Flowers in Chania"></a>
-        </div>
-        <div class="top-bar-middle">
-        <?php include_once "Zoekfunctie.php" ?>
-        </div>
-        <div class="top-bar-rechts">
-            <?php
-if(isset($_SESSION['login'])) {
-                        echo "<li class='gebruiker'>Welkom ".strip_tags($_SESSION['gebruikersnaam']."!</li>");
+    <div class="holy-grail-grid">
+        <div class="holy-grail-header">
+            <div class="top-bar" id="realEstateMenu">
+                <div class="Top-bar-links">
+                    <a href="Index.php"><img src="Images/Logo.png" class="Logo" alt="Flowers in Chania"></a>
+                </div>
+                <div class="top-bar-middle">
+                    <?php include_once "Zoekfunctie.php" ?>
+                </div>
+                <div class="top-bar-rechts">
+                    <?php
+                        if(isset($_SESSION['login'])) {
+                            echo "<li class='gebruiker'>Welkom ".strip_tags($_SESSION['gebruikersnaam']."!</li>");
                         
-                        echo "<li> 
+                            echo "<li> 
                                 <form action='index.php' method='post'>
                                     <input type='submit' value='Uitloggen' name='loguit' class='button loginbutton uitlogknop'>
                                 </form>
@@ -124,12 +121,13 @@ if(isset($_SESSION['login'])) {
                                 // om een of andere reden gaat hij altijd naar index
                             }
                         }
-                    } else {
-                        echo "<li><a class='button loginbutton' href='inlogpagina.php'>Login</a></li>";
-                    }
+                        } else {
+                            echo "<li><a class='button loginbutton' href='inlogpagina.php'>Login</a></li>";
+                        }
                     ?>
+                </div>
+            </div>
         </div>
-    </div>
 
 <?php
     if ($config['pagina'] == 'inlogpagina' || $config['pagina'] == 'registratie_email' || $config['pagina'] == 'registratie_persoonsgegevens' || $config['pagina'] == 'registratie_vraag') {
@@ -139,4 +137,7 @@ if(isset($_SESSION['login'])) {
         // include_once 'aanroepingen/RubNavMobiel.php';
     }
 ?>
-    
+
+<div class="holy-grail-left">
+  <?php include_once 'aanroepingen/RubNav.php'?>
+</div>
