@@ -34,16 +34,19 @@
 ?>
 
     <div class="holy-grail-middle">
-      <h1 class="InlogpaginaKopje"> Inloggen </h1>
-      <form class="inlogpaginaContainer" method="post" action="inlogpagina.php">
-          <input type="text" placeholder="Voer gebruikersnaam in" name="inlogAccNaam" required>
-          <input type="password" placeholder="Voer wachtwoord in" name="inlogWw" required>
-          <hr>
-          <button type="submit" class="button inlogbutton" name="login">Log in</button>
+    <h1 class="InlogpaginaKopje"> Inloggen </h1>
+      <div class="InlogContainer">
+       
+        <form class="inlogpaginaContainer" method="post" action="inlogpagina.php">
+            <input type="text" placeholder="Voer gebruikersnaam in" name="inlogAccNaam" required>
+            <input type="password" placeholder="Voer wachtwoord in" name="inlogWw" required>
+            <hr>
+            <button type="submit" class="button inlogbutton" name="login">Log in</button>
 
-          <input type="button" class="button inlogbutton" onclick="window.location.href = 'wachtwoordvergeten.php';" value="Wachtwoord vergeten?"/>
-          <p>Als je nog geen account voor EenmaalAndermaal hebt maak dan <a href="registratie_email.php">hier</a> een account.</p>
-      </form>
+            <input type="button" class="button inlogbutton" onclick="window.location.href = 'wachtwoordvergeten.php';" value="Wachtwoord vergeten?"/>
+            <p>Als je nog geen account voor EenmaalAndermaal hebt maak dan <a href="registratie_email.php">hier</a> een account.</p>
+        </form>
+      </div>
     </div>
 
     <?php 

@@ -2710,6 +2710,7 @@ a.button:hover, a.button:focus {
 [type='text'], [type='password'], [type='date'], [type='datetime'], [type='datetime-local'], [type='month'], [type='week'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], [type='url'], [type='color'],
 textarea {
   display: block;
+  
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
