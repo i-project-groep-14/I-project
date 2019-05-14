@@ -39,8 +39,8 @@
         <div class="tabelvorm-rechts">
           <h3>Prijs</h3>
           <div class="prijsbreedte">
-            <p> Van: </p> <input type="text"> 
-            <p> Tot: </p> <input type="text">
+            <label> Van: </label> <input type="text"> 
+            <label> Tot: </label> <input type="text">
           </div>
         </div>
       </div>
