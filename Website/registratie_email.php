@@ -1,49 +1,41 @@
-<?php
-  $config = ['pagina' => 'registratie_email'];
+    <?php
+      $config = ['pagina' => 'registratie_email'];
 
-  require_once 'aanroepingen/connectie.php';
-  //include_once 'aanroepingen/header.php';
+      require_once 'aanroepingen/connectie.php';
 
-  if (isset($_POST['verzenden_email'])) {
-    if (strlen($_POST['email']) > 50) {
-      echo "Het aantal karakters is te groot. Het maximale toegestane aantal karakters is 50.";
-    } else {
-      $_SESSION['email'] = $_POST['email'];
-      header('Location: registratie_persoonsgegevens.php');
-    }
-  }
+      if (isset($_POST['verzenden_email'])) {
+        if (strlen($_POST['email']) > 50) {
+          echo "Het aantal karakters is te groot. Het maximale toegestane aantal karakters is 50.";
+        } else {
+          $_SESSION['email'] = $_POST['email'];
+          header('Location: registratie_persoonsgegevens.php');
+        }
+      }
 
-?>
-
-<div class="holy-grail-grid">
-    <div class="holy-grail-header">
-      <?php  include_once 'aanroepingen/header.php'?>
-    </div>
-
-    <div class="holy-grail-left">
-    <?php   include_once 'aanroepingen/RubNav.php'?>
-    </div>
+      
+      include_once 'aanroepingen/header.php';
+    ?>
 
     <div class="holy-grail-middle">
       <?php
-           include_once 'aanroepingen/registratie_progressbar.php';
+        include_once 'aanroepingen/registratie_progressbar.php';
       ?>
+      <br>
 
-      <br>  
       <h2 class="">Registreren</h2>
       <div class=" body-tekst">
         <p>
           Welkom op de registratiepagina. Vul hieronder uw geldige e-mailadres in om te verifiëren. 
         </p>      
-        <form action="" method="post">
-        <div class="grid-container">  
-          <div class="grid-x grid-padding-x">
-            <div class="medium-12 cell">
-              <input type="email" placeholder="E-mail" name="email" required> 
-              <input class="button" type="submit" value="Verzenden" name="verzenden_email">
+        <form action="registratie_email.php" method="post">
+          <div class="grid-container">  
+            <div class="grid-x grid-padding-x">
+              <div class="medium-12 cell">
+                <input type="email" placeholder="E-mail" name="email" required> 
+                <input class="button" type="submit" value="Verzenden" name="verzenden_email">
+              </div>
             </div>
           </div>
-        </div>
         </form>
         <p>
           Vervolgens krijgt u een code toegestuurd, bevestig deze code hieronder om door te gaan met het registreren.
@@ -52,7 +44,7 @@
           <a class="a-op-wit" href="#">Klik hier</a>
           om de e-mail opnieuw te sturen.
         </p>
-        <form action="" method="post">
+        <form action="registratie_email.php" method="post">
           <div class="grid-container">  
             <div class="grid-x grid-padding-x">
               <div class="medium-12 cell">
@@ -62,19 +54,9 @@
             </div>
           </div>
         </form>
-        
+      </div>
     </div>
 
-    </div>
-
-
-    <div class="holy-grail-footer">
-      
-      <?php include_once 'aanroepingen/footer.html' ?>
-    </div>
-
-  
-
-  </div>
-
- 
+    <?php 
+      include_once 'aanroepingen/footer.html';
+    ?>
