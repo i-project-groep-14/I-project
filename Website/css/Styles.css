@@ -206,12 +206,16 @@ input:checked + .side-label::after {
 footer{
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   height: fit-content;
 }
 
 .ContainerFooter{
   width: 100%;
+}
+
+.HomePageTitel{
+  border-bottom: #F2552C 1px solid;
 }
 
 .ContainerFooterLinks{
@@ -232,7 +236,7 @@ footer{
 .ProductenContainer{
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-content: center;
   height: fit-content;
   padding: 10px;
