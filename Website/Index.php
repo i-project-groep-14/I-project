@@ -10,25 +10,25 @@
           <img src="/images/fiets.jpg">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> $1999999999.99</span></p>
-          <button>Bekijk meer</button>
+          <input value="Bekijk Meer" class="ProductButton button">
         </div>
         <div class="Product">
           <img src="/images/fiets.jpg">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
-          <button>Bekijk meer</button>
+          <input value="Bekijk Meer" class="ProductButton button">
         </div>
         <div class="Product">
           <img src="/images/fiets.jpg">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
-          <button>Bekijk meer</button>
+          <input value="Bekijk Meer" class="ProductButton button">
         </div>
         <div class="Product">
           <img src="/images/fiets.jpg">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
-          <button>Bekijk meer</button>
+          <input value="Bekijk Meer" class="ProductButton button">
         </div>
       </div>
 
@@ -39,25 +39,25 @@
           <img src="/images/fiets.jpg">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> $1999999999.99</span></p>
-          <button>Bekijk meer</button>
+          <input value="Bekijk Meer" class="ProductButton button">
         </div>
         <div class="Product">
           <img src="/images/fiets.jpg">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
-          <button>Bekijk meer</button>
+          <input value="Bekijk Meer" class="ProductButton button">
         </div>
         <div class="Product">
           <img src="/images/fiets.jpg">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
-          <button>Bekijk meer</button>
+          <input value="Bekijk Meer" class="ProductButton button">
         </div>
         <div class="Product">
           <img src="/images/fiets.jpg">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
-          <button>Bekijk meer</button>
+          <input value="Bekijk Meer" class="ProductButton button">
         </div>
       </div>
 
@@ -68,25 +68,25 @@
           <img src="/images/fiets.jpg" >
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> $1999999999.99</span></p>
-          <button>Bekijk meer</button>
+          <input value="Bekijk Meer" class="ProductButton button">
         </div>  
         <div class="Product">
           <img src="/images/fiets.jpg" >
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
-          <button>Bekijk meer</button>
+          <input value="Bekijk Meer" class="ProductButton button">
         </div>  
         <div class="Product">
           <img src="/images/fiets.jpg" >
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
-          <button>Bekijk meer</button>
+          <input value="Bekijk Meer" class="ProductButton button">
         </div> 
         <div class="Product">
           <img src="/images/fiets.jpg" >
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> $19.99</span></p>
-          <button>Bekijk meer</button>
+          <input value="Bekijk Meer" class="ProductButton button">
         </div>
       </div>
     </div>
