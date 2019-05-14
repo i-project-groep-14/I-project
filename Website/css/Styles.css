@@ -151,8 +151,26 @@ input:checked + .side-label::after {
 }
 
 .rechts {
-  float: right;
+  /*float: right;*/
+  display: flex;
+  justify-content: flex-end;
 }
+
+.links {
+  display: flex;
+  justify-content: flex-start;
+  
+}
+
+.lijn{
+  border-left: solid black 1px;
+}
+
+.klok{
+  font-size: 25px;
+}
+
+/**/
 
 footer{
   display: flex;
