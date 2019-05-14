@@ -6,6 +6,7 @@
     }
 
     if(isset($_POST['register']) && isset($_POST['veiligheidsvraag']) && $_POST['veiligheidsvraag'] != "0" && strlen($_POST['veiligheidsvraag_antwoord']) <= 50) {
+        echo "test";
         $email = $_SESSION['email'];
 
         $gebruikersnaam = $_SESSION['gebruikersnaam'];
