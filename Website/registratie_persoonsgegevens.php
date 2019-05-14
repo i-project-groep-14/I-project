@@ -3,9 +3,13 @@
 			
 			require_once 'aanroepingen/connectie.php';
 			
+			if(!isset($_SESSION)) {
+				session_start();
+			}
+			
 			if(isset($_POST['verzenden_pers'])){
 				$sql = "SELECT gebruikersnaam FROM gebruiker 
-				WHERE gebruikersnaam like :gebruikersnaam";
+						WHERE gebruikersnaam like :gebruikersnaam";
 				$query = $dbh->prepare($sql);
 				$query -> execute(array(
 					':gebruikersnaam' => $_POST['gebruikersnaam']
@@ -63,7 +67,7 @@
 							} else {
 								$_SESSION['eenVerkoper'] = 2;
 							}
-							
+							echo $_SESSION['wachtwoord'];
 							header('Location: registratie_vraag.php');
 						} else {
 							echo "De wachtwoorden komen niet met elkaar overeen.";
@@ -73,7 +77,7 @@
 					echo "Gebruikersnaam is al in gebruik.";
 				}
 			}
-			
+
 			include_once 'aanroepingen/header.php';
 		?>
 		

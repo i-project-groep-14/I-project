@@ -5,8 +5,8 @@
         session_start();
     }
 
-    if(isset($_POST['register']) && isset($_POST['veiligheidsvraag']) && $_POST['veiligheidsvraag'] != "0" && strlen($_POST['veiligheidsvraag_antwoord']) <= 50) {
-        echo "test";
+    if(isset($_SESSION['register']) && isset($_SESSION['veiligheidsvraag']) && $_SESSION['veiligheidsvraag'] != "0" && strlen($_SESSION['veiligheidsvraag_antwoord']) <= 50) {
+        unset($_SESSION['register']);
         $email = $_SESSION['email'];
 
         $gebruikersnaam = $_SESSION['gebruikersnaam'];
@@ -27,8 +27,8 @@
         $wachtwoord = $_SESSION['wachtwoord'];
         $rol = $_SESSION['eenVerkoper'];
 
-        $vraag = $_POST['veiligheidsvraag'];
-        $antwoord = $_POST['veiligheidsvraag_antwoord'];
+        $vraag = $_SESSION['veiligheidsvraag'];
+        $antwoord = $_SESSION['veiligheidsvraag_antwoord'];
 
         $sql = "INSERT INTO gebruiker VALUES
                 (:gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :postcode, :plaatsnaam, :land, :geboortedatum, :mailadres, :wachtwoord, :vraag, :antwoordtekst, :rol, :profielfoto)";
