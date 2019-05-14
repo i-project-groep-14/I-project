@@ -7,31 +7,30 @@
 
     <div class="holy-grail-middle">
       <h3 class="HomePageTitel">De populairste veilingen</h3>
-      
       <div class="ProductenContainer">
         <div class="Product">
           <img src="/images/fiets.jpg" alt="fiets">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> Hoogste bod: $1999999999.99</span></p>
-          <input value="Bekijk Meer" class="ProductButton button">
+          <input type="button" class="ProductButton button" onclick="window.location.href = 'product.php';" value="Bekijk meer!"/>
         </div>
         <div class="Product">
           <img src="/images/fiets.jpg" alt="fiets">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> Hoogste bod: $1999999999.99</span></p>
-          <input value="Bekijk Meer" class="ProductButton button">
+          <input type="button" class="ProductButton button" onclick="window.location.href = 'product.php';" value="Bekijk meer!"/>
         </div>
         <div class="Product">
           <img src="/images/fiets.jpg" alt="fiets">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> Hoogste bod: $1999999999.99</span></p>
-          <input value="Bekijk Meer" class="ProductButton button">
+          <input type="button" class="ProductButton button" onclick="window.location.href = 'product.php';" value="Bekijk meer!"/>
         </div>
         <div class="Product">
           <img src="/images/fiets.jpg" alt="fiets">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> Hoogste bod: $1999999999.99</span></p>
-          <input value="Bekijk Meer" class="ProductButton button">
+          <input type="button" class="ProductButton button" onclick="window.location.href = 'product.php';" value="Bekijk meer!"/>
         </div>
       </div>
 
@@ -42,25 +41,25 @@
           <img src="/images/fiets.jpg" alt="fiets">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> Hoogste bod: $1999999999.99</span></p>
-          <input value="Bekijk Meer" class="ProductButton button">
+          <input type="button" class="ProductButton button" onclick="window.location.href = 'product.php';" value="Bekijk meer!"/>
         </div>
         <div class="Product">
           <img src="/images/fiets.jpg" alt="fiets">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> Hoogste bod: $1999999999.99</span></p>
-          <input value="Bekijk Meer" class="ProductButton button">
+          <input type="button" class="ProductButton button" onclick="window.location.href = 'product.php';" value="Bekijk meer!"/>
         </div>
         <div class="Product">
           <img src="/images/fiets.jpg" alt="fiets">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> Hoogste bod: $1999999999.99</span></p>
-          <input value="Bekijk Meer" class="ProductButton button">
+          <input type="button" class="ProductButton button" onclick="window.location.href = 'product.php';" value="Bekijk meer!"/>
         </div>
         <div class="Product">
           <img src="/images/fiets.jpg" alt="fiets">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> Hoogste bod: $1999999999.99</span></p>
-          <input value="Bekijk Meer" class="ProductButton button">
+          <input type="button" class="ProductButton button" onclick="window.location.href = 'product.php';" value="Bekijk meer!"/>
         </div>
       </div>
 
@@ -71,25 +70,25 @@
           <img src="/images/fiets.jpg" alt="fiets">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> $1999999999.99</span></p>
-          <input value="Bekijk Meer" class="ProductButton button">
+          <input type="button" class="ProductButton button" onclick="window.location.href = 'product.php';" value="Bekijk meer!"/>
         </div>  
         <div class="Product">
           <img src="/images/fiets.jpg" alt="fiets">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> Hoogste bod: $1999999999.99</span></p>
-          <input value="Bekijk Meer" class="ProductButton button">
+          <input type="button" class="ProductButton button" onclick="window.location.href = 'product.php';" value="Bekijk meer!"/>
         </div>  
         <div class="Product">
           <img src="/images/fiets.jpg" alt="fiets">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> Hoogste bod: $1999999999.99</span></p>
-          <input value="Bekijk Meer" class="ProductButton button">
+          <input type="button" class="ProductButton button" onclick="window.location.href = 'product.php';" value="Bekijk meer!"/>
         </div> 
         <div class="Product">
           <img src="/images/fiets.jpg" alt="fiets">
           <h3>Viking fiets</h3>
           <p>tijd:99:99:99 <span style="float:right"> Hoogste bod: $1999999999.99</span></p>
-          <input value="Bekijk Meer" class="ProductButton button">
+          <input type="button" class="ProductButton button" onclick="window.location.href = 'product.php';" value="Bekijk meer!"/>
         </div>
       </div>
     </div>
