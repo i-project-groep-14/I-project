@@ -1,14 +1,19 @@
 <?php
   $config = ['pagina' => 'wachtwoordvergeten'];
-
   require_once 'aanroepingen/connectie.php';
-  include_once 'aanroepingen/header.php';
 ?>
 
-<br>
+<div class="holy-grail-grid">
+    <div class="holy-grail-header">
+      <?php  include_once 'aanroepingen/header.php'?>
+    </div>
 
-<h1 class="InlogpaginaKopje"> Wachtwoord Vergeten? </h1>
-<form class="inlogpaginaContainer">
+    <div class="holy-grail-left">
+    <?php   include_once 'aanroepingen/RubNav.php'?>
+    </div>
+
+<div class="holy-grail-middle">
+    <h1 class="InlogpaginaKopje"> Wachtwoord Vergeten? </h1>
   <div>
     <input type="text" placeholder="Voer e-mail in" name="email" required>
     <h5>Kies een veiligheidsvraag</h5>
@@ -27,7 +32,9 @@
     <p>Antwoord op de veiligheidsvraag vergeten? Neem contact op met ons.</p>
   </div>
  </form>
+</div>
+ <div class="holy-grail-footer">
+      
+      <?php include_once 'aanroepingen/footer.html' ?>
+    </div>
 
-<?php
-  include_once 'aanroepingen/footer.html';
-?>
