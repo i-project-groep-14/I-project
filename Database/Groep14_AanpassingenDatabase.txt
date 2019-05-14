@@ -3,19 +3,19 @@ Database model maken, wijzigingen in rood aangeven
 
 Tabel gebruiker:
 
-	gebruikersnaam 	van char(10) 	naar varchar(20)
-	voornaam 		van char(5)		naar varchar(20)
-	achternaam 		van char(8) 	naar varchar(20)
-	adresregel1 	van char(15) 	naar varchar(20)
-	adresregel2 	van char(15) 	naar varchar(20)
-	plaatsnaam 		van char (12) 	naar varchar(20)
-	land 			van char(9) 	naar varchar(20)
-	geboortedag 	veranderd naar 'geboortedatum' met een date ipv char
-	mailbox			veranderd naar 'mailadres' met een varchar(50) ipv char(18)
-	wachtwoord 		van char(9) 	naar varchar(255)
-	vraag			van integer(2) 	naar numeric(2)
-	antwoordtekst	van char(6) 	naar varchar(50)
-	verkoper 		veranderd naar 'rol' met een numeric(1) ipv char. De volgende lijst met nummers wordt hiervoor gebruikt:
+	gebruikersnaam 				van char(10) 	naar varchar(20)
+	voornaam 					van char(5)		naar varchar(20)
+	achternaam 					van char(8) 	naar varchar(20)
+	adresregel1 				van char(15) 	naar varchar(20)
+	adresregel2 				van char(15) 	naar varchar(20)
+	plaatsnaam 					van char (12) 	naar varchar(20)
+	land 						van char(9) 	naar varchar(20)
+	geboortedag 				veranderd naar 'geboortedatum' met een date ipv char
+	mailbox						veranderd naar 'mailadres' met een varchar(50) ipv char(18)
+	wachtwoord 					van char(9) 	naar varchar(255)
+	vraag						van integer(2) 	naar numeric(2)
+	antwoordtekst				van char(6) 	naar varchar(50)
+	verkoper 					veranderd naar 'rol' met een numeric(1) ipv char. De volgende lijst met nummers wordt hiervoor gebruikt:
 		0:      geblokkeerd
 		1:      te verifiëren (nieuwe gebruiker)
 		2:      actieve gebruiker
@@ -26,15 +26,88 @@ Tabel gebruiker:
 
 	3 constraints toegevoegd; geboortedatum mag niet na vandaag zijn, wachtwoord moet langer zijn dan 7 karakters en minimaal 1 letter en 1 nummer bevatten
 
+	fk op vraag -> on update restrict, on delete restrict
+
+
 Tabel vraag:
 
-	vraagnummer		van char(21) 	naar numeric(2)
-	tekstvraag		van char(21)	naar varchar(50)
+	vraagnummer					van char(21) 	naar numeric(2)
+	tekstvraag					van char(21)	naar varchar(50)
+
 
 Tabel gebruikerstelefoon:
 
-	volgnr			van integer(2)	naar numeric(2)
-	gebruiker		van char(10)	naar varchar(20)
+	volgnr						van integer(2)	naar numeric(3)
+	gebruiker					van char(10)	naar varchar(20)
+
+	fk op gebuiker -> on update cascade, on delete restrict
+
+
+Tabel verkoper:
+
+	gebruiker					van char(10)	naar varchar(20)
+	bank						van char(8)		naar varchar(20)
+	bankrekening				van integer(7)	naar varchar(30)
+	controle-optie				van char(10)	naar varchar(20)
+	creditcard					van char(19)	naar varchar(30)
+
+	fk op gebruiker -> on update cascade, on delete restrict
+
+
+Tabel voorwerp:
+
+	voorwerpnummer				van numeric(10)	naar int
+	titel						van char(18)	naar varchar(30)
+	beschrijving				van char(22)	naar varchar(100)
+	startprijs					van char(5)		naar varchar(10)
+	betalingswijze				van char(9)		naar varchar(20)
+	betalingsinstructie			van char(23)	naar varchar(30)
+	plaatsnaam					van char(12)	naar varchar(20)
+	land						van char(9)		naar varchar(20)
+	looptijd					van integer(1)	naar numeric(3)
+	looptijdbeginDag			van char(10)	naar date
+	verzendkosten				van char(5) 	naar varchar(10)
+	verzendinstructies			van char(27)	naar varchar(100)
+	verkoper					van char(10)	naar varchar(20)
+	koper						van char(10)	naar varchar(20)
+	looptijdeindeDag			van char(10)	naar date
+	veilinggesloten?			van char(3)		naar varchar(4)
+	verkoopprijs				van char(5)		naar varchar(10)
+
+	fk op koper -> on update cascade, on delete restrict
+
+
+Tabel bestand:
+	
+	filenaam					van char(13)	naar varchar(200)
+	voorwerp					van numeric(10)	naar int
+
+	fk op voorwerp -> on update restrict, on delete restrict
+
+
+Tabel rubriek
+
+	rubrieknummer				van integer(3)	naar numeric(3)
+	rubrieknaam					van char(24) 	naar varchar(50)
+	rubriek						van integer(3)	naar numeric(3)
+	volgnr						van integer(2)	naar numeric(3)
+
+	fk op rubriek -> on update restrict, on delete restrict
+
+
+Tabel voorwerp in rubriek:
+
+	voorwerp					van numeric(10)	naar int
+	rubriek op laagste niveau	van integer(3)	naar numeric(3)
+
+	fk op voorwerp -> on update cascade, on delete restrict	
+	fk op rubriek op laagste niveau -> on update restrict, on delete restrict
+
+
+
+
+
+
 
 
 
