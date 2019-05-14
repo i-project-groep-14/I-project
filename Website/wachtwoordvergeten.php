@@ -6,7 +6,7 @@
     ?>
 
     <br>
-
+    <div class="holy-grail-middle">
     <h1 class="InlogpaginaKopje"> Wachtwoord Vergeten? </h1>
     <form class="inlogpaginaContainer">
       <div>
@@ -27,7 +27,7 @@
         <p>Antwoord op de veiligheidsvraag vergeten? Neem contact op met ons.</p>
       </div>
     </form>
-
+  </div>
     <?php
       include_once 'aanroepingen/footer.html';
     ?>

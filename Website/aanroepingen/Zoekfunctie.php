@@ -6,8 +6,8 @@
     <select class="ZoekRubrieken">
         <option value="1000">Rubrieken</option>
         <option value="Auto">Auto's</option>
-        <option value="Fietsen">Auto's en fietsen fietsen</option>
-        <option value="Kasten">Auto's en fietsen fietsen</option>
+        <option value="Fietsen">Auto's en fietsen</option>
+        <option value="Kasten">Kaas en Kasten</option>
         <option value="Keuken">Keuken</option>
     </select>
     
