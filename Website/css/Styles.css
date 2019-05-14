@@ -26,6 +26,7 @@ li{
 }
 .InputZoekProduct{
   width: 100%;
+  float: left;
 }
 .ProductButton{
   width: 100%;
@@ -34,13 +35,26 @@ li{
 .ZoekRubrieken{
   width: fit-content;
 }
-
+.InlogContainer{
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  
+}
+.InlogpaginaKopje {
+  text-align: center;
+  border-bottom: 1px solid #F2552C;
+}
 
 .loginbutton{
-  margin: auto;
-  width: 200px;
-  border-radius: 2px;
-  box-shadow:   3px 3px #ccc;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: solid;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
 }
 
 .loginbutton:hover{
@@ -213,8 +227,26 @@ input:checked + .side-label::after {
 }
 
 .rechts {
-  float: right;
+  /*float: right;*/
+  display: flex;
+  justify-content: flex-end;
 }
+
+.links {
+  display: flex;
+  justify-content: flex-start;
+  
+}
+
+.lijn{
+  border-left: solid black 1px;
+}
+
+.klok{
+  font-size: 25px;
+}
+
+/**/
 
 footer{
   display: flex;

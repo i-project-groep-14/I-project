@@ -1,124 +1,163 @@
-    <?php
-      $config = ['pagina' => 'product'];
+<?php
+  $config = ['pagina' => 'product'];
 
-      require_once 'aanroepingen/connectie.php';
-      include_once 'aanroepingen/header.php';
-    ?>
+ require_once 'aanroepingen/connectie.php';
+ include_once 'aanroepingen/header.php';
+  
+?>
 
-    <div class="row columns"> 
-        <nav aria-label="You are here:">
-            <ul class="breadcrumbs">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Antiek en Kunst</a></li>
-                <li><a href="#">Kasten</a></li>
-                <li><span class="show-for-sr">Current: </span> Viking Fiets</li>
-            </ul>
-        </nav>
+<link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+<div class="holy-grail-grid">
+    <div class="holy-grail-header">
+      <?php  include_once 'aanroepingen/header.php'?>
     </div>
 
-    <div class="row Margin">
-        <div class="medium-6 columns">
-            <div class="center">
-                <img class="thumbnail Fthumbnail" src="Images/Fiets.jpg" alt="fiets">
-            </div>
-            <div class="row small-up-4">
-                <div class="column">
-                    <img class="thumbnail" src="images/fiets.jpg" alt="fiets">>
-                </div>
-                <div class="column">
-                    <img class="thumbnail" src="images/fiets.jpg" alt="fiets">>
-                </div>
-                <div class="column">
-                    <img class="thumbnail" src="images/fiets.jpg" alt="fiets">>
-                </div>
-                <div class="column">
-                    <img class="thumbnail" src="images/fiets.jpg" alt="fiets">>
-                </div>
-            </div>
-        </div>
+    <div class="holy-grail-left">
+      <?php   include_once 'aanroepingen/RubNav.php'?>
+    </div>
+
+
+<div class="holy-grail-middle">
+
+  <div class="row columns">
+    <nav aria-label="You are here:" role="navigation">
+      <ul class="breadcrumbs">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li class="disabled">Gene Splicing</li>
+        <li>
+        <span class="show-for-sr">Current: </span> Cloning
+        </li>
+      </ul>
+    </nav>
+    </div>
+
+    <div class="row">
+      <div class="medium-6 columns">
         
-        <div class="medium-6 large-5 columns">
-            <h3>My Awesome Product</h3>
-            <section class="row">
-                <h4><a href="" class="grey"><i>Username</i></a></h4>
-                <i class="fi-star yellow"></i>
-                <i class="fi-star yellow"></i>
-                <i class="fi-star yellow"></i>
-                <i class="fi-star grey"></i>
-                <i class="fi-star grey"></i>
-            </section>
-            
-            <p>Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in.</p>
-            <div class="InfoVeiling">
-                <div class="row">
-                    <div class="small-3 columns">
-                        <label class="middle">Hoogste bod:</label>
-                    </div>
-                    <div class="small-9 columns">
-                        <p>€ 39,99 </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="small-3 columns">
-                        <label class="middle">Start Prijs:</label>
-                    </div>
-                    <div class="small-9 columns">
-                        <p>€ 24,99 </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="small-3 columns">
-                        <label class="middle">Sluit over:</label>
-                    </div>
-                    <div class="small-9 columns">
-                        <p>08:54:43 </p>
-                    </div>
-                </div>
-                
-                <a href="#" class="button large expanded">Bied Mee</a>
-                <div class="small secondary expanded button-group">
-                    <a class="button">Bericht</a>
-                    <a class="button">Bel</a>
-                    <a class="button">E-mail</a>
-                </div>
-            </div>
+        <img class="thumbnail" src="images/fiets.jpg">
+        <div class="row small-up-4">
+        <div class="column">
+          <img class="thumbnail" src="images/fiets.jpg">
         </div>
+        <div class="column">
+          <img class="thumbnail" src="images/fiets.jpg">
+        </div>
+        <div class="column">
+          <img class="thumbnail" src="images/fiets.jpg">
+        </div>
+        <div class="column">
+          <img class="thumbnail" src="images/fiets.jpg">
+        </div>
+      </div>
     </div>
 
-    <hr>
-
-    <div class=" column flex-center">
-        <div class="tabs-content rows" data-tabs-content="example-tabs">
-            <div class="tabs-panel is-active" id="panel1">
-                <h4>Biedingen</h4>
-                <div class="media-object stack-for-small">
-                    <div class="media-object-section">
-                        <img class="thumbnail" src="images/profielfotoPlaceholder.png" alt="profielfoto">>
-                    </div>
-                    <div class="media-object-section">
-                        <h5>Mike Stevenson  &nbsp; &nbsp; &nbsp; <span class="rechts ProductBod">€39,99</span></h5>
-                    </div>
-                </div>
-                <div class="media-object stack-for-small">
-                    <div class="media-object-section">
-                        <img class="thumbnail" src="images/profielfotoPlaceholder.png" alt="profielfoto">>
-                    </div>
-                    <div class="media-object-section">
-                        <h5>Mike Stevenson &nbsp; &nbsp; &nbsp; <span class="rechts ProductBod">€29,99</span></h5>
-                    </div>
-                </div>
-                <div class="media-object stack-for-small">
-                    <div class="media-object-section">
-                        <img class="thumbnail" src="images/profielfotoPlaceholder.png" alt="profielfoto">>
-                    </div>
-                    <div class="media-object-section">
-                        <h5>Mike Stevenson &nbsp; &nbsp; &nbsp; <span class="rechts ProductBod">€19,99</span></h5>
-                    </div>
-                </div>
-            </div>
+ <!--Toevoegen informatie aan de rechterkant-->
+    <div class="medium-6 large-5 columns lijn">
+      <h3>My Awesome Product</h3>
+      <p><i>Verkoper</i></p>
+      <p>Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in.</p>
+  
+      <div class="row">
+        <div class="small-3 columns">
+          <p class="middle">Plaats:</p>
         </div>
+        <div class="small-9 columns">
+          <p>Arnhem, Nederland</p>
+        </div>
+
+        <div class="small-3 columns">
+          <p class="middle">Startprijs:</p>
+        </div>
+        <div class="small-9 columns">
+          <p>5,00 Euro</p>
+        </div>
+
+        <div class="small-3 columns">
+          <p class="middle">Huidige Prijs:</p>
+        </div>
+        <div class="small-9 columns">
+          <p><b>11,00 Euro</b></p>
+        </div>
+
+      </div>
+        <a href="#" class="button large expanded">Bieden</a>
+        <p>Looptijd:</p>
+        <div class="klok">
+          <p>2d 12h 40m 33s </p>
+        </div>
+          <p class="middle">Betaling: IDEAL/Contant</p>
+          <p class="middle">Verzending: Via PostNL/Zelf ophalen</p>
+      </div>
     </div>
 
-    <?php
-      include_once 'aanroepingen/footer.html';
-    ?>
+<!--De bieding tab onderin-->
+    <div class="column row">
+      <hr>
+
+      <ul class="tabs" data-tabs id="example-tabs">
+        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Biedingen</a></li>
+      </ul>
+
+      <div class="tabs-content" data-tabs-content="example-tabs">
+        <div class="tabs-panel is-active" id="panel1">
+        <h4>Biedingen</h4>
+        <div class="media-object stack-for-small">
+        <div class="media-object-section">
+        <img class="thumbnail" src="images/profielfotoPlaceholder.png">
+      </div>
+
+      <div class="media-object-section">
+        <h5>Mike Stevenson</h5>
+        <p>Geboden: 1.00 Euro</p>
+        <p><i>Datum van bod: dd/mm/jj, hh:mm</i></p>
+      </div>
+    </div>
+
+    <div class="media-object stack-for-small">
+      <div class="media-object-section">
+        <img class="thumbnail" src="images/profielfotoPlaceholder.png">
+      </div>
+
+      <div class="media-object-section">
+        <h5>Mike Stevenson</h5>
+        <p>Geboden: 2.00 Euro</p>
+        <p><i>Datum van bod: dd/mm/jj, hh:mm</i></p>
+      </div>
+    </div>
+
+    <div class="media-object stack-for-small">
+      <div class="media-object-section">
+        <img class="thumbnail" src="images/profielfotoPlaceholder.png">
+      </div>
+      
+      <div class="media-object-section">
+        <h5>Mike Stevenson</h5>
+        <p>Geboden: 3.00 Euro</p>
+        <p><i>Datum van bod: dd/mm/jj, hh:mm</i></p>
+      </div>
+    </div>
+      <button class="button">Bied mee!</button>
+    </div>
+      
+    </div>
+  </div>
+
+
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <script>
+          $(document).foundation();
+    </script>    
+
+
+  <div class="holy-grail-footer">  
+    <?php include_once 'aanroepingen/footer.html' ?>
+  </div>
+
+</div>
+
+ 
