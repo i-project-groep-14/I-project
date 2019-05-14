@@ -97,7 +97,7 @@
         <div class="holy-grail-header">
             <div class="top-bar" id="realEstateMenu">
                 <div class="Top-bar-links">
-                    <a href="Index.php"><img src="Images/Logo.png" class="Logo" alt="Flowers in Chania"></a>
+                    <a href="Index.php"><img src="Images/Logo.png" class="Logo" alt="EenmaalAndermaal"></a>
                 </div>
                 <div class="top-bar-middle">
                     <?php include_once "Zoekfunctie.php" ?>

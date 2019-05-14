@@ -1,13 +1,14 @@
-<div class="input-group ">
-    <input  type="search" placeholder="Zoek product..."><br>
-    <input   type="text" placeholder="Postcode">
+<div class="ZoekProduct">
+    <input class="InputZoekProduct" type="search" placeholder="Zoek product...">
     
-    <select>
-        <option value="1000">Alle afstanden...</option>
-        <option value="10">0 - 10km</option>
-        <option value="20">10 - 30km</option>
-        <option value="30">30 - 50km</option>
-        <option value="40">50 - 100km</option>
+    
+
+    <select class="ZoekRubrieken">
+        <option value="1000">Rubrieken</option>
+        <option value="Auto">Auto's</option>
+        <option value="Fietsen">Auto's en fietsen fietsen</option>
+        <option value="Kasten">Auto's en fietsen fietsen</option>
+        <option value="Keuken">Keuken</option>
     </select>
     
     
