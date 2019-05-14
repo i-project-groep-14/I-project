@@ -1,16 +1,8 @@
 <?php
   $config = ['pagina' => 'rubriekenpagina'];
   require_once 'aanroepingen/connectie.php';
+  include_once 'aanroepingen/header.php';
 ?>
-
-<div class="holy-grail-grid">
-  <div class="holy-grail-header">
-    <?php  include_once 'aanroepingen/header.php'?>
-  </div>
-
-  <div class="holy-grail-left">
-  <?php   include_once 'aanroepingen/RubNav.php'?>
-  </div>
 
   <div class="holy-grail-middle">
 <div class="row columns"> 
@@ -105,9 +97,4 @@
         </div>
         </div>
 
-        <div class="holy-grail-footer">
     <?php include_once 'aanroepingen/footer.html' ?>
-  </div>
-
-
-
