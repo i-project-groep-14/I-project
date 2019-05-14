@@ -406,11 +406,8 @@ body{
 
 .rubrieken { 
   display: flex;
-  justify-content: space-around;
-  width: 1400px; 
+  width: auto; 
   border: 1px solid #F2552C;
-  padding-right: 400px;
-  padding-left: 300px;
 }
 
 .rubriekenContainer img {
@@ -431,7 +428,6 @@ body{
   height: auto;
   border: solid 1px grey ;
   padding: 3px;
-  min-width: 200px;
   background: white;
   box-shadow: 1px 2px 2px;  
 }
