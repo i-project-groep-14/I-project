@@ -61,8 +61,9 @@
 		
 							<div class="medium-12 cell">
                                 <label> Betaalmethode </label>
-                                    <select class = "meerkeuzevak"> 
-                                    <   option>iDeal</option>
+                                    <select class = "meerkeuzevak">
+                                        <option>Kies een betaalmethode...</option>
+                                        <option>iDeal</option>
                                         <option>PayPal</option>
                                     </select>
 							</div>

@@ -86,7 +86,6 @@
     <meta name='description' content='EenmaalAndermaal - Groep14'>
     <link rel='icon' href='images/LogoIcoon.png' type='image/x-icon'/>
     <title>EenmaalAndermaal</title>
-    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
     <link rel='stylesheet' href='css/foundation.min.css'>
     <link rel='stylesheet' href='css/foundation.css'>
     <link rel='stylesheet' href='css/foundation-icons.css'>
