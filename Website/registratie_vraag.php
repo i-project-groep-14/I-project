@@ -2,6 +2,10 @@
       $config = ['pagina' => 'registratie_vraag'];
 
       require_once 'aanroepingen/connectie.php';
+    
+      if(!isset($_SESSION)) {
+        session_start();
+      }
 
       if(isset($_POST['register']) && isset($_POST['veiligheidsvraag'])) {
         if (strlen($_POST['veiligheidsvraag_antwoord']) > 50) {
@@ -9,10 +13,13 @@
         } else if ($_POST['veiligheidsvraag'] == 0) {
           echo "U moet nog een veiligheidsvraag selecteren.";
         } else {
-          // $_SESSION['register'] = 'Verzonden';
+          $_SESSION['register'] = $_POST['register'];
+          $_SESSION['veiligheidsvraag'] = $_POST['veiligheidsvraag'];
+          $_SESSION['veiligheidsvraag_antwoord'] = $_POST['veiligheidsvraag_antwoord'];
           header('Location: index.php');
         }
       }
+
       include_once 'aanroepingen/header.php';
     ?>
 
