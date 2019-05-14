@@ -1,5 +1,5 @@
 <div class="ZoekProduct">
-    <input class="InputZoekProduct" type="search" placeholder="Zoek product...">
+    <input class="" type="search" placeholder="Zoek product...">
     
     
 
