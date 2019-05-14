@@ -4,6 +4,7 @@ li{
 .top-bar{
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   height: fit-content;
   
 }
@@ -13,8 +14,8 @@ li{
   height: 100%;
 }
 .top-bar-middle{
-  
- width: 900px;
+
+ width: 60%;
   height: 100%;
 }
 .top-bar-rechts{
@@ -72,7 +73,9 @@ li{
   
 }
 
-
+.dropdown-pane{
+ 
+}
 
 
 
@@ -295,6 +298,11 @@ footer{
     flex-wrap: wrap;
     justify-content: center;
   }
+ 
+  .ZoekProduct{
+    display: none;
+    
+  }
 
 }
 
@@ -333,7 +341,7 @@ body{
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 3fr 1fr;
-      grid-template-columns: 0.5fr 3fr 0fr;
+      grid-template-columns: 0.8fr 3fr 0fr;
   -ms-grid-rows: 1fr 8fr 1fr;
       grid-template-rows: 1fr 8fr 1fr;
   grid-gap: 20px;
