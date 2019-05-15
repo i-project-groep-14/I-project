@@ -56,6 +56,7 @@
 </script>
 
 <div class="holy-grail-middle">
+<h1>DEZE PAGINA IS IN BEWERKING</h1>
 			<br>
 			<h2 class="HomepaginaKopjes center">Voorwerp Plaatsen</h2>
 			<div class="">
