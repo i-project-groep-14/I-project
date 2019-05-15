@@ -136,11 +136,11 @@
                             echo "<li class='gebruiker'>Welkom ".strip_tags($_SESSION['gebruikersnaam']."!</li>");
                         
                             echo "
-                            </li> <button class='button loginbutton uitlogknop' type='submit' data-toggle='example-dropdown-bottom-right'>Toggle Dropdown</button>
+                            </li> <button class='button loginbutton uitlogknop' type='submit' data-toggle='example-dropdown-bottom-right'>Account</button>
 
                             <div class='dropdown-pane' data-position='bottom' data-alignment='right'  id='example-dropdown-bottom-right' data-dropdown data-auto-focus='true'>
                               <!-- Onderdelen van de dropdown komen hier te staan -->
-                                <img src='images/LogoIcoon.png' width='150px'>
+                                <img src='images/profielfotoplaceholder.png' width='150px'>
                               
                                 <p>Naam: ".$_SESSION['voornaam']."</p>
                                 <p>Aantal actieve veilingen:".$_SESSION['aantaleigenveilingen']."</p>";
