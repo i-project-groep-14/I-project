@@ -6,6 +6,7 @@
     ?>
 
     <div class="holy-grail-middle">
+      <div class="ContainerRubrieken">
       <div class="row columns"> 
         <nav aria-label="You are here:">
           <ul class="breadcrumbs">
@@ -18,17 +19,21 @@
         </nav>
       </div>
       <br>
-      <div class="rubriekenTop">
-        <div class ="tabelvorm-links">
-          <h3> Filters </h3>
-          <input type="radio" name="Kaas" value="op">Prijs Oplopend<br>
-          <input type="radio" name="Kaas" value="af">Prijs Aflopend<br>
-          <input type="radio" name="Kaas" value="op">Looptijd Oplopend<br>
-          <input type="radio" name="Kaas" value="af">Looptijd Aflopend<br>
-        </div>
-        <div class="tabelvorm-midden">
+      <button class="button fa fi-marker fa-lg" type="button" data-toggle="example-dropdown-bottom-left">Toggle Dropdown</button>
+<div class="dropdown-pane large " data-position="bottom" data-alignment="left" id="example-dropdown-bottom-left" data-dropdown data-auto-focus="true">
+  <!-- My dropdown content in here -->
+  <div class="FilterContainer">
+    <div class="FilterPrijs">
+      <h3>Prijs:</h3>
+      <label>Vanaf:</label>
+      <input type="text" class="FilterPrijsLaag">
+      <label>Tot:</label>
+      <input type="text" class="FilterPrijsLaag">
+	  </div>
+	    <div class="FilterLocatie">
           <h3>Locatie</h3>
-          <select class = "meerkeuzevak"> 
+          <Br>
+          <select class="Filtermeerkeuzevak"> 
             <option>Kies een plaats</option>
             <option>Den Haag</option>
             <option>Amsterdam</option>
@@ -36,14 +41,36 @@
             <option>Arnhem</option>
           </select>
         </div>
-        <div class="tabelvorm-rechts">
-          <h3>Prijs</h3>
-          <div class="prijsbreedte">
-            <label> Van: </label> <input type="text"> 
-            <label> Tot: </label> <input type="text">
-          </div>
+        
+  <div class="FilterSorteer">
+          <h3>Sorteer op:</h3>
+          <Br>
+          <select class="Filtermeerkeuzevak"> 
+            <option>Standaard</option>
+            <option>Datum (nieuw-oud)</option>
+            <option>Datum (oud-nieuw)</option>
+            <option>Sluittijd (kort-lang)</option>
+            <option>Sluittijd (lang-kort)</option>
+          </select>
         </div>
-      </div>
+  <div class="FilterSorteer">
+
+    <h3>Zoeken </h3>
+    <br>
+    <input type="text" class="Zoeken">
+    <input type='submit' class='button' value="Zoeken">
+  </div>
+
+ 
+  </div>
+
+      
+
+</div>
+	
+
+</div>
+
 
       <br>
       <div class="rubriekenContainer">
@@ -96,7 +123,7 @@
           </div>
         </article>
       </div>
-    </div>
+  </div>
 
     <?php 
       include_once 'aanroepingen/footer.html';
