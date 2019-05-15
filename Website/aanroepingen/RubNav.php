@@ -8,7 +8,7 @@
           <li>
             <a href="rubriekenpagina.php">Item 1B</a>
             <ul class="menu">
-              <li><a href="rubriekenpagina.phpi">Item 1B i</a></li>
+              <li><a href="rubriekenpagina.php">Item 1B i</a></li>
               <li><a href="rubriekenpagina.php">Item 1B ii</a></li>
               <li>
                 <a href="rubriekenpagina.php">Item 1B iii</a>
