@@ -128,7 +128,7 @@
                     <a href="Index.php"><img src="Images/Logo.png" class="Logo" alt="EenmaalAndermaal"></a>
                 </div>
                 <div class="top-bar-middle">
-                    <?php if($config['pagina'] !='rubriekenpagina'){include_once "Zoekfunctie.php";} ?>
+                    <?php if ($config['pagina'] !='rubriekenpagina') { include_once "Zoekfunctie.php"; } ?>
                 </div>
                 <div class="top-bar-rechts">
                     <?php
@@ -148,10 +148,8 @@
                                     echo "<a href='beheerderspagina.php' class='button'>Beheerderspagina</a>";
                                 }
                                 echo "
-                                
                               <form action='index.php' method='post'>
                                 <input type='submit' value='Uitloggen' name='loguit' class='button loginbutton uitlogknop'>
-                                    
                               </form>
                             </div>" ;
                         
