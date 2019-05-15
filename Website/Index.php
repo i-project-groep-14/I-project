@@ -36,7 +36,7 @@
       </div>
     </div>";
   }
-    echo "
+  ?>
       <h3 class='HomePageTitel'>De populairste veilingen</h3>
       <div class='ProductenContainer'>
         <div class='Product'>
@@ -121,12 +121,9 @@
           <p>tijd:99:99:99 <span style='float:right'> Hoogste bod: $1999999999.99</span></p>
           <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
         </div>
-      </div>";
-  
-
-  
-?>
-</div>
+      </div>
+    </div>
+    
     <?php 
       include_once 'aanroepingen/footer.html';
     ?>
