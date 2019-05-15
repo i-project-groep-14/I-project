@@ -74,6 +74,7 @@
         session_start();
         $_SESSION['login'] = true;
         $_SESSION['gebruikersnaam'] = $gebruikersnaam;
+        $_SESSION['voornaam'] = $voornaam;
     }
 ?>
 
@@ -109,11 +110,24 @@
                         if(isset($_SESSION['login'])) {
                             echo "<li class='gebruiker'>Welkom ".strip_tags($_SESSION['gebruikersnaam']."!</li>");
                         
-                            echo "<li> 
-                                <form action='index.php' method='post'>
-                                    <input type='submit' value='Uitloggen' name='loguit' class='button loginbutton uitlogknop'>
+                            echo "
+                            </li> <button class='button loginbutton uitlogknop' type='submit' data-toggle='example-dropdown-bottom-right'>Toggle Dropdown</button>
+
+                            <div class='dropdown-pane' data-position='bottom' data-alignment='right'  id='example-dropdown-bottom-right' data-dropdown data-auto-focus='true'>
+                              <!-- Onderdelen van de dropdown komen hier te staan -->
+                              <form action='index.php' method='post'>
+                              <img src='Images/eend.jpg' width='150px'>
+                              
+                                <p>Naam:</p>
+                                <p>Lid sins:</p>
+                                <p>Aantal actieve veilingen:</p>
+                                <p>Mijn veilingen:</p>
+                              
+                              
+                                <input type='submit' value='Uitloggen' name='loguit' class='button loginbutton uitlogknop'>
+                                    
                                 </form>
-                            </li>";
+                            </div>" ;
                         
                             if(isset($_POST['loguit'])) {
                                 if(isset($_SESSION)) {
