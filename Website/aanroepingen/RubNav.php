@@ -1,4 +1,4 @@
-<div class="row">
+<div class="RubNav row">
   <div class="columns">
     <ul class="vertical dropdown menu" data-dropdown-menu style="max-width: 250px;">
       <li>
