@@ -128,7 +128,7 @@
                     <a href="Index.php"><img src="Images/Logo.png" class="Logo" alt="EenmaalAndermaal"></a>
                 </div>
                 <div class="top-bar-middle">
-                    <?php include_once "Zoekfunctie.php" ?>
+                    <?php if($config['pagina'] !='rubriekenpagina'){include_once "Zoekfunctie.php";} ?>
                 </div>
                 <div class="top-bar-rechts">
                     <?php

@@ -377,7 +377,6 @@ body{
 .holy-grail-right,
 .holy-grail-footer {
   box-shadow: black 5px 5px 5px;
-  
   padding: 1rem;
   border: 1px solid #ededed;
   background-color: rgb(255, 255, 255);
@@ -432,30 +431,17 @@ body{
   height: 200px;
 }
 
-.rubriekenTop {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  height: fit-content;
-  border-style: solid;
+.Filtermeerkeuzevak{
+  width: fit-content;
 }
 
-.tabelvorm-links {
-  width: 500px;
-  height: fit-content;
-  padding: 10px;
-}
 
-.tabelvorm-middel {
-  width: 650px;
-  height: fit-content;
-
-}
-
-.tabelvorm-rechts {
-  width: 350px;
-  height: fit-content;
-  margin-left: 200px;
+.FilterContainer{
+  display:flex;
+  justify-content: space-between;
+  
+ 
+  
 }
 
 .center{
@@ -483,6 +469,9 @@ body{
 {
     display: flex;
     flex-direction: column;
+}
+.ContainerRubrieken{
+  width: fit-content;
 }
 
 .RubriekenProducten {
