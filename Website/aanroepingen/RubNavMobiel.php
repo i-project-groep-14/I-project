@@ -1,29 +1,70 @@
-          <nav class="MobileNav" role="navigation">
-<div id="myNav" class="overlay">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <div class="overlay-content">
-    <a href="#">Antiek en Kunst</a>
-    <a href="#">Audio, Tv en Foto</a>
-    <a href="#">Auto's</a>
-    <a href="#">Auto diversen</a>
-    <a href="#">Muziek en Instrumenten</a>
-    <a href="#">Diversen</a>
-    <a href="#">Watersport en Boten</a>
-    <a href="#">Diversen</a>
-    <a href="#">Sport en Fitness</a>
-  </div>
-</div>
 
 
-<span class="MobileButton" onclick="openNav()">&nbsp; &#9776;</span>
 
-<script>
-function openNav() {
-  document.getElementById("myNav").style.width = "100%";
-}
 
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-}
-</script>
+<nav class="MobileNav" role="navigation">
+<ul class="multilevel-accordion-menu vertical menu" data-accordion-menu>
+  <li>
+    <a href="#">Item 1</a>
+    <ul class="menu vertical sublevel-1">
+      <li>
+        <a href="#">Sub-item 1</a>
+        <ul class="menu vertical sublevel-2">
+          <li><a class="subitem" href="#">Thing 1</a></li>
+          <li><a class="subitem" href="#">Thing 2</a></li>
+          <li><a class="subitem" href="#">Thing 3</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Sub-item 2</a>
+        <ul class="menu vertical sublevel-2">
+          <li>
+            <a href="#">Super-sub-item 1</a>
+            <ul class="menu vertical sublevel-3">
+              <li><a class="subitem" href="#">Thing 1</a></li>
+              <li><a class="subitem" href="#">Thing 2</a></li>
+            </ul>
+          </li>
+          <li><a class="subitem" href="#">Thing 2</a></li>
+        </ul>
+      </li>
+      <li><a class="subitem" href="#">Thing 1</a></li>
+      <li><a class="subitem" href="#">Thing 2</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Item 2</a>
+    <ul class="menu vertical sublevel-1">
+      <li><a class="subitem" href="#">Thing 1</a></li>
+      <li><a class="subitem" href="#">Thing 2</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Item 3</a>
+    <ul class="menu vertical sublevel-1">
+      <li><a class="subitem" href="#">Thing 1</a></li>
+      <li><a class="subitem" href="#">Thing 2</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Item 4</a>
+    <ul class="menu vertical sublevel-1">
+      <li>
+        <a href="#">Sub-item 3</a>
+        <ul class="menu vertical sublevel-2">
+          <li><a class="subitem" href="#">Thing 1</a></li>
+          <li><a class="subitem" href="#">Thing 2</a></li>
+        </ul>
+      </li>
+      <li><a class="subitem" href="#">Thing 1</a></li>
+      <li><a class="subitem" href="#">Thing 2</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
 </nav>

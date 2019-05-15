@@ -6,44 +6,64 @@
     ?>
 
     <div class="holy-grail-middle">
-      <div class="row columns"> 
-        <nav aria-label="You are here:">
-          <ul class="breadcrumbs">
-            <li><a href="Index.php">Home</a></li>
-            <li><a href="#">Antiek en Kunst</a></li>
-            <li>    
-              <span class="show-for-sr">Current: </span> Kasten
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <br>
-      <div class="rubriekenTop">
-        <div class ="tabelvorm-links">
-          <h3> Filters </h3>
-          <input type="radio" name="Kaas" value="op">Prijs Oplopend<br>
-          <input type="radio" name="Kaas" value="af">Prijs Aflopend<br>
-          <input type="radio" name="Kaas" value="op">Looptijd Oplopend<br>
-          <input type="radio" name="Kaas" value="af">Looptijd Aflopend<br>
+      <h1>DEZE PAGINA IS IN BEWERKING</h1>
+      <div class="ContainerRubrieken">
+        <div class="row columns"> 
+          <nav aria-label="You are here:">
+            <ul class="breadcrumbs">
+              <li><a href="Index.php">Home</a></li>
+              <li><a href="#">Antiek en Kunst</a></li>
+              <li>    
+                <span class="show-for-sr">Current: </span> Kasten
+              </li>
+            </ul>
+          </nav>
         </div>
-        <div class="tabelvorm-midden">
-          <h3>Locatie</h3>
-          <select class = "meerkeuzevak"> 
-            <option>Kies een plaats</option>
-            <option>Den Haag</option>
-            <option>Amsterdam</option>
-            <option>Rotterdam</option>
-            <option>Arnhem</option>
-          </select>
-        </div>
-        <div class="tabelvorm-rechts">
-          <h3>Prijs</h3>
-          <div class="prijsbreedte">
-            <label> Van: </label> <input type="text"> 
-            <label> Tot: </label> <input type="text">
+        <br>
+        <button class="button fa fi-filter fa-lg" type="button" style="font-size:24px;" data-toggle="example-dropdown-bottom-left"></button>
+        <div class="dropdown-pane large " data-position="bottom" data-alignment="left" id="example-dropdown-bottom-left" data-dropdown data-auto-focus="true">
+          <!-- My dropdown content in here -->
+          <div class="FilterContainer">
+            <div class="FilterPrijs">
+              <h3>Prijs:</h3>
+              <label>Vanaf:</label>
+              <input type="text" class="FilterPrijsLaag">
+              <label>Tot:</label>
+              <input type="text" class="FilterPrijsLaag">
+            </div>
+            <div class="FilterLocatie">
+              <h3>Locatie</h3>
+              <br>
+              <select class="Filtermeerkeuzevak"> 
+                <option>Kies een plaats</option>
+                <option>Den Haag</option>
+                <option>Amsterdam</option>
+                <option>Rotterdam</option>
+                <option>Arnhem</option>
+              </select>
+            </div>
+                
+            <div class="FilterSorteer">
+              <h3>Sorteer op:</h3>
+              <br>
+              <select class="Filtermeerkeuzevak"> 
+                <option>Standaard</option>
+                <option>Datum (nieuw-oud)</option>
+                <option>Datum (oud-nieuw)</option>
+                <option>Sluittijd (kort-lang)</option>
+                <option>Sluittijd (lang-kort)</option>
+              </select>
+            </div>
+            <div class="FilterSorteer">
+              <h3>Zoeken </h3>
+              <br>
+              <input type="text" class="Zoeken">
+              <input type='submit' class='button' value="Zoeken">
+            </div>
           </div>
         </div>
       </div>
+
 
       <br>
       <div class="rubriekenContainer">

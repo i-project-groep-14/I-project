@@ -256,7 +256,6 @@ input:checked + .side-label::after {
   background-position: 50% 50%;
   background-repeat:   no-repeat;
   background-size:     cover;
-  
 }
 
 /**/
@@ -300,6 +299,12 @@ footer{
   padding: 10px;
   margin: 5px;
 }
+.MobileNav{
+  display:none;
+}
+.MobielSearch{
+  display:none;
+}
 
 
 @media only screen and (max-width: 768px){
@@ -313,39 +318,90 @@ footer{
     display: none;
     
   }
-
-}
-
-
-.Product{
-  border: 1px solid black;
-  background-color: white;
-  margin: 5px;
-  width: 250px;
-  height: fit-content;
-  padding: 10px;
-}
-
-
-body{
-  background-color: rgb(10, 168, 207);
-}
-.Product button {
-  border: none;
-  padding: 12px;
-  color: white;
-  background-color: #F2552C;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-.Product button:hover {
-  background-color: black;
-  cursor: pointer;
+  .RubNav{
+    display: none;
+  }
+  .MobileNav{
+    display: block;
+  
+  }
+  .MobielSearch{
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+  
+  }
   
 }
+
+@media only screen and (max-width: 768px){
+
+}
+
+.multilevel-accordion-menu .is-accordion-submenu-parent a {
+  background: #F2552C;
+}
+
+.multilevel-accordion-menu .is-accordion-submenu a {
+  background: rgb(255, 130, 98);
+}
+
+.multilevel-accordion-menu .sublevel-1 {
+  text-indent: 1rem;
+}
+
+.multilevel-accordion-menu .sublevel-2 {
+  text-indent: 2rem;
+}
+
+.multilevel-accordion-menu .sublevel-3 {
+  text-indent: 3rem;
+}
+
+.multilevel-accordion-menu .sublevel-4 {
+  text-indent: 4rem;
+}
+
+.multilevel-accordion-menu .sublevel-5 {
+  text-indent: 5rem;
+}
+
+.multilevel-accordion-menu .sublevel-6 {
+  text-indent: 6rem;
+}
+
+.multilevel-accordion-menu a {
+  color: #fefefe;
+  box-shadow: inset 0 -1px #41444a;
+}
+
+.multilevel-accordion-menu a::after {
+  border-color: #fefefe transparent transparent;
+}
+
+.multilevel-accordion-menu .menu > li:not(.menu-text) > a {
+  padding: 1.2rem 1rem;
+}
+
+.multilevel-accordion-menu .is-accordion-submenu-parent[aria-expanded="true"] a.subitem::before {
+  content: "\f016";
+  font-family: FontAwesome;
+  margin-right: 1rem;
+}
+
+.multilevel-accordion-menu .is-accordion-submenu-parent[aria-expanded="true"] a::before {
+  content: "\f07c";
+  font-family: FontAwesome;
+  margin-right: 1rem;
+}
+
+.multilevel-accordion-menu .is-accordion-submenu-parent[aria-expanded="false"] a::before {
+  content: "\f07b";
+  font-family: FontAwesome;
+  margin-right: 1rem;
+}
+
 
 .holy-grail-grid {
   display: -ms-grid;
@@ -354,7 +410,7 @@ body{
       grid-template-columns: 0.8fr 3fr 0fr;
   -ms-grid-rows: 1fr 8fr 1fr;
       grid-template-rows: 1fr 8fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 15px;
   height: 100vh;
 }
 
@@ -377,7 +433,6 @@ body{
 .holy-grail-right,
 .holy-grail-footer {
   box-shadow: black 5px 5px 5px;
-  
   padding: 1rem;
   border: 1px solid #ededed;
   background-color: rgb(255, 255, 255);
@@ -390,6 +445,7 @@ body{
   -ms-grid-row: 1;
       grid-row-start: 1;
 }
+
 
 @media screen and (max-width: 60em) {
   .holy-grail-left {
@@ -432,30 +488,14 @@ body{
   height: 200px;
 }
 
-.rubriekenTop {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  height: fit-content;
-  border-style: solid;
+.Filtermeerkeuzevak{
+  width: fit-content;
 }
 
-.tabelvorm-links {
-  width: 500px;
-  height: fit-content;
-  padding: 10px;
-}
 
-.tabelvorm-middel {
-  width: 650px;
-  height: fit-content;
-
-}
-
-.tabelvorm-rechts {
-  width: 350px;
-  height: fit-content;
-  margin-left: 200px;
+.FilterContainer{
+  display:flex;
+  justify-content: space-between;
 }
 
 .center{
@@ -484,6 +524,9 @@ body{
     display: flex;
     flex-direction: column;
 }
+.ContainerRubrieken{
+  width: fit-content;
+}
 
 .RubriekenProducten {
   text-align: left;   
@@ -498,3 +541,42 @@ body{
 .veilingknop {
   width: 100%
 }
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-height: fit-content;
+  max-width: 250px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  margin-bottom: 10px;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card img {
+  width: auto;
+  height: auto;
+}
+
+body{
+  background-color: rgb(10, 168, 207);
+}
+
+.Product button {
+  color: white;
+  background-color: #F2552C;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.Product button:hover {
+  background-color: black;
+  cursor: pointer;
+}
+

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="RubNav row">
   <div class="columns">
     <ul class="vertical dropdown menu" data-dropdown-menu style="max-width: 250px;">
       <li>
@@ -8,7 +8,7 @@
           <li>
             <a href="rubriekenpagina.php">Item 1B</a>
             <ul class="menu">
-              <li><a href="rubriekenpagina.phpi">Item 1B i</a></li>
+              <li><a href="rubriekenpagina.php">Item 1B i</a></li>
               <li><a href="rubriekenpagina.php">Item 1B ii</a></li>
               <li>
                 <a href="rubriekenpagina.php">Item 1B iii</a>
