@@ -10,30 +10,34 @@
     echo "
     <h3 class='HomePageTitel'>Uw veilingen</h3>
     <div class='ProductenContainer'>
-      <div class='Product'>
-        <img src='/images/fiets.jpg' alt='fiets'>
-        <h3>Viking fiets</h3>
-        <p>tijd:99:99:99 <span style='float:right'> Hoogste bod: $1999999999.99</span></p>
-        <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
-        </div>
-      <div class='Product'>
-        <img src='/images/fiets.jpg' alt='fiets'>
-        <h3>Viking fiets</h3>
-        <p>tijd:99:99:99 <span style='float:right'> Hoogste bod: $1999999999.99</span></p>
-        <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
-      </div>
-      <div class='Product'>
-        <img src='/images/fiets.jpg' alt='fiets'>
-        <h3>Viking fiets</h3>
-        <p>tijd:99:99:99 <span style='float:right'> Hoogste bod: $1999999999.99</span></p>
-        <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
-      </div>
-      <div class='Product'>
-        <img src='/images/fiets.jpg' alt='fiets'>
-        <h3>Viking fiets</h3>
-        <p>tijd:99:99:99 <span style='float:right'> Hoogste bod: $1999999999.99</span></p>
-        <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
-      </div>
+    <div class='card'>
+    <img src='images/fiets.jpg' alt='fiets'>
+    <h4>Viking Fiets</h4>
+    <p class='price'>€ 19.99</p>
+    <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
+    <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+  </div> 
+    <div class='card'>
+    <img src='images/fiets.jpg' alt='fiets'>
+    <h4>Viking Fiets</h4>
+    <p class='price'>€ 19.99</p>
+    <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
+    <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+  </div>
+  <div class='card'>
+    <img src='images/fiets.jpg' alt='fiets'>
+    <h4>Viking Fiets</h4>
+    <p class='price'>€ 19.99</p>
+    <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
+    <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+  </div>
+  <div class='card'>
+    <img src='images/fiets.jpg' alt='fiets'>
+    <h4>Viking Fiets</h4>
+    <p class='price'>€ 19.99</p>
+    <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
+    <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+  </div>
     </div>";
   }
   ?>
