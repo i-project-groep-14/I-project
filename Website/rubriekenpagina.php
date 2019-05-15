@@ -19,7 +19,7 @@
         </nav>
       </div>
       <br>
-      <button class="button fa fi-marker fa-lg" type="button" data-toggle="example-dropdown-bottom-left">Toggle Dropdown</button>
+      <button class="button fa fi-filter fa-lg" type="button" style="font-size:24px;" data-toggle="example-dropdown-bottom-left"></button>
 <div class="dropdown-pane large " data-position="bottom" data-alignment="left" id="example-dropdown-bottom-left" data-dropdown data-auto-focus="true">
   <!-- My dropdown content in here -->
   <div class="FilterContainer">
