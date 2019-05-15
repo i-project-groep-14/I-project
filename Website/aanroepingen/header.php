@@ -140,8 +140,7 @@
 
                             <div class='dropdown-pane' data-position='bottom' data-alignment='right'  id='example-dropdown-bottom-right' data-dropdown data-auto-focus='true'>
                               <!-- Onderdelen van de dropdown komen hier te staan -->
-                              <form action='index.php' method='post'>
-                              <img src='Images/eend.jpg' width='150px'>
+                                <img src='images/LogoIcoon.png' width='150px'>
                               
                                 <p>Naam: ".$_SESSION['voornaam']."</p>
                                 <p>Aantal actieve veilingen:".$_SESSION['aantaleigenveilingen']."</p>";
@@ -149,9 +148,11 @@
                                     echo "<a href='beheerderspagina.php' class='button'>Beheerderspagina</a>";
                                 }
                                 echo "
+                                
+                              <form action='index.php' method='post'>
                                 <input type='submit' value='Uitloggen' name='loguit' class='button loginbutton uitlogknop'>
                                     
-                                </form>
+                              </form>
                             </div>" ;
                         
                             if(isset($_POST['loguit'])) {
