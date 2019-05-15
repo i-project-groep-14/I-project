@@ -256,7 +256,6 @@ input:checked + .side-label::after {
   background-position: 50% 50%;
   background-repeat:   no-repeat;
   background-size:     cover;
-  
 }
 
 /**/
@@ -316,36 +315,6 @@ footer{
 
 }
 
-
-.Product{
-  border: 1px solid black;
-  background-color: white;
-  margin: 5px;
-  width: 250px;
-  height: fit-content;
-  padding: 10px;
-}
-
-
-body{
-  background-color: rgb(10, 168, 207);
-}
-.Product button {
-  border: none;
-  padding: 12px;
-  color: white;
-  background-color: #F2552C;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-.Product button:hover {
-  background-color: black;
-  cursor: pointer;
-  
-}
 
 .holy-grail-grid {
   display: -ms-grid;
@@ -439,9 +408,6 @@ body{
 .FilterContainer{
   display:flex;
   justify-content: space-between;
-  
- 
-  
 }
 
 .center{
@@ -487,3 +453,42 @@ body{
 .veilingknop {
   width: 100%
 }
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-height: fit-content;
+  max-width: 250px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  margin-bottom: 10px;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card img {
+  width: auto;
+  height: auto;
+}
+
+body{
+  background-color: rgb(10, 168, 207);
+}
+
+.Product button {
+  color: white;
+  background-color: #F2552C;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.Product button:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
