@@ -167,7 +167,7 @@ create table [voorwerp in rubriek] (
 
 /*			Weghalen		*/
 insert into vraag values ('1', 'vraag1')	
-
-
+insert into gebruiker values ('Beheerder', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
+								'dannyhageman1109@gmail.com', 'f1234567', 1, 'f', 5, null)
 
 use master

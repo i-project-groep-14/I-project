@@ -76,6 +76,20 @@
         $_SESSION['gebruikersnaam'] = $gebruikersnaam;
         $_SESSION['voornaam'] = $voornaam;
     }
+
+    if(isset($_SESSION['login'])) {
+        $sql = "SELECT rol FROM gebruiker 
+                WHERE gebruikersnaam like :gebruikersnaam";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(
+            ':gebruikersnaam' => $_SESSION['gebruikersnaam']
+        ));
+
+        $row = $query -> fetch();
+        if ($row['rol'] == 5) {
+            $_SESSION['beheerder'] = true;
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -119,11 +133,13 @@
                               <img src='Images/eend.jpg' width='150px'>
                               
                                 <p>Naam:</p>
-                                <p>Lid sins:</p>
+                                <p>Lid sinds:</p>
                                 <p>Aantal actieve veilingen:</p>
-                                <p>Mijn veilingen:</p>
-                              
-                              
+                                <p>Mijn veilingen:</p>";
+                                if(isset($_SESSION['beheerder'])) {
+                                    echo "<a href='beheerderspagina.php' class='button'>Beheerderspagina</a>";
+                                }
+                                echo "
                                 <input type='submit' value='Uitloggen' name='loguit' class='button loginbutton uitlogknop'>
                                     
                                 </form>
@@ -143,15 +159,6 @@
                 </div>
             </div>
         </div>
-
-        <?php
-            if ($config['pagina'] == 'inlogpagina' || $config['pagina'] == 'registratie_email' || $config['pagina'] == 'registratie_persoonsgegevens' || $config['pagina'] == 'registratie_vraag') {
-                
-            } else {
-                // include_once 'aanroepingen/RubNav.php';
-                // include_once 'aanroepingen/RubNavMobiel.php';
-            }
-        ?>
 
         <div class="holy-grail-left">
             <?php include_once 'aanroepingen/RubNav.php'?>
