@@ -35,7 +35,7 @@
           <div class="grid-container">  
             <div class="grid-x grid-padding-x">
               <div class="medium-12 cell">
-                <input type="email" placeholder="E-mail" name="email" required> 
+                <input type="email" placeholder="E-mail" name="email" value="<?php  if(isset($_POST['email'])) { echo $_POST['email'];} ?>" required> 
                 <input class="button" type="submit" value="Verzenden" name="verzenden_email">
               </div>
             </div>
