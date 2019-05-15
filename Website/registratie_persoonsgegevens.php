@@ -94,7 +94,7 @@
 						<div class="grid-x grid-padding-x">
 							<div class="medium-12 cell">
 								<label>Gebruikersnaam:</label>
-								<input type="text" placeholder="Gebruikersnaam" name="gebruikersnaam" required>
+								<input type="text" placeholder="Gebruikersnaam" name="gebruikersnaam" value="<?php  if(isset($_POST['gebruikersnaam'])) { echo $_POST['gebruikersnaam'];} ?>" required>
 							</div>
 						
 							<div class="medium-6 cell">
