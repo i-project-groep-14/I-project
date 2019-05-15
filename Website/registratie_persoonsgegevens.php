@@ -99,17 +99,17 @@
 						
 							<div class="medium-6 cell">
 								<label>Voornaam:</label>
-								<input  type="text" placeholder="Voornaam" name="voornaam" value="<?php  if(isset($_POST['voornaam'])) { echo $_POST['voornaam'];} ?>"required>
+								<input  type="text" placeholder="Voornaam" name="voornaam" value="<?php  if(isset($_POST['voornaam'])) { echo htmlentities($_POST['voornaam']);} ?>"required>
 							</div>
 						
 							<div class="medium-6 cell">
 								<label>Achternaam:</label>
-								<input type="text" placeholder="Achternaam" name="achternaam" value="<?php  if(isset($_POST['achternaam'])) { echo $_POST['achternaam'];} ?>"required>
+								<input type="text" placeholder="Achternaam" name="achternaam" value="<?php  if(isset($_POST['achternaam'])) { echo htmlentities($_POST['achternaam']);} ?>"required>
 							</div>
 						
 							<div class="medium-6 cell">
 								<label>Adres:</label>
-								<input type="text" placeholder="Adres" name="adres" value="<?php  if(isset($_POST['adres'])) { echo $_POST['adres'];} ?>"required>
+								<input type="text" placeholder="Adres" name="adres" value="<?php  if(isset($_POST['adres'])) { echo htmlentities($_POST['adres']);} ?>"required>
 							</div>
 						
 							<div class="medium-6 cell">
@@ -119,37 +119,37 @@
 										<span class="tooltiptext">Dit is een extra adres regel voor mensen die buiten Nederland wonen.</span>
 									</span>
 								</label>
-								<input type="text" placeholder="Tweede adres" name="oAdres"value="<?php  if(isset($_POST['oAdres'])) { echo $_POST['oAdres'];} ?>">
+								<input type="text" placeholder="Tweede adres" name="oAdres"value="<?php  if(isset($_POST['oAdres'])) { echo htmlentities($_POST['oAdres']);} ?>">
 							</div>
 						
 							<div class="medium-4 cell">
 								<label>Postcode:</label>
-								<input type="text" placeholder="Postcode" name="postcode" value="<?php  if(isset($_POST['postcode'])) { echo $_POST['postcode'];} ?>"required>
+								<input type="text" placeholder="Postcode" name="postcode" value="<?php  if(isset($_POST['postcode'])) { echo htmlentities($_POST['postcode']);} ?>"required>
 							</div>
 						
 							<div class="medium-4 cell">
 								<label>Plaatsnaam:</label>
-								<input type="text" placeholder="Plaats" name="plaats" value="<?php  if(isset($_POST['plaats'])) { echo $_POST['plaats'];} ?>"required>
+								<input type="text" placeholder="Plaats" name="plaats" value="<?php  if(isset($_POST['plaats'])) { echo htmlentities($_POST['plaats']);} ?>"required>
 							</div>
 						
 							<div class="medium-4 cell">
 								<label>Landsnaam:</label>
-								<input type="text" placeholder="Land" name="land" value="<?php  if(isset($_POST['land'])) { echo $_POST['land'];} ?>"required>
+								<input type="text" placeholder="Land" name="land" value="<?php  if(isset($_POST['land'])) { echo htmlentities($_POST['land']);} ?>"required>
 							</div>
 						
 							<div class="medium-6 cell">
 								<label>Telefoonnr:</label>
-								<input type="tel" placeholder="Telefoonnr" name="telnr1" value="<?php  if(isset($_POST['telnr1'])) { echo $_POST['telnr1'];} ?>"required>
+								<input type="tel" placeholder="Telefoonnr" name="telnr1" value="<?php  if(isset($_POST['telnr1'])) { echo htmlentities($_POST['telnr1']);} ?>"required>
 							</div>
 						
 							<div class="medium-6 cell">
 								<label>Telefoonnr 2 (Optioneel):</label>
-								<input type="tel" placeholder="Telefoonnr" name="telnr2" value="<?php  if(isset($_POST['telnr2'])) { echo $_POST['telnr2'];} ?>">
+								<input type="tel" placeholder="Telefoonnr" name="telnr2" value="<?php  if(isset($_POST['telnr2'])) { echo htmlentities($_POST['telnr2']);} ?>">
 							</div>
 						
 							<div class="medium-12 cell">
 								<label>Geboortedatum:</label>
-								<input type="date" name="geboortedatum" value="<?php  if(isset($_POST['geboortedatum'])) { echo $_POST['geboortedatum'];} ?>" required>
+								<input type="date" name="geboortedatum" value="<?php  if(isset($_POST['geboortedatum'])) { echo htmlentities($_POST['geboortedatum']);} ?>" required>
 							</div>
 						
 							<div class="medium-12 cell">
