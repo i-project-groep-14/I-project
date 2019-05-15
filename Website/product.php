@@ -33,7 +33,7 @@
     <div class="row">
       <div class="medium-6 columns">
         
-        <img class="thumbnail" src="images/fiets.jpg">
+        <img class="thumbnail img-product" src="images/fiets.jpg" >
         <div class="row small-up-4">
         <div class="column">
           <img class="thumbnail" src="images/fiets.jpg">
@@ -108,7 +108,7 @@
       <div class="media-object-section">
         <h5>Mike Stevenson</h5>
         <p>Geboden: 1.00 Euro</p>
-        <p><i>Datum van bod: dd/mm/jj, hh:mm</i></p>
+        <p><i>Datum van bod: dd/mm/jj, hh:mm:ss</i></p>
       </div>
     </div>
 
@@ -120,7 +120,7 @@
       <div class="media-object-section">
         <h5>Mike Stevenson</h5>
         <p>Geboden: 2.00 Euro</p>
-        <p><i>Datum van bod: dd/mm/jj, hh:mm</i></p>
+        <p><i>Datum van bod: dd/mm/jj, hh:mm:ss</i></p>
       </div>
     </div>
 
@@ -132,7 +132,7 @@
       <div class="media-object-section">
         <h5>Mike Stevenson</h5>
         <p>Geboden: 3.00 Euro</p>
-        <p><i>Datum van bod: dd/mm/jj, hh:mm</i></p>
+        <p><i>Datum van bod: dd/mm/jj, hh:mm:ss</i></p>
       </div>
     </div>
       <button class="button">Bied mee!</button>
