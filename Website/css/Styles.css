@@ -239,11 +239,21 @@ input:checked + .side-label::after {
 }
 
 .lijn{
-  border-left: solid black 1px;
+  border-left: solid #F2552C 1px;
 }
 
 .klok{
   font-size: 25px;
+}
+.img-product {
+  position: relative;
+  float: left;
+  width:  600px;
+  height: 400px;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+  
 }
 
 /**/
