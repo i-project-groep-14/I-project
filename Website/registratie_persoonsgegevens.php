@@ -99,7 +99,7 @@
 						
 							<div class="medium-6 cell">
 								<label>Voornaam:</label>
-								<input  type="text" placeholder="Voornaam" name="voornaam" required>
+								<input  type="text" placeholder="Voornaam" name="voornaam" value="<?php  if(isset($_POST['voornaam'])) { echo $_POST['voornaam'];} ?>"required>
 							</div>
 						
 							<div class="medium-6 cell">
