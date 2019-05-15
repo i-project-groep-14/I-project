@@ -299,6 +299,9 @@ footer{
   padding: 10px;
   margin: 5px;
 }
+.MobileNav{
+  display:none;
+}
 
 
 @media only screen and (max-width: 768px){
@@ -312,7 +315,17 @@ footer{
     display: none;
     
   }
+  .RubNav{
+    display: none;
+  }
 
+}
+
+@media only screen and (max-width: 768px){
+.MobileNav{
+  display: block;
+
+}
 }
 
 
@@ -323,7 +336,7 @@ footer{
       grid-template-columns: 0.8fr 3fr 0fr;
   -ms-grid-rows: 1fr 8fr 1fr;
       grid-template-rows: 1fr 8fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 15px;
   height: 100vh;
 }
 
@@ -358,6 +371,7 @@ footer{
   -ms-grid-row: 1;
       grid-row-start: 1;
 }
+
 
 @media screen and (max-width: 60em) {
   .holy-grail-left {
