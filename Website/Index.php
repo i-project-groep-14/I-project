@@ -176,7 +176,6 @@
           <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
         </div>
       </div>
-
       <h3 class='HomePageTitel'>Nieuwe veilingen</h3>
       <div class='ProductenContainer'>
         <div class="card">
