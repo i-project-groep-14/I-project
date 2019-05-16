@@ -37,10 +37,9 @@
           $onderwerp = 'Bevestingingscode EenmaalAndermaal';
           $tekst = "Uw code is:\r\n\r\n$code";
           $tekst = wordwrap($tekst, 70, "\r\n");
-          //$headers = 'From: Noreply-EenmaalAndermaal@icasites.nl' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+          $headers = 'From: Noreply-EenmaalAndermaal@icasites.nl' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
 
-          mail($ontvanger, $onderwerp, $tekst//, $headers
-          );
+          mail($ontvanger, $onderwerp, $tekst, $headers);
         }
       }
 
