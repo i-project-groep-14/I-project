@@ -2,23 +2,15 @@
   $config = ['pagina' => 'product'];
 
  require_once 'aanroepingen/connectie.php';
- include_once 'aanroepingen/header.php';
-  
+ include_once 'aanroepingen/header.php'; 
 ?>
-
-
-
+  
+<?php  include_once 'aanroepingen/header.php'?>
     
-      <?php  include_once 'aanroepingen/header.php'?>
-    
-
-   
-
-
 <div class="holy-grail-middle">
 <div class="ProductInformatie">
   <div class="row columns">
-    <nav aria-label="You are here:" role="navigation">
+    <nav aria-label="You are here:">
       <ul class="breadcrumbs">
         <li><a href="#">Home</a></li>
         <li><a href="#">Features</a></li>
@@ -28,27 +20,27 @@
         </li>
       </ul>
     </nav>
-    </div>
+</div>
 
     <div class="row">
       <div class="medium-6 columns">
         
-        <img class="thumbnail img-product" src="images/fiets.jpg" >
-        <div class="row small-up-4">
-        <div class="column">
-          <img class="thumbnail" src="images/fiets.jpg">
+        <img class="thumbnail img-product" src="images/fiets.jpg" alt="fiets">
+          <div class="row small-up-4">
+            <div class="column">
+              <img class="thumbnail" src="images/fiets.jpg" alt="fiets">
+            </div>
+          <div class="column">
+            <img class="thumbnail" src="images/fiets.jpg" alt="fiets">
+          </div>
+            <div class="column">
+              <img class="thumbnail" src="images/fiets.jpg" alt="fiets">
+            </div>
+              <div class="column">
+                <img class="thumbnail" src="images/fiets.jpg" alt="fiets">
+              </div>
+            </div>
         </div>
-        <div class="column">
-          <img class="thumbnail" src="images/fiets.jpg">
-        </div>
-        <div class="column">
-          <img class="thumbnail" src="images/fiets.jpg">
-        </div>
-        <div class="column">
-          <img class="thumbnail" src="images/fiets.jpg">
-        </div>
-      </div>
-    </div>
 
  <!--Toevoegen informatie aan de rechterkant-->
     <div class="medium-6 large-5 columns lijn">
@@ -92,9 +84,8 @@
 <!--De bieding tab onderin-->
     <div class="column row">
       <hr>
-
       <ul class="tabs" data-tabs id="example-tabs">
-        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Biedingen</a></li>
+        <li class="tabs-title is-active"><a href="#panel1" >Biedingen</a></li>
       </ul>
 
       <div class="tabs-content" data-tabs-content="example-tabs">
@@ -102,7 +93,7 @@
         <h4>Biedingen</h4>
         <div class="media-object stack-for-small">
         <div class="media-object-section">
-        <img class="thumbnail" src="images/profielfotoPlaceholder.png">
+        <img class="thumbnail" src="images/profielfotoPlaceholder.png" alt="profiel">
       </div>
 
       <div class="media-object-section">
@@ -114,7 +105,7 @@
 
     <div class="media-object stack-for-small">
       <div class="media-object-section">
-        <img class="thumbnail" src="images/profielfotoPlaceholder.png">
+        <img class="thumbnail" src="images/profielfotoPlaceholder.png" alt="profiel">
       </div>
 
       <div class="media-object-section">
@@ -126,7 +117,7 @@
 
     <div class="media-object stack-for-small">
       <div class="media-object-section">
-        <img class="thumbnail" src="images/profielfotoPlaceholder.png">
+        <img class="thumbnail" src="images/profielfotoPlaceholder.png" alt="profiel">
       </div>
       
       <div class="media-object-section">
@@ -135,24 +126,11 @@
         <p><i>Datum van bod: dd/mm/jj, hh:mm:ss</i></p>
       </div>
     </div>
-      <button class="button">Bied mee!</button>
-    </div>
-      
-    </div>
-  </div>
+    <button class="button">Bied mee!</button>
 </div>
-
 </div>
-
-
-
-  
-
-
-
-    <?php include_once 'aanroepingen/footer.html' ?>
-  
-
 </div>
-
+</div>
+</div>
+<?php include_once 'aanroepingen/footer.html' ?>
  
