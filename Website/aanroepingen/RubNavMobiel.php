@@ -2,7 +2,7 @@
 
 
 
-<nav class="MobileNav" role="navigation">
+<nav class="MobileNav">
 <ul class="multilevel-accordion-menu vertical menu" data-accordion-menu>
   <li>
     <a href="#">Item 1</a>
