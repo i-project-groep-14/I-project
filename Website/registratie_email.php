@@ -37,10 +37,10 @@
           $onderwerp = 'Bevestingingscode EenmaalAndermaal';
           $tekst = "Uw code is:\r\n\r\n$code";
           $tekst = wordwrap($tekst, 70, "\r\n");
-          $headers = 'From: Noreply-EenmaalAndermaal@icasites.nl' . "\r\n" .
-          'X-Mailer: PHP/' . phpversion();
+          //$headers = 'From: Noreply-EenmaalAndermaal@icasites.nl' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
 
-          mail($ontvanger, $onderwerp, $tekst, $headers);
+          mail($ontvanger, $onderwerp, $tekst//, $headers
+          );
         }
       }
 
@@ -48,6 +48,8 @@
         if($_POST['code'] == $_SESSION['code']) {
           $_SESSION['email'] = $_POST['email'];
           header('Location: registratie_persoonsgegevens.php');
+        } else {
+          echo "De code is verkeerd.";
         }
       }
       
