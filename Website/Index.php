@@ -54,7 +54,7 @@
                   <h4>$titel</h4>
                   <p class='price'>€$hoogstebod</p>
                   <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-                  <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+                  <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
                 </div>
                 ";
               } else {
@@ -77,7 +77,7 @@
             //     <h4>Viking fiets</h4>
             //     <p class='price'>€ 19.99</p>
             //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-            //     <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+            //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
             //   </div> 
             // <h3 class='HomePageTitel'>Uw veilingen</h3>
             // <div class='ProductenContainer'>
@@ -86,28 +86,28 @@
             //     <h4>Viking fiets</h4>
             //     <p class='price'>€ 19.99</p>
             //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-            //     <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+            //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
             //   </div> 
             //   <div class='card'>
             //     <img src='images/fiets.jpg' alt='fiets'>
             //     <h4>Viking Fiets</h4>
             //     <p class='price'>€ 19.99</p>
             //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-            //     <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+            //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
             //   </div>
             //   <div class='card'>
             //     <img src='images/fiets.jpg' alt='fiets'>
             //     <h4>Viking Fiets</h4>
             //     <p class='price'>€ 19.99</p>
             //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-            //     <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+            //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
             //   </div>
             //   <div class='card'>
             //     <img src='images/fiets.jpg' alt='fiets'>
             //     <h4>Viking Fiets</h4>
             //     <p class='price'>€ 19.99</p>
             //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-            //     <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+            //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
             //   </div>
             // </div>
           }
@@ -120,28 +120,28 @@
           <h4>Viking Fiets</h4>
           <p class="price">€ 19.99</p>
           <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
         </div> 
         <div class="card">
           <img src="images/fiets.jpg" alt="fiets">
           <h4>Viking Fiets</h4>
           <p class="price">€ 19.99</p>
           <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
         </div>
         <div class="card">
           <img src="images/fiets.jpg" alt="fiets">
           <h4>Viking Fiets</h4>
           <p class="price">€ 19.99</p>
           <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
         </div>
         <div class="card">
           <img src="images/fiets.jpg" alt="fiets">
           <h4>Viking Fiets</h4>
           <p class="price">€ 19.99</p>
           <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
         </div>
       </div>
 
@@ -152,28 +152,28 @@
           <h4>Viking Fiets</h4>
           <p class="price">€ 19.99</p>
           <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
         </div> 
         <div class="card">
           <img src="images/fiets.jpg" alt="fiets">
           <h4>Viking Fiets</h4>
           <p class="price">€ 19.99</p>
           <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
         </div>
         <div class="card">
           <img src="images/fiets.jpg" alt="fiets">
           <h4>Viking Fiets</h4>
           <p class="price">€ 19.99</p>
           <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
         </div>
         <div class="card">
           <img src="images/fiets.jpg" alt="fiets">
           <h4>Viking Fiets</h4>
           <p class="price">€ 19.99</p>
           <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
         </div>
       </div>
       <h3 class='HomePageTitel'>Nieuwe veilingen</h3>
@@ -183,28 +183,28 @@
           <h4>Viking Fiets</h4>
           <p class="price">€ 19.99</p>
           <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
         </div> 
         <div class="card">
           <img src="images/fiets.jpg" alt="fiets">
           <h4>Viking Fiets</h4>
           <p class="price">€ 19.99</p>
           <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
         </div>
         <div class="card">
           <img src="images/fiets.jpg" alt="fiets">
           <h4>Viking Fiets</h4>
           <p class="price">€ 19.99</p>
           <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
         </div>
         <div class="card">
           <img src="images/fiets.jpg" alt="fiets">
           <h4>Viking Fiets</h4>
           <p class="price">€ 19.99</p>
           <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php'><input type='submit'value='Bekijk meer!' class='button ProductButton'></a>
+          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
         </div>
       </div>
     </div>
