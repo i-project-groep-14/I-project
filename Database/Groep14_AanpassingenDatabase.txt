@@ -71,7 +71,7 @@ Tabel voorwerp:
 	verkoper					van char(10)	naar varchar(20)
 	koper						van char(10)	naar varchar(20)
 	looptijdeindeDag			van char(10)	naar date
-	veilinggesloten?			van char(3)		naar varchar(4)
+	veilinggesloten?			veranderd naar 'veilingGesloten' met een varchar(4) ipv char(3)
 	verkoopprijs				van char(5)		naar varchar(10)
 
 	fk op koper -> on update cascade, on delete restrict

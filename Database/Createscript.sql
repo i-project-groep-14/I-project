@@ -101,7 +101,7 @@ create table voorwerp (
 	koper						varchar(20)			null,
 	looptijdeindeDag			date				not null,
 	looptijdeindeTijdstip		char(8)				not null,
-	[veilingGesloten?]			varchar(4)			not null,
+	veilingGesloten				varchar(4)			not null,
 	verkoopprijs				varchar(10)			null
 	constraint pk_voorwerp_voorwerpnummer primary key (voorwerpnummer),
 	constraint fk_voorwerp_verkoper foreign key (verkoper) references verkoper (gebruiker),
@@ -170,4 +170,15 @@ insert into vraag values ('1', 'vraag1')
 insert into gebruiker values ('Beheerder', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
 								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 5, null)
 
+insert into verkoper values('Beheerder', null, null, 'controle-optie', null)
+insert into voorwerp values('titel1', 'beschrijving1', 'startprijs', 'betalingswijze1', null, 'plaatsnaam1', 'land1',
+							1, GETDATE(), '11/32/04', null, null, 'Beheerder', null, GETDATE()+1, '11/32/04', 'niet', 1)
+insert into voorwerp values('titel2', 'beschrijving2', 'startprijs', 'betalingswijze2', null, 'plaatsnaam2', 'land2',
+							2, GETDATE(), '11/32/04', null, null, 'Beheerder', null, GETDATE()+2, '11/32/04', 'niet', 2)
+insert into voorwerp values('titel3', 'beschrijving3', 'startprijs', 'betalingswijze3', null, 'plaatsnaam3', 'land3',
+							3, GETDATE(), '11/32/04', null, null, 'Beheerder', null, GETDATE()+3, '11/32/04', 'niet', 3)
+insert into voorwerp values('titel4', 'beschrijving4', 'startprijs', 'betalingswijze4', null, 'plaatsnaam4', 'land4',
+							4, GETDATE()-5, '11/32/04', null, null, 'Beheerder', null, GETDATE(), '11/32/04', 'wel', 4)
+insert into voorwerp values('titel5', 'beschrijving5', 'startprijs', 'betalingswijze5', null, 'plaatsnaam5', 'land5',
+							5, GETDATE(), '11/32/04', null, null, 'Beheerder', null, GETDATE()+5, '11/32/04', 'niet', 5)
 use master
