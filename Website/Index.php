@@ -10,6 +10,15 @@
         if(isset($_SESSION['login'])) {
                                             // verander in 0
           if($_SESSION['aantaleigenveilingen'] != 1) {
+            function dateDifference($date_1, $date_2, $differenceFormat = '%a') {
+              $datetime1 = date_create($date_1);
+              $datetime2 = date_create($date_2);
+              
+              $interval = date_diff($datetime1, $datetime2);
+              
+              return $interval->format($differenceFormat);
+            }
+
             function createHomepageItem($plek) {
               global $dbh;
               settype($plek, "int");
@@ -43,17 +52,15 @@
                 $actueledatum = date("Y-m-d");
                 $actueletijd = date("H-i-s");
 
-                $verschilInDagen = $looptijdeindeDag - $actueledatum;
-                echo $verschilInDagen;
-
-                //verschil in tijd
+                $verschilInDagen = dateDifference($looptijdeindeDag, $actueledatum, "%d");
+                
 
                 echo"
                 <div class='card'>
                   <img src='images/fiets.jpg' alt='fiets'>
                   <h4>$titel</h4>
                   <p class='price'>€$hoogstebod</p>
-                  <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
+                  <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: ".$verschilInDagen."d ...u</p>
                   <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
                 </div>
                 ";
