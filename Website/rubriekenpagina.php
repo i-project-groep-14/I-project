@@ -76,9 +76,13 @@
             <h4>189,99</h4>
             <p>Veiling sluit over:</p>
             <h4>6d 11u 12m</h4>
-            <div class ="rechts">
-              <input type='submit' value='Bieden!' onclick="window.location.href = 'product.php';" class='button'>
-            </div>
+            <?php 
+              if(isset($_SESSION['login'])) {
+                echo"<div class ='rechts'>
+                  <a href='product.php'><input type='submit'value='Bieden!' class='button'></a>
+                </div>";
+              }
+            ?>
           </div>
         </article>
       </div>
@@ -93,9 +97,13 @@
             <h4>189,99</h4>
             <p>Veiling sluit over:</p>
             <h4>6d 11u 12m</h4>
-            <div class ="rechts">
-              <input type='submit' value='Bieden!' onclick="window.location.href = 'product.php';" class='button'>
-            </div>
+            <?php 
+              if(isset($_SESSION['login'])) {
+                echo"<div class ='rechts'>
+                  <a href='product.php'><input type='submit'value='Bieden!' class='button'></a>
+                </div>";
+              }
+            ?>
           </div>
         </article>
       </div>
@@ -110,9 +118,13 @@
             <h4>189,99</h4>
             <p>Veiling sluit over:</p>
             <h4>6d 11u 12m</h4>
-            <div class ="rechts">
-              <input type='submit' value='Bieden!' onclick="window.location.href = 'product.php';" class='button'>
-            </div>
+            <?php 
+              if(isset($_SESSION['login'])) {
+                echo"<div class ='rechts'>
+                  <a href='product.php'><input type='submit'value='Bieden!' class='button'></a>
+                </div>";
+              }
+            ?>
           </div>
         </article>
       </div>
