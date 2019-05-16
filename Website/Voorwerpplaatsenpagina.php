@@ -107,7 +107,7 @@
 
                             <div class="medium-12 cell beschrijving">
                                 <label>Beschrijving:</label>
-                                <textarea rows="3" name="beschrijving_product" onKeyDown="charLimit(this.form.limitedtextarea,this.form.countdown,100);" value="" required></textarea>
+                                <textarea rows="3" name="beschrijving_product" onKeyDown="charLimit(this.form.limitedtextarea,this.form.countdown,100);" required></textarea>
                             </div>
 
                             <div class="medium-12 cell">
@@ -117,21 +117,18 @@
 						
 							<div class="medium-12 cell">
                                 <label> Voeg foto's toe</label>
-                                <form action="/action_page.php">
                                     <input type="file" name="pic" accept="image/*" required>
-                                </form>
 							</div>
 		
 							<div class="medium-12 cell">
                                 <label> Betaalmethode </label>
                                     <select class = "meerkeuzevak" name="betaal_methode" required>
-                                        <option>Kies een betaalmethode...</option>
-                                        <option>iDeal</option>
-                                        <option>PayPal</option>
-                                        <option>Zelf ophalen</option>
+                                        <option value="">Kies een betaalmethode...</option>
+                                        <option value="2">iDeal</option>
+                                        <option value="3">PayPal</option>
+                                        <option value="4">Zelf ophalen</option>
                                     </select>
 							</div>
-
                             <div class="medium-12 cell">
 								<label>Betalingsinstructie: (Optioneel)</label>
 								<input type="text" name="betalingsinstructie" >
@@ -161,10 +158,8 @@
                         <Input type="submit" class="veilingknop button" name="plaatsen_voorwerp" value="Plaatsen">
                     </div>
                     </div>
-
               </form>
             </div>
-            
         </div>
 <?php 
       include_once 'aanroepingen/footer.html';

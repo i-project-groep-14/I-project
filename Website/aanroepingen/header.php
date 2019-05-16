@@ -133,7 +133,7 @@
                 <div class="top-bar-rechts">
                     <?php
                         if(isset($_SESSION['login'])) {
-                            echo "<li class='gebruiker'>Welkom ".strip_tags($_SESSION['gebruikersnaam']."!</li>");
+                            echo "<p class='gebruiker'>Welkom ".strip_tags($_SESSION['gebruikersnaam']."!</p>");
                         
                             echo "
                             </li> <button class='button loginbutton uitlogknop' type='submit' data-toggle='example-dropdown-bottom-right'>Account</button>
