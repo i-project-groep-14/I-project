@@ -1,6 +1,6 @@
 
 <div class="MobielZoekProduct">
-<button class="collapsible">Open Collapsible</button>
+<button class="collapsible">Zoeken</button>
 <div class="content">
   <Br>
   <form action="" method="">
@@ -13,6 +13,7 @@
 
   </select>
   <input class="button" type="submit" value="Zoeken">
+</form>
 </div>
 
 
@@ -98,10 +99,5 @@ for (i = 0; i < coll.length; i++) {
     </ul>
   </li>
 </ul>
-
-
-
-
-
-
 </nav>
+
