@@ -19,7 +19,7 @@
 					//constraints
 
 					// if ($_POST['eenVerkoper'] == 3) {
-					// 	if ($_POST['verkoopgegevens-rekeningnr'] ) {
+					// 	if ($_POST['verkoopgegevens-rekeningnr']) {
 							
 					// 	} else if () {
 
