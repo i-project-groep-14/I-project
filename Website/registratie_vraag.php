@@ -40,21 +40,21 @@
           <div class="grid-container">
             <div class="grid-x grid-padding-x">
               <div class="medium-12 cell">
-                <label>Kies één veiligeheidsvraag.</label>
-                <select name="veiligheidsvraag">
+                <label>Kies één veiligheidsvraag.</label>
+                <select name="veiligheidsvraag" >
                   <option value="0">...</option>
-                  <option value="1">Vraag 1</option>
-                  <option value="2">Vraag 2</option>
-                  <option value="3">Vraag 3</option>
-                  <option value="4">Vraag 4</option>
-                  <option value="5">Vraag 5</option>
+                  <option value="1" >Vraag 1</option>
+                  <option value="2" >Vraag 2</option>
+                  <option value="3" >Vraag 3</option>
+                  <option value="4" >Vraag 4</option>
+                  <option value="5" >Vraag 5</option>
                 </select>
               </div>
               <br>
               <br>
               <div class="medium-12 cell">
                 <label>Vul het antwoordt in a.u.b.</label>
-                <input type="text" name="veiligheidsvraag_antwoord" required>
+                <input type="text" name="veiligheidsvraag_antwoord" value="<?php  if(isset($_POST['veiligheidsvraag_antwoord'])) { echo htmlentities($_POST['veiligheidsvraag_antwoord']);} ?>" required>
               </div>
               <div class="center">
                 <input class="button" type="submit" value="Verzenden" name="register">
