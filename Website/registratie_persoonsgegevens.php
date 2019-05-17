@@ -182,10 +182,10 @@
 						
 								<div class="wel-verkopergegevens">
 									<label>Rekeningnummer:</label>
-									<input type="text" name="verkoopgegevens-rekeningnr" placeholder="Rekeningnummer" value="<?php  if(isset($_POST['geboortedatum'])) { echo htmlentities($_POST['geboortedatum']);} ?>">
+									<input type="text" name="verkoopgegevens-rekeningnr" placeholder="Rekeningnummer" value="<?php  if(isset($_POST['verkoopgegevens-rekeningnr'])) { echo htmlentities($_POST['verkoopgegevens-rekeningnr']);} ?>">
 
 									<label>Bank:</label>
-									<input type="text" name="verkoopgegevens-bank" placeholder="Bank" value="<?php  if(isset($_POST['geboortedatum'])) { echo htmlentities($_POST['geboortedatum']);} ?>" >
+									<input type="text" name="verkoopgegevens-bank" placeholder="Bank" value="<?php  if(isset($_POST['verkoopgegevens-bank'])) { echo htmlentities($_POST['verkoopgegevens-bank']);} ?>" >
 									<p>
 										Om uw verkopersaccount te activeren heeft u een code nodig. Deze code kan opgestuurd worden
 										bij post of er wordt naar uw creditcard gegevens gevraagd. Maak een keuze hieronder.
@@ -198,7 +198,7 @@
 
 									<div class="controle-creditcard-gegevens">
 										<label for="creditcard-gegevens">Creditcardnummer</label>
-										<input type="text" name="creditcardnummer" id="creditcard-gegevens" placeholder="Creditcardnummer" value="<?php  if(isset($_POST['geboortedatum'])) { echo htmlentities($_POST['geboortedatum']);} ?>">
+										<input type="text" name="creditcardnummer" id="creditcard-gegevens" placeholder="Creditcardnummer" value="<?php  if(isset($_POST['creditcardnummer'])) { echo htmlentities($_POST['creditcardnummer']);} ?>">
 									</div>
 								</div>
 							</fieldset>
