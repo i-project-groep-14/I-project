@@ -125,7 +125,12 @@
         <div class="holy-grail-header">
             <div class="top-bar" id="realEstateMenu">
                 <div class="Top-bar-links">
+                    <div class="DesktopLogo">
                     <a href="Index.php"><img src="Images/Logo.png" class="Logo" alt="EenmaalAndermaal"></a>
+                    </div>
+                    <div class="MobielLogo">
+                    <a href="Index.php"><img src="Images/LogoMobiel.png" class="Logo" alt="EenmaalAndermaal"></a>
+                    </div>
                 </div>
                 <div class="top-bar-middle">
                     <?php if ($config['pagina'] !='rubriekenpagina') { include_once "Zoekfunctie.php"; } ?>
