@@ -87,20 +87,20 @@ create table voorwerp (
 	voorwerpnummer				int					identity(1,1) not null,
 	titel						varchar(30)			not null,
 	beschrijving				varchar(100)		not null,
-	startprijs					varchar(10)			not null,
+	startprijs					numeric(10,2)			not null,
 	betalingswijze				varchar(20)			not null,
 	betalingsinstructie			varchar(30)			null,
 	plaatsnaam					varchar(20)			not null,
 	land						varchar(20)			not null,
 	looptijd					numeric(3)			not null,
 	looptijdbeginDag			date				not null,
-	looptijdbeginTijdstip		char(8)				not null,
+	looptijdbeginTijdstip		time			not null,
 	verzendkosten				varchar(10)			null,
 	verzendinstructies			varchar(100)		null,
 	verkoper					varchar(20)			not null,
 	koper						varchar(20)			null,
-	looptijdeindeDag			date				not null,
-	looptijdeindeTijdstip		char(8)				not null,
+	looptijdeindeDag			AS  (dateadd(day,[looptijd],[looptijdbeginDag])),
+	looptijdeindeTijdstip		time				not null,
 	veilingGesloten				varchar(4)			not null,
 	verkoopprijs				varchar(10)			null
 	constraint pk_voorwerp_voorwerpnummer primary key (voorwerpnummer),
@@ -128,6 +128,11 @@ create table voorwerp (
 	Verkoopprijs de waarde uit kolom Bod(Bodbedrag) die bij het hoogste bod op hetzelfde voorwerp hoort.
 	*/
 )
+
+	alter table voorwerp 
+		add constraint ck_voorwerp_betalingswijze check (betalingswijze IN ('iDeal', 'PayPal', 'Creditcard', 'Zelf halen')),
+		constraint ck_voorwerp_startprijs check (startprijs > 0),
+		constraint ck_voorwerp_veilingGesloten check (veilingGesloten IN ('wel', 'niet'))
 
 /*==============================================================*/
 /* Table: Bestand												*/
