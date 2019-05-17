@@ -73,10 +73,10 @@
             <h3 class='HomePageTitel'>Uw veilingen</h3>
             <div class='ProductenContainer'>
             ";
-            createHomepageItem(0);
-            createHomepageItem(1);
-            createHomepageItem(2);
-            createHomepageItem(3);
+            // createHomepageItem(0);
+            // createHomepageItem(1);
+            // createHomepageItem(2);
+            // createHomepageItem(3);
             echo "</div>";
             
             //   <div class='card'>

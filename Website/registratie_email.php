@@ -13,6 +13,7 @@
           $mailverzonden = false;
         } else {
           $mailverzonden = true;
+          $_SESSION['email'] = $_POST['email'];
 
           function createRandomCode() {
             $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW0123456789"; 
@@ -28,8 +29,8 @@
             }
         
             return $code;
-          } 
-
+          }
+          
           $code = createRandomCode();
           $_SESSION['code'] = $code;
 
@@ -45,7 +46,6 @@
 
       if (isset($_POST['bevestigen_email'])) {
         if($_POST['code'] == $_SESSION['code']) {
-          $_SESSION['email'] = $_POST['email'];
           header('Location: registratie_persoonsgegevens.php');
         } else {
           echo "De code is verkeerd.";
