@@ -9,19 +9,31 @@
       //indicator = niet veilig is niet gesloten
     
       if(isset($_POST['plaatsen_voorwerp'])){
+
         $_SESSION['titel_product'] = $_POST['titel_product'];
         $_SESSION['beschrijving_product'] = $_POST['beschrijving_product'];
         $_SESSION['startprijs'] = $_POST['startprijs'];
         $_SESSION['laagste_rubriek'] = $_POST['laagste_rubriek'];
-        if(empty($_POST['verzendkosten'] || $_POST['verzend_details'] || $_POST['betalingsinstructie']) ){
-            $_SESSION['verzendkosten'] = $_POST['verzendkosten'];
-            $_SESSION['verzend_details'] = $_POST['verzend_details'];
-            $_SESSION['betalingsinstructie'] = $_POST['betalingsinstructie'];
+        $foto_product = $_POST['foto_product'];
+
+        if(empty($_POST['verzendkosten']) ){
+            $_SESSION['verzendkosten'] = "Geen";
         }else{
-            $_SESSION['verzendkosten'] = "-";
-            $_SESSION['verzend_details'] = "-";
-            $_SESSION['betalingsinstructie'] = "-";
+            $_SESSION['verzendkosten'] = $_POST['verzendkosten'];
         } 
+
+        if(empty($_POST['verzend_details'])){
+            $_SESSION['verzend_details'] = "Geen";
+        }else{
+            $_SESSION['verzend_details'] = $_POST['verzend_details'];
+        }
+
+        if(empty($_POST['betalingsinstructie'])){
+            $_SESSION['betalingsinstructie'] = "Geen";
+        }else{
+            $_SESSION['betalingsinstructie'] = $_POST['betalingsinstructie'];
+        }
+
         if($_POST['betaal_methode'] == -1){
             echo"Vul a.u.b";
         }else{
@@ -31,15 +43,47 @@
         $_SESSION['loopdag'] = $_POST['loopdag'];
     
 
+        $titel_product = $_SESSION['titel_product'];
+        $beschrijving_product = $_SESSION['beschrijving_product'];
+        $startprijs = $_SESSION['startprijs'];
+        $laagste_rubriek = $_SESSION['laagste_rubriek'];
+        $verzendkosten = $_SESSION['verzendkosten'];
+        $verzendinstructie = $_SESSION['verzend_details'];
+        $betalingswijze = $_SESSION['betaal_methode'];
+        $betalingsinstructie = $_SESSION['betalingsinstructie'];
+        $looptijd = $_SESSION['loopdag'];
 
-        echo $_SESSION['titel_product'] . $_SESSION['beschrijving_product'] . $_SESSION['startprijs'] . $_SESSION['laagste_rubriek'] . $_SESSION['verzendkosten'] . $_SESSION['verzend_details'] . $_SESSION['betaal_methode'] . $_SESSION['betalingsinstructie'] . $_SESSION['loopdag'];
+        //echo $titel_product . $beschrijving_product . $startprijs . $laagste_rubriek . $verzendkosten . $verzendinstructie . $betalingswijze . $betalingsinstructie . $looptijd . $foto_product;
 
+        /*if($_SESSION['logged_in'] == true && $_SESSION['rol'] == $verkoper){
+            //maak voorwerpen toevoegen mogelijk
+
+        }*/
+
+        $sql_product = "INSERT INTO voorwerp (titel,beschrijving,startprijs,betalingswijze,betalingsinstructie,plaatsnaam,land,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verzendkosten ,verzendinstructies ,looptijdeindeTijdstip,veilingGesloten,verkoper) 
+        VALUES (:titel ,:beschrijving ,:startprijs ,:betalingswijze ,:betalingsinstructie ,:plaatsnaam ,:land ,:looptijd ,GETDATE() ,CURRENT_TIMESTAMP ,:verzendkosten ,:verzendinstructie ,CURRENT_TIMESTAMP ,'niet',:verkoper)";
+        $query_product = $dbh->prepare($sql_product);
+        $query_product -> execute(array(
+            ':titel' => $titel_product, 
+            ':beschrijving' => $beschrijving_product,
+            ':startprijs' => $startprijs,
+            ':betalingswijze' => $betalingswijze,
+            ':betalingsinstructie' => $betalingsinstructie,
+            ':plaatsnaam'=> 'plaatsnaam',
+            ':land' => 'Nederland',
+            ':looptijd' => $looptijd,
+            ':verzendkosten' => $verzendkosten,
+            ':verzendinstructie' => $verzendinstructie,
+            ':verkoper' => 'Test123'
+
+        ));
+
+    
         //Rubriek op laagste niveau moet worden genoteerd
         //echo nieuwe selectie box als er meerdere sub rubrieken zijn
         //zoek naar rubrieknummer OP "-" en tot e hoogste volgnummer is eerste rubrieken box
         //daarna als erop is geklikt dan rubrieknummer OP , het nummer van deze rubriek en alle volgnummers daar van aangegeven
         //enzovoort tot dat er geen sub rubrieken zijn dan geef het gekozen rubrieknummer en deze invullen als value='rubrieknummer'
-
 
       }
 
@@ -117,16 +161,17 @@
 						
 							<div class="medium-12 cell">
                                 <label> Voeg foto's toe</label>
-                                    <input type="file" name="pic" accept="image/*" required>
+                                    <input type="file" name="foto_product" accept="image/*" required>
 							</div>
 		
 							<div class="medium-12 cell">
                                 <label> Betaalmethode </label>
                                     <select class = "meerkeuzevak" name="betaal_methode" required>
-                                        <option value="">Kies een betaalmethode...</option>
-                                        <option value="2">iDeal</option>
-                                        <option value="3">PayPal</option>
-                                        <option value="4">Zelf ophalen</option>
+                                        <option value="-1">Kies een betaalmethode...</option>
+                                        <option value="iDeal">iDeal</option>
+                                        <option value="PayPal">PayPal</option>
+                                        <option vlaue="Creditcard">Creditcard</option>
+                                        <option value="ZelfOphalen">Zelf ophalen</option>
                                     </select>
 							</div>
                             <div class="medium-12 cell">

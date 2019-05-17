@@ -1,0 +1,76 @@
+Notule sprintplanning 2 week 1 
+
+Agenda:
+Webstite laten zien
+Vragen stellen
+
+
+Webiste laten zien:
+
+E-mail verificatie gedemonstreerd
+
+Homepagina laten zien,
+Opmerking:	profielpagina, eigen veilingen en afgesloten veilingen weergeven of linkjes onder het profiel menu
+		homepagina ->  interessant voor u, eerder op geboden
+
+Verkopen: 
+Soort bij creditcardnummer, datum van verloop 
+Dus een betere controle van creditcards
+
+Het menu onder elkaar uitklappen zoals de file map -> hetzelfde als je het op de telefoon ziet
+
+Zichtbaar maken van rubriek tijdens zoeken, zodat je kan zoeken in die rubriek. 
+
+Versienummers opschrijven van de browsers
+
+Product , 
+Opmerking:	bod foto verkleinen
+		De tabs gebruiken voor productbeschrijving en voorwaarden
+		Bieders top 5 laten zien rechts van de foto's
+
+
+Vragen stellen
+
+FO : wat ga ik doen? de functionaliteiten, het kan best wel technisch zijn.
+user stories, wijzigingen of aanvullingen  
+browserondersteuning met versienummer 
+database conversie -> wat?
+
+TO : hoe ga je het maken?
+CSS files -> hoe responsive maken? 
+Database: constraints, conversie -> hoe ga je het doen?
+
+testrapport (kan apart)
+
+Einde van de sprint, documentatie afgeven TO en FO 
+FO en TO verandert altijd
+
+
+Footer: 
+Opmerking:	kleiner en compact, geef nuttige informatie 
+		inloggen en zelf veilen weghalen 
+		Contact pagina, contact details naar de contactpagina
+		FAQs -> standaard vragen
+		Over ons tekst verkleinen
+
+
+Test script gevraagd inleveren na sprint 2
+Test script verwijs bij elke fout waar het in de casus staat
+
+Extra Notities:
+
+foreign key tests bijv. vraag invullen waar geen vraagnummer 
+postcode invullen dat alle straat gegevens invult 
+
+Lorem ipsum veranderen naar echt interessante test, en verschillende plaatjes 
+Voor de volgende demo 
+
+Casus bekijken over biedingen (W.I.P)
+
+Github laten zien
+
+
+
+
+
+
