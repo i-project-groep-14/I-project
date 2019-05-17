@@ -584,10 +584,14 @@ body{
 
 .holy-grail-left{
   height: fit-content;
+  box-shadow: black 5px 5px 5px;
+  padding: 1rem;
+  border: 1px solid #ededed;
   width: 100%;
+  background: #F2552C;
 }
 
-.holy-grail-left,
+
 .holy-grail-middle,
 .holy-grail-right,
 .holy-grail-footer {
