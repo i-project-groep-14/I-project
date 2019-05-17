@@ -178,7 +178,7 @@ insert into voorwerp values('titel2', 'beschrijving2', 'startprijs', 'betalingsw
 insert into voorwerp values('titel3', 'beschrijving3', 'startprijs', 'betalingswijze3', null, 'plaatsnaam3', 'land3',
 							3, GETDATE(), '11-32-04', null, null, 'Beheerder', null, GETDATE()+3, '11-32-04', 'niet', 3)
 insert into voorwerp values('titel4', 'beschrijving4', 'startprijs', 'betalingswijze4', null, 'plaatsnaam4', 'land4',
-							4, GETDATE()-5, '11-32-04', null, null, 'Beheerder', null, GETDATE(), '11-32-04', 'wel', 4)
+							4, GETDATE()-4, '11-32-04', null, null, 'Beheerder', null, GETDATE(), '11-32-04', 'wel', 4)
 insert into voorwerp values('titel5', 'beschrijving5', 'startprijs', 'betalingswijze5', null, 'plaatsnaam5', 'land5',
 							5, GETDATE(), '11-32-04', null, null, 'Beheerder', null, GETDATE()+5, '11-32-04', 'niet', 5)
 use master

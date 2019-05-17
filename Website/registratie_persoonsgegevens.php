@@ -17,6 +17,17 @@
 				$row = $query -> fetch();
 				if($_POST['gebruikersnaam'] != $row['gebruikersnaam']) {
 					//constraints
+
+					// if ($_POST['eenVerkoper'] == 3) {
+					// 	if ($_POST['verkoopgegevens-rekeningnr']) {
+							
+					// 	} else if () {
+
+					// 	} else {
+
+					// 	}
+					// }
+
 					if (strlen($_POST['gebruikersnaam']) > 20) {
 						echo "Het aantal karakters van uw gebruikersnaam is te groot. Het maximale toegestane aantal karakters is 20.";
 					} else if (strlen($_POST['voornaam']) > 20) {
@@ -171,22 +182,23 @@
 						
 								<div class="wel-verkopergegevens">
 									<label>Rekeningnummer:</label>
-									<input type="text" name="verkoopgegevens-rekeningnr" placeholder="Rekeningnummer" value="<?php  if(isset($_POST['geboortedatum'])) { echo htmlentities($_POST['geboortedatum']);} ?>">
-						
+									<input type="text" name="verkoopgegevens-rekeningnr" placeholder="Rekeningnummer" value="<?php  if(isset($_POST['verkoopgegevens-rekeningnr'])) { echo htmlentities($_POST['verkoopgegevens-rekeningnr']);} ?>">
+
 									<label>Bank:</label>
-									<input type="text" name="verkoopgegevens-bank" placeholder="Bank" value="<?php  if(isset($_POST['geboortedatum'])) { echo htmlentities($_POST['geboortedatum']);} ?>" >
+									<input type="text" name="verkoopgegevens-bank" placeholder="Bank" value="<?php  if(isset($_POST['verkoopgegevens-bank'])) { echo htmlentities($_POST['verkoopgegevens-bank']);} ?>" >
 									<p>
 										Om uw verkopersaccount te activeren heeft u een code nodig. Deze code kan opgestuurd worden
 										bij post of er wordt naar uw creditcard gegevens gevraagd. Maak een keuze hieronder.
 									</p>
+
 									<input type="radio" name="controle" id="controle-creditcard">
 									<label for="controle-creditcard" class="label-next side-label">Creditcard:</label>
-						
 									<input type="radio" name="controle" id="controle-post">
 									<label for="controle-post">Post:</label>
+
 									<div class="controle-creditcard-gegevens">
 										<label for="creditcard-gegevens">Creditcardnummer</label>
-										<input type="text" name="creditcardnummer" id="creditcard-gegevens" placeholder="Creditcardnummer" value="<?php  if(isset($_POST['geboortedatum'])) { echo htmlentities($_POST['geboortedatum']);} ?>">
+										<input type="text" name="creditcardnummer" id="creditcard-gegevens" placeholder="Creditcardnummer" value="<?php  if(isset($_POST['creditcardnummer'])) { echo htmlentities($_POST['creditcardnummer']);} ?>">
 									</div>
 								</div>
 							</fieldset>

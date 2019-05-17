@@ -1,3 +1,30 @@
+.collapsible {
+  background-color: #F2552C;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #F2552C;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+.MobielZoekProduct{
+  display: none;
+}
+
+
 li{
   list-style-type: none;
 }
@@ -15,7 +42,7 @@ li{
 }
 .top-bar-middle{
 
- width: 60%;
+ width: 58%;
   height: 100%;
 }
 .top-bar-rechts{
@@ -276,7 +303,7 @@ footer{
 }
 
 .ContainerFooterLinks{
-  width: 500px;
+  width: 600px;
   height: fit-content;
   padding: 10px;
 }
@@ -307,6 +334,8 @@ footer{
 }
 
 
+
+
 @media only screen and (max-width: 768px){
   .ProductenContainer{
     display: flex;
@@ -330,14 +359,39 @@ footer{
     width: 100px;
     height: 100px;
     background-color: black;
-  
+  }
+  .MobielZoekProduct{
+    display:block;
+  }
+  .top-bar-middle{
+    display:none;
+    
+  }
+  h3{
+    font-size: 24px;
+    font-weight: bold;
   }
   
 }
+.MobielLogo{
+  display: none;
+}
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 425px){
+  .MobielLogo{
+    display: block;
+  }
+  .DesktopLogo{
+    display: none;
+  }
+}
+@media only screen and (max-width: 320px){
+  .MobielLogo{
+    margin: center;
+  }
 
 }
+
 
 .multilevel-accordion-menu .is-accordion-submenu-parent a {
   background: #F2552C;
@@ -402,80 +456,6 @@ footer{
   margin-right: 1rem;
 }
 
-
-.holy-grail-grid {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 3fr 1fr;
-      grid-template-columns: 0.8fr 3fr 0fr;
-  -ms-grid-rows: 1fr 8fr 1fr;
-      grid-template-rows: 1fr 8fr 1fr;
-  grid-gap: 15px;
-  height: 100vh;
-}
-
-@media screen and (max-width: 60em) {
-  .holy-grail-grid {
-    -ms-grid-rows: 2fr 1fr 5fr 1fr;
-        grid-template-rows: 2fr 1fr 5fr 1fr;
-  }
-}
-
-
-
-.holy-grail-left{
-  height: fit-content;
-  width: 100%;
-}
-
-.holy-grail-left,
-.holy-grail-middle,
-.holy-grail-right,
-.holy-grail-footer {
-  box-shadow: black 5px 5px 5px;
-  padding: 1rem;
-  border: 1px solid #ededed;
-  background-color: rgb(255, 255, 255);
-}
-
-.holy-grail-header {
-  -ms-grid-column: 1;
-      grid-column-start: 1;
-  grid-column-end: 4;
-  -ms-grid-row: 1;
-      grid-row-start: 1;
-}
-
-
-@media screen and (max-width: 60em) {
-  .holy-grail-left {
-    -ms-grid-row: 2;
-        grid-row-start: 2;
-    -ms-grid-column: 1;
-        grid-column-start: 1;
-    grid-column-end: 4;
-  }
-}
-
-@media screen and (max-width: 60em) {
-  .holy-grail-middle {
-    -ms-grid-row: 3;
-        grid-row-start: 3;
-    -ms-grid-column: 1;
-        grid-column-start: 1;
-    grid-column-end: 4;
-  }
-}
-
-@media screen and (max-width: 60em) {
-  .right-nav {
-    -ms-grid-row: 4;
-        grid-row-start: 4;
-    -ms-grid-column: 1;
-        grid-column-start: 1;
-    grid-column-end: 4;
-  }
-}
 
 .holy-grail-footer {
   -ms-grid-column: 1;
@@ -580,3 +560,84 @@ body{
   cursor: pointer;
 }
 
+/* GRIDDDDD */
+
+.holy-grail-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr 1fr;
+      grid-template-columns: 0.8fr 3fr 0fr;
+  -ms-grid-rows: 1fr 8fr 1fr;
+      grid-template-rows: 1fr 8fr 1fr;
+  grid-gap: 15px;
+  height: 100vh;
+}
+
+@media screen and (max-width: 60em) {
+  .holy-grail-grid {
+    -ms-grid-rows: 2fr 1fr 5fr 1fr;
+        grid-template-rows: 2fr 1fr 5fr 1fr;
+  }
+}
+
+
+
+.holy-grail-left{
+  height: fit-content;
+  box-shadow: black 5px 5px 5px;
+  padding: 1rem;
+  border: 1px solid #ededed;
+  width: 100%;
+  background: #F2552C;
+}
+
+
+.holy-grail-middle,
+.holy-grail-right,
+.holy-grail-footer {
+  box-shadow: black 5px 5px 5px;
+  padding: 1rem;
+  border: 1px solid #ededed;
+  background-color: rgb(255, 255, 255);
+}
+
+.holy-grail-header {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 4;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+}
+
+
+@media screen and (max-width: 60em) {
+  .holy-grail-left {
+    -ms-grid-row: 2;
+        grid-row-start: 2;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 4;
+  }
+}
+
+@media screen and (max-width: 60em) {
+  .holy-grail-middle {
+    -ms-grid-row: 3;
+        grid-row-start: 3;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 4;
+  }
+}
+
+@media screen and (max-width: 60em) {
+  .right-nav {
+    -ms-grid-row: 4;
+        grid-row-start: 4;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 4;
+  }
+}
+
+/* EINDE GRID */
