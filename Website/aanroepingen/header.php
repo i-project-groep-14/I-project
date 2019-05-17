@@ -139,9 +139,7 @@
                 </div>
                 <div class="top-bar-rechts">
                     <?php
-                        if(isset($_SESSION['login'])) {
-                            echo "<p class='gebruiker'>Welkom ".strip_tags($_SESSION['gebruikersnaam']."!</p>");
-                        
+                        if(isset($_SESSION['login'])) {                        
                             echo "
                             </li> <button class='button loginbutton uitlogknop' type='submit' data-toggle='example-dropdown-bottom-right'>Account</button>
 
@@ -150,7 +148,7 @@
                                 <img src='images/profielfotoplaceholder.png' width='150px'>
                               
                                 <p>Naam: ".$_SESSION['voornaam']."</p>
-                                <p>Aantal actieve veilingen:".$_SESSION['aantaleigenveilingen']."</p>";
+                                <p>Aantal actieve veilingen: ".$_SESSION['aantaleigenveilingen']."</p>";
                                 if(isset($_SESSION['beheerder'])) {
                                     echo "<a href='beheerderspagina.php' class='button'>Beheerderspagina</a>";
                                 }
