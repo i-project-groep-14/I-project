@@ -1,0 +1,58 @@
+notulen alleen afspraken is genoeg
+
+website = {
+GRID AANPASSEN VAN WEBSITE
+
+scherm ruimte aanpassen
+
+pagina aantrekkelijker door diverse producten op website
+
+uitklapbare uitlog  inlog menu in de header
+}
+
+aangeraden producten = {
+veilingen die bijna verlopen
+nieuwste veilingen
+}
+rubrieken pagina = {
+structuur navigatie aanpassen weer naar link inplaats van
+
+prijs en verkoper (slider) 
+}
+producten pagina = {
+kan beter qua layout en vormgeving
+
+}
+registeren = {
+database moet ook de zelfde constrains hebben
+gegevens moeten blijven als pagina vernieuws door een actie
+pagina KLAAR verwijderen het is net een stap teveel voor het registeren.
+naar vorige pagina heen gaan.
+}
+
+zoeken={
+zoek balk bij iedere rubriek
+}
+
+
+
+
+verkoper worden en voorwerpen aanbieden sws
+navigeren door rubrieken
+verificatie
+bod uitbrengen
+toevoegen oude sprint dingen
+
+10 uurper storypoints
+houd rekening met storypoints  28
+
+conversie data over nadenken 
+
+testscript database
+
+
+eigen userstory database
+
+
+
+
