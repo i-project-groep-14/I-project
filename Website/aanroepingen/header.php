@@ -73,6 +73,8 @@
         session_destroy();
         session_start();
         $_SESSION['login'] = true;
+        $_SESSION['gebruikersnaam'] = $gebruikersnaam;
+        $_SESSION['voornaam'] = $voornaam;
     }
 
     if(isset($_SESSION['login'])) {
