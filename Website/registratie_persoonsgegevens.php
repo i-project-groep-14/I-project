@@ -53,16 +53,22 @@
 									// hashen!!!!!
 								} else if (strlen($_POST['verkoopgegevens-bank']) > 20) {
 									echo "Het aantal karakters van uw bank is te groot. Het maximale toegestane aantal karakters is 20.";
-								} else if ($_POST['controle'] == 'creditcard') {
-									if(strlen($_POST['creditcardnummer']) > 30) {
-										echo "Het aantal karakters van uw creditcardnummer is te groot. Het maximale toegestane aantal karakters is 20.";
-									}
 								} else {
-									$_SESSION['rekeningnummer'] = $_POST['verkoopgegevens-rekeningnr'];
-									$_SESSION['bank'] = $_POST['verkoopgegevens-bank'];
-									$_SESSION['controlepost'] = $_POST['controle'];
-									if(isset($_POST['creditcardnummer'])) {
-										$_SESSION['creditcardnummer'] = $_POST['creditcardnummer'];
+									if ($_POST['controle'] == 'creditcard' && strlen($_POST['creditcardnummer']) > 30) {
+										echo "Het aantal karakters van uw creditcardnummer is te groot. Het maximale toegestane aantal karakters is 20.";
+									} else {
+										$_SESSION['rekeningnummer'] = $_POST['verkoopgegevens-rekeningnr'];
+										$_SESSION['bank'] = $_POST['verkoopgegevens-bank'];
+										$_SESSION['controlepost'] = $_POST['controle'];
+										if(isset($_POST['creditcardnummer'])) {
+											$_SESSION['creditcardnummer'] = $_POST['creditcardnummer'];
+										} //else {
+										// 	$_SESSION['creditcardnummer'] = NULL;
+										// }
+										echo $_SESSION['rekeningnummer'];
+										echo $_SESSION['bank'];
+										echo $_SESSION['controlepost'];
+										echo $_SESSION['creditcardnummer'];
 									}
 								}
 							}
@@ -89,10 +95,10 @@
 								$_SESSION['eenVerkoper'] = 2;
 							}
 							header('Location: registratie_vraag.php');
-							} else {
-								echo "De wachtwoorden komen niet met elkaar overeen.";
-							}
+						} else {
+							echo "De wachtwoorden komen niet met elkaar overeen.";
 						}
+					}
 				} else {
 					echo "Gebruikersnaam is al in gebruik.";
 				}
