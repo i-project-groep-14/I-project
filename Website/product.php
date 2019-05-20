@@ -139,60 +139,46 @@
             <div class="tabs-panel is-active" id="panel1">
               <h4>Biedingen</h4>
               <?php
-                function biedingen() {
+                // $sql = "SELECT gebruiker, bodbedrag, boddag, bodtijdstip FROM bod
+                //         WHERE voorwerpnummer like :voorwerpnummer";
+                // $query = $dbh->prepare($sql);
+                // $query -> execute(array(
+                //     ':voorwerpnummer' => $_SESSION['voorwerpnummer']
+                // ));
+
+                // $row = $query -> fetch();
+                
+                // $gebruiker = $row['gebruiker'];
+                // $bod = $row['bodbedrag'];
+                // $dag = $row['boddag'];
+                // $tijd = $row['bodtijdstip'];
+                $gebruiker = 'Mike stevenson';
+                $bod = '1,-';
+                $dag = 'Een dag';
+                $tijd = 'Een tijd';
+
+                $profielfoto = 'images/profielfotoPlaceholder.png';
+
+                function biedingen($profielfoto, $gebruiker, $bodbedrag, $datum, $tijd) {
                   echo "
               <div class='media-object stack-for-small'>
                 <div class='media-object-section'>
-                  <img class='thumbnail' src='images/profielfotoPlaceholder.png' alt='profiel'>
+                  <img class='thumbnail' src='$profielfoto' alt='profielfoto'>
                 </div>
 
                 <div class='media-object-section'>
-                  <h5>Mike Stevenson</h5>
-                  <p>Geboden: 1.00 Euro</p>
-                  <p><i>Datum van bod: dd/mm/jj, hh:mm:ss</i></p>
+                  <h5>$gebruiker</h5>
+                  <p>Geboden:€$bodbedrag</p>
+                  <p><i>Datum van bod: $datum $tijd</i></p>
                 </div>
               </div>";
                 }
 
-              biedingen();
-              biedingen();
-              biedingen();
+              biedingen($profielfoto, $gebruiker, $bod, $dag, $tijd);
+              biedingen($profielfoto, $gebruiker, $bod, $dag, $tijd);
+              biedingen($profielfoto, $gebruiker, $bod, $dag, $tijd);
               ?>
-              <!-- <div class="media-object stack-for-small">
-                <div class="media-object-section">
-                  <img class="thumbnail" src="images/profielfotoPlaceholder.png" alt="profiel">
-                </div>
-
-                <div class="media-object-section">
-                  <h5>Mike Stevenson</h5>
-                  <p>Geboden: 1.00 Euro</p>
-                  <p><i>Datum van bod: dd/mm/jj, hh:mm:ss</i></p>
-                </div>
-              </div> -->
-
-              <!-- <div class="media-object stack-for-small">
-                <div class="media-object-section">
-                  <img class="thumbnail" src="images/profielfotoPlaceholder.png" alt="profiel">
-                </div>
-
-                <div class="media-object-section">
-                  <h5>Mike Stevenson</h5>
-                  <p>Geboden: 2.00 Euro</p>
-                  <p><i>Datum van bod: dd/mm/jj, hh:mm:ss</i></p>
-                </div>
-              </div>
-
-              <div class="media-object stack-for-small">
-                <div class="media-object-section">
-                  <img class="thumbnail" src="images/profielfotoPlaceholder.png" alt="profiel">
-                </div>
-                    
-                <div class="media-object-section">
-                  <h5>Mike Stevenson</h5>
-                  <p>Geboden: 3.00 Euro</p>
-                  <p><i>Datum van bod: dd/mm/jj, hh:mm:ss</i></p>
-                </div>
-              </div> -->
+              
               <button class="button">Bied mee!</button>
             </div>
           </div>
