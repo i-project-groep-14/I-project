@@ -4,7 +4,7 @@
     if(!isset($_SESSION)) {
         session_start();
     }
-
+    echo "test3";
     if(isset($_SESSION['register']) && isset($_SESSION['veiligheidsvraag']) && $_SESSION['veiligheidsvraag'] != "0" && strlen($_SESSION['veiligheidsvraag_antwoord']) <= 50) {
         unset($_SESSION['register']);
         $email = $_SESSION['email'];
@@ -26,6 +26,16 @@
         $geboortedatum = $_SESSION['geboortedatum'];
         $wachtwoord = $_SESSION['wachtwoord'];
         $rol = $_SESSION['eenVerkoper'];
+        echo "test2";
+        if ($rol == 3) {
+            echo"test1";
+            $rekeningnummer = $_SESSION['rekeningnummer'];
+            $bank = $_SESSION['bank'];
+            $controlepost = $_SESSION['controlepost'];
+            if(isset($_POST['creditcardnummer'])) {
+                $creditcardnummer = $_SESSION['creditcardnummer'];
+            }
+        }
 
         $vraag = $_SESSION['veiligheidsvraag'];
         $antwoord = $_SESSION['veiligheidsvraag_antwoord'];
@@ -68,6 +78,20 @@
                 ':telefoon' => $telefoonnr2
                 )
             );
+        }
+
+        if($rol == 3) {
+            $sql = "INSERT INTO verkoper VALUES (:gebruiker, :bank, :bankrekening, ':controle-optie', :creditcard)";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+                ':gebruiker' => $gebruikersnaam,
+                ':bank' => $bank,
+                ':bankrekening' => $rekeningnummer,
+                ':controle-optie' => $controlepost,
+                ':creditcard' => $creditcardnummer
+                )
+            );
+            echo "test";
         }
         
         session_destroy();
