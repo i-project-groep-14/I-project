@@ -5,7 +5,20 @@
         session_start();
     }
 
-    if(isset($_SESSION['register']) && isset($_SESSION['veiligheidsvraag']) && $_SESSION['veiligheidsvraag'] != "0" && strlen($_SESSION['veiligheidsvraag_antwoord']) <= 50) {
+    // if(isset($_SESSION['register'])) {
+    //     echo "test";
+    //     if(isset($_SESSION['veiligheidsvraag'])) {
+    //         echo "test1";
+    //         if($_SESSION['veiligheidsvraag'] != "0") {
+    //             echo "test2";
+    //             if(strlen($_SESSION['veiligheidsvraag_antwoord']) <= 50) {
+    //                 echo "test3";
+    //             }
+    //         }
+    //     }
+    // }
+    
+    if($config['pagina'] == 'index' && isset($_SESSION['register']) && isset($_SESSION['veiligheidsvraag']) && $_SESSION['veiligheidsvraag'] != "0" && strlen($_SESSION['veiligheidsvraag_antwoord']) <= 50) {
         unset($_SESSION['register']);
         $email = $_SESSION['email'];
 
@@ -26,6 +39,15 @@
         $geboortedatum = $_SESSION['geboortedatum'];
         $wachtwoord = $_SESSION['wachtwoord'];
         $rol = $_SESSION['eenVerkoper'];
+        if ($rol == 3) {
+            $rekeningnummer = $_SESSION['rekeningnummer'];
+            $bank = $_SESSION['bank'];
+            $controlepost = $_SESSION['controlepost'];
+            if(isset($_SESSION['creditcardnummer'])) {
+                $creditcardnummer = $_SESSION['creditcardnummer'];
+                echo $creditcardnummer;
+            }
+        }
 
         $vraag = $_SESSION['veiligheidsvraag'];
         $antwoord = $_SESSION['veiligheidsvraag_antwoord'];
@@ -66,6 +88,19 @@
             $query -> execute(array(
                 ':gebruiker' => $gebruikersnaam,
                 ':telefoon' => $telefoonnr2
+                )
+            );
+        }
+
+        if ($rol == 3) {
+            $sql = "INSERT INTO verkoper VALUES (:gebruiker, :bank, :bankrekening, :controleoptie, :creditcard)";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+                ':gebruiker' => $gebruikersnaam,
+                ':bank' => $bank,
+                ':bankrekening' => $rekeningnummer,
+                ':controleoptie' => $controlepost,
+                ':creditcard' => $creditcardnummer
                 )
             );
         }
