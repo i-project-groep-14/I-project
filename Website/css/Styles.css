@@ -347,16 +347,8 @@ footer{
     flex-wrap: wrap;
     justify-content: center;
   }
- 
-  .RubProductInfo{
-    font-size: auto;
-  }
-  .RubProductenOm{
-    display:none;
-  }
-  .RubProductImg{
-    text-align: center;;
-  }
+
+  
  
   .ZoekProduct{
     display: none;
@@ -395,6 +387,23 @@ footer{
 @media only screen and (max-width: 425px){
   .MobielLogo{
     display: block;
+  }
+  .ContainerRubProducten{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+  }
+  .RubProduct{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .FotoRubProduct{
+    width: fit-content;
+  }
+  .OmschRubProduct{
+    display:none;
   }
   .DesktopLogo{
     display: none;
@@ -466,7 +475,7 @@ footer{
 }
 
 .multilevel-accordion-menu .is-accordion-submenu-parent[aria-expanded="false"] a::before {
-  content: "\f07b";
+  content: "\f8c";
   font-family: FontAwesome;
   margin-right: 1rem;
 }
@@ -508,6 +517,10 @@ footer{
     outline: 0;
 }
 
+.center{
+  text-align: center;
+  align-items: center;
+}
 
 
 .FilterContainer{
@@ -515,61 +528,70 @@ footer{
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
-.center{
-  text-align: center;
-  align-items: center;
-}
-
 .prijsbreedte {
   width: 100px;
 }
 
+
+
 .rubrieken { 
   display: flex;
+  
   width: auto; 
   border: 1px solid #F2552C;
 }
 
+/* OUD Rubrieken*/
 
-
-.rubriekenContainer
-{
-    display: flex;
-    flex-direction: column;
-}
-.ContainerRubriekenfilter{
-  width: 100%;
-}
-
-.RubriekenProducten {
+.ContainerRubProducten{
   display: flex;
-  width: auto;
-  height: fit-content;
-  border: solid 1px grey ;
-  padding: 3px;
-  background: white;
-  box-shadow: 1px 2px 2px;  
-}
-.RubriekenProducten .RubProductenOm{
-  max-width: 800px;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
-.RubProductenOm{
-  
+.RubProduct{
+  display: flex;
+	width: fit-content;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px 0px;
+	
 }
-.RubProductInfo h4{
-  font-size: 14px;
-  float: right;
+.FotoRubProduct{
+	width: 250px;
+	height: 100%;
+
 }
-.RubProductInfo a{
-  float: right;
+.InfoRubProduct{
+  padding: 10px;
+	height: 100%;
+	width: 100%;
+	
 }
-.RubProductImg{
-  width: 200px;
-  height:100%;
-  
+.TitelRubProduct{
+	width: 100%;
+	
+	
+	
 }
+.OmschRubProduct{
+	width: 100%;
+	height: auto;
+	
+}
+.PrijsRubProduct{
+  width: 250px;
+	height: 100%;
+  background-color: #F2552C;
+  color: white;
+  padding: 25px;
+  text-align: center;
+}
+
+
+
+/* OUD RUBRIEKEN */
+
+
 
 .veilingknop {
   width: 100%
@@ -643,7 +665,6 @@ body{
   width: 100%;
   background: #F2552C;
 }
-
 
 .holy-grail-middle,
 .holy-grail-right,
