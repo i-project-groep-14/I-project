@@ -348,6 +348,16 @@ footer{
     justify-content: center;
   }
  
+  .RubProductInfo{
+    font-size: auto;
+  }
+  .RubProductenOm{
+    display:none;
+  }
+  .RubProductImg{
+    text-align: center;;
+  }
+ 
   .ZoekProduct{
     display: none;
     
@@ -468,19 +478,42 @@ footer{
   grid-column-end: 4;
 }
 
-.RubriekenProducten img {
-  width: 250px;
-  height: 200px;
+.FilterPrijs{
+  
 }
 
-.Filtermeerkeuzevak{
-  width: fit-content;
+.FilterZoek{
+  width: 400px;
+  order: -1;
+
 }
+
+#input-select,
+#input-number {
+	padding: 7px;
+	margin: 15px 5px 5px;
+	width: 70px;
+}
+
+.noUi-horizontal {
+    height: 10px;
+    margin-bottom: 30px;
+}
+.noUi-horizontal .noUi-handle {
+    width: 30px;
+    height: 30px;
+    left: -17px;
+    top: -10px;
+    border-radius: 50%;
+    outline: 0;
+}
+
 
 
 .FilterContainer{
   display:flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .center{
@@ -498,29 +531,44 @@ footer{
   border: 1px solid #F2552C;
 }
 
-.rubriekenContainer img {
-  width: 300px;
-  height: 230px;
-  float: left;
-}
+
 
 .rubriekenContainer
 {
     display: flex;
     flex-direction: column;
 }
-.ContainerRubrieken{
-  width: fit-content;
+.ContainerRubriekenfilter{
+  width: 100%;
 }
 
 .RubriekenProducten {
-  text-align: left;   
+  display: flex;
   width: auto;
-  height: auto;
+  height: fit-content;
   border: solid 1px grey ;
   padding: 3px;
   background: white;
   box-shadow: 1px 2px 2px;  
+}
+.RubriekenProducten .RubProductenOm{
+  max-width: 800px;
+}
+
+.RubProductenOm{
+  
+}
+.RubProductInfo h4{
+  font-size: 14px;
+  float: right;
+}
+.RubProductInfo a{
+  float: right;
+}
+.RubProductImg{
+  width: 200px;
+  height:100%;
+  
 }
 
 .veilingknop {
@@ -740,17 +788,6 @@ body{
   font-family: 'FontAwesome';
 }
 
-.contact-us-list .address::before {
-  content: '\f041';
-  margin-left: 0.4rem;
-  margin-right: 2.3rem;
-}
 
-.contact-us-list .email::before {
-  content: '\f003';
-}
 
-.contact-us-list .phone::before {
-  content: '\f098';
-}
 
