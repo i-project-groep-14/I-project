@@ -170,14 +170,22 @@ create table [voorwerp in rubriek] (
 	constraint fk_voorwerpinrubriek_voorwerp foreign key (voorwerp) references voorwerp (voorwerpnummer) on update cascade on delete no action,
 	constraint fk_voorwerpinrubriek_rubriekoplaagsteniveau foreign key ([rubriek op laagste niveau]) references rubriek (rubrieknummer) on update no action on delete no action
 )
-/*
+
 /*==============================================================*/
 /* Table: Bod													*/
 /*==============================================================*/
 create table bod (
-	
+	voorwerpnummer				int					not null,
+	bodbedrag					varchar(10)			not null,
+	gebruiker					varchar(20)			not null,
+	boddag						date				not null,
+	bodtijdstip					time				not null
+	constraint pk_bod_voorwerpnummerbodbedrag primary key (voorwerpnummer, bodbedrag),
+	constraint ak_bod_gebruikerboddagbodtijdstip unique (gebruiker, boddag, bodtijdstip),
+	constraint ak_bod_voorwerpnummerboddagbodtijdstip unique (voorwerpnummer, boddag, bodtijdstip),
+	constraint fk_bod_voorwerpnummer foreign key (voorwerpnummer) references voorwerp (voorwerpnummer) on update no action on delete no action,
+	constraint fk_bod_gebruiker foreign key (gebruiker) references gebruiker (gebruikersnaam) on update cascade on delete no action
 )
-*/
 
 
 
