@@ -1,16 +1,12 @@
     <?php
       $config = ['pagina' => 'wachtwoordvergeten'];
-
       require_once 'aanroepingen/connectie.php';
       include_once 'aanroepingen/header.php';
     ?>
 
-    <br>
     <div class="holy-grail-middle">
-      <h1>DEZE PAGINA IS IN BEWERKING</h1>
       <h1 class="InlogpaginaKopje"> Wachtwoord Vergeten? </h1>
-      <form class="inlogpaginaContainer">
-        <div>
+      <form>
           <input type="text" placeholder="Voer e-mail in" name="email" required>
           <h5>Kies een veiligheidsvraag</h5>
           <select>
@@ -25,10 +21,10 @@
           <h5>Antwoord op de veiligheidsvraag</h5>
           <input type="text" placeholder="Antwoord op de veiligheidsvraag" name="text" required>
           <input type="button" class="button inlogbutton" onclick="window.location.href = 'wachtwoordvergeten.php';" value="Nieuw wachtwoord aanvragen">
-          <p>Antwoord op de veiligheidsvraag vergeten? Neem contact op met ons.</p>
-        </div>
+          <p>Antwoord op de veiligheidsvraag vergeten? Neem <a href="contact.php">contact</a> op met ons.</p>
       </form>
     </div>
+  </div>
     <?php
       include_once 'aanroepingen/footer.html';
     ?>

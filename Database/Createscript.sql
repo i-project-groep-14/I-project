@@ -14,8 +14,10 @@ drop database EenmaalAndermaal
 create database EenmaalAndermaal
 
 use EenmaalAndermaal
-
-
+/*
+select * from gebruiker
+select * from verkoper
+*/
 
 /*==============================================================*/
 /* Table: Gebruiker												*/
@@ -74,7 +76,7 @@ create table verkoper (
 	gebruiker					varchar(20)			not null,
 	bank						varchar(20)			null,
 	bankrekening				varchar(30)			null,
-	[controle-optie]			varchar(20)			not null,
+	controleoptie				varchar(20)			not null,
 	creditcard					varchar(30)			null
 	constraint pk_verkoper_gebruiker primary key (gebruiker),
 	constraint fk_verkoper_gebruiker foreign key (gebruiker) references gebruiker (gebruikersnaam) on update cascade on delete no action
@@ -177,7 +179,7 @@ insert into vraag values ('1', 'vraag1')
 insert into gebruiker values ('Beheerder', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
 								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 5, null)
 
-insert into verkoper values('Beheerder', null, null, 'controle-optie', null)
+insert into verkoper values('Beheerder', null, null, 'controle-optie', null)/*
 insert into voorwerp values('titel1', 'beschrijving1', 'startprijs', 'betalingswijze1', null, 'plaatsnaam1', 'land1',
 							1, GETDATE(), '11-32-04', null, null, 'Beheerder', null, GETDATE()+1, '11-32-04', 'niet', 1)
 insert into voorwerp values('titel2', 'beschrijving2', 'startprijs', 'betalingswijze2', null, 'plaatsnaam2', 'land2',
@@ -187,5 +189,5 @@ insert into voorwerp values('titel3', 'beschrijving3', 'startprijs', 'betalingsw
 insert into voorwerp values('titel4', 'beschrijving4', 'startprijs', 'betalingswijze4', null, 'plaatsnaam4', 'land4',
 							4, GETDATE()-4, '11-32-04', null, null, 'Beheerder', null, GETDATE(), '11-32-04', 'wel', 4)
 insert into voorwerp values('titel5', 'beschrijving5', 'startprijs', 'betalingswijze5', null, 'plaatsnaam5', 'land5',
-							5, GETDATE(), '11-32-04', null, null, 'Beheerder', null, GETDATE()+5, '11-32-04', 'niet', 5)
+							5, GETDATE(), '11-32-04', null, null, 'Beheerder', null, GETDATE()+5, '11-32-04', 'niet', 5)*/
 use master
