@@ -63,12 +63,7 @@ li{
 .ZoekRubrieken{
   width: fit-content;
 }
-.InlogContainer{
-  padding: 50px;
-  display: flex;
-  justify-content: center;
-  
-}
+
 .InlogpaginaKopje {
   text-align: center;
   border-bottom: 1px solid #F2552C;
@@ -809,17 +804,7 @@ body{
   font-family: 'FontAwesome';
 }
 
-.contact-us-list .address::before {
-  content: '\f041';
-  margin-left: 0.4rem;
-  margin-right: 2.3rem;
-}
 
-.contact-us-list .email::before {
-  content: '\f003';
-}
 
-.contact-us-list .phone::before {
-  content: '\f098';
-}
+
 

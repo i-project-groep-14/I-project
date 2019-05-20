@@ -11,10 +11,9 @@
   <div class="row medium-unstack">
 
       <ul class="contact-us-list">
-          
-        <li class="address"> <i class='fi-marker' style='font-size:24px'> </i> Arnhem, Ruitberglaan 26, Nederland</li>
-        <li class="address"> <i class='fi-mail' style='font-size:24px'> </i> EenmaalAndermaal@gmail.com</a></li>
-        <li class="address"> <i class='fi-telephone' style='font-size:24px'> </i> 06 53467895 </li>
+        <li> <i class='fi-marker' style='font-size:24px'> </i> Arnhem, Ruitberglaan 26, Nederland</li>
+        <li> <i class='fi-mail' style='font-size:24px'> </i> EenmaalAndermaal@gmail.com</a></li>
+        <li> <i class='fi-telephone' style='font-size:24px'> </i> 06 53467895 </li>
       </ul>
     </div>
     <br>
@@ -34,9 +33,6 @@
       </form>
     </div>
 </section>
-
-
-
     </div>
     <?php 
       include_once 'aanroepingen/footer.html';

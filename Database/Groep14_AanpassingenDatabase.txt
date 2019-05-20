@@ -79,8 +79,9 @@ Tabel voorwerp:
 
 	fk op koper -> on update cascade, on delete restrict
 
-	3 constraints bij toegevoegd; betalingswijze staat alleen 4 manieren toe zodat hier geen verschil inkomt met schrijven. 
+	5 constraints bij toegevoegd; betalingswijze staat alleen 4 manieren toe zodat hier geen verschil inkomt met schrijven. 
 	De startprijs mag niet negatief zijn en veilingGesloten staat alleen wel of niet toe. Voor het geval andere inputs erin komen.
+	De verkooppijs kan niet negatief zijn en ook niet kleineer zijn dan de startprijs en de koper mag niet de verkoper zijn.
 
 
 Tabel bestand:
@@ -91,7 +92,7 @@ Tabel bestand:
 	fk op voorwerp -> on update restrict, on delete restrict
 
 
-Tabel rubriek
+Tabel rubriek:
 
 	rubrieknummer				van integer(3)	naar numeric(3)
 	rubrieknaam					van char(24) 	naar varchar(50)
@@ -110,7 +111,16 @@ Tabel voorwerp in rubriek:
 	fk op rubriek op laagste niveau -> on update restrict, on delete restrict
 
 
+Tabel bod:
 
+	voorwerpnummer				van numeric(10)	naar int
+	bodbedrag					van char(5)		naar varchar(10)
+	gebruiker					van char(10)	naar varchar(20)
+	boddag 						van char(10)	naar date
+	bodtijdtip					van char(8)		naar time
+	
+	fk op voorwerpnummer -> on update restrict, on delete restrict
+	fk op gebruiker -> on update cascade, on delete restrict
 
 
 
