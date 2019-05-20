@@ -161,17 +161,17 @@
 
                 function biedingen($profielfoto, $gebruiker, $bodbedrag, $datum, $tijd) {
                   echo "
-              <div class='media-object stack-for-small'>
-                <div class='media-object-section'>
-                  <img class='thumbnail' src='$profielfoto' alt='profielfoto'>
-                </div>
+                  <div class='media-object stack-for-small'>
+                    <div class='media-object-section'>
+                      <img class='thumbnail' src='$profielfoto' alt='profielfoto'>
+                    </div>
 
-                <div class='media-object-section'>
-                  <h5>$gebruiker</h5>
-                  <p>Geboden:€$bodbedrag</p>
-                  <p><i>Datum van bod: $datum $tijd</i></p>
-                </div>
-              </div>";
+                    <div class='media-object-section'>
+                      <h5>$gebruiker</h5>
+                      <p>Geboden:€$bodbedrag</p>
+                      <p><i>Datum van bod: $datum $tijd</i></p>
+                    </div>
+                  </div>";
                 }
 
               biedingen($profielfoto, $gebruiker, $bod, $dag, $tijd);
