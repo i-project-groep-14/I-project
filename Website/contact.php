@@ -11,11 +11,10 @@
   <div class="row medium-unstack">
 
       <ul class="contact-us-list">
-        <li class="address">Arnhem, Ruitberglaan 26, Nederland</li>
-        <li class="email"><a href="mailto:">EenmaalAndermaal@gmail.com</a></li>
-        <li class="phone">
-          06 53467895
-        </li>
+          
+        <li class="address"> <i class='fi-marker' style='font-size:24px'> </i> Arnhem, Ruitberglaan 26, Nederland</li>
+        <li class="address"> <i class='fi-mail' style='font-size:24px'> </i> EenmaalAndermaal@gmail.com</a></li>
+        <li class="address"> <i class='fi-telephone' style='font-size:24px'> </i> 06 53467895 </li>
       </ul>
     </div>
     <br>
