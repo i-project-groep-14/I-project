@@ -134,7 +134,9 @@ create table voorwerp (
 	alter table voorwerp 
 		add constraint ck_voorwerp_betalingswijze check (betalingswijze IN ('iDeal', 'PayPal', 'Creditcard', 'Zelf halen')),
 		constraint ck_voorwerp_startprijs check (startprijs > 0),
-		constraint ck_voorwerp_veilingGesloten check (veilingGesloten IN ('wel', 'niet'))
+		constraint ck_voorwerp_veilingGesloten check (veilingGesloten IN ('wel', 'niet')),
+		constraint ck_voorwerp_verkoopprijs_negatief check (verkoopprijs <= startprijs),
+		constraint ck_voorwerp_verkoper_geen_koper check (verkoper != koper)
 
 /*==============================================================*/
 /* Table: Bestand												*/
