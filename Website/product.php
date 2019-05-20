@@ -57,45 +57,74 @@
             </div>
             ";
             ?>
-            
+
           </div>
 
           <!--Toevoegen informatie aan de rechterkant-->
           <div class="medium-6 large-5 columns lijn">
-            <h3>My Awesome Product</h3>
-            <p><i>Verkoper</i></p>
-            <p>Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in.</p>
-          
-            <div class="row">
-              <div class="small-3 columns">
-                <p class="middle">Plaats:</p>
-              </div>
-              <div class="small-9 columns">
-                <p>Arnhem, Nederland</p>
-              </div>
+            <?php
+                // $sql = "SELECT titel, verkoper, beschrijving, plaatsnaam, startprijs, verkoopprijs, betalingswijze, verzendinstructies FROM voorwerp
+                //         WHERE voorwerpnummer like :voorwerpnummer";
+                // $query = $dbh->prepare($sql);
+                // $query -> execute(array(
+                //     ':voorwerpnummer' => $_SESSION['voorwerpnummer']
+                // ));
 
-              <div class="small-3 columns">
-                <p class="middle">Startprijs:</p>
-              </div>
-              <div class="small-9 columns">
-                <p>5,00 Euro</p>
-              </div>
+                // $row = $query -> fetch();
+                
+                // $titel = $row['titel'];
+                // $verkoper = $row['verkoper'];
+                // $beschrijving = $row['beschrijving'];
+                // $locatie = $row['plaatsnaam'];
+                // $startprijs = $row['startprijs'];
+                // $hoogstebod = $row['verkoopprijs'];
+                // $betalingswijze = $row['betalingswijze'];
+                // $verzendinstructies = $row['verzendinstructies'];
+                $titel = 'My Awesome Product';
+                $verkoper = 'Verkoper';
+                $beschrijving = 'Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in.';
+                $locatie = 'Arnhem, Nederland';
+                $startprijs = '5,-';
+                $hoogstebod = '11,-';
+                $betalingswijze = 'IDEAL/Contant';
+                $verzendinstructies = 'Via PostNL/Zelf ophalen';
 
-              <div class="small-3 columns">
-                <p class="middle">Huidige Prijs:</p>
-              </div>
-              <div class="small-9 columns">
-                <p><b>11,00 Euro</b></p>
-              </div>
+                $looptijd = '2d 12h 40m 33s';
+            
+            echo"
+            <h3>$titel</h3>
+            <p><i>$verkoper</i></p>
+            <p>$beschrijving</p>
 
+            <div class='row'>
+              <div class='small-3 columns'>
+                <p class='middle'>Plaats:</p>
+              </div>
+              <div class='small-9 columns'>
+                <p>$locatie</p>
+              </div>
+              <div class='small-3 columns'>
+                <p class='middle'>Startprijs:</p>
+              </div>
+              <div class='small-9 columns'>
+                <p>€$startprijs</p>
+              </div>
+              <div class='small-3 columns'>
+                <p class='middle'>Huidige Prijs:</p>
+              </div>
+              <div class='small-9 columns'>
+                <p><b>€$hoogstebod</b></p>
+              </div>
             </div>
-            <a href="#" class="button large expanded">Bieden</a>
+            <a href='#' class='button large expanded'>Bieden</a>
             <p>Looptijd:</p>
-            <div class="klok">
-              <p>2d 12h 40m 33s </p>
+            <div class='klok'>
+              <p>$looptijd</p>
             </div>
-            <p class="middle">Betaling: IDEAL/Contant</p>
-            <p class="middle">Verzending: Via PostNL/Zelf ophalen</p>
+            <p class='middle'>Betaling: $betalingswijze</p>
+            <p class='middle'>Verzending: $verzendinstructies</p>
+            ";
+            ?>
           </div>
         </div>
 
@@ -109,7 +138,27 @@
           <div class="tabs-content" data-tabs-content="example-tabs">
             <div class="tabs-panel is-active" id="panel1">
               <h4>Biedingen</h4>
-              <div class="media-object stack-for-small">
+              <?php
+                function biedingen() {
+                  echo "
+              <div class='media-object stack-for-small'>
+                <div class='media-object-section'>
+                  <img class='thumbnail' src='images/profielfotoPlaceholder.png' alt='profiel'>
+                </div>
+
+                <div class='media-object-section'>
+                  <h5>Mike Stevenson</h5>
+                  <p>Geboden: 1.00 Euro</p>
+                  <p><i>Datum van bod: dd/mm/jj, hh:mm:ss</i></p>
+                </div>
+              </div>";
+                }
+
+              biedingen();
+              biedingen();
+              biedingen();
+              ?>
+              <!-- <div class="media-object stack-for-small">
                 <div class="media-object-section">
                   <img class="thumbnail" src="images/profielfotoPlaceholder.png" alt="profiel">
                 </div>
@@ -119,9 +168,9 @@
                   <p>Geboden: 1.00 Euro</p>
                   <p><i>Datum van bod: dd/mm/jj, hh:mm:ss</i></p>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="media-object stack-for-small">
+              <!-- <div class="media-object stack-for-small">
                 <div class="media-object-section">
                   <img class="thumbnail" src="images/profielfotoPlaceholder.png" alt="profiel">
                 </div>
@@ -143,7 +192,7 @@
                   <p>Geboden: 3.00 Euro</p>
                   <p><i>Datum van bod: dd/mm/jj, hh:mm:ss</i></p>
                 </div>
-              </div>
+              </div> -->
               <button class="button">Bied mee!</button>
             </div>
           </div>

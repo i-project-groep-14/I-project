@@ -168,7 +168,14 @@ create table [voorwerp in rubriek] (
 	constraint fk_voorwerpinrubriek_voorwerp foreign key (voorwerp) references voorwerp (voorwerpnummer) on update cascade on delete no action,
 	constraint fk_voorwerpinrubriek_rubriekoplaagsteniveau foreign key ([rubriek op laagste niveau]) references rubriek (rubrieknummer) on update no action on delete no action
 )
-
+/*
+/*==============================================================*/
+/* Table: Bod													*/
+/*==============================================================*/
+create table bod (
+	
+)
+*/
 
 
 
