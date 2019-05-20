@@ -306,14 +306,19 @@ footer{
   width: 600px;
   height: fit-content;
   padding: 10px;
+  font-size: 30px;
 }
 .ContainerFooterMidden{
-  width: 450px;
+  width: 350px;
   height: fit-content;
+  padding: 10px;
+  font-size: 30px;
 }
 .ContainerFooterRechts{
   width: 350px;
   height: fit-content;
+  padding: 10px;
+  font-size: 30px;
 }
 
 
