@@ -88,10 +88,6 @@
 							} else {
 								$_SESSION['eenVerkoper'] = 2;
 							}
-							// echo $_SESSION['rekeningnummer'];
-							// echo $_SESSION['bank'];
-							// echo $_SESSION['controlepost'];
-							// echo $_SESSION['creditcardnummer'];
 							header('Location: registratie_vraag.php');
 							} else {
 								echo "De wachtwoorden komen niet met elkaar overeen.";
