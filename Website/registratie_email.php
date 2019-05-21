@@ -14,22 +14,6 @@
         } else {
           $mailverzonden = true;
           $_SESSION['email'] = $_POST['email'];
-
-          function createRandomCode() {
-            $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW0123456789"; 
-            srand((double)microtime()*1000000); 
-            $i = 0; 
-            $code = '';
-        
-            while ($i <= 7) { 
-                $num = rand() % 62; 
-                $tmp = substr($chars, $num, 1); 
-                $code = $code . $tmp; 
-                $i++; 
-            }
-        
-            return $code;
-          }
           
           $code = 
                   createRandomCode();

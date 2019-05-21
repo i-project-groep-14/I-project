@@ -1,6 +1,8 @@
 <?php 
     global $config;
 
+    include_once 'aanroepingen/functies.php';
+
     if(!isset($_SESSION)) {
         session_start();
     }

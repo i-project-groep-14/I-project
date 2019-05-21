@@ -60,6 +60,7 @@
                 ) {
                     throw new RuntimeException('Invalid parameters.');
                 }
+
                 //De foutmelding voor boven
                 switch ($_FILES['upfile']['error']) {
                     case UPLOAD_ERR_OK:
@@ -91,28 +92,29 @@
                         throw new RuntimeException('Bestand niet geldig.');
                     }
                     //Verplaatsen van afbeeldingen, hier wordt ook de lange unieke naam gegenergeerd met sha1_file en samengevoegd met sprintf
-                  
                     
-
                     if (!move_uploaded_file( 
                         $_FILES['upfile']['tmp_name'],
                         sprintf('./Images/%s.%s',
-                        sha1_file($_FILES['upfile']['tmp_name']),  
-                        $ext
-                        )
-                       
+                        sha1_file($_FILES['upfile']['tmp_name']),  $ext)                
                     )) {
                         throw new RuntimeException('Kan bestand niet verplaatsen.');
                     }
                     
-                    //$filenaam = $_FILES['file']['name'];
-                    echo 'Bestand is succesful geupload.';
-                   /* $sql_foto = "INSERT INTO bestand (filenaam) VALUES (:filenaam)"
-                    $query_foto = $dbh->prepare($sql_foto);
-                    $query_foto -> execute(array(':filenaam' => $filenaam))*/
+                    $filenaam = $_FILES['upfile']['name'];
 
-                    //echo "bestand: ". "<img src='".$filenaam."'>";
-                    //echo $filenaam ;
+                    $sql_foto = "INSERT INTO bestand (filenaam, voorwerp) VALUES (:filenaam, :voorwerp)";
+                    $query_foto = $dbh->prepare($sql_foto);
+                    $query_foto -> execute(array(':filenaam' => $filenaam, ':voorwerp' => 5));
+                
+
+                    //echo 'Bestand is succesful geupload.';
+                    
+                   
+                  // echo "bestand: ". 
+                  // "<img src='Images\ " .$filenaam. "'>"; 
+                   // echo $filenaam ;
+                   
 
 
             } catch (RuntimeException $e) {
@@ -120,7 +122,6 @@
                  echo $e->getMessage();
 
             }
-
 
 
             $sql_product = "INSERT INTO voorwerp (titel,beschrijving,startprijs,betalingswijze,betalingsinstructie,plaatsnaam,land,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verzendkosten ,verzendinstructies ,looptijdeindeTijdstip,veilingGesloten,verkoper) 
@@ -172,6 +173,9 @@
             }
     }
 </script>
+
+<!--<img src='Images\1b939c49359f68293b655198611803a5df0b66f1.png'>-->
+
 
 <div class="holy-grail-middle">
 <h1>DEZE PAGINA IS IN BEWERKING</h1>
