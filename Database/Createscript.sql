@@ -202,10 +202,12 @@ insert into voorwerp values('Kaaskast', 'beschrijving1', 20, 'iDeal', null, 'pla
 insert into voorwerp values('Bezem', 'beschrijving2', 250, 'Creditcard', null, 'plaatsnaam2', 'land2',
 							2, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 260)
 insert into voorwerp values('Schoen', 'beschrijving3', 500, 'Paypal', null, 'plaatsnaam3', 'land3',
-							3, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', null)
+							3, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 500)
 insert into voorwerp values('Laptop', 'beschrijving4', 200, 'Zelf halen', null, 'plaatsnaam4', 'land4',
 							4, GETDATE()-4, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'wel', 300)
 insert into voorwerp values('Sokken', 'beschrijving5', 1, 'Creditcard', null, 'plaatsnaam5', 'land5',
+							5, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'wel', 5)
+insert into voorwerp values('Zoiets', 'beschrijving5', 1, 'Creditcard', null, 'plaatsnaam5', 'land5',
 							5, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 5)
 
 insert into bestand values('images/Salade.jpg', 1)

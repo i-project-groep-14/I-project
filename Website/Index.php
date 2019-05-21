@@ -9,7 +9,7 @@
       <?php 
         if(isset($_SESSION['login'])) {
                                             // verander in 0
-          if($_SESSION['aantaleigenveilingen'] != 1) {
+          if($_SESSION['aantaleigenveilingen'] != 0) {
             function dateDifference($date_1, $date_2, $differenceFormat = '%a') {
               $datetime1 = date_create($date_1);
               $datetime2 = date_create($date_2);
@@ -33,6 +33,8 @@
               ));
 
               $row = $query -> fetch();
+
+              global $test;
               
               if ($row['veilingGesloten'] == 'niet') {
                 $sql = "SELECT titel, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp 
@@ -47,12 +49,12 @@
 
                 $titel = $row['titel'];
                 $hoogstebod = $row['verkoopprijs'];
-                // $looptijdeindeDag = $row['looptijdeindeDag'];
-                // $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
-                // $actueledatum = date("Y-m-d");
-                // $actueletijd = date("H-i-s");
+                $looptijdeindeDag = $row['looptijdeindeDag'];
+                $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
+                $actueledatum = date("Y-m-d");
+                $actueletijd = date("H-i-s");
 
-                // $verschilInDagen = dateDifference($looptijdeindeDag, $actueledatum, "%d");
+                $verschilInDagen = dateDifference($looptijdeindeDag, $actueledatum, "%d");
                 
 
                 echo"
@@ -61,64 +63,79 @@
                   <h4>$titel</h4>
                   <p class='price'>€$hoogstebod</p>
                   <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 
-                  ".//$verschilInDagen.
-                  "7d 2u</p>
+                  ".$verschilInDagen.
+                  //"7
+                  "d
+                  ...
+                  u
+                  </p>
                   <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
                 </div>
                 ";
+                $test += 1;
               } else {
-                createHomepageItem($volgendeplek);
+                $test = $volgendeplek;
+                createHomepageItem($test);
               }
             }
+            $sql = "SELECT rol FROM gebruiker 
+            WHERE gebruikersnaam like :gebruikersnaam";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+                ':gebruikersnaam' => $_SESSION['gebruikersnaam']
+            ));
 
-            echo "
-            <h3 class='HomePageTitel'>Uw veilingen</h3>
-            <div class='ProductenContainer'>
-            ";
-            // createHomepageItem(0);
-            // createHomepageItem(1);
-            // createHomepageItem(2);
-            // createHomepageItem(3);
-            echo "</div>";
-            
-            //   <div class='card'>
-            //     <img src='images/fiets.jpg' alt='fiets'>
-            //     <h4>Viking fiets</h4>
-            //     <p class='price'>€ 19.99</p>
-            //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-            //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-            //   </div> 
-            // <h3 class='HomePageTitel'>Uw veilingen</h3>
-            // <div class='ProductenContainer'>
-            //   <div class='card'>
-            //     <img src='images/fiets.jpg' alt='fiets'>
-            //     <h4>Viking fiets</h4>
-            //     <p class='price'>€ 19.99</p>
-            //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-            //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-            //   </div> 
-            //   <div class='card'>
-            //     <img src='images/fiets.jpg' alt='fiets'>
-            //     <h4>Viking Fiets</h4>
-            //     <p class='price'>€ 19.99</p>
-            //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-            //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-            //   </div>
-            //   <div class='card'>
-            //     <img src='images/fiets.jpg' alt='fiets'>
-            //     <h4>Viking Fiets</h4>
-            //     <p class='price'>€ 19.99</p>
-            //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-            //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-            //   </div>
-            //   <div class='card'>
-            //     <img src='images/fiets.jpg' alt='fiets'>
-            //     <h4>Viking Fiets</h4>
-            //     <p class='price'>€ 19.99</p>
-            //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-            //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-            //   </div>
-            // </div>
+            $row = $query -> fetch();
+            if ($row['rol'] != 2) {
+              echo "
+              <h3 class='HomePageTitel'>Uw veilingen</h3>
+              <div class='ProductenContainer'>
+              ";
+              $test = 0;
+              for($i = 0; $i < 4; $i++) {
+                createHomepageItem($test);
+              }
+              echo "</div>";
+              
+              //   <div class='card'>
+              //     <img src='images/fiets.jpg' alt='fiets'>
+              //     <h4>Viking fiets</h4>
+              //     <p class='price'>€ 19.99</p>
+              //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
+              //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
+              //   </div> 
+              // <h3 class='HomePageTitel'>Uw veilingen</h3>
+              // <div class='ProductenContainer'>
+              //   <div class='card'>
+              //     <img src='images/fiets.jpg' alt='fiets'>
+              //     <h4>Viking fiets</h4>
+              //     <p class='price'>€ 19.99</p>
+              //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
+              //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
+              //   </div> 
+              //   <div class='card'>
+              //     <img src='images/fiets.jpg' alt='fiets'>
+              //     <h4>Viking Fiets</h4>
+              //     <p class='price'>€ 19.99</p>
+              //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
+              //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
+              //   </div>
+              //   <div class='card'>
+              //     <img src='images/fiets.jpg' alt='fiets'>
+              //     <h4>Viking Fiets</h4>
+              //     <p class='price'>€ 19.99</p>
+              //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
+              //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
+              //   </div>
+              //   <div class='card'>
+              //     <img src='images/fiets.jpg' alt='fiets'>
+              //     <h4>Viking Fiets</h4>
+              //     <p class='price'>€ 19.99</p>
+              //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
+              //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
+              //   </div>
+              // </div>
+            }
           }
         }
       ?>
