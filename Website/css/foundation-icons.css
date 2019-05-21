@@ -390,7 +390,7 @@
 .fi-flag:before { content: "\f14d"; }
 .fi-folder-add:before { content: "\f14e"; }
 .fi-folder-lock:before { content: "\f14f"; }
-.fi-folder:before { content: "\\f07b"; }
+.fi-folder:before { content: "\f07b"; }
 .fi-foot:before { content: "\f151"; }
 .fi-foundation:before { content: "\f152"; }
 .fi-graph-bar:before { content: "\f153"; }
