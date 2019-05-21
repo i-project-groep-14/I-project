@@ -216,6 +216,14 @@ insert into bestand values('images/Eend.jpg', 1)
 insert into bestand values('images/profielfotoPlaceholder.png', 1)
 insert into bestand values('images/kaaskast.jpg', 1)
 
+insert into bod values (1, 1, 'Beheerder', getdate(), CONVERT(TIME(0),GETDATE()))
+insert into bod values (1, 2, 'Beheerder', getdate(), CONVERT(TIME(0),GETDATE()))
+insert into bod values (1, 3, 'Beheerder', getdate(), CONVERT(TIME(0),GETDATE()))
+
+select top 4 * from voorwerp
+where voorwerpnummer in (select count(voorwerpnummer) from bod
+						group by voorwerpnummer
+						)
 
 
 use master

@@ -14,35 +14,13 @@
         } else {
           $mailverzonden = true;
           $_SESSION['email'] = $_POST['email'];
-
-          function createRandomCode() {
-            $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW0123456789"; 
-            srand((double)microtime()*1000000); 
-            $i = 0; 
-            $code = '';
-        
-            while ($i <= 7) { 
-                $num = rand() % 62; 
-                $tmp = substr($chars, $num, 1); 
-                $code = $code . $tmp; 
-                $i++; 
-            }
-        
-            return $code;
-          }
           
           $code = 
                   createRandomCode();
                   // 'f';
           $_SESSION['code'] = $code;
 
-          $ontvanger = $_POST['email'];
-          $onderwerp = 'Bevestingingscode EenmaalAndermaal';
-          $tekst = "Uw code is:\r\n\r\n$code";
-          $tekst = wordwrap($tekst, 70, "\r\n");
-          $headers = 'From: Noreply-EenmaalAndermaal@icasites.nl' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
-
-          mail($ontvanger, $onderwerp, $tekst, $headers);
+          include_once 'aanroepingen/Reg_email_opmaak.php';
         }
       }
 
