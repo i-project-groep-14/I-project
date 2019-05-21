@@ -32,8 +32,8 @@
           }
           
           $code = 
-                  // createRandomCode();
-                  'f';
+                  createRandomCode();
+                  // 'f';
           $_SESSION['code'] = $code;
 
           $ontvanger = $_POST['email'];
