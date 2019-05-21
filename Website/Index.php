@@ -65,13 +65,13 @@
                 ));
 
                 $row = $query -> fetch();
+
                 if ($row['filenaam'] == NULL) {
                   $afbeelding = "images/imageplaceholder.png";
                 } else {
                   $afbeelding = $row['filenaam'];
                 }
                 
-
                 echo"
                 <div class='card'>
                   <img src='$afbeelding' alt='fiets'>
@@ -111,49 +111,11 @@
                 createHomepageItem($test);
               }
               echo "</div>";
-              
-              //   <div class='card'>
-              //     <img src='images/fiets.jpg' alt='fiets'>
-              //     <h4>Viking fiets</h4>
-              //     <p class='price'>€ 19.99</p>
-              //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-              //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-              //   </div> 
-              // <h3 class='HomePageTitel'>Uw veilingen</h3>
-              // <div class='ProductenContainer'>
-              //   <div class='card'>
-              //     <img src='images/fiets.jpg' alt='fiets'>
-              //     <h4>Viking fiets</h4>
-              //     <p class='price'>€ 19.99</p>
-              //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-              //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-              //   </div> 
-              //   <div class='card'>
-              //     <img src='images/fiets.jpg' alt='fiets'>
-              //     <h4>Viking Fiets</h4>
-              //     <p class='price'>€ 19.99</p>
-              //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-              //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-              //   </div>
-              //   <div class='card'>
-              //     <img src='images/fiets.jpg' alt='fiets'>
-              //     <h4>Viking Fiets</h4>
-              //     <p class='price'>€ 19.99</p>
-              //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-              //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-              //   </div>
-              //   <div class='card'>
-              //     <img src='images/fiets.jpg' alt='fiets'>
-              //     <h4>Viking Fiets</h4>
-              //     <p class='price'>€ 19.99</p>
-              //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-              //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-              //   </div>
-              // </div>
             }
           }
         }
       ?>
+      
       <h3 class='HomePageTitel'>De populairste veilingen</h3>
       <div class='ProductenContainer'>
         <div class="card">
