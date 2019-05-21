@@ -93,6 +93,7 @@
 		</div>
 		</div>
 		<a href='product.php'><div class="PrijsRubProduct">
+    <?php $_SESSION['voorwerpnummer'] = 1; ?>
     <h4>€ 800</h4>
     <p>$gebruikersnaam</p>
     <p>09:09:09</p>
