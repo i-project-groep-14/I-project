@@ -234,6 +234,7 @@ insert into bod values (5, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour,
 insert into bod values (4, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, -4, GETDATE())))
 insert into bod values (6, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 8, GETDATE())))
 
+
 /*
 select count(B.voorwerpnummer) as topproducten,V.voorwerpnummer, V.titel, V.verkoopprijs, V.looptijdeindeDag, V.looptijdeindeTijdstip
 from voorwerp V inner join bod B on V.voorwerpnummer = B.voorwerpnummer
@@ -255,6 +256,6 @@ SELECT titel, voorwerpnummer, verkoopprijs, looptijdbeginDag, looptijdbeginTijds
             WHERE veilingGesloten = 'niet' and (
             looptijdbeginTijdstip >= CONVERT(TIME,GETDATE()) or
             looptijdbeginTijdstip < CONVERT(TIME,GETDATE()))
-            ORDER BY looptijdbeginDag asc, looptijdbeginTijdstip asc
+            ORDER BY looptijdbeginDag desc, looptijdbeginTijdstip desc
 */
 use master

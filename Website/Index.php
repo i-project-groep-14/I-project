@@ -30,8 +30,10 @@
               }
 
               $plek = 0;
+              $gebruikersnaam = $_SESSION['gebruikersnaam'];
               for($i = 0; $i < $aantalveilingen; $i++) {
-                createHomepageUwVeilingen($plek);
+                createHomepageItem("SELECT titel, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip, voorwerpnummer FROM voorwerp 
+                                    WHERE verkoper like '%$gebruikersnaam%' and veilingGesloten = 'niet' ORDER BY titel", $plek);
               }
               echo "</div>";
             }
@@ -44,25 +46,13 @@
         <?php
           $plek = 0;
           for($i = 0; $i < 4; $i++) {
-            createHomepagePopulair($plek);
+            createHomepageItem("SELECT count(b.voorwerpnummer) as topproducten, v.voorwerpnummer, v.titel, v.verkoopprijs, v.looptijdeindeDag,
+                        v.looptijdeindeTijdstip FROM voorwerp v inner join bod b on v.voorwerpnummer = b.voorwerpnummer
+                        WHERE veilingGesloten = 'niet'
+                        GROUP BY b.voorwerpnummer, v.voorwerpnummer, v.titel, v.verkoopprijs, v.looptijdeindeDag, v.looptijdeindeTijdstip
+                        ORDER BY topproducten desc", $plek
+            );
           }
-          // $sql = "SELECT top 4 * FROM bod 
-          //         WHERE voorwerp like :voorwerpnummer";
-          // $query = $dbh->prepare($sql);
-          // $query -> execute(array(
-          //     ':voorwerpnummer' => ...
-          // ));
-
-          // select count(*) as topproducten from bod
-          // group by voorwerpnummer, gebruiker
-          // order by topproducten desc
-
-          // $row = $query -> fetch();
-
-        // createHomepageCard();
-        // createHomepageCard();
-        // createHomepageCard();
-        // createHomepageCard();
         ?>
       </div>
 
@@ -71,7 +61,12 @@
         <?php
           $plek = 0;
           for($i = 0; $i < 4; $i++) {
-            createHomepageBijnaAflopend($plek);
+            createHomepageItem("SELECT titel, voorwerpnummer, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp 
+                                WHERE veilingGesloten = 'niet' and (
+                                looptijdeindeTijdstip >= CONVERT(TIME,GETDATE()) or
+                                looptijdeindeTijdstip < CONVERT(TIME,GETDATE()))
+                                ORDER BY looptijdeindeDag asc, looptijdeindeTijdstip asc", $plek
+            );
           }
         ?>
       </div>
@@ -80,7 +75,12 @@
         <?php
           $plek = 0;
           for($i = 0; $i < 4; $i++) {
-            createHomepageNieuweVeilingen($plek);
+            createHomepageItem("SELECT titel, voorwerpnummer, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp 
+                            WHERE veilingGesloten = 'niet' and (
+                            looptijdbeginTijdstip >= CONVERT(TIME,GETDATE()) or
+                            looptijdbeginTijdstip < CONVERT(TIME,GETDATE()))
+                            ORDER BY looptijdbeginDag desc, looptijdbeginTijdstip desc", $plek
+            );
           }
         ?>
       </div>
