@@ -10,9 +10,6 @@
         if(isset($_SESSION['login'])) {
                                             // verander in 0
           if($_SESSION['aantaleigenveilingen'] != 0) {
-            
-
-            
             $sql = "SELECT rol FROM gebruiker 
             WHERE gebruikersnaam like :gebruikersnaam";
             $query = $dbh->prepare($sql);

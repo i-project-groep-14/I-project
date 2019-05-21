@@ -155,11 +155,9 @@
 
                 $profielfoto = 'images/profielfotoPlaceholder.png';
 
-                
-
-              biedingen($profielfoto, $gebruiker, $bod, $dag, $tijd);
-              biedingen($profielfoto, $gebruiker, $bod, $dag, $tijd);
-              biedingen($profielfoto, $gebruiker, $bod, $dag, $tijd);
+                biedingen($profielfoto, $gebruiker, $bod, $dag, $tijd);
+                biedingen($profielfoto, $gebruiker, $bod, $dag, $tijd);
+                biedingen($profielfoto, $gebruiker, $bod, $dag, $tijd);
               ?>
               
               <button class="button">Bied mee!</button>

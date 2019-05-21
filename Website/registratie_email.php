@@ -14,8 +14,6 @@
         } else {
           $mailverzonden = true;
           $_SESSION['email'] = $_POST['email'];
-
-          
           
           $code = 
                   createRandomCode();
