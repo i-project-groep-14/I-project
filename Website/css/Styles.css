@@ -470,7 +470,7 @@ footer{
 }
 
 .multilevel-accordion-menu .is-accordion-submenu-parent[aria-expanded="false"] a::before {
-  content: "\f8c";
+  content: "\f07b";
   font-family: FontAwesome;
   margin-right: 1rem;
 }
