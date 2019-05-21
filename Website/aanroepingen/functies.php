@@ -9,7 +9,7 @@ function timeDiff($firstTime,$lastTime){
     return $timeDiff;
 }
 
-function createHomepageItem($actueleplek) {
+function createHomepageUwVeilingen($actueleplek) {
     global $dbh;
     settype($actueleplek, "int");
     $volgendeplek = $actueleplek+1;
@@ -64,7 +64,16 @@ function createHomepageItem($actueleplek) {
         $afbeelding = $row['filenaam'];
       }
       
-      echo"
+      createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours);
+      $plek += 1;
+    } else {
+      $plek = $volgendeplek;
+      createHomepageUwVeilingen($plek);
+    }
+}
+
+function createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours) {
+    echo"
       <div class='card'>
         <img src='$afbeelding' alt='fiets'>
         <h4>$titel</h4>
@@ -72,12 +81,7 @@ function createHomepageItem($actueleplek) {
         <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: "."$days"."d $hours"."u</p>
         <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
       </div>
-      ";
-      $plek += 1;
-    } else {
-      $plek = $volgendeplek;
-      createHomepageItem($plek);
-    }
+    ";
 }
 
 function createFotos($plek) {

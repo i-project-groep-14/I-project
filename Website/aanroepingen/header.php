@@ -22,6 +22,9 @@
         if ($row['rol'] == 5) {
             $_SESSION['beheerder'] = true;
         }
+        else if($row['rol'] == 3){
+            $_SESSION['verkoper'] = true;
+        }
 
         $sql = "SELECT count(*) as 'aantalveilingen' FROM voorwerp 
                 WHERE verkoper like :gebruikersnaam";

@@ -11,6 +11,13 @@
 
       //indicator = niet veilig is niet gesloten
 
+      if(isset($_SESSION['verkoper']) != true){
+       echo '<script type="text/javascript">
+          window.location = "inlogpagina.php"
+        </script>';
+     
+      }
+
       try{
 
         if(isset($_POST['plaatsen_voorwerp'])){
@@ -158,6 +165,7 @@
         echo $e->getMessage();
 
     }
+
     
       
       

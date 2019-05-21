@@ -208,7 +208,7 @@ insert into voorwerp values('Laptop', 'beschrijving4', 200, 'Zelf halen', null, 
 insert into voorwerp values('Sokken', 'beschrijving5', 1, 'Creditcard', null, 'plaatsnaam5', 'land5',
 							5, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'wel', 5)
 insert into voorwerp values('Zoiets', 'beschrijving5', 1, 'Creditcard', null, 'plaatsnaam5', 'land5',
-							5, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 5)
+							6, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 60)
 
 insert into bestand values('images/Salade.jpg', 1)
 insert into bestand values('images/Fiets.jpg', 1)
@@ -216,6 +216,23 @@ insert into bestand values('images/Eend.jpg', 1)
 insert into bestand values('images/profielfotoPlaceholder.png', 1)
 insert into bestand values('images/kaaskast.jpg', 1)
 
-
+insert into bod values (1, 4, 'Beheerder', getdate(), CONVERT(TIME(0),GETDATE()))
+insert into bod values (1, 5, 'Beheerder', getdate(), CONVERT(TIME(0),GETDATE()))
+insert into bod values (1, 6, 'Beheerder', getdate(), CONVERT(TIME(0),GETDATE()))
+/*
+select top 4 * from voorwerp
+where voorwerpnummer in (select count(voorwerpnummer) from bod
+						group by voorwerpnummer
+						)
+*/
+select 
+--top 4 
+* from voorwerp
+where looptijdeindeDag >= getdate()
+and (
+looptijdeindeTijdstip >= CONVERT(TIME(0),GETDATE())
+or looptijdeindeTijdstip < CONVERT(TIME(0),GETDATE())
+)
+order by looptijdeindeDag asc
 
 use master
