@@ -13,7 +13,7 @@
           <nav aria-label="You are here:">
             <ul class="breadcrumbs">
               <?php
-                //Rubrieken pakken waar dit product(meegegeven van als je op een link klikt)
+                //Rubrieken pakken waar dit product inzit(meegegeven van als je op een link klikt)
               ?>
               <li><a href="#">Home</a></li>
               <li><a href="#">Features</a></li>
@@ -35,12 +35,6 @@
 
                 $row = $query -> fetch();
                 $afbeelding = $row['filenaam'];
-                
-                // $afbeelding = $row['filenaam'];
-                // $afbeelding1 = $row['filenaam'];
-                // $afbeelding = 'images/fiets.jpg';
-
-                
 
             echo"
             <img class='thumbnail img-product' src=$afbeelding alt='afbeelding'>
@@ -59,35 +53,38 @@
           <!--Toevoegen informatie aan de rechterkant-->
           <div class="medium-6 large-5 columns lijn">
             <?php
-                $sql = "SELECT titel, verkoper, beschrijving, plaatsnaam, startprijs, verkoopprijs, betalingswijze, verzendinstructies FROM voorwerp
-                        WHERE voorwerpnummer like :voorwerpnummer";
-                $query = $dbh->prepare($sql);
-                $query -> execute(array(
-                    ':voorwerpnummer' => $_SESSION['voorwerpnummer']
-                ));
+              $sql = "SELECT titel, verkoper, beschrijving, plaatsnaam, startprijs, verkoopprijs, betalingswijze, verzendinstructies, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
+                      WHERE voorwerpnummer like :voorwerpnummer";
+              $query = $dbh->prepare($sql);
+              $query -> execute(array(
+                  ':voorwerpnummer' => $_SESSION['voorwerpnummer']
+              ));
 
-                $row = $query -> fetch();
+              $row = $query -> fetch();
                 
-                $titel = $row['titel'];
-                $verkoper = $row['verkoper'];
-                $beschrijving = $row['beschrijving'];
-                $locatie = $row['plaatsnaam'];
-                $startprijs = $row['startprijs'];
-                $hoogstebod = $row['verkoopprijs'];
-                $betalingswijze = $row['betalingswijze'];
-                $verzendinstructies = $row['verzendinstructies'];
-                // $titel = 'My Awesome Product';
-                // $verkoper = 'Verkoper';
-                // $beschrijving = 'Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in.';
-                // $locatie = 'Arnhem, Nederland';
-                // $startprijs = '5,-';
-                // $hoogstebod = '11,-';
-                // $betalingswijze = 'IDEAL/Contant';
-                // $verzendinstructies = 'Via PostNL/Zelf ophalen';
+              $titel = $row['titel'];
+              $verkoper = $row['verkoper'];
+              $beschrijving = $row['beschrijving'];
+              $locatie = $row['plaatsnaam'];
+              $startprijs = $row['startprijs'];
+              $hoogstebod = $row['verkoopprijs'];
+              $betalingswijze = $row['betalingswijze'];
+              $verzendinstructies = $row['verzendinstructies'];
+                
+              $looptijdeindeDag = $row['looptijdeindeDag'];
+              $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
 
-                $looptijd = '2d 12h 40m 33s';
+              $combinedDT = date('Y-m-d H:i:s', strtotime("$looptijdeindeDag $looptijdeindeTijdstip"));
+              $difference = timeDiff(date("Y-m-d H:i:s"),$combinedDT);
+              $years = abs(floor($difference / 31536000));
+              $days = abs(floor(($difference-($years * 31536000))/86400));
+              $hours = abs(floor(($difference-($years * 31536000)-($days * 86400))/3600));
+              $mins = abs(floor(($difference-($years * 31536000)-($days * 86400)-($hours * 3600))/60));
+              $secs = abs(floor(($difference-($years * 31536000)-($days * 86400)-($hours * 3600))-($mins * 3600)/60));
+
+              $looptijd = $days.'d '.$hours.'u '.$mins.'m '.$secs.'s';
             
-            echo"
+              echo"
             <h3>$titel</h3>
             <p><i>$verkoper</i></p>
             <p>$beschrijving</p>
@@ -119,7 +116,7 @@
             </div>
             <p class='middle'>Betaling: $betalingswijze</p>
             <p class='middle'>Verzending: $verzendinstructies</p>
-            ";
+              ";
             ?>
           </div>
         </div>
@@ -135,32 +132,17 @@
             <div class="tabs-panel is-active" id="panel1">
               <h4>Biedingen</h4>
               <?php
-                $sql = "SELECT gebruiker, bodbedrag, boddag, bodtijdstip FROM bod
-                        WHERE voorwerpnummer like :voorwerpnummer";
-                $query = $dbh->prepare($sql);
-                $query -> execute(array(
-                    ':voorwerpnummer' => $_SESSION['voorwerpnummer']
-                ));
-
-                $row = $query -> fetch();
-                
-                $gebruiker = $row['gebruiker'];
-                $bod = $row['bodbedrag'];
-                $dag = $row['boddag'];
-                $tijd = $row['bodtijdstip'];
-                // $gebruiker = 'Mike stevenson';
-                // $bod = '1,-';
-                // $dag = 'Een dag';
-                // $tijd = 'Een tijd';
-
-                $profielfoto = 'images/profielfotoPlaceholder.png';
-
-                biedingen($profielfoto, $gebruiker, $bod, $dag, $tijd);
-                biedingen($profielfoto, $gebruiker, $bod, $dag, $tijd);
-                biedingen($profielfoto, $gebruiker, $bod, $dag, $tijd);
+                $test = 0;
+                for($i = 0; $i < 3; $i++) {
+                  createBiedingen($test);
+                }
               ?>
               
-              <button class="button">Bied mee!</button>
+              <?php 
+              if(isset($_SESSION['login'])) {
+                echo"<button class='button'>Bied mee!</button>";
+              }
+              ?>
             </div>
           </div>
         </div>

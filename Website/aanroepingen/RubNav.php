@@ -1,7 +1,7 @@
 <div class="RubNav row">
 <ul class="multilevel-accordion-menu vertical menu" data-accordion-menu>
   <li>
-    <a href="rubriekenpagina.php"><i class="fi-folder-lock"></i> Item 1</a>
+    <a href="rubriekenpagina.php"><i class="fi-folder-add"></i> Item 1</a>
     <ul class="menu vertical sublevel-1">
       <li>
         <a href="rubriekenpagina.php">Sub-item 1</a>
@@ -29,7 +29,7 @@
     </ul>
   </li>
   <li>
-    <a href="rubriekenpagina.php">Item 1</a>
+    <a href="rubriekenpagina.php" > Item 1</a>
     <ul class="menu vertical sublevel-1">
       <li>
         <a href="rubriekenpagina.php">Sub-item 1</a>

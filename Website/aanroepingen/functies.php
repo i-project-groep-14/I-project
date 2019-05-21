@@ -41,7 +41,8 @@ function createHomepageItem($actueleplek) {
       $hoogstebod = $row['verkoopprijs'];
       $voorwerpnummer = $row['voorwerpnummer'];
       $looptijdeindeDag = $row['looptijdeindeDag'];
-      $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];$combinedDT = date('Y-m-d H:i:s', strtotime("$looptijdeindeDag $looptijdeindeTijdstip"));
+      $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
+      $combinedDT = date('Y-m-d H:i:s', strtotime("$looptijdeindeDag $looptijdeindeTijdstip"));
       $difference = timeDiff(date("Y-m-d H:i:s"),$combinedDT);
       $years = abs(floor($difference / 31536000));
       $days = abs(floor(($difference-($years * 31536000))/86400));
@@ -99,7 +100,30 @@ function createFotos($plek) {
     ";
 }
 
-function biedingen($profielfoto, $gebruiker, $bodbedrag, $datum, $tijd) {
+function createBiedingen($plek) {
+    global $dbh;
+    $volgendeplek = $plek+1;
+    $sql = "SELECT gebruiker, bodbedrag, boddag, bodtijdstip FROM bod
+            WHERE voorwerpnummer like :voorwerpnummer
+            ORDER BY bodbedrag OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+    $query = $dbh->prepare($sql);
+    $query -> execute(array(
+        ':voorwerpnummer' => $_SESSION['voorwerpnummer']
+    ));
+
+    $row = $query -> fetch();
+                
+    $gebruiker = $row['gebruiker'];
+    $bod = $row['bodbedrag'];
+    $dag = $row['boddag'];
+    $tijd = $row['bodtijdstip'];
+    // $gebruiker = 'Mike stevenson';
+    // $bod = '1,-';
+    // $dag = 'Een dag';
+    // $tijd = 'Een tijd';
+
+    $profielfoto = 'images/profielfotoPlaceholder.png';
+    
     echo "
     <div class='media-object stack-for-small'>
       <div class='media-object-section'>
@@ -108,8 +132,8 @@ function biedingen($profielfoto, $gebruiker, $bodbedrag, $datum, $tijd) {
 
       <div class='media-object-section'>
         <h5>$gebruiker</h5>
-        <p>Geboden:€$bodbedrag</p>
-        <p><i>Datum van bod: $datum $tijd</i></p>
+        <p>Geboden: €$bod</p>
+        <p><i>Datum van bod: $dag $tijd</i></p>
       </div>
     </div>";
 }

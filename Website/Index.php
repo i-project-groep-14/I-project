@@ -23,8 +23,13 @@
               <h3 class='HomePageTitel'>Uw veilingen</h3>
               <div class='ProductenContainer'>
               ";
+              if ($_SESSION['aantaleigenveilingen'] >= 4) {
+                $aantalveilingen = 4;
+              } else {
+                $aantalveilingen = $_SESSION['aantaleigenveilingen'];
+              }
               $plek = 0;
-              for($i = 0; $i < 4; $i++) {
+              for($i = 0; $i < $aantalveilingen; $i++) {
                 createHomepageItem($plek);
               }
               echo "</div>";
