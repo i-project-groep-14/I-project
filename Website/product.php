@@ -40,25 +40,7 @@
                 // $afbeelding1 = $row['filenaam'];
                 // $afbeelding = 'images/fiets.jpg';
 
-                function createFotos($plek) {
-                  global $dbh;
-                  $volgendeplek = $plek+1;
-                  $sql = "SELECT filenaam FROM bestand
-                        WHERE voorwerp like :voorwerpnummer
-                        ORDER BY filenaam OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
-                  $query = $dbh->prepare($sql);
-                  $query -> execute(array(
-                      ':voorwerpnummer' => $_SESSION['voorwerpnummer']
-                  ));
-
-                  $row = $query -> fetch();
-                  $afbeelding = $row['filenaam'];
-                  echo"
-                    <div class='column'>
-                      <img class='thumbnail' src='$afbeelding' alt='afbeelding'>
-                    </div>
-                  ";
-                }
+                
 
             echo"
             <img class='thumbnail img-product' src=$afbeelding alt='afbeelding'>
@@ -173,20 +155,7 @@
 
                 $profielfoto = 'images/profielfotoPlaceholder.png';
 
-                function biedingen($profielfoto, $gebruiker, $bodbedrag, $datum, $tijd) {
-                  echo "
-                  <div class='media-object stack-for-small'>
-                    <div class='media-object-section'>
-                      <img class='thumbnail' src='$profielfoto' alt='profielfoto'>
-                    </div>
-
-                    <div class='media-object-section'>
-                      <h5>$gebruiker</h5>
-                      <p>Geboden:€$bodbedrag</p>
-                      <p><i>Datum van bod: $datum $tijd</i></p>
-                    </div>
-                  </div>";
-                }
+                
 
               biedingen($profielfoto, $gebruiker, $bod, $dag, $tijd);
               biedingen($profielfoto, $gebruiker, $bod, $dag, $tijd);
