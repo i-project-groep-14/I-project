@@ -135,7 +135,7 @@ create table voorwerp (
 		add constraint ck_voorwerp_betalingswijze check (betalingswijze IN ('iDeal', 'PayPal', 'Creditcard', 'Zelf halen')),
 		constraint ck_voorwerp_startprijs check (startprijs > 0),
 		constraint ck_voorwerp_veilingGesloten check (veilingGesloten IN ('wel', 'niet')),
-		constraint ck_voorwerp_verkoopprijs_negatief check (verkoopprijs <= startprijs),
+		constraint ck_voorwerp_verkoopprijs_negatief check (verkoopprijs >= startprijs),
 		constraint ck_voorwerp_verkoper_geen_koper check (verkoper != koper)
 
 /*==============================================================*/
@@ -171,6 +171,21 @@ create table [voorwerp in rubriek] (
 	constraint fk_voorwerpinrubriek_rubriekoplaagsteniveau foreign key ([rubriek op laagste niveau]) references rubriek (rubrieknummer) on update no action on delete no action
 )
 
+/*==============================================================*/
+/* Table: Bod													*/
+/*==============================================================*/
+create table bod (
+	voorwerpnummer				int					not null,
+	bodbedrag					varchar(10)			not null,
+	gebruiker					varchar(20)			not null,
+	boddag						date				not null,
+	bodtijdstip					time				not null
+	constraint pk_bod_voorwerpnummerbodbedrag primary key (voorwerpnummer, bodbedrag),
+	constraint ak_bod_gebruikerboddagbodtijdstip unique (gebruiker, boddag, bodtijdstip),
+	constraint ak_bod_voorwerpnummerboddagbodtijdstip unique (voorwerpnummer, boddag, bodtijdstip),
+	constraint fk_bod_voorwerpnummer foreign key (voorwerpnummer) references voorwerp (voorwerpnummer) on update no action on delete no action,
+	constraint fk_bod_gebruiker foreign key (gebruiker) references gebruiker (gebruikersnaam) on update cascade on delete no action
+)
 
 
 
@@ -179,15 +194,28 @@ insert into vraag values ('1', 'vraag1')
 insert into gebruiker values ('Beheerder', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
 								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 5, null)
 
-insert into verkoper values('Beheerder', null, null, 'controle-optie', null)/*
-insert into voorwerp values('titel1', 'beschrijving1', 'startprijs', 'betalingswijze1', null, 'plaatsnaam1', 'land1',
-							1, GETDATE(), '11-32-04', null, null, 'Beheerder', null, GETDATE()+1, '11-32-04', 'niet', 1)
-insert into voorwerp values('titel2', 'beschrijving2', 'startprijs', 'betalingswijze2', null, 'plaatsnaam2', 'land2',
-							2, GETDATE(), '11-32-04', null, null, 'Beheerder', null, GETDATE()+2, '11-32-04', 'niet', 2)
-insert into voorwerp values('titel3', 'beschrijving3', 'startprijs', 'betalingswijze3', null, 'plaatsnaam3', 'land3',
-							3, GETDATE(), '11-32-04', null, null, 'Beheerder', null, GETDATE()+3, '11-32-04', 'niet', 3)
-insert into voorwerp values('titel4', 'beschrijving4', 'startprijs', 'betalingswijze4', null, 'plaatsnaam4', 'land4',
-							4, GETDATE()-4, '11-32-04', null, null, 'Beheerder', null, GETDATE(), '11-32-04', 'wel', 4)
-insert into voorwerp values('titel5', 'beschrijving5', 'startprijs', 'betalingswijze5', null, 'plaatsnaam5', 'land5',
-							5, GETDATE(), '11-32-04', null, null, 'Beheerder', null, GETDATE()+5, '11-32-04', 'niet', 5)*/
+insert into verkoper values('Beheerder', null, null, 'controle-optie', null)
+
+
+insert into voorwerp values('Kaaskast', 'beschrijving1', 20, 'iDeal', null, 'plaatsnaam1', 'land1',
+							1, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 20)
+insert into voorwerp values('Bezem', 'beschrijving2', 250, 'Creditcard', null, 'plaatsnaam2', 'land2',
+							2, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 260)
+insert into voorwerp values('Schoen', 'beschrijving3', 500, 'Paypal', null, 'plaatsnaam3', 'land3',
+							3, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 500)
+insert into voorwerp values('Laptop', 'beschrijving4', 200, 'Zelf halen', null, 'plaatsnaam4', 'land4',
+							4, GETDATE()-4, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'wel', 300)
+insert into voorwerp values('Sokken', 'beschrijving5', 1, 'Creditcard', null, 'plaatsnaam5', 'land5',
+							5, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'wel', 5)
+insert into voorwerp values('Zoiets', 'beschrijving5', 1, 'Creditcard', null, 'plaatsnaam5', 'land5',
+							5, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 5)
+
+insert into bestand values('images/Salade.jpg', 1)
+insert into bestand values('images/Fiets.jpg', 1)
+insert into bestand values('images/Eend.jpg', 1)
+insert into bestand values('images/profielfotoPlaceholder.png', 1)
+insert into bestand values('images/kaaskast.jpg', 1)
+
+
+
 use master

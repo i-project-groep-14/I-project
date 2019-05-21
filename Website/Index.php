@@ -9,35 +9,37 @@
       <?php 
         if(isset($_SESSION['login'])) {
                                             // verander in 0
-          if($_SESSION['aantaleigenveilingen'] != 1) {
-            function dateDifference($date_1, $date_2, $differenceFormat = '%a') {
-              $datetime1 = date_create($date_1);
-              $datetime2 = date_create($date_2);
-              
-              $interval = date_diff($datetime1, $datetime2);
-              
-              return $interval->format($differenceFormat);
+          if($_SESSION['aantaleigenveilingen'] != 0) {
+            function timeDiff($firstTime,$lastTime){
+              $firstTime=strtotime($firstTime);
+              $lastTime=strtotime($lastTime);
+           
+              $timeDiff=$lastTime-$firstTime;
+           
+              return $timeDiff;
             }
 
-            function createHomepageItem($plek) {
+            function createHomepageItem($actueleplek) {
               global $dbh;
-              settype($plek, "int");
-              $volgendeplek = $plek+1;
+              settype($actueleplek, "int");
+              $volgendeplek = $actueleplek+1;
               
               $sql = "SELECT veilingGesloten FROM voorwerp 
                       WHERE verkoper like :gebruikersnaam
-                      ORDER BY titel OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+                      ORDER BY titel OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
               $query = $dbh->prepare($sql);
               $query -> execute(array(
                   ':gebruikersnaam' => $_SESSION['gebruikersnaam']
               ));
 
               $row = $query -> fetch();
+
+              global $plek;
               
               if ($row['veilingGesloten'] == 'niet') {
-                $sql = "SELECT titel, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp 
+                $sql = "SELECT titel, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip, voorwerpnummer FROM voorwerp 
                         WHERE verkoper like :gebruikersnaam
-                        ORDER BY titel OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+                        ORDER BY titel OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
                 $query = $dbh->prepare($sql);
                 $query -> execute(array(
                     ':gebruikersnaam' => $_SESSION['gebruikersnaam']
@@ -47,81 +49,68 @@
 
                 $titel = $row['titel'];
                 $hoogstebod = $row['verkoopprijs'];
-                // $looptijdeindeDag = $row['looptijdeindeDag'];
-                // $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
-                // $actueledatum = date("Y-m-d");
-                // $actueletijd = date("H-i-s");
+                $voorwerpnummer = $row['voorwerpnummer'];
+                $looptijdeindeDag = $row['looptijdeindeDag'];
+                $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];$combinedDT = date('Y-m-d H:i:s', strtotime("$looptijdeindeDag $looptijdeindeTijdstip"));
+                $difference = timeDiff(date("Y-m-d H:i:s"),$combinedDT);
+                $years = abs(floor($difference / 31536000));
+                $days = abs(floor(($difference-($years * 31536000))/86400));
+                $hours = abs(floor(($difference-($years * 31536000)-($days * 86400))/3600));
+                // $mins = abs(floor(($difference-($years * 31536000)-($days * 86400)-($hours * 3600))/60));#floor($difference / 60);
 
-                // $verschilInDagen = dateDifference($looptijdeindeDag, $actueledatum, "%d");
+                $sql = "SELECT filenaam FROM bestand
+                WHERE voorwerp like :voorwerpnummer";
+                $query = $dbh->prepare($sql);
+                $query -> execute(array(
+                    ':voorwerpnummer' => $voorwerpnummer
+                ));
+
+                $row = $query -> fetch();
+
+                if ($row['filenaam'] == NULL) {
+                  $afbeelding = "images/imageplaceholder.png";
+                } else {
+                  $afbeelding = $row['filenaam'];
+                }
                 
-
                 echo"
                 <div class='card'>
-                  <img src='images/fiets.jpg' alt='fiets'>
+                  <img src='$afbeelding' alt='fiets'>
                   <h4>$titel</h4>
                   <p class='price'>€$hoogstebod</p>
-                  <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 
-                  ".//$verschilInDagen.
-                  "7d 2u</p>
+                  <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: "."$days"."d $hours"."u</p>
                   <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
                 </div>
                 ";
+                $plek += 1;
               } else {
-                createHomepageItem($volgendeplek);
+                $plek = $volgendeplek;
+                createHomepageItem($plek);
               }
             }
+            $sql = "SELECT rol FROM gebruiker 
+            WHERE gebruikersnaam like :gebruikersnaam";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+                ':gebruikersnaam' => $_SESSION['gebruikersnaam']
+            ));
 
-            echo "
-            <h3 class='HomePageTitel'>Uw veilingen</h3>
-            <div class='ProductenContainer'>
-            ";
-            // createHomepageItem(0);
-            // createHomepageItem(1);
-            // createHomepageItem(2);
-            // createHomepageItem(3);
-            echo "</div>";
-            
-            //   <div class='card'>
-            //     <img src='images/fiets.jpg' alt='fiets'>
-            //     <h4>Viking fiets</h4>
-            //     <p class='price'>€ 19.99</p>
-            //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-            //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-            //   </div> 
-            // <h3 class='HomePageTitel'>Uw veilingen</h3>
-            // <div class='ProductenContainer'>
-            //   <div class='card'>
-            //     <img src='images/fiets.jpg' alt='fiets'>
-            //     <h4>Viking fiets</h4>
-            //     <p class='price'>€ 19.99</p>
-            //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-            //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-            //   </div> 
-            //   <div class='card'>
-            //     <img src='images/fiets.jpg' alt='fiets'>
-            //     <h4>Viking Fiets</h4>
-            //     <p class='price'>€ 19.99</p>
-            //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-            //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-            //   </div>
-            //   <div class='card'>
-            //     <img src='images/fiets.jpg' alt='fiets'>
-            //     <h4>Viking Fiets</h4>
-            //     <p class='price'>€ 19.99</p>
-            //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-            //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-            //   </div>
-            //   <div class='card'>
-            //     <img src='images/fiets.jpg' alt='fiets'>
-            //     <h4>Viking Fiets</h4>
-            //     <p class='price'>€ 19.99</p>
-            //     <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-            //     <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-            //   </div>
-            // </div>
+            $row = $query -> fetch();
+            if ($row['rol'] != 2) {
+              echo "
+              <h3 class='HomePageTitel'>Uw veilingen</h3>
+              <div class='ProductenContainer'>
+              ";
+              $plek = 0;
+              for($i = 0; $i < 4; $i++) {
+                createHomepageItem($plek);
+              }
+              echo "</div>";
+            }
           }
         }
       ?>
+
       <h3 class='HomePageTitel'>De populairste veilingen</h3>
       <div class='ProductenContainer'>
         <div class="card">

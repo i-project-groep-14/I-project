@@ -6,8 +6,9 @@
     ?>
 
     <div class="holy-grail-middle">
-      <h1>DEZE PAGINA IS IN BEWERKING</h1>
-      <div class="ContainerRubrieken">
+<!--  BEGIN FILTER  -->
+      <form>
+      <div class="ContainerRubriekenfilter">
         <div class="row columns"> 
           <nav aria-label="You are here:">
             <ul class="breadcrumbs">
@@ -20,9 +21,7 @@
           </nav>
         </div>
         <br>
-        <button class="button fa fi-filter fa-lg" type="button" style="font-size:24px;" data-toggle="example-dropdown-bottom-left"></button>
-        <div class="dropdown-pane large " data-position="bottom" data-alignment="left" id="example-dropdown-bottom-left" data-dropdown data-auto-focus="true">
-          <!-- My dropdown content in here -->
+          
           <div class="FilterContainer">
             <div class="FilterPrijs">
               <h3>Prijs:</h3>
@@ -54,81 +53,100 @@
                 <option>Sluittijd (lang-kort)</option>
               </select>
             </div>
-            <div class="FilterSorteer">
+            <div class="FilterZoek">
               <h3>Zoeken </h3>
               <br>
-              <input type="text" class="Zoeken">
+              <input type="text" class="Zoeken" placeholder="Zoek product...">
               <input type='submit' class='button' value="Zoeken">
             </div>
           </div>
+          </form>
         </div>
-      </div>
+<!--  EINDE FILTER  -->
 
 
-      <br>
-      <div class="rubriekenContainer">
-        <article class="RubriekenProducten" >
-          <h3>Een Mooie Kaaskast</h3>
-          <div class ="center">
-            <img src="Images/Kaaskast.jpg" alt="Kaaskast">
-            <p>Locatie: Arnhem</p>
-            <p>Huidige hoogste bod:</p>
-            <h4>189,99</h4>
-            <p>Veiling sluit over:</p>
-            <h4>6d 11u 12m</h4>
-            <?php 
-              if(isset($_SESSION['login'])) {
-                echo"<div class ='rechts'>
-                  <a href='product.php'><input type='submit'value='Bieden!' class='button'></a>
-                </div>";
-              }
-            ?>
-          </div>
-        </article>
-      </div>
-      <br>
-      <div class="rubriekenContainer">
-        <article class="RubriekenProducten">
-          <h3>Een Geweldige Rubberen Eend</h3>
-          <div class ="center">
-            <img src="images/Eend.jpg"  alt="Eend"/>
-            <p>Locatie: Arnhem</p>
-            <p>Huidige hoogste bod:</p>
-            <h4>189,99</h4>
-            <p>Veiling sluit over:</p>
-            <h4>6d 11u 12m</h4>
-            <?php 
-              if(isset($_SESSION['login'])) {
-                echo"<div class ='rechts'>
-                  <a href='product.php'><input type='submit'value='Bieden!' class='button'></a>
-                </div>";
-              }
-            ?>
-          </div>
-        </article>
-      </div>
-      <br>
-      <div class="rubriekenContainer">
-        <article class="RubriekenProducten">
-          <h3>Een Salade wel over datum</h3>
-          <div class ="center">
-            <img src="images/Salade.jpg" alt="filmje1"/>
-            <p>Locatie: Arnhem</p>
-            <p>Huidige hoogste bod:</p>
-            <h4>189,99</h4>
-            <p>Veiling sluit over:</p>
-            <h4>6d 11u 12m</h4>
-            <?php 
-              if(isset($_SESSION['login'])) {
-                echo"<div class ='rechts'>
-                  <a href='product.php'><input type='submit'value='Bieden!' class='button'></a>
-                </div>";
-              }
-            ?>
-          </div>
-        </article>
-      </div>
+
+<article class="RubProduct">
+  <img class="FotoRubProduct" src="Images/Eend.jpg"  alt="Eend"> 
+<div class="InfoRubProduct">
+		<div class="TitelRubProduct">
+		<h4><a href='product.php'>Een Geweldige Rubberen Eend<br></a></h4>
+		</div>
+		<div class="OmschRubProduct">
+		<p> Elektrische fietsen met bafang voorwiel of middenmotor. Model rocky shimano 3 versnellingsnaaf. Van 1199,00 voor 999,00 model grace shimano 7 versnellingsnaaf.    </p>
+		</div>
+		</div>
+		<a href='product.php'><div class="PrijsRubProduct">
+    <?php $_SESSION['voorwerpnummer'] = 1; ?>
+    <h4>€ 800</h4>
+    <p>$gebruikersnaam</p>
+    <p>09:09:09</p>
+    <p> Arnhem</p>
+		</div></a>
+  </article>
+
+<article class="RubProduct">
+  <img class="FotoRubProduct" src="Images/Eend.jpg"  alt="Eend"> 
+<div class="InfoRubProduct">
+		<div class="TitelRubProduct">
+		<h4><a href='product.php'>Een Geweldige Rubberen Eend<br></a></h4>
+		</div>
+		<div class="OmschRubProduct">
+		<p> Elektrische fietsen met bafang voorwiel of middenmotor. Model rocky shimano 3 versnellingsnaaf. Van 1199,00 voor 999,00 model grace shimano 7 versnellingsnaaf.    </p>
+		</div>
+		</div>
+		<a href='product.php'><div class="PrijsRubProduct">
+    <?php $_SESSION['voorwerpnummer'] = 1; ?>
+    <h4>€ 800</h4>
+    <p>$gebruikersnaam</p>
+    <p>09:09:09</p>
+    <p> Arnhem</p>
+		</div></a>
+  </article>
+
+<article class="RubProduct">
+  <img class="FotoRubProduct" src="Images/Eend.jpg"  alt="Eend"> 
+<div class="InfoRubProduct">
+		<div class="TitelRubProduct">
+		<h4><a href='product.php'>Een Geweldige Rubberen Eend<br></a></h4>
+		</div>
+		<div class="OmschRubProduct">
+		<p> Elektrische fietsen met bafang voorwiel of middenmotor. Model rocky shimano 3 versnellingsnaaf. Van 1199,00 voor 999,00 model grace shimano 7 versnellingsnaaf.    </p>
+		</div>
+		</div>
+		<a href='product.php'><div class="PrijsRubProduct">
+    <?php $_SESSION['voorwerpnummer'] = 1; ?>
+    <h4>€ 800</h4>
+    <p>$gebruikersnaam</p>
+    <p>09:09:09</p>
+    <p> Arnhem</p>
+		</div></a>
+  </article>
+
+  <article class="RubProduct">
+  <img class="FotoRubProduct" src="Images/Eend.jpg"  alt="Eend"> 
+<div class="InfoRubProduct">
+		<div class="TitelRubProduct">
+		<h4><a href='product.php'>Een Geweldige Rubberen Eend<br></a></h4>
+		</div>
+		<div class="OmschRubProduct">
+		<p> Elektrische fietsen met bafang voorwiel of middenmotor. Model rocky shimano 3 versnellingsnaaf. Van 1199,00 voor 999,00 model grace shimano 7 versnellingsnaaf.    </p>
+		</div>
+		</div>
+		<a href='product.php'><div class="PrijsRubProduct">
+    <?php $_SESSION['voorwerpnummer'] = 1; ?>
+    <h4>€ 800</h4>
+    <p>$gebruikersnaam</p>
+    <p>09:09:09</p>
+    <p> Arnhem</p>
+		</div></a>
+  </article>
+	
+
     </div>
+
+
+
 
     <?php 
       include_once 'aanroepingen/footer.html';

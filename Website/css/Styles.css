@@ -342,16 +342,8 @@ footer{
     flex-wrap: wrap;
     justify-content: center;
   }
- 
-  .RubProductInfo{
-    font-size: auto;
-  }
-  .RubProductenOm{
-    display:none;
-  }
-  .RubProductImg{
-    text-align: center;;
-  }
+
+  
  
   .ZoekProduct{
     display: none;
@@ -390,6 +382,23 @@ footer{
 @media only screen and (max-width: 425px){
   .MobielLogo{
     display: block;
+  }
+  .ContainerRubProducten{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+  }
+  .RubProduct{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .FotoRubProduct{
+    width: fit-content;
+  }
+  .OmschRubProduct{
+    display:none;
   }
   .DesktopLogo{
     display: none;
@@ -449,19 +458,19 @@ footer{
 }
 
 .multilevel-accordion-menu .is-accordion-submenu-parent[aria-expanded="true"] a.subitem::before {
-  content: "\f016";
+  
   font-family: FontAwesome;
   margin-right: 1rem;
 }
 
 .multilevel-accordion-menu .is-accordion-submenu-parent[aria-expanded="true"] a::before {
-  content: "\f07c";
+  
   font-family: FontAwesome;
   margin-right: 1rem;
 }
 
 .multilevel-accordion-menu .is-accordion-submenu-parent[aria-expanded="false"] a::before {
-  content: "\f07b";
+  
   font-family: FontAwesome;
   margin-right: 1rem;
 }
@@ -503,6 +512,10 @@ footer{
     outline: 0;
 }
 
+.center{
+  text-align: center;
+  align-items: center;
+}
 
 
 .FilterContainer{
@@ -510,61 +523,70 @@ footer{
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
-.center{
-  text-align: center;
-  align-items: center;
-}
-
 .prijsbreedte {
   width: 100px;
 }
 
+
+
 .rubrieken { 
   display: flex;
+  
   width: auto; 
   border: 1px solid #F2552C;
 }
 
+/* OUD Rubrieken*/
 
-
-.rubriekenContainer
-{
-    display: flex;
-    flex-direction: column;
-}
-.ContainerRubriekenfilter{
-  width: 100%;
-}
-
-.RubriekenProducten {
+.ContainerRubProducten{
   display: flex;
-  width: auto;
-  height: fit-content;
-  border: solid 1px grey ;
-  padding: 3px;
-  background: white;
-  box-shadow: 1px 2px 2px;  
-}
-.RubriekenProducten .RubProductenOm{
-  max-width: 800px;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
-.RubProductenOm{
-  
+.RubProduct{
+  display: flex;
+	width: fit-content;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px 0px;
+	
 }
-.RubProductInfo h4{
-  font-size: 14px;
-  float: right;
+.FotoRubProduct{
+	width: 250px;
+	height: 100%;
+
 }
-.RubProductInfo a{
-  float: right;
+.InfoRubProduct{
+  padding: 10px;
+	height: 100%;
+	width: 100%;
+	
 }
-.RubProductImg{
-  width: 200px;
-  height:100%;
-  
+.TitelRubProduct{
+	width: 100%;
+	
+	
+	
 }
+.OmschRubProduct{
+	width: 100%;
+	height: auto;
+	
+}
+.PrijsRubProduct{
+  width: 250px;
+	height: 100%;
+  background-color: #F2552C;
+  color: white;
+  padding: 25px;
+  text-align: center;
+}
+
+
+
+/* OUD RUBRIEKEN */
+
+
 
 .veilingknop {
   width: 100%
@@ -638,7 +660,6 @@ body{
   width: 100%;
   background: #F2552C;
 }
-
 
 .holy-grail-middle,
 .holy-grail-right,
@@ -783,54 +804,19 @@ body{
   font-family: 'FontAwesome';
 }
 
-.containerfaq {
-  max-width: 60%;
-  margin: 0 auto;
-  padding: 70px 0 20px;
-  width: 100%;
-}
-
-.acc h3 {
-  font-size: 25px;
-  background-color: rgba(0,0,0,0.6);
-  color: #fff;
-  padding: 15px;
-  margin: 0;
+.faq_question {
+  margin: 0px;
+  padding: 0px 0px 5px 0px;
+  display: inline-block;
   cursor: pointer;
-  font-family: 'Oswald', sans-serif;
-  letter-spacing: 2px;
-  position: relative;
+  font-weight: bold;
+  background-color: #F2552C;
 }
 
-.acc h3:after {
-  content: '+';
-  position: absolute;
-  right: 20px;
-  font-size: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.acc.active h3:after {
-content: '-';
-}
-
-.content {
-  background-color: #fff;
-  display: none;
-}
-
-.content-inner {
-  padding: 15px;
-}
-
-.content * {
-  margin-top: 0;
-  line-height: 1.5;
-}
-
-.acc {
-  border-bottom: 1px solid #fff;
+.faq_answer_container {
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
 }
 
 
