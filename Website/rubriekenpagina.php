@@ -102,22 +102,21 @@
       </div></a>
 </article>
 
-<article class="RubProduct">
-  <img class="FotoRubProduct" src="Images/Eend.jpg"  alt="Eend"> 
-    <div class="InfoRubProduct">
-      <div class="TitelRubProduct">
-        <h4><a href='product.php'>Een Geweldige Rubberen Eend<br></a></h4>
-      </div>
-    <div class="OmschRubProduct">
-      <p> Elektrische fietsen met bafang voorwiel of middenmotor. Model rocky shimano 3 versnellingsnaaf. Van 1199,00 voor 999,00 model grace shimano 7 versnellingsnaaf.    </p>
-    </div>
-    </div>
-      <a href='product.php'><div class="PrijsRubProduct">
-      <h4>€ 800</h4>
-      <p>$gebruikersnaam</p>
-      <p>09:09:09</p>
-      <p> Arnhem</p>
-      </div></a>
+		<div class="InfoRubProduct">
+		<div class="TitelRubProduct">
+		<h4><a href='product.php'>Een Geweldige Rubberen Eend<br></a></h4>
+		</div>
+		<div class="OmschRubProduct">
+		<p> Elektrische fietsen met bafang voorwiel of middenmotor. Model rocky shimano 3 versnellingsnaaf. Van 1199,00 voor 999,00 model grace shimano 7 versnellingsnaaf.    </p>
+		</div>
+		</div>
+		<a href='product.php'><div class="PrijsRubProduct">
+    <?php $_SESSION['voorwerpnummer'] = 1; ?>
+    <h4>€ 800</h4>
+    <p>$gebruikersnaam</p>
+    <p>09:09:09</p>
+    <p> Arnhem</p>
+		</div></a>
   </article>
 
   <article class="RubProduct">
