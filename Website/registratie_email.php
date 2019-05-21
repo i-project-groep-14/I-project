@@ -15,11 +15,9 @@
           $mailverzonden = true;
           $_SESSION['email'] = $_POST['email'];
           
-          $code = 
-                  createRandomCode();
+          $code = createRandomCode();
                   // 'f';
           $_SESSION['code'] = $code;
-
           include_once 'aanroepingen/Reg_email_opmaak.php';
         }
       }
