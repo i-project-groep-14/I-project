@@ -37,7 +37,7 @@
               global $test;
               
               if ($row['veilingGesloten'] == 'niet') {
-                $sql = "SELECT titel, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp 
+                $sql = "SELECT titel, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip, voorwerpnummer FROM voorwerp 
                         WHERE verkoper like :gebruikersnaam
                         ORDER BY titel OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
                 $query = $dbh->prepare($sql);
@@ -49,17 +49,32 @@
 
                 $titel = $row['titel'];
                 $hoogstebod = $row['verkoopprijs'];
+                $voorwerpnummer = $row['voorwerpnummer'];
                 $looptijdeindeDag = $row['looptijdeindeDag'];
                 $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
                 $actueledatum = date("Y-m-d");
                 $actueletijd = date("H-i-s");
 
                 $verschilInDagen = dateDifference($looptijdeindeDag, $actueledatum, "%d");
+
+                $sql = "SELECT filenaam FROM bestand
+                WHERE voorwerp like :voorwerpnummer";
+                $query = $dbh->prepare($sql);
+                $query -> execute(array(
+                    ':voorwerpnummer' => $voorwerpnummer
+                ));
+
+                $row = $query -> fetch();
+                if ($row['filenaam'] == NULL) {
+                  $afbeelding = "images/imageplaceholder.png";
+                } else {
+                  $afbeelding = $row['filenaam'];
+                }
                 
 
                 echo"
                 <div class='card'>
-                  <img src='images/fiets.jpg' alt='fiets'>
+                  <img src='$afbeelding' alt='fiets'>
                   <h4>$titel</h4>
                   <p class='price'>€$hoogstebod</p>
                   <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 
