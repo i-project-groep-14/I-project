@@ -47,7 +47,6 @@ function createHomepageUwVeilingen($actueleplek) {
       $years = abs(floor($difference / 31536000));
       $days = abs(floor(($difference-($years * 31536000))/86400));
       $hours = abs(floor(($difference-($years * 31536000)-($days * 86400))/3600));
-      // $mins = abs(floor(($difference-($years * 31536000)-($days * 86400)-($hours * 3600))/60));#floor($difference / 60);
 
       $sql = "SELECT filenaam FROM bestand
       WHERE voorwerp like :voorwerpnummer";
@@ -70,6 +69,146 @@ function createHomepageUwVeilingen($actueleplek) {
       $plek = $volgendeplek;
       createHomepageUwVeilingen($plek);
     }
+}
+
+function createHomepageBijnaAflopend($actueleplek) {
+    global $dbh;
+    // settype($actueleplek, "int");
+    $volgendeplek = $actueleplek+1;
+
+    $sql = "SELECT titel, voorwerpnummer, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp 
+            WHERE veilingGesloten = 'niet' and (
+            looptijdeindeTijdstip >= CONVERT(TIME,GETDATE()) or
+            looptijdeindeTijdstip < CONVERT(TIME,GETDATE()))
+            ORDER BY looptijdeindeDag asc, looptijdeindeTijdstip asc
+            OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+    $query = $dbh->prepare($sql);
+    $query -> execute();
+
+    $row = $query -> fetch();
+
+    $titel = $row['titel'];
+    $hoogstebod = $row['verkoopprijs'];
+    $voorwerpnummer = $row['voorwerpnummer'];
+    $looptijdeindeDag = $row['looptijdeindeDag'];
+    $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
+    $combinedDT = date('Y-m-d H:i:s', strtotime("$looptijdeindeDag $looptijdeindeTijdstip"));
+    $difference = timeDiff(date("Y-m-d H:i:s"),$combinedDT);
+    $years = abs(floor($difference / 31536000));
+    $days = abs(floor(($difference-($years * 31536000))/86400));
+    $hours = abs(floor(($difference-($years * 31536000)-($days * 86400))/3600));
+
+    $sql = "SELECT filenaam FROM bestand
+    WHERE voorwerp like :voorwerpnummer";
+    $query = $dbh->prepare($sql);
+    $query -> execute(array(
+        ':voorwerpnummer' => $voorwerpnummer
+    ));
+
+    $row = $query -> fetch();
+
+    if ($row['filenaam'] == NULL) {
+      $afbeelding = "images/imageplaceholder.png";
+    } else {
+      $afbeelding = $row['filenaam'];
+    }
+    
+    createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours);
+    global $plek;
+    $plek += 1;
+}
+
+function createHomepagePopulair($actueleplek) {
+    global $dbh;
+    // settype($actueleplek, "int");
+    $volgendeplek = $actueleplek+1;
+
+    $sql = "SELECT count(b.voorwerpnummer) as topproducten, v.voorwerpnummer, v.titel, v.verkoopprijs, v.looptijdeindeDag, v.looptijdeindeTijdstip
+            FROM voorwerp v inner join bod b on v.voorwerpnummer = b.voorwerpnummer
+            WHERE veilingGesloten = 'niet'
+            GROUP BY b.voorwerpnummer, v.voorwerpnummer, v.titel, v.verkoopprijs, v.looptijdeindeDag, v.looptijdeindeTijdstip
+            ORDER BY topproducten desc OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+    $query = $dbh->prepare($sql);
+    $query -> execute();
+
+    $row = $query -> fetch();
+
+    $titel = $row['titel'];
+    $hoogstebod = $row['verkoopprijs'];
+    $voorwerpnummer = $row['voorwerpnummer'];
+    $looptijdeindeDag = $row['looptijdeindeDag'];
+    $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
+    $combinedDT = date('Y-m-d H:i:s', strtotime("$looptijdeindeDag $looptijdeindeTijdstip"));
+    $difference = timeDiff(date("Y-m-d H:i:s"),$combinedDT);
+    $years = abs(floor($difference / 31536000));
+    $days = abs(floor(($difference-($years * 31536000))/86400));
+    $hours = abs(floor(($difference-($years * 31536000)-($days * 86400))/3600));
+
+    $sql = "SELECT filenaam FROM bestand
+    WHERE voorwerp like :voorwerpnummer";
+    $query = $dbh->prepare($sql);
+    $query -> execute(array(
+        ':voorwerpnummer' => $voorwerpnummer
+    ));
+
+    $row = $query -> fetch();
+
+    if ($row['filenaam'] == NULL) {
+      $afbeelding = "images/imageplaceholder.png";
+    } else {
+      $afbeelding = $row['filenaam'];
+    }
+    
+    createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours);
+    global $plek;
+    $plek += 1;
+}
+
+function createHomepageNieuweVeilingen($actueleplek) {
+    global $dbh;
+    // settype($actueleplek, "int");
+    $volgendeplek = $actueleplek+1;
+
+    $sql = "SELECT titel, voorwerpnummer, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp 
+            WHERE veilingGesloten = 'niet' and (
+            looptijdbeginTijdstip >= CONVERT(TIME,GETDATE()) or
+            looptijdbeginTijdstip < CONVERT(TIME,GETDATE()))
+            ORDER BY looptijdbeginDag desc, looptijdbeginTijdstip desc
+            OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+    $query = $dbh->prepare($sql);
+    $query -> execute();
+
+    $row = $query -> fetch();
+
+    $titel = $row['titel'];
+    $hoogstebod = $row['verkoopprijs'];
+    $voorwerpnummer = $row['voorwerpnummer'];
+    $looptijdeindeDag = $row['looptijdeindeDag'];
+    $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
+    $combinedDT = date('Y-m-d H:i:s', strtotime("$looptijdeindeDag $looptijdeindeTijdstip"));
+    $difference = timeDiff(date("Y-m-d H:i:s"),$combinedDT);
+    $years = abs(floor($difference / 31536000));
+    $days = abs(floor(($difference-($years * 31536000))/86400));
+    $hours = abs(floor(($difference-($years * 31536000)-($days * 86400))/3600));
+
+    $sql = "SELECT filenaam FROM bestand
+    WHERE voorwerp like :voorwerpnummer";
+    $query = $dbh->prepare($sql);
+    $query -> execute(array(
+        ':voorwerpnummer' => $voorwerpnummer
+    ));
+
+    $row = $query -> fetch();
+
+    if ($row['filenaam'] == NULL) {
+      $afbeelding = "images/imageplaceholder.png";
+    } else {
+      $afbeelding = $row['filenaam'];
+    }
+    
+    createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours);
+    global $plek;
+    $plek += 1;
 }
 
 function createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours) {
