@@ -88,7 +88,7 @@ create table verkoper (
 create table voorwerp (
 	voorwerpnummer				int					identity(1,1) not null,
 	titel						varchar(30)			not null,
-	beschrijving				varchar(100)		not null,
+	beschrijving				varchar(500)		not null,
 	startprijs					numeric(10,2)			not null,
 	betalingswijze				varchar(20)			not null,
 	betalingsinstructie			varchar(30)			null,
@@ -191,7 +191,7 @@ create table bod (
 
 /*			Weghalen		*/
 insert into vraag values ('1', 'In welke straat ben je geboren?')
-insert into vraag values ('2', 'Wat is de meisjesnaam je moeder?')
+insert into vraag values ('2', 'Wat is de meisjesnaam van je moeder?')
 insert into vraag values ('3', 'Wat is je lievelingsgerecht?')
 insert into vraag values ('4', 'Hoe heet je oudste zusje?')
 insert into vraag values ('5', 'Hoe heet je huisdier?')
@@ -202,19 +202,19 @@ insert into gebruiker values ('Beheerder', 'Danny', 'Hageman', 'Onbekend', null,
 insert into verkoper values('Beheerder', null, null, 'controle-optie', null)
 
 
-insert into voorwerp values('Kaaskast', 'beschrijving1', 20, 'iDeal', null, 'plaatsnaam1', 'land1',
+insert into voorwerp values('Kaaskast', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen.', 20, 'iDeal', null, 'plaatsnaam1', 'land1',
 							1, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 20)
-insert into voorwerp values('Bezem', 'beschrijving2', 250, 'Creditcard', null, 'plaatsnaam2', 'land2',
+insert into voorwerp values('Bezem', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooitnooit', 250, 'Creditcard', null, 'plaatsnaam2', 'land2',
 							2, GETDATE()+1, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 260)
-insert into voorwerp values('Schoen', 'beschrijving3', 500, 'Paypal', null, 'plaatsnaam3', 'land3',
+insert into voorwerp values('Schoen', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit ', 500, 'Paypal', null, 'plaatsnaam3', 'land3',
 							3, GETDATE()+2, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 500)
-insert into voorwerp values('Laptop', 'beschrijving4', 200, 'Zelf halen', null, 'plaatsnaam4', 'land4',
+insert into voorwerp values('Laptop', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit ', 200, 'Zelf halen', null, 'plaatsnaam4', 'land4',
 							4, GETDATE()-4, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'wel', 300)
-insert into voorwerp values('Sokken', 'beschrijving5', 1, 'Creditcard', null, 'plaatsnaam5', 'land5',
+insert into voorwerp values('Sokken', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit ', 1, 'Creditcard', null, 'plaatsnaam5', 'land5',
 							5, GETDATE()-5, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'wel', 5)
-insert into voorwerp values('Zoiets', 'beschrijving5', 1, 'Creditcard', null, 'plaatsnaam6', 'land6',
+insert into voorwerp values('Kaashond', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit ', 1, 'Creditcard', null, 'plaatsnaam6', 'land6',
 							6, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 60)
-insert into voorwerp values('Test', 'beschrijving5', 1, 'PayPal', null, 'plaatsnaam7', 'land7',
+insert into voorwerp values('Banaan', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit ', 1, 'PayPal', null, 'plaatsnaam7', 'land7',
 							6, GETDATE()+5, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME,dateadd(hour, -1, GETDATE()))
 							, 'niet', 60)
 
@@ -223,6 +223,18 @@ insert into bestand values('images/Fiets.jpg', 1)
 insert into bestand values('images/Eend.jpg', 1)
 insert into bestand values('images/profielfotoPlaceholder.png', 1)
 insert into bestand values('images/kaaskast.jpg', 1)
+
+insert into bestand values('images/bezem.jpg', 2)
+
+
+insert into bestand values('images/schoen.jpg', 3)
+
+
+insert into bestand values('images/laptop.jpg', 4)
+
+
+insert into bestand values('images/sokken.jpg', 5)
+
 
 insert into bod values (1, 4, 'Beheerder', getdate(), CONVERT(TIME,GETDATE()))
 insert into bod values (1, 5, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 1, GETDATE())))
