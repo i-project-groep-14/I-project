@@ -19,18 +19,7 @@
 
         //$row = $query -> fetch();
         $row = $query -> rowCount();
-        /*if($row > 0 && isset($_SESSION['rol']) == 3){
-           
-           // echo "Rol = ".$_SESSION['rol'];
-     
-        }else if(isset($_SESSION['rol']) == 2 || isset($_SESSION['rol']) == NULL ){
-            $_SESSION['verkoper'] = false;
-            //echo "Rol = ".$_SESSION['rol'];
-            
-        }*/
-
-        //echo "aantal rijen: ".$row;
-        //echo $gebruikersnaam;
+      
         
       if(isset($_SESSION['rol']) != 3){    
         $message = "U heeft de rechten niet om deze pagina te gebruiken!".$_SESSION['rol'];
@@ -161,22 +150,26 @@
                     }
                     //Verplaatsen van afbeeldingen, hier wordt ook de lange unieke naam gegenergeerd met sha1_file en samengevoegd met sprintf
                     
-                    if (!$filenaam = 
-                        //$_FILES['upfile']['tmp_name'],
-                        sprintf('.\Images\%s.%s',
-                        sha1_file($_FILES['upfile']['tmp_name']),  $ext)
-                    ){
+                    $filenaam = sprintf('.\Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name']),  $ext);
+                    $i = 1;
+                    while(file_exists($filenaam)){
+                        $filenaam = sprintf('.\Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name']).$i,  $ext);
+                        $i++;
+                        if($i == 150){
+                            $i = 1;
+                            echo"Geef een andere naam aan het bestand!";
+                        }
+                    }
+
+                    if (!$filenaam){
                         throw new RuntimeException('Kan bestand niet in de database zetten.');
                     }
 
-                    if(!move_uploaded_file($_FILES['upfile']['tmp_name'],
-                        sprintf('.\Images\%s.%s',
-                        sha1_file($_FILES['upfile']['tmp_name']),  $ext))
-                    ){
+                    if(!move_uploaded_file($_FILES['upfile']['tmp_name'],$filenaam)){
                         //throw new RuntimeException('Kan bestand niet verplaatsen.');
                     }
                     
-                    //$filenaam = '.\Images\'.sha1_file($_FILES['upfile']['name']).'.'.$ext;
+                   
 
                     $sql = "SELECT voorwerpnummer FROM voorwerp 
                             WHERE titel = :titel AND beschrijving = :beschrijving AND startprijs = :startprijs AND betalingswijze = :betalingswijze";
@@ -210,12 +203,6 @@
             }
 
 
-        
-
-
-
-
-   
 
         //Rubriek op laagste niveau moet worden genoteerd
         //echo nieuwe selectie box als er meerdere sub rubrieken zijn
@@ -224,11 +211,6 @@
         //enzovoort tot dat er geen sub rubrieken zijn dan geef het gekozen rubrieknummer en deze invullen als value='rubrieknummer'
 
 
-
-
-    
-      
-      
 
     ?>
 <!--Dit script zorgt ervoor dat het aantal characters niet overschreven wordt, limitNum is het maximaal aantal characters-->
@@ -241,8 +223,6 @@
             }
     }
 </script>
-
-<!--<img src='Images\1b939c49359f68293b655198611803a5df0b66f1.png'>-->
 
 
 <div class="holy-grail-middle">
@@ -346,7 +326,7 @@
                             </div>				
 						</div>
                         <div class="medium-12 cell">
-                        <Input type="submit" class="veilingknop button" name="plaatsen_voorwerp" value="Plaatsen">
+                        <Input type="submit" class="veilingknop button" name="plaatsen_voorwerp" value="Plaatsen" onclick="location.href = 'index.php';>
                     </div>
                     </div>
               </form>
