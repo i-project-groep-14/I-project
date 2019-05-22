@@ -129,7 +129,6 @@
 
         <div class="tab-biedingen tabs-content" data-tabs-content="example-tabs">
           <div class=" tabs-panel is-active" id="panel1">
-              <h4>Biedingen</h4>
               <?php
                 $plek = 0;
                 $sql = "SELECT COUNT(*) as aantalBiedingen FROM bod
