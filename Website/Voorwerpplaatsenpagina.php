@@ -11,10 +11,14 @@
       //indicator = niet veilig is niet gesloten
 
       if(isset($_SESSION['verkoper_in']) != true || isset($_SESSION['beheerder']) != true){
-       echo '<script type="text/javascript">
+      /* echo '<script type="text/javascript">
             window.location = "inlogpagina.php"
-            </script>';
-      } //wordt nog veranderd 
+            </script>';*/
+       
+        } //wordt nog veranderd 
+
+        
+
 
       try{
 
@@ -55,7 +59,7 @@
 
             $looptijd = $_POST['loopdag'];
 
-            //Foto's uploaden
+            //FOTOS UPLOADEN
 
             try{
                 //Is dit bestand wel goed
@@ -91,61 +95,75 @@
                             'jpg' => 'image/jpeg',
                             'png' => 'image/png',
                             'gif' => 'image/gif',
-                        ),
-                        true
-                    )) {
+                        ), true )) {
                         throw new RuntimeException('Bestand niet geldig.');
                     }
                     //Verplaatsen van afbeeldingen, hier wordt ook de lange unieke naam gegenergeerd met sha1_file en samengevoegd met sprintf
                     
-                    if (!move_uploaded_file( 
-                        $_FILES['upfile']['tmp_name'],
-                        sprintf('./Images/%s.%s',
-                        sha1_file($_FILES['upfile']['tmp_name']),  $ext)                
-                    )) {
-                        throw new RuntimeException('Kan bestand niet verplaatsen.');
+                    if (!$filenaam = 
+                        //$_FILES['upfile']['tmp_name'],
+                        sprintf('.\Images\%s.%s',
+                        sha1_file($_FILES['upfile']['tmp_name']),  $ext)
+                    ){
+                        throw new RuntimeException('Kan bestand niet in de database zetten.');
+                    }
+
+                    if(!move_uploaded_file($_FILES['upfile']['tmp_name'],
+                        sprintf('.\Images\%s.%s',
+                        sha1_file($_FILES['upfile']['tmp_name']),  $ext))
+                    ){
+                        //throw new RuntimeException('Kan bestand niet verplaatsen.');
                     }
                     
-                    $filenaam = $_FILES['upfile']['name'];
+                    //$filenaam = '.\Images\'.sha1_file($_FILES['upfile']['name']).'.'.$ext;
 
                     $sql_foto = "INSERT INTO bestand (filenaam, voorwerp) VALUES (:filenaam, :voorwerp)";
                     $query_foto = $dbh->prepare($sql_foto);
                     $query_foto -> execute(array(':filenaam' => $filenaam, ':voorwerp' => 5));
-                
 
-                    //echo 'Bestand is succesful geupload.';
-                    
-                   
-                  // echo "bestand: ". 
-                  // "<img src='Images\ " .$filenaam. "'>"; 
-                   // echo $filenaam ;
-                   
+        
+                }catch (RuntimeException $e) {
+
+                    echo $e->getMessage();
+    
+                }
+               
+                 // echo "bestand: ". 
+                   //"<img src='".$filenaam. "'>"; 
+                // echo $filenaam ;
 
 
+                $sql_product = "INSERT INTO voorwerp (titel,beschrijving,startprijs,betalingswijze,betalingsinstructie,plaatsnaam,land,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verzendkosten ,verzendinstructies ,looptijdeindeTijdstip,veilingGesloten,verkoper) 
+                VALUES (:titel ,:beschrijving ,:startprijs ,:betalingswijze ,:betalingsinstructie ,:plaatsnaam ,:land ,:looptijd ,GETDATE() ,CURRENT_TIMESTAMP ,:verzendkosten ,:verzendinstructie ,CURRENT_TIMESTAMP ,'niet',:verkoper)";
+                $query_product = $dbh->prepare($sql_product);
+                $query_product -> execute(array(
+                    ':titel' => $titel_product, 
+                    ':beschrijving' => $beschrijving_product,
+                    ':startprijs' => $startprijs,
+                    ':betalingswijze' => $betalingswijze,
+                    ':betalingsinstructie' => $betalingsinstructie,
+                    ':plaatsnaam'=> 'plaatsnaam',
+                    ':land' => 'Nederland',
+                    ':looptijd' => $looptijd,
+                    ':verzendkosten' => $verzendkosten,
+                    ':verzendinstructie' => $verzendinstructie,
+                    ':verkoper' => 'Test123'
+                            
+                 ));
+    
+
+            }
             } catch (RuntimeException $e) {
 
                  echo $e->getMessage();
 
             }
+        
 
 
-            $sql_product = "INSERT INTO voorwerp (titel,beschrijving,startprijs,betalingswijze,betalingsinstructie,plaatsnaam,land,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verzendkosten ,verzendinstructies ,looptijdeindeTijdstip,veilingGesloten,verkoper) 
-            VALUES (:titel ,:beschrijving ,:startprijs ,:betalingswijze ,:betalingsinstructie ,:plaatsnaam ,:land ,:looptijd ,GETDATE() ,CURRENT_TIMESTAMP ,:verzendkosten ,:verzendinstructie ,CURRENT_TIMESTAMP ,'niet',:verkoper)";
-            $query_product = $dbh->prepare($sql_product);
-            $query_product -> execute(array(
-                ':titel' => $titel_product, 
-                ':beschrijving' => $beschrijving_product,
-                ':startprijs' => $startprijs,
-                ':betalingswijze' => $betalingswijze,
-                ':betalingsinstructie' => $betalingsinstructie,
-                ':plaatsnaam'=> 'plaatsnaam',
-                ':land' => 'Nederland',
-                ':looptijd' => $looptijd,
-                ':verzendkosten' => $verzendkosten,
-                ':verzendinstructie' => $verzendinstructie,
-                ':verkoper' => 'Test123'
 
-        ));
+
+   
 
         //Rubriek op laagste niveau moet worden genoteerd
         //echo nieuwe selectie box als er meerdere sub rubrieken zijn
@@ -153,16 +171,8 @@
         //daarna als erop is geklikt dan rubrieknummer OP , het nummer van deze rubriek en alle volgnummers daar van aangegeven
         //enzovoort tot dat er geen sub rubrieken zijn dan geef het gekozen rubrieknummer en deze invullen als value='rubrieknummer'
 
-        //Foto's toevoegen
 
 
-        }
-
-    }catch (RuntimeException $e) {
-
-        echo $e->getMessage();
-
-    }
 
     
       
@@ -189,7 +199,7 @@
 			<h2 class="HomepaginaKopjes center">Voorwerp Plaatsen</h2>
 			<div class="">
 				<p class="center">Op deze pagina kan er een voorwerp worden geplaatst, vul a.u.b. alle gegevens in.</p>
-				<form action="Voorwerpplaatsenpagina.php" method="post" enctype="multipart/form-data"  >
+				<form action="Voorwerpplaatsenpagina.php" method="post" enctype="multipart/form-data">
 					<div class="grid-container">
 						<div class="grid-x grid-padding-x">
 							<div class="medium-12 cell">
@@ -242,10 +252,10 @@
 								<label>Startprijs:</label>
 								<input type="number" name="startprijs"  min="0.01" max="10000.00" step="0.01" required>
 							</div>
-						
-							<div class="medium-12 cell">
+
+                            <div class="medium-12 cell">
                                 <label> Voeg foto's toe</label>
-                                    <input type="file" name="upfile" id="upfile"  accept="image/*" multiple="" required>
+                                <input type="file" name="upfile" id="upfile"  accept="image/*" multiple="" required>
 							</div>
 		
 							<div class="medium-12 cell">
