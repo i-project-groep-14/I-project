@@ -119,9 +119,11 @@
                 <button class='close-button' data-close aria-label='Close modal' type='button'>
                   <span aria-hidden='true'>&times;</span>
                 </button>
-                <h1> Aanloggen </h1>
-                <p>U moet aangelogd zijn om mee te kunnen bieden op veilingen!</p>
-                <p> Klik <a href='inlogpagina.php'> hier </a> om mee te bieden!!!!!!!!!!</p>
+                <div class='popupbieden'>
+                <h3 class='InlogpaginaKopje'> Log in om mee te bieden! </h3>
+                <br>
+                <p> Klik <a href='inlogpagina.php'> hier </a> om in te loggen, zodat u daarna meteen kunt bieden!</p>
+                </div>
               </div>";
             } else {
               echo"
@@ -196,7 +198,7 @@
               <p class='middle'>Verzendingkosten:  $verzendkosten</p>
               <p class='middle'>Verzendinginstructies:  $verzendinstructies</p>
               <p class='middle'>Betalinginstructies:  $betalingsinstructie</p>
-              "
+              " 
               ?>
             </div>
           </div>

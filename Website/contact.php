@@ -26,7 +26,7 @@
         <div class="contact-us-form-actions">
           <input type="submit" class="button" value="Versturen" />
           <div>
-            <label for="FileUpload" class="button contact-us-file-button">Voeg bestand toe</label>
+            <label for="FileUpload" class="button contact-us-file-button">Voeg bestand toe (optioneel)</label>
             <input type="file" id="FileUpload" class="show-for-sr">
           </div>
         </div>

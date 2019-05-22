@@ -78,7 +78,7 @@
                         if(isset($_SESSION['login'])) {                        
                             echo "
                             </li> <button class='button loginbutton uitlogknop' type='submit' data-toggle='example-dropdown-bottom-right'>Account</button>
-
+                                
                             <div class='dropdown-pane' data-position='bottom' data-alignment='right'  id='example-dropdown-bottom-right' data-dropdown data-auto-focus='true'>
                               <!-- Onderdelen van de dropdown komen hier te staan -->
                                 <img src='images/profielfotoplaceholder.png' width='150px'>
@@ -110,8 +110,6 @@
         </div>
 
         <div class="holy-grail-left">
-            <?php 
-                include_once 'aanroepingen/RubNavMobiel.php';
-                include_once 'aanroepingen/RubNav.php';
-            ?>
+            <?php include_once 'aanroepingen/RubNav.php';
+            include_once 'aanroepingen/RubNavMobiel.php'?>
         </div>
