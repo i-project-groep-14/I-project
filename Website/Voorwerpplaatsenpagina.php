@@ -9,15 +9,41 @@
     
 
       //indicator = niet veilig is niet gesloten
+    
 
-      if(isset($_SESSION['verkoper_in']) != true || isset($_SESSION['beheerder']) != true){
-      /* echo '<script type="text/javascript">
-            window.location = "inlogpagina.php"
-            </script>';*/
-       
-        } //wordt nog veranderd 
+        if(isset($_SESSION['gebruikersnaam'])){
+            $gebruikersnaam = $_SESSION['gebruikersnaam'];
+        }else{
+            $gebruikersnaam = ' ';
+        }
 
+        $sql = "SELECT gebruiker FROM verkoper WHERE gebruiker = :gebruiker ";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(':gebruiker' => $gebruikersnaam));
+
+        //$row = $query -> fetch();
+        $row = $query -> rowCount();
+        if($row > 0 ){
+            $_SESSION['verkoper'] = true;   
+        }else{
+            $_SESSION['verkoper'] = false;
+        }
+
+        //echo "aantal rijen: ".$row;
+        //echo $gebruikersnaam;
         
+      if(isset($_SESSION['verkoper']) == false){
+        echo '<script type="text/javascript">
+            window.location = "inlogpagina.php"
+            </script>';
+        echo"niet ingelogd/geen verkoper/beheerder";
+        } //wordt nog veranderd 
+        else{
+            //echo"ugh";
+        }
+
+        $plaatsnaam = $_SESSION['plaatsnaam'];
+        $landnaam = $_SESSION['land'];
 
 
       try{
@@ -58,6 +84,26 @@
             }
 
             $looptijd = $_POST['loopdag'];
+
+            //In de database zetten van product
+            $sql_product = "INSERT INTO voorwerp (titel,beschrijving,startprijs,betalingswijze,betalingsinstructie,plaatsnaam,land,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verzendkosten ,verzendinstructies ,looptijdeindeTijdstip,veilingGesloten,verkoper) 
+            VALUES (:titel ,:beschrijving ,:startprijs ,:betalingswijze ,:betalingsinstructie ,:plaatsnaam ,:land ,:looptijd ,GETDATE() ,CURRENT_TIMESTAMP ,:verzendkosten ,:verzendinstructie ,CURRENT_TIMESTAMP ,'niet',:verkoper)";
+            $query_product = $dbh->prepare($sql_product);
+            $query_product -> execute(array(
+                ':titel' => $titel_product, 
+                ':beschrijving' => $beschrijving_product,
+                ':startprijs' => $startprijs,
+                ':betalingswijze' => $betalingswijze,
+                ':betalingsinstructie' => $betalingsinstructie,
+                ':plaatsnaam'=> $plaatsnaam,
+                ':land' => $landnaam,
+                ':looptijd' => $looptijd,
+                ':verzendkosten' => $verzendkosten,
+                ':verzendinstructie' => $verzendinstructie,
+                ':verkoper' => $gebruikersnaam
+                        
+             ));
+
 
             //FOTOS UPLOADEN
 
@@ -117,9 +163,21 @@
                     
                     //$filenaam = '.\Images\'.sha1_file($_FILES['upfile']['name']).'.'.$ext;
 
+                    $sql = "SELECT voorwerpnummer FROM voorwerp 
+                            WHERE titel = :titel AND beschrijving = :beschrijving AND startprijs = :startprijs AND betalingswijze = :betalingswijze";
+                    $query = $dbh->prepare($sql);
+                    $query -> execute(array(
+                        ':titel' => $titel_product, 
+                        ':beschrijving' => $beschrijving_product,
+                        ':startprijs' => $startprijs,
+                        ':betalingswijze' => $betalingswijze
+                    ));
+
+                    $row = $query -> fetch();
+
                     $sql_foto = "INSERT INTO bestand (filenaam, voorwerp) VALUES (:filenaam, :voorwerp)";
                     $query_foto = $dbh->prepare($sql_foto);
-                    $query_foto -> execute(array(':filenaam' => $filenaam, ':voorwerp' => 5));
+                    $query_foto -> execute(array(':filenaam' => $filenaam, ':voorwerp' => $row['voorwerpnummer']));
 
         
                 }catch (RuntimeException $e) {
@@ -133,23 +191,7 @@
                 // echo $filenaam ;
 
 
-                $sql_product = "INSERT INTO voorwerp (titel,beschrijving,startprijs,betalingswijze,betalingsinstructie,plaatsnaam,land,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verzendkosten ,verzendinstructies ,looptijdeindeTijdstip,veilingGesloten,verkoper) 
-                VALUES (:titel ,:beschrijving ,:startprijs ,:betalingswijze ,:betalingsinstructie ,:plaatsnaam ,:land ,:looptijd ,GETDATE() ,CURRENT_TIMESTAMP ,:verzendkosten ,:verzendinstructie ,CURRENT_TIMESTAMP ,'niet',:verkoper)";
-                $query_product = $dbh->prepare($sql_product);
-                $query_product -> execute(array(
-                    ':titel' => $titel_product, 
-                    ':beschrijving' => $beschrijving_product,
-                    ':startprijs' => $startprijs,
-                    ':betalingswijze' => $betalingswijze,
-                    ':betalingsinstructie' => $betalingsinstructie,
-                    ':plaatsnaam'=> 'plaatsnaam',
-                    ':land' => 'Nederland',
-                    ':looptijd' => $looptijd,
-                    ':verzendkosten' => $verzendkosten,
-                    ':verzendinstructie' => $verzendinstructie,
-                    ':verkoper' => 'Test123'
-                            
-                 ));
+                 
     
 
             }
@@ -158,6 +200,8 @@
                  echo $e->getMessage();
 
             }
+
+
         
 
 

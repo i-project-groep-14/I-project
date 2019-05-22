@@ -10,7 +10,7 @@
     }
 
     if(isset($_SESSION['login'])) {
-        $sql = "SELECT rol, gebruikersnaam, voornaam FROM gebruiker 
+        $sql = "SELECT rol, gebruikersnaam, voornaam, plaatsnaam, land FROM gebruiker 
                 WHERE gebruikersnaam like :gebruikersnaam";
         $query = $dbh->prepare($sql);
         $query -> execute(array(
@@ -24,10 +24,11 @@
         if ($row['rol'] == 5) {
             $_SESSION['beheerder'] = true;
         }
-        else if($row['rol'] == 3){
-            $_SESSION['verkoper_in'] = true;
-        }
-        
+        /*else if($row['rol'] == 3){
+            $_SESSION['verkoper'] = true;
+        }*/
+        $_SESSION['plaatsnaam'] = $row['plaatsnaam'];
+        $_SESSION['land'] = $row['land'];
 
         $sql = "SELECT count(*) as 'aantalveilingen' FROM voorwerp 
                 WHERE verkoper like :gebruikersnaam";
@@ -78,7 +79,7 @@
                         if(isset($_SESSION['login'])) {                        
                             echo "
                             </li> <button class='button loginbutton uitlogknop' type='submit' data-toggle='example-dropdown-bottom-right'>Account</button>
-
+                                
                             <div class='dropdown-pane' data-position='bottom' data-alignment='right'  id='example-dropdown-bottom-right' data-dropdown data-auto-focus='true'>
                               <!-- Onderdelen van de dropdown komen hier te staan -->
                                 <img src='images/profielfotoplaceholder.png' width='150px'>
@@ -110,8 +111,6 @@
         </div>
 
         <div class="holy-grail-left">
-            <?php 
-                include_once 'aanroepingen/RubNavMobiel.php';
-                include_once 'aanroepingen/RubNav.php';
-            ?>
+            <?php include_once 'aanroepingen/RubNav.php';
+            include_once 'aanroepingen/RubNavMobiel.php'?>
         </div>

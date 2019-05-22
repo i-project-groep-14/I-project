@@ -41,12 +41,13 @@
                 }
 
             echo"
-            <img class='thumbnail img-product' src=$afbeelding alt='afbeelding'>
+            <img class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
             <div class='row small-up-4'>";
               createFotos(1);
               createFotos(2);
               createFotos(3);
               createFotos(4);
+              
             echo"
             </div>
             ";
@@ -119,19 +120,34 @@
                 <button class='close-button' data-close aria-label='Close modal' type='button'>
                   <span aria-hidden='true'>&times;</span>
                 </button>
-                <h1> Aanloggen </h1>
-                <p>U moet aangelogd zijn om mee te kunnen bieden op veilingen!</p>
-                <p> Klik <a href='inlogpagina.php'> hier </a> om mee te bieden!!!!!!!!!!</p>
+                <div class='popupbieden'>
+                <h3 class='InlogpaginaKopje'> Log in om mee te bieden! </h3>
+                <br>
+                <p> Klik <a href='inlogpagina.php'> hier </a> om in te loggen, zodat u daarna meteen kunt bieden!</p>
+                </div>
               </div>";
             } else {
-              
+              echo"
+              <div class='reveal' id='exampleModal1' data-reveal>
+              <button class='close-button' data-close aria-label='Close modal' type='button'>
+              <span aria-hidden='true'>&times;</span>
+              </button>
+              <form action=''>
+                <h1 class='InlogpaginaKopje'> Bieden </h1> 
+                <i> (Bieden vanaf: € $hoogstebod)</i><Br>
+                <Br>
+                <input type='text' name='fname' placeholder='€' type='number' pattern='[-+]?[0-9]*[.,]?[0-9]+' required><br>
+                <input type='submit' class='button large expanded' value='Plaats bod'>
+              </form>
+
+              </div>";
             }
             echo "<p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>
             <p>Looptijd:</p>
             <div class='klok'>
               <p>$looptijd</p>
             </div>
-            <p class='middle'>Betaling: $betalingswijze </p>
+            
               ";
             ?>
           </div>
@@ -183,7 +199,8 @@
               <p class='middle'>Verzendingkosten:  $verzendkosten</p>
               <p class='middle'>Verzendinginstructies:  $verzendinstructies</p>
               <p class='middle'>Betalinginstructies:  $betalingsinstructie</p>
-              "
+              <p class='middle'>Betaling: $betalingswijze </p>
+              " 
               ?>
             </div>
           </div>
@@ -192,8 +209,7 @@
     </div>
 </div>
 </div>
-              
-        
+
       
     
 
