@@ -4187,14 +4187,14 @@ select {
     margin-bottom: 0; }
   @media screen and (max-width: 39.99875em) {
     .stack-for-small .media-object-section {
-      padding: 0;
+      padding: 10px;
       padding-bottom: 1rem;
       -webkit-flex-basis: 100%;
           -ms-flex-preferred-size: 100%;
               flex-basis: 100%;
-      max-width: 100%; }
+              max-width: fit-content }
       .stack-for-small .media-object-section img {
-        width: 100%; } }
+        max-width: 50px; } }
   .media-object-section.main-section {
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 0px;

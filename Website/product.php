@@ -41,12 +41,13 @@
                 }
 
             echo"
-            <img class='thumbnail img-product' src=$afbeelding alt='afbeelding'>
+            <img class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
             <div class='row small-up-4'>";
               createFotos(1);
               createFotos(2);
               createFotos(3);
               createFotos(4);
+              
             echo"
             </div>
             ";
@@ -89,7 +90,16 @@
               $secs = abs(floor(($difference-($years * 31536000)-($days * 86400)-($hours * 3600))-($mins * 3600)/60));
 
               $looptijd = $days.'d '.$hours.'u '.$mins.'m '.$secs.'s';
-            
+              
+              // bieding moet nog gefixed worden
+              if($hoogstebod > 1 && $hoogstebod < 49.99){
+                $stapbieding  =  0.50;
+              } else {
+
+              }
+              // echo $stapbieding;
+              $minimalebod = $hoogstebod + 1 ;
+              // bieding
               echo"
             <h3>$titel</h3>
             <p><i>$verkoper</i></p>
@@ -135,7 +145,7 @@
                 <h1 class='InlogpaginaKopje'> Bieden </h1> 
                 <i> (Bieden vanaf: € $hoogstebod)</i><Br>
                 <Br>
-                <input type='text' name='fname' placeholder='€' type='number' pattern='[-+]?[0-9]*[.,]?[0-9]+' required><br>
+                <input type='number' name='bod'  min='$minimalebod' step='1' required>
                 <input type='submit' class='button large expanded' value='Plaats bod'>
               </form>
 
@@ -146,7 +156,7 @@
             <div class='klok'>
               <p>$looptijd</p>
             </div>
-            <p class='middle'>Betaling: $betalingswijze </p>
+            
               ";
             ?>
           </div>
@@ -156,13 +166,31 @@
         <div class="column row">
           <hr>
           <ul class="tabs" data-tabs id="example-tabs">
-            <li class="tabs-title is-active"><a href="#panel1" >Biedingen</a></li>
-            <li class="tabs-title"><a href="#panel2">Beschrijving</a></li>
-            <li class="tabs-title"><a href="#panel3">Voorwaarden</a></li>
+            <li class="tabs-title is-active"><a href="#panel1" >Beschrijving</a></li>
+            <li class="tabs-title"><a href="#panel2">Voorwaarden</a></li>
+            <li class="tabs-title"><a href="#panel3">Bied geschiedenis</a></li>
           </ul>
 
         <div class="tab-biedingen tabs-content" data-tabs-content="example-tabs">
           <div class=" tabs-panel is-active" id="panel1">
+          <?php echo $beschrijving?>
+            </div>
+        <div class="tabs-panel" id="panel2">
+          <div class="row medium-up-3 large-up-5">
+            <div class="tab-biedingen-omschrijving">
+              <?php echo "
+              <p class='middle'>Verzendingkosten:  $verzendkosten</p>
+              <p class='middle'>Verzendinginstructies:  $verzendinstructies</p>
+              <p class='middle'>Betalinginstructies:  $betalingsinstructie</p>
+              <p class='middle'>Betaling: $betalingswijze </p>
+              " 
+              ?>
+            </div>
+          </div>
+        </div>
+        <div class="tabs-panel" id="panel3">
+          <div class="row medium-up-3 large-up-5">
+            <div class="tab-biedingen-omschrijving">
               <?php
                 $plek = 0;
                 $sql = "SELECT COUNT(*) as aantalBiedingen FROM bod
@@ -184,31 +212,13 @@
               }
               ?>
             </div>
-        <div class="tabs-panel" id="panel2">
-          <div class="row medium-up-3 large-up-5">
-            <div class="tab-biedingen-omschrijving">
-              <?php echo $beschrijving?>
-            </div>
-          </div>
-        </div>
-        <div class="tabs-panel" id="panel3">
-          <div class="row medium-up-3 large-up-5">
-            <div class="tab-biedingen-omschrijving">
-              <?php echo "
-              <p class='middle'>Verzendingkosten:  $verzendkosten</p>
-              <p class='middle'>Verzendinginstructies:  $verzendinstructies</p>
-              <p class='middle'>Betalinginstructies:  $betalingsinstructie</p>
-              " 
-              ?>
-            </div>
           </div>
         </div>
       </div>
     </div>
 </div>
 </div>
-              
-        
+
       
     
 
