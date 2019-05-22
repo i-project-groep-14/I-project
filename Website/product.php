@@ -41,12 +41,13 @@
                 }
 
             echo"
-            <img class='thumbnail img-product' src=$afbeelding alt='afbeelding'>
+            <img class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
             <div class='row small-up-4'>";
               createFotos(1);
               createFotos(2);
               createFotos(3);
               createFotos(4);
+              
             echo"
             </div>
             ";
@@ -146,7 +147,7 @@
             <div class='klok'>
               <p>$looptijd</p>
             </div>
-            <p class='middle'>Betaling: $betalingswijze </p>
+            
               ";
             ?>
           </div>
@@ -198,6 +199,7 @@
               <p class='middle'>Verzendingkosten:  $verzendkosten</p>
               <p class='middle'>Verzendinginstructies:  $verzendinstructies</p>
               <p class='middle'>Betalinginstructies:  $betalingsinstructie</p>
+              <p class='middle'>Betaling: $betalingswijze </p>
               " 
               ?>
             </div>
@@ -207,8 +209,7 @@
     </div>
 </div>
 </div>
-              
-        
+
       
     
 
