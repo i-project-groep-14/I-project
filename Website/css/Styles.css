@@ -350,7 +350,7 @@ footer{
     
   }
   .RubNav{
-    display: none;
+    /* display: none; */
   }
   .MobileNav{
     display: block;
@@ -588,6 +588,9 @@ footer{
   
 }
 
+.tab-biedingen-omschrijving {
+  padding: 5px;
+}
 
 
 
@@ -876,6 +879,10 @@ padding: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 10px;
   padding: 5px;
+}
+
+.popupbieden {
+  text-align: center;
 }
 
 

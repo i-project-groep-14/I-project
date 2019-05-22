@@ -57,7 +57,7 @@
           <!--Toevoegen informatie aan de rechterkant-->
           <div class="medium-6 large-5 columns lijn">
             <?php
-              $sql = "SELECT titel, verkoper, beschrijving, plaatsnaam, startprijs, verkoopprijs, betalingswijze, verzendinstructies, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
+              $sql = "SELECT titel, verkoper, beschrijving, plaatsnaam, startprijs, verkoopprijs,verzendkosten, betalingswijze,betalingsinstructie, verzendinstructies, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
                       WHERE voorwerpnummer like :voorwerpnummer";
               $query = $dbh->prepare($sql);
               $query -> execute(array(
@@ -74,6 +74,8 @@
               $hoogstebod = $row['verkoopprijs'];
               $betalingswijze = $row['betalingswijze'];
               $verzendinstructies = $row['verzendinstructies'];
+              $verzendkosten = $row['verzendkosten'];
+              $betalingsinstructie = $row['betalingsinstructie'];
                 
               $looptijdeindeDag = $row['looptijdeindeDag'];
               $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
@@ -110,14 +112,41 @@
               <div class='small-9 columns'>
                 <p><b>€$hoogstebod</b></p>
               </div>
-            </div>
-            <a href='#' class='button large expanded'>Bieden</a>
+            </div>";
+            if(!isset($_SESSION['login'])) {
+              echo"
+              <div class='reveal' id='exampleModal1' data-reveal>
+                <button class='close-button' data-close aria-label='Close modal' type='button'>
+                  <span aria-hidden='true'>&times;</span>
+                </button>
+                <div class='popupbieden'>
+                <h3 class='InlogpaginaKopje'> Log in om mee te bieden! </h3>
+                <br>
+                <p> Klik <a href='inlogpagina.php'> hier </a> om in te loggen, zodat u daarna meteen kunt bieden!</p>
+                </div>
+              </div>";
+            } else {
+              echo"
+              <div class='reveal' id='exampleModal1' data-reveal>
+              <button class='close-button' data-close aria-label='Close modal' type='button'>
+              <span aria-hidden='true'>&times;</span>
+              </button>
+              <form action=''>
+                <h1 class='InlogpaginaKopje'> Bieden </h1> 
+                <i> (Bieden vanaf: € $hoogstebod)</i><Br>
+                <Br>
+                <input type='text' name='fname' placeholder='€' type='number' pattern='[-+]?[0-9]*[.,]?[0-9]+' required><br>
+                <input type='submit' class='button large expanded' value='Plaats bod'>
+              </form>
+
+              </div>";
+            }
+            echo "<p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>
             <p>Looptijd:</p>
             <div class='klok'>
               <p>$looptijd</p>
             </div>
-            <p class='middle'>Betaling: $betalingswijze</p>
-            <p class='middle'>Verzending: $verzendinstructies</p>
+            <p class='middle'>Betaling: $betalingswijze </p>
               ";
             ?>
           </div>
@@ -128,7 +157,8 @@
           <hr>
           <ul class="tabs" data-tabs id="example-tabs">
             <li class="tabs-title is-active"><a href="#panel1" >Biedingen</a></li>
-            <li class="tabs-title"><a href="#panel2">Similar Products</a></li>
+            <li class="tabs-title"><a href="#panel2">Beschrijving</a></li>
+            <li class="tabs-title"><a href="#panel3">Voorwaarden</a></li>
           </ul>
 
         <div class="tab-biedingen tabs-content" data-tabs-content="example-tabs">
@@ -150,14 +180,26 @@
               
               <?php 
               if(isset($_SESSION['login'])) {
-                echo"<button class='button'>Bied mee!</button>";
+                // echo"<button class='button'>Bied mee!</button>";  is dit niet dubbel op??
               }
               ?>
             </div>
         <div class="tabs-panel" id="panel2">
           <div class="row medium-up-3 large-up-5">
-            <div class="column">
+            <div class="tab-biedingen-omschrijving">
               <?php echo $beschrijving?>
+            </div>
+          </div>
+        </div>
+        <div class="tabs-panel" id="panel3">
+          <div class="row medium-up-3 large-up-5">
+            <div class="tab-biedingen-omschrijving">
+              <?php echo "
+              <p class='middle'>Verzendingkosten:  $verzendkosten</p>
+              <p class='middle'>Verzendinginstructies:  $verzendinstructies</p>
+              <p class='middle'>Betalinginstructies:  $betalingsinstructie</p>
+              " 
+              ?>
             </div>
           </div>
         </div>

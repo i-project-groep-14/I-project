@@ -1,5 +1,72 @@
 <?php
 
+function createRubriek($actueleplek) {
+  global $dbh;
+  $volgendeplek = $actueleplek+1;
+  $sql = "SELECT rubrieknaam, rubrieknummer FROM rubriek
+          WHERE rubriek = 0
+          ORDER BY rubrieknaam OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+  $query = $dbh->prepare($sql);
+  $query -> execute();
+  $row = $query -> fetch();
+
+//   global $plekSubrubriek;
+//   $aantalSubrieken = selectAantalSubRubrieken($plekSubrubriek, $row['rubrieknummer']);
+//   echo "nSub ".$aantalSubrieken;
+//   echo " plekSub ".$plekSubrubriek;
+  echo "
+    <li>
+      <a href='rubriekenpagina.php'><i class='fi-folder-add'></i> $row[rubrieknaam]</a>
+      <!--<ul class='menu vertical sublevel-1'>-->
+  ";
+//   for($i = 0; $i < $aantalSubrieken; $i++) {
+//     $subrieken = selectSubRubrieken($plekSubrubriek, $row['rubrieknummer']);
+//     echo"
+//       <li><a class='subitem' href='rubriekenpagina.php'>$subrieken</a></li>
+//     ";
+//   }
+
+  echo "
+      <!--</ul>-->
+    </li>
+  ";
+
+  global $plek;
+  $plek += 1;
+}
+
+function selectSubRubrieken($actueleplek, $rubriek) {
+  global $dbh;
+  $volgendeplek = $actueleplek+1;
+  $sql = "SELECT rubrieknaam FROM rubriek
+          WHERE rubriek like :rubrieknummer
+          ORDER BY rubrieknaam OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':rubrieknummer' => $rubriek
+  ));
+  $row = $query -> fetch();
+
+  global $plekSubrubriek;
+  $plekSubrubriek += 1;
+  return $row['rubrieknaam'];
+}
+
+function selectAantalSubRubrieken($actueleplek, $rubriek) {
+  global $dbh;
+  $sql = "SELECT COUNT(*) as aantalRubrieken FROM rubriek
+          WHERE rubriek like :rubrieknummer";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':rubrieknummer' => $rubriek
+  ));
+  $row = $query -> fetch();
+
+  return $row['aantalRubrieken'];
+}
+
+
+
 function timeDiff($firstTime,$lastTime){
     $firstTime=strtotime($firstTime);
     $lastTime=strtotime($lastTime);
@@ -8,6 +75,8 @@ function timeDiff($firstTime,$lastTime){
  
     return $timeDiff;
 }
+
+
 
 function createHomepageItem($sql, $actueleplek) {
     global $dbh;
@@ -69,12 +138,12 @@ function createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mi
 
 
 
-function createFotos($plek) {
+function createFotos($actueleplek) {
     global $dbh;
-    $volgendeplek = $plek+1;
+    $volgendeplek = $actueleplek+1;
     $sql = "SELECT filenaam FROM bestand
             WHERE voorwerp like :voorwerpnummer
-            ORDER BY filenaam OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+            ORDER BY filenaam OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
     $query = $dbh->prepare($sql);
     $query -> execute(array(
         ':voorwerpnummer' => $_POST['voorwerp']
@@ -95,12 +164,12 @@ function createFotos($plek) {
 
 
 
-function createBiedingen($plek) {
+function createBiedingen($actueleplek) {
     global $dbh;
-    $volgendeplek = $plek+1;
+    $volgendeplek = $actueleplek+1;
     $sql = "SELECT gebruiker, bodbedrag, boddag, bodtijdstip FROM bod
             WHERE voorwerpnummer like :voorwerpnummer
-            ORDER BY bodtijdstip DESC OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+            ORDER BY bodtijdstip DESC OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
     $query = $dbh->prepare($sql);
     $query -> execute(array(
         ':voorwerpnummer' => $_POST['voorwerp']
@@ -147,11 +216,11 @@ function createRandomCode() {
 }
 
 
-function createQuestions($plek) {
+function createQuestions($actueleplek) {
     global $dbh;
-    $volgendeplek = $plek+1;
+    $volgendeplek = $actueleplek+1;
     $sql = "SELECT * FROM vraag
-            ORDER BY tekstvraag OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+            ORDER BY tekstvraag OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
     $query = $dbh->prepare($sql);
     $query -> execute();
 
