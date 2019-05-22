@@ -190,7 +190,12 @@ create table bod (
 
 
 /*			Weghalen		*/
-insert into vraag values ('1', 'vraag1')	
+insert into vraag values ('1', 'vraag1')
+insert into vraag values ('2', 'vraag2')
+insert into vraag values ('3', 'vraag3')
+insert into vraag values ('4', 'vraag4')
+insert into vraag values ('5', 'vraag5')
+
 insert into gebruiker values ('Beheerder', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
 								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 5, null)
 

@@ -2,6 +2,7 @@
       $config = ['pagina' => 'registratie_email'];
 
       require_once 'aanroepingen/connectie.php';
+      include_once 'aanroepingen/functies.php';
 
       if(!isset($_SESSION)) {
         session_start();
