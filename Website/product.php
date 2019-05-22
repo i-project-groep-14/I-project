@@ -113,7 +113,16 @@
                 <p><b>€$hoogstebod</b></p>
               </div>
             </div>
-            <a href='#' class='button large expanded'>Bieden</a>
+            <div class='reveal' id='exampleModal1' data-reveal>
+              
+              <button class='close-button' data-close aria-label='Close modal' type='button'>
+                <span aria-hidden='true'>&times;</span>
+              </button>
+              <h1> Aanloggen </h1>
+              <p>U moet aangelogd zijn om mee te kunnen bieden op veilingen!</p>
+              <p> Klik <a href='inlogpagina.php'> hier </a> om mee te bieden!!!!!!!!!!</p>
+            </div>
+            <p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>
             <p>Looptijd:</p>
             <div class='klok'>
               <p>$looptijd</p>
@@ -152,7 +161,7 @@
               
               <?php 
               if(isset($_SESSION['login'])) {
-                echo"<button class='button'>Bied mee!</button>";
+                // echo"<button class='button'>Bied mee!</button>";  is dit niet dubbel op??
               }
               ?>
             </div>
