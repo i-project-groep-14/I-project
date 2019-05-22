@@ -1,7 +1,9 @@
 <?php 
     global $config;
 
-    include_once 'aanroepingen/functies.php';
+    if ($config['pagina'] != 'registratie_email') {
+        include_once 'aanroepingen/functies.php';
+    }
 
     if(!isset($_SESSION)) {
         session_start();
@@ -23,8 +25,9 @@
             $_SESSION['beheerder'] = true;
         }
         else if($row['rol'] == 3){
-            $_SESSION['verkoper'] = true;
+            $_SESSION['verkoper_in'] = true;
         }
+        
 
         $sql = "SELECT count(*) as 'aantalveilingen' FROM voorwerp 
                 WHERE verkoper like :gebruikersnaam";

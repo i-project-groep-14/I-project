@@ -30,7 +30,7 @@
                       WHERE voorwerp like :voorwerpnummer";
                 $query = $dbh->prepare($sql);
                 $query -> execute(array(
-                    ':voorwerpnummer' => $_SESSION['voorwerpnummer']
+                    ':voorwerpnummer' => $_POST['voorwerp']
                 ));
 
                 $row = $query -> fetch();
@@ -57,7 +57,7 @@
                       WHERE voorwerpnummer like :voorwerpnummer";
               $query = $dbh->prepare($sql);
               $query -> execute(array(
-                  ':voorwerpnummer' => $_SESSION['voorwerpnummer']
+                  ':voorwerpnummer' => $_POST['voorwerp']
               ));
 
               $row = $query -> fetch();
@@ -131,9 +131,17 @@
           <div class=" tabs-panel is-active" id="panel1">
               <h4>Biedingen</h4>
               <?php
-                $test = 0;
-                for($i = 0; $i < 3; $i++) {
-                  createBiedingen($test);
+                $plek = 0;
+                $sql = "SELECT COUNT(*) as aantalBiedingen FROM bod
+                        WHERE voorwerpnummer like :voorwerpnummer";
+                $query = $dbh->prepare($sql);
+                $query -> execute(array(
+                  ':voorwerpnummer' => $_POST['voorwerp']
+                ));
+                $row = $query -> fetch();
+
+                for($i = 0; $i < $row['aantalBiedingen']; $i++) {
+                  createBiedingen($plek);
                 }
               ?>
               

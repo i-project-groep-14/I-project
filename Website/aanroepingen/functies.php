@@ -30,6 +30,7 @@ function createHomepageItem($sql, $actueleplek) {
     $years = abs(floor($difference / 31536000));
     $days = abs(floor(($difference-($years * 31536000))/86400));
     $hours = abs(floor(($difference-($years * 31536000)-($days * 86400))/3600));
+    $mins = abs(floor(($difference-($years * 31536000)-($days * 86400)-($hours * 3600))/60));
 
     $sql = "SELECT filenaam FROM bestand
     WHERE voorwerp like :voorwerpnummer";
@@ -46,22 +47,27 @@ function createHomepageItem($sql, $actueleplek) {
       $afbeelding = $row['filenaam'];
     }
     
-    createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours);
+    createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins, $voorwerpnummer);
     global $plek;
     $plek += 1;
 }
 
-function createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours) {
+function createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins, $voorwerpnummer) {
     echo"
       <div class='card'>
-        <img src='$afbeelding' alt='fiets'>
+        <img src='$afbeelding' alt='$titel'>
         <h4>$titel</h4>
         <p class='price'>€$hoogstebod</p>
-        <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: "."$days"."d $hours"."u</p>
-        <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
+        <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: ".$days."d $hours"."u $mins"."m</p>
+        <!--<a href='product.php' class='button ProductButton'>Bekijk Meer!</a>-->
+        <form action='product.php' method='POST'>
+          <button type='submit' value='$voorwerpnummer' name='voorwerp' class='button ProductButton'>Bekijk Meer!</button>
+        </form>
       </div>
     ";
 }
+
+
 
 function createFotos($plek) {
     global $dbh;
@@ -71,7 +77,7 @@ function createFotos($plek) {
           ORDER BY filenaam OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
     $query = $dbh->prepare($sql);
     $query -> execute(array(
-        ':voorwerpnummer' => $_SESSION['voorwerpnummer']
+        ':voorwerpnummer' => $_POST['voorwerp']
     ));
 
     $row = $query -> fetch();
@@ -83,6 +89,8 @@ function createFotos($plek) {
     ";
 }
 
+
+
 function createBiedingen($plek) {
     global $dbh;
     $volgendeplek = $plek+1;
@@ -91,7 +99,7 @@ function createBiedingen($plek) {
             ORDER BY bodbedrag OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
     $query = $dbh->prepare($sql);
     $query -> execute(array(
-        ':voorwerpnummer' => $_SESSION['voorwerpnummer']
+        ':voorwerpnummer' => $_POST['voorwerp']
     ));
 
     $row = $query -> fetch();
@@ -100,10 +108,6 @@ function createBiedingen($plek) {
     $bod = $row['bodbedrag'];
     $dag = $row['boddag'];
     $tijd = $row['bodtijdstip'];
-    // $gebruiker = 'Mike stevenson';
-    // $bod = '1,-';
-    // $dag = 'Een dag';
-    // $tijd = 'Een tijd';
 
     $profielfoto = 'images/profielfotoPlaceholder.png';
     
@@ -116,7 +120,11 @@ function createBiedingen($plek) {
         <p>$gebruiker Geboden: €$bod <i>Datum van bod: $dag $tijd</i></p>
       </div>
     </div>";
+    global $plek;
+    $plek += 1;
 }
+
+
 
 function createRandomCode() {
     $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW0123456789"; 
@@ -132,4 +140,23 @@ function createRandomCode() {
     }
 
     return $code;
+}
+
+
+function createQuestions($plek) {
+    global $dbh;
+    $volgendeplek = $plek+1;
+    $sql = "SELECT * FROM vraag
+            ORDER BY tekstvraag OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+    $query = $dbh->prepare($sql);
+    $query -> execute();
+
+    $row = $query -> fetch();
+
+    echo"
+      <option value='$row[vraagnummer]'>$row[tekstvraag]</option>
+    ";
+
+    global $plek;
+    $plek += 1;
 }
