@@ -58,7 +58,7 @@ Tabel voorwerp:
 
 	voorwerpnummer				van numeric(10)	naar int
 	titel						van char(18)	naar varchar(30)
-	beschrijving				van char(22)	naar varchar(100)
+	beschrijving				van char(22)	naar varchar(500)
 		startprijs					van char(5)		naar varchar(10) 	naar numeric(10,2) -> dit is zodat als mensen 12 erin voegen wordt dat automatisch 12,00
 	betalingswijze				van char(9)		naar varchar(20)
 	betalingsinstructie			van char(23)	naar varchar(30)
