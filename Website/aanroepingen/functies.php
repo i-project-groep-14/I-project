@@ -73,15 +73,19 @@ function createFotos($plek) {
     global $dbh;
     $volgendeplek = $plek+1;
     $sql = "SELECT filenaam FROM bestand
-          WHERE voorwerp like :voorwerpnummer
-          ORDER BY filenaam OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+            WHERE voorwerp like :voorwerpnummer
+            ORDER BY filenaam OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
     $query = $dbh->prepare($sql);
     $query -> execute(array(
         ':voorwerpnummer' => $_POST['voorwerp']
     ));
 
     $row = $query -> fetch();
-    $afbeelding = $row['filenaam'];
+    if ($row['filenaam'] == NULL) {
+      $afbeelding = "images/imageplaceholder.png";
+    } else {
+      $afbeelding = $row['filenaam'];
+    }
     echo"
       <div class='column'>
         <img class='thumbnail' src='$afbeelding' alt='afbeelding'>
