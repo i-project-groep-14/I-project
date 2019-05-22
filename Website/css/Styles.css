@@ -350,7 +350,7 @@ footer{
     
   }
   .RubNav{
-    display: none;
+    /* display: none; */
   }
   .MobileNav{
     display: block;
