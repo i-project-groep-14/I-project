@@ -582,14 +582,16 @@ footer{
 .tab-biedingen-thumb{
   width: 50px;
 }
-.tab-biedingen{
-  overflow-x: auto;
+.tabs-panel{
+  height: 300px;
+  overflow-x: scroll;
   
 }
 
 .tab-biedingen-omschrijving {
   padding: 5px;
 }
+
 
 
 

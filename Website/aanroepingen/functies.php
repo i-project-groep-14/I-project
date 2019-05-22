@@ -100,7 +100,7 @@ function createBiedingen($plek) {
     $volgendeplek = $plek+1;
     $sql = "SELECT gebruiker, bodbedrag, boddag, bodtijdstip FROM bod
             WHERE voorwerpnummer like :voorwerpnummer
-            ORDER BY bodbedrag OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+            ORDER BY bodtijdstip DESC OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
     $query = $dbh->prepare($sql);
     $query -> execute(array(
         ':voorwerpnummer' => $_POST['voorwerp']
@@ -121,7 +121,7 @@ function createBiedingen($plek) {
         <img class='tab-biedingen-thumb thumbnail' src='$profielfoto' alt='profielfoto'>
       </div>
       <div class='media-object-section'>
-        <p>$gebruiker Geboden: €$bod <i>Datum van bod: $dag $tijd</i></p>
+        <p>$gebruiker Geboden: €$bod</p>
       </div>
     </div>";
     global $plek;
