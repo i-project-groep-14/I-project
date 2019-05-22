@@ -223,18 +223,12 @@ insert into bestand values('images/Fiets.jpg', 1)
 insert into bestand values('images/Eend.jpg', 1)
 insert into bestand values('images/profielfotoPlaceholder.png', 1)
 insert into bestand values('images/kaaskast.jpg', 1)
-
 insert into bestand values('images/bezem.jpg', 2)
-
-
 insert into bestand values('images/schoen.jpg', 3)
-
-
 insert into bestand values('images/laptop.jpg', 4)
-
-
 insert into bestand values('images/sokken.jpg', 5)
-
+insert into bestand values('images/kaashond.jpg', 6)
+insert into bestand values('images/banaan.jpg', 7)
 
 insert into bod values (1, 4, 'Beheerder', getdate(), CONVERT(TIME,GETDATE()))
 insert into bod values (1, 5, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 1, GETDATE())))
