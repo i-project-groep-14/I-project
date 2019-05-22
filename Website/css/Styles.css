@@ -274,7 +274,7 @@ input:checked + .side-label::after {
   position: relative;
   float: left;
   width:  600px;
-  height: 400px;
+  max-height: 400px;
   background-position: 50% 50%;
   background-repeat:   no-repeat;
   background-size:     cover;
@@ -402,6 +402,9 @@ footer{
   }
   .DesktopLogo{
     display: none;
+  }
+  .tab-biedingen-thumb{
+    max-width: 25px;
   }
 }
 @media only screen and (max-width: 320px){
@@ -604,7 +607,7 @@ footer{
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-height: fit-content;
-  max-width: 250px;
+  max-width: 225px;
   margin: auto;
   text-align: center;
   font-family: arial;
@@ -618,7 +621,7 @@ footer{
 
 .card img {
   width: auto;
-  height: auto;
+  height: 225px;
 }
 
 body{
