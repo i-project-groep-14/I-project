@@ -190,7 +190,12 @@ create table bod (
 
 
 /*			Weghalen		*/
-insert into vraag values ('1', 'vraag1')	
+insert into vraag values ('1', 'vraag1')
+insert into vraag values ('2', 'vraag2')
+insert into vraag values ('3', 'vraag3')
+insert into vraag values ('4', 'vraag4')
+insert into vraag values ('5', 'vraag5')
+
 insert into gebruiker values ('Beheerder', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
 								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 5, null)
 
@@ -200,15 +205,18 @@ insert into verkoper values('Beheerder', null, null, 'controle-optie', null)
 insert into voorwerp values('Kaaskast', 'beschrijving1', 20, 'iDeal', null, 'plaatsnaam1', 'land1',
 							1, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 20)
 insert into voorwerp values('Bezem', 'beschrijving2', 250, 'Creditcard', null, 'plaatsnaam2', 'land2',
-							2, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 260)
+							2, GETDATE()+1, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 260)
 insert into voorwerp values('Schoen', 'beschrijving3', 500, 'Paypal', null, 'plaatsnaam3', 'land3',
-							3, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 500)
+							3, GETDATE()+2, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 500)
 insert into voorwerp values('Laptop', 'beschrijving4', 200, 'Zelf halen', null, 'plaatsnaam4', 'land4',
 							4, GETDATE()-4, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'wel', 300)
 insert into voorwerp values('Sokken', 'beschrijving5', 1, 'Creditcard', null, 'plaatsnaam5', 'land5',
-							5, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'wel', 5)
-insert into voorwerp values('Zoiets', 'beschrijving5', 1, 'Creditcard', null, 'plaatsnaam5', 'land5',
-							5, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 5)
+							5, GETDATE()-5, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'wel', 5)
+insert into voorwerp values('Zoiets', 'beschrijving5', 1, 'Creditcard', null, 'plaatsnaam6', 'land6',
+							6, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 60)
+insert into voorwerp values('Test', 'beschrijving5', 1, 'PayPal', null, 'plaatsnaam7', 'land7',
+							6, GETDATE()+5, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME,dateadd(hour, -1, GETDATE()))
+							, 'niet', 60)
 
 insert into bestand values('images/Salade.jpg', 1)
 insert into bestand values('images/Fiets.jpg', 1)
@@ -216,14 +224,43 @@ insert into bestand values('images/Eend.jpg', 1)
 insert into bestand values('images/profielfotoPlaceholder.png', 1)
 insert into bestand values('images/kaaskast.jpg', 1)
 
-insert into bod values (1, 1, 'Beheerder', getdate(), CONVERT(TIME(0),GETDATE()))
-insert into bod values (1, 2, 'Beheerder', getdate(), CONVERT(TIME(0),GETDATE()))
-insert into bod values (1, 3, 'Beheerder', getdate(), CONVERT(TIME(0),GETDATE()))
+insert into bod values (1, 4, 'Beheerder', getdate(), CONVERT(TIME,GETDATE()))
+insert into bod values (1, 5, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 1, GETDATE())))
+insert into bod values (1, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 4, GETDATE())))
 
-select top 4 * from voorwerp
-where voorwerpnummer in (select count(voorwerpnummer) from bod
-						group by voorwerpnummer
-						)
+insert into bod values (2, 4, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 2, GETDATE())))
+insert into bod values (2, 5, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 3, GETDATE())))
+insert into bod values (3, 4, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 5, GETDATE())))
+insert into bod values (3, 5, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 6, GETDATE())))
+insert into bod values (3, 8, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 7, GETDATE())))
+insert into bod values (3, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, -1, GETDATE())))
+insert into bod values (5, 5, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, -21, GETDATE())))
+insert into bod values (5, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, -41, GETDATE())))
+insert into bod values (4, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, -4, GETDATE())))
+insert into bod values (6, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 8, GETDATE())))
 
 
+/*
+select count(B.voorwerpnummer) as topproducten,V.voorwerpnummer, V.titel, V.verkoopprijs, V.looptijdeindeDag, V.looptijdeindeTijdstip
+from voorwerp V inner join bod B on V.voorwerpnummer = B.voorwerpnummer
+group by B.voorwerpnummer,V.voorwerpnummer,V.titel,V.verkoopprijs,V.looptijdeindeDag,V.looptijdeindeTijdstip
+order by topproducten desc
+
+
+select 
+top 4 
+* from voorwerp
+where veilingGesloten = 'niet'
+and (
+looptijdeindeTijdstip >= CONVERT(TIME(0),GETDATE())
+or looptijdeindeTijdstip < CONVERT(TIME(0),GETDATE())
+)
+order by looptijdeindeDag asc, looptijdeindeTijdstip asc
+
+SELECT titel, voorwerpnummer, verkoopprijs, looptijdbeginDag, looptijdbeginTijdstip FROM voorwerp 
+            WHERE veilingGesloten = 'niet' and (
+            looptijdbeginTijdstip >= CONVERT(TIME,GETDATE()) or
+            looptijdbeginTijdstip < CONVERT(TIME,GETDATE()))
+            ORDER BY looptijdbeginDag desc, looptijdbeginTijdstip desc
+*/
 use master

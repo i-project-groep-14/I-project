@@ -2,6 +2,7 @@
       $config = ['pagina' => 'registratie_email'];
 
       require_once 'aanroepingen/connectie.php';
+      include_once 'aanroepingen/functies.php';
 
       if(!isset($_SESSION)) {
         session_start();
@@ -16,10 +17,9 @@
           $_SESSION['email'] = $_POST['email'];
           
           $code = 
-                  createRandomCode();
-                  // 'f';
+                  // createRandomCode();
+                  'f';
           $_SESSION['code'] = $code;
-
           include_once 'aanroepingen/Reg_email_opmaak.php';
         }
       }

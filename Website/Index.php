@@ -30,8 +30,10 @@
               }
 
               $plek = 0;
+              $gebruikersnaam = $_SESSION['gebruikersnaam'];
               for($i = 0; $i < $aantalveilingen; $i++) {
-                createHomepageUwVeilingen($plek);
+                createHomepageItem("SELECT titel, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip, voorwerpnummer FROM voorwerp 
+                                    WHERE verkoper like '%$gebruikersnaam%' and veilingGesloten = 'niet' ORDER BY titel", $plek);
               }
               echo "</div>";
             }
@@ -42,112 +44,45 @@
       <h3 class='HomePageTitel'>De populairste veilingen</h3>
       <div class='ProductenContainer'>
         <?php
-          $sql = "SELECT veilingGesloten FROM voorwerp 
-          WHERE verkoper like :gebruikersnaam
-          ORDER BY titel OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
-          $query = $dbh->prepare($sql);
-          $query -> execute(array(
-              ':gebruikersnaam' => $_SESSION['gebruikersnaam']
-          ));
-
-          $row = $query -> fetch();
-
-        createHomepageCard();
-        createHomepageCard();
-        createHomepageCard();
-        createHomepageCard();
+          $plek = 0;
+          for($i = 0; $i < 4; $i++) {
+            createHomepageItem("SELECT count(b.voorwerpnummer) as topproducten, v.voorwerpnummer, v.titel, v.verkoopprijs, v.looptijdeindeDag,
+                        v.looptijdeindeTijdstip FROM voorwerp v inner join bod b on v.voorwerpnummer = b.voorwerpnummer
+                        WHERE veilingGesloten = 'niet'
+                        GROUP BY b.voorwerpnummer, v.voorwerpnummer, v.titel, v.verkoopprijs, v.looptijdeindeDag, v.looptijdeindeTijdstip
+                        ORDER BY topproducten desc", $plek
+            );
+          }
         ?>
-        <!-- <div class="card">
-          <img src="images/fiets.jpg" alt="fiets">
-          <h4>Viking Fiets</h4>
-          <p class="price">€ 19.99</p>
-          <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-        </div> 
-        <div class="card">
-          <img src="images/fiets.jpg" alt="fiets">
-          <h4>Viking Fiets</h4>
-          <p class="price">€ 19.99</p>
-          <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-        </div>
-        <div class="card">
-          <img src="images/fiets.jpg" alt="fiets">
-          <h4>Viking Fiets</h4>
-          <p class="price">€ 19.99</p>
-          <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-        </div>
-        <div class="card">
-          <img src="images/fiets.jpg" alt="fiets">
-          <h4>Viking Fiets</h4>
-          <p class="price">€ 19.99</p>
-          <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-        </div> -->
       </div>
 
       <h3 class='HomePageTitel'>Loopt bijna af!</h3>
       <div class='ProductenContainer'>
-        <div class="card">
-          <img src="images/fiets.jpg" alt="fiets">
-          <h4>Viking Fiets</h4>
-          <p class="price">€ 19.99</p>
-          <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-        </div> 
-        <div class="card">
-          <img src="images/fiets.jpg" alt="fiets">
-          <h4>Viking Fiets</h4>
-          <p class="price">€ 19.99</p>
-          <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-        </div>
-        <div class="card">
-          <img src="images/fiets.jpg" alt="fiets">
-          <h4>Viking Fiets</h4>
-          <p class="price">€ 19.99</p>
-          <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-        </div>
-        <div class="card">
-          <img src="images/fiets.jpg" alt="fiets">
-          <h4>Viking Fiets</h4>
-          <p class="price">€ 19.99</p>
-          <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-        </div>
+        <?php
+          $plek = 0;
+          for($i = 0; $i < 4; $i++) {
+            createHomepageItem("SELECT titel, voorwerpnummer, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp 
+                                WHERE veilingGesloten = 'niet' and (
+                                looptijdeindeTijdstip >= CONVERT(TIME,GETDATE()) or
+                                looptijdeindeTijdstip < CONVERT(TIME,GETDATE()))
+                                ORDER BY looptijdeindeDag asc, looptijdeindeTijdstip asc", $plek
+            );
+          }
+        ?>
       </div>
       <h3 class='HomePageTitel'>Nieuwe veilingen</h3>
       <div class='ProductenContainer'>
-        <div class="card">
-          <img src="images/fiets.jpg" alt="fiets">
-          <h4>Viking Fiets</h4>
-          <p class="price">€ 19.99</p>
-          <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-        </div> 
-        <div class="card">
-          <img src="images/fiets.jpg" alt="fiets">
-          <h4>Viking Fiets</h4>
-          <p class="price">€ 19.99</p>
-          <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-        </div>
-        <div class="card">
-          <img src="images/fiets.jpg" alt="fiets">
-          <h4>Viking Fiets</h4>
-          <p class="price">€ 19.99</p>
-          <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-        </div>
-        <div class="card">
-          <img src="images/fiets.jpg" alt="fiets">
-          <h4>Viking Fiets</h4>
-          <p class="price">€ 19.99</p>
-          <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: 7d 12u</p>
-          <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
-        </div>
+        <?php
+          $plek = 0;
+          for($i = 0; $i < 4; $i++) {
+            createHomepageItem("SELECT titel, voorwerpnummer, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp 
+                            WHERE veilingGesloten = 'niet' and (
+                            looptijdbeginTijdstip >= CONVERT(TIME,GETDATE()) or
+                            looptijdbeginTijdstip < CONVERT(TIME,GETDATE()))
+                            ORDER BY looptijdbeginDag desc, looptijdbeginTijdstip desc", $plek
+            );
+          }
+        ?>
       </div>
     </div>
     

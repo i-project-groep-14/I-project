@@ -24,7 +24,6 @@
           <p>Antwoord op de veiligheidsvraag vergeten? Neem <a href="contact.php">contact</a> op met ons.</p>
       </form>
     </div>
-  </div>
     <?php
       include_once 'aanroepingen/footer.html';
     ?>
