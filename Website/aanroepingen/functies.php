@@ -47,19 +47,22 @@ function createHomepageItem($sql, $actueleplek) {
       $afbeelding = $row['filenaam'];
     }
     
-    createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins);
+    createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins, $voorwerpnummer);
     global $plek;
     $plek += 1;
 }
 
-function createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins) {
+function createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins, $voorwerpnummer) {
     echo"
       <div class='card'>
-        <img src='$afbeelding' alt='fiets'>
+        <img src='$afbeelding' alt='$titel'>
         <h4>$titel</h4>
         <p class='price'>€$hoogstebod</p>
         <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: ".$days."d $hours"."u $mins"."m</p>
-        <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
+        <!--<a href='product.php' class='button ProductButton'>Bekijk Meer!</a>-->
+        <form action='product.php' method='POST'>
+          <button type='submit' value='$voorwerpnummer' name='voorwerp' class='button ProductButton'>Bekijk Meer!</button>
+        </form>
       </div>
     ";
 }
@@ -70,15 +73,19 @@ function createFotos($plek) {
     global $dbh;
     $volgendeplek = $plek+1;
     $sql = "SELECT filenaam FROM bestand
-          WHERE voorwerp like :voorwerpnummer
-          ORDER BY filenaam OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+            WHERE voorwerp like :voorwerpnummer
+            ORDER BY filenaam OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
     $query = $dbh->prepare($sql);
     $query -> execute(array(
-        ':voorwerpnummer' => $_SESSION['voorwerpnummer']
+        ':voorwerpnummer' => $_POST['voorwerp']
     ));
 
     $row = $query -> fetch();
-    $afbeelding = $row['filenaam'];
+    if ($row['filenaam'] == NULL) {
+      $afbeelding = "images/imageplaceholder.png";
+    } else {
+      $afbeelding = $row['filenaam'];
+    }
     echo"
       <div class='column'>
         <img class='thumbnail' src='$afbeelding' alt='afbeelding'>
@@ -93,10 +100,10 @@ function createBiedingen($plek) {
     $volgendeplek = $plek+1;
     $sql = "SELECT gebruiker, bodbedrag, boddag, bodtijdstip FROM bod
             WHERE voorwerpnummer like :voorwerpnummer
-            ORDER BY bodbedrag OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+            ORDER BY bodtijdstip DESC OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
     $query = $dbh->prepare($sql);
     $query -> execute(array(
-        ':voorwerpnummer' => $_SESSION['voorwerpnummer']
+        ':voorwerpnummer' => $_POST['voorwerp']
     ));
 
     $row = $query -> fetch();
@@ -109,17 +116,16 @@ function createBiedingen($plek) {
     $profielfoto = 'images/profielfotoPlaceholder.png';
     
     echo "
-    <div class='media-object stack-for-small'>
+    <div class='tab-biedingen media-object stack-for-small'>
       <div class='media-object-section'>
-        <img class='thumbnail' src='$profielfoto' alt='profielfoto'>
+        <img class='tab-biedingen-thumb thumbnail' src='$profielfoto' alt='profielfoto'>
       </div>
-
       <div class='media-object-section'>
-        <h5>$gebruiker</h5>
-        <p>Geboden: €$bod</p>
-        <p><i>Datum van bod: $dag $tijd</i></p>
+        <p>$gebruiker Geboden: €$bod</p>
       </div>
     </div>";
+    global $plek;
+    $plek += 1;
 }
 
 

@@ -27,14 +27,18 @@
           <div class="medium-6 columns">
             <?php
                 $sql = "SELECT filenaam FROM bestand
-                      WHERE voorwerp like :voorwerpnummer";
+                        WHERE voorwerp like :voorwerpnummer";
                 $query = $dbh->prepare($sql);
                 $query -> execute(array(
-                    ':voorwerpnummer' => $_SESSION['voorwerpnummer']
+                    ':voorwerpnummer' => $_POST['voorwerp']
                 ));
 
                 $row = $query -> fetch();
-                $afbeelding = $row['filenaam'];
+                if ($row['filenaam'] == NULL) {
+                  $afbeelding = "images/imageplaceholder.png";
+                } else {
+                  $afbeelding = $row['filenaam'];
+                }
 
             echo"
             <img class='thumbnail img-product' src=$afbeelding alt='afbeelding'>
@@ -57,7 +61,7 @@
                       WHERE voorwerpnummer like :voorwerpnummer";
               $query = $dbh->prepare($sql);
               $query -> execute(array(
-                  ':voorwerpnummer' => $_SESSION['voorwerpnummer']
+                  ':voorwerpnummer' => $_POST['voorwerp']
               ));
 
               $row = $query -> fetch();
@@ -87,8 +91,6 @@
               echo"
             <h3>$titel</h3>
             <p><i>$verkoper</i></p>
-            <p>$beschrijving</p>
-
             <div class='row'>
               <div class='small-3 columns'>
                 <p class='middle'>Plaats:</p>
@@ -126,15 +128,23 @@
           <hr>
           <ul class="tabs" data-tabs id="example-tabs">
             <li class="tabs-title is-active"><a href="#panel1" >Biedingen</a></li>
+            <li class="tabs-title"><a href="#panel2">Similar Products</a></li>
           </ul>
 
-          <div class="tabs-content" data-tabs-content="example-tabs">
-            <div class="tabs-panel is-active" id="panel1">
-              <h4>Biedingen</h4>
+        <div class="tab-biedingen tabs-content" data-tabs-content="example-tabs">
+          <div class=" tabs-panel is-active" id="panel1">
               <?php
-                $test = 0;
-                for($i = 0; $i < 3; $i++) {
-                  createBiedingen($test);
+                $plek = 0;
+                $sql = "SELECT COUNT(*) as aantalBiedingen FROM bod
+                        WHERE voorwerpnummer like :voorwerpnummer";
+                $query = $dbh->prepare($sql);
+                $query -> execute(array(
+                  ':voorwerpnummer' => $_POST['voorwerp']
+                ));
+                $row = $query -> fetch();
+
+                for($i = 0; $i < $row['aantalBiedingen']; $i++) {
+                  createBiedingen($plek);
                 }
               ?>
               
@@ -144,10 +154,21 @@
               }
               ?>
             </div>
+        <div class="tabs-panel" id="panel2">
+          <div class="row medium-up-3 large-up-5">
+            <div class="column">
+              <?php echo $beschrijving?>
+            </div>
           </div>
         </div>
       </div>
     </div>
+</div>
+</div>
+              
+        
+      
+    
 
     <?php 
       include_once 'aanroepingen/footer.html';

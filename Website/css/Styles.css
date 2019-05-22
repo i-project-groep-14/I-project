@@ -536,7 +536,7 @@ footer{
   border: 1px solid #F2552C;
 }
 
-/* OUD Rubrieken*/
+/* Rubrieken pagina*/
 
 .ContainerRubProducten{
   display: flex;
@@ -549,7 +549,6 @@ footer{
 	width: fit-content;
   margin-bottom: 10px;
   box-shadow: 0 4px 8px 0px;
-	
 }
 .FotoRubProduct{
 	width: 250px;
@@ -564,9 +563,6 @@ footer{
 }
 .TitelRubProduct{
 	width: 100%;
-	
-	
-	
 }
 .OmschRubProduct{
 	width: 100%;
@@ -581,10 +577,20 @@ footer{
   padding: 25px;
   text-align: center;
 }
+/*   EINDE RUBRIEKEN PAGINA */
+
+.tab-biedingen-thumb{
+  width: 50px;
+}
+.tabs-panel{
+  height: 300px;
+  overflow-x: scroll;
+  
+}
 
 
 
-/* OUD RUBRIEKEN */
+
 
 
 
