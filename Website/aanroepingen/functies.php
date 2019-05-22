@@ -30,6 +30,7 @@ function createHomepageItem($sql, $actueleplek) {
     $years = abs(floor($difference / 31536000));
     $days = abs(floor(($difference-($years * 31536000))/86400));
     $hours = abs(floor(($difference-($years * 31536000)-($days * 86400))/3600));
+    $mins = abs(floor(($difference-($years * 31536000)-($days * 86400)-($hours * 3600))/60));
 
     $sql = "SELECT filenaam FROM bestand
     WHERE voorwerp like :voorwerpnummer";
@@ -46,18 +47,18 @@ function createHomepageItem($sql, $actueleplek) {
       $afbeelding = $row['filenaam'];
     }
     
-    createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours);
+    createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins);
     global $plek;
     $plek += 1;
 }
 
-function createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours) {
+function createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins) {
     echo"
       <div class='card'>
         <img src='$afbeelding' alt='fiets'>
         <h4>$titel</h4>
         <p class='price'>€$hoogstebod</p>
-        <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: "."$days"."d $hours"."u</p>
+        <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: ".$days."d $hours"."u $mins"."m</p>
         <a href='product.php' class='button ProductButton'>Bekijk Meer!</a>
       </div>
     ";
@@ -100,10 +101,6 @@ function createBiedingen($plek) {
     $bod = $row['bodbedrag'];
     $dag = $row['boddag'];
     $tijd = $row['bodtijdstip'];
-    // $gebruiker = 'Mike stevenson';
-    // $bod = '1,-';
-    // $dag = 'Een dag';
-    // $tijd = 'Een tijd';
 
     $profielfoto = 'images/profielfotoPlaceholder.png';
     
