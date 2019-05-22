@@ -247,21 +247,24 @@ insert into bod values (6, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour,
 
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Hoofdrubriek', null, 1)
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Muziekinstrumenten', 0, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Gitaren', 2, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trompetten', 2, 2)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trombones', 2, 3)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Pianos', 2, 4)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Elketrische Gitaren', 3, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Acoustische Gitaren', 3, 2)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Gitaren', 1, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trompetten', 1, 2)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trombones', 1, 3)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Pianos', 1, 4)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Elektrische Gitaren', 2, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Acoustische Gitaren', 2, 2)
 
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Computers', 0, 1)
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Laptops', 8, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Beelschermen', 8, 2)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Beeldschermen', 8, 2)
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Toetsenborden', 8, 1)
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Muizen', 8, 1)
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Opladers', 9, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Toetsenborden', 9, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trackpads', 9, 1)
+/*SELECT COUNT(*) as aantalSubRubrieken FROM rubriek
+          WHERE  and rubrieknummer = 1
 
+		  select * from rubriek where rubriek = 1*/
 /*
 select count(B.voorwerpnummer) as topproducten,V.voorwerpnummer, V.titel, V.verkoopprijs, V.looptijdeindeDag, V.looptijdeindeTijdstip
 from voorwerp V inner join bod B on V.voorwerpnummer = B.voorwerpnummer
