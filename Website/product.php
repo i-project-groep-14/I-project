@@ -57,7 +57,7 @@
           <!--Toevoegen informatie aan de rechterkant-->
           <div class="medium-6 large-5 columns lijn">
             <?php
-              $sql = "SELECT titel, verkoper, beschrijving, plaatsnaam, startprijs, verkoopprijs, betalingswijze, verzendinstructies, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
+              $sql = "SELECT titel, verkoper, beschrijving, plaatsnaam, startprijs, verkoopprijs,verzendkosten, betalingswijze,betalingsinstructie, verzendinstructies, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
                       WHERE voorwerpnummer like :voorwerpnummer";
               $query = $dbh->prepare($sql);
               $query -> execute(array(
@@ -74,6 +74,8 @@
               $hoogstebod = $row['verkoopprijs'];
               $betalingswijze = $row['betalingswijze'];
               $verzendinstructies = $row['verzendinstructies'];
+              $verzendkosten = $row['verzendkosten'];
+              $betalingsinstructie = $row['betalingsinstructie'];
                 
               $looptijdeindeDag = $row['looptijdeindeDag'];
               $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
@@ -116,8 +118,7 @@
             <div class='klok'>
               <p>$looptijd</p>
             </div>
-            <p class='middle'>Betaling: $betalingswijze</p>
-            <p class='middle'>Verzending: $verzendinstructies</p>
+            <p class='middle'>Betaling: $betalingswijze </p>
               ";
             ?>
           </div>
@@ -128,7 +129,8 @@
           <hr>
           <ul class="tabs" data-tabs id="example-tabs">
             <li class="tabs-title is-active"><a href="#panel1" >Biedingen</a></li>
-            <li class="tabs-title"><a href="#panel2">Similar Products</a></li>
+            <li class="tabs-title"><a href="#panel2">Beschrijving</a></li>
+            <li class="tabs-title"><a href="#panel3">Voorwaarden</a></li>
           </ul>
 
         <div class="tab-biedingen tabs-content" data-tabs-content="example-tabs">
@@ -157,8 +159,20 @@
             </div>
         <div class="tabs-panel" id="panel2">
           <div class="row medium-up-3 large-up-5">
-            <div class="column">
+            <div class="tab-biedingen-omschrijving">
               <?php echo $beschrijving?>
+            </div>
+          </div>
+        </div>
+        <div class="tabs-panel" id="panel3">
+          <div class="row medium-up-3 large-up-5">
+            <div class="tab-biedingen-omschrijving">
+              <?php echo "
+              <p class='middle'>Verzendingkosten:  $verzendkosten</p>
+              <p class='middle'>Verzendinginstructies:  $verzendinstructies</p>
+              <p class='middle'>Betalinginstructies:  $betalingsinstructie</p>
+              "
+              ?>
             </div>
           </div>
         </div>
