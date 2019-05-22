@@ -1,4 +1,28 @@
 <div class="RubNav row">
+  <ul class="multilevel-accordion-menu vertical menu" data-accordion-menu>
+    
+    <?php
+      $plek = 0;
+      $plekSubrubriek = 0;
+      $sql = "SELECT COUNT(*) as aantalHoofdRubrieken FROM rubriek
+              WHERE rubriek = 0";
+      $query = $dbh->prepare($sql);
+      $query -> execute();
+      $row = $query -> fetch();
+
+      for($i = 0; $i < $row['aantalHoofdRubrieken']; $i++) {
+        createRubriek($plek);
+      }
+    ?>
+
+  </ul>
+</div>
+
+
+
+
+
+<!-- <div class="RubNav row">
 <ul class="multilevel-accordion-menu vertical menu" data-accordion-menu>
   <li>
     <a href="rubriekenpagina.php"><i class="fi-folder-add"></i> Item 1</a>
@@ -393,4 +417,4 @@
     </ul>
   </li>
 </ul>
-</div>
+</div> -->

@@ -112,17 +112,21 @@
               <div class='small-9 columns'>
                 <p><b>€$hoogstebod</b></p>
               </div>
-            </div>
-            <div class='reveal' id='exampleModal1' data-reveal>
+            </div>";
+            if(!isset($_SESSION['login'])) {
+              echo"
+              <div class='reveal' id='exampleModal1' data-reveal>
+                <button class='close-button' data-close aria-label='Close modal' type='button'>
+                  <span aria-hidden='true'>&times;</span>
+                </button>
+                <h1> Aanloggen </h1>
+                <p>U moet aangelogd zijn om mee te kunnen bieden op veilingen!</p>
+                <p> Klik <a href='inlogpagina.php'> hier </a> om mee te bieden!!!!!!!!!!</p>
+              </div>";
+            } else {
               
-              <button class='close-button' data-close aria-label='Close modal' type='button'>
-                <span aria-hidden='true'>&times;</span>
-              </button>
-              <h1> Aanloggen </h1>
-              <p>U moet aangelogd zijn om mee te kunnen bieden op veilingen!</p>
-              <p> Klik <a href='inlogpagina.php'> hier </a> om mee te bieden!!!!!!!!!!</p>
-            </div>
-            <p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>
+            }
+            echo "<p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>
             <p>Looptijd:</p>
             <div class='klok'>
               <p>$looptijd</p>

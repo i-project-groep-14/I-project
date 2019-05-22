@@ -10,24 +10,24 @@ function createRubriek($actueleplek) {
   $query -> execute();
   $row = $query -> fetch();
 
-  global $testplek;
-  $testplek = 0;
-  $aantalSubrieken = selectAantalSubRubrieken($testplek, $row['rubrieknummer']);
-
+//   global $plekSubrubriek;
+//   $aantalSubrieken = selectAantalSubRubrieken($plekSubrubriek, $row['rubrieknummer']);
+//   echo "nSub ".$aantalSubrieken;
+//   echo " plekSub ".$plekSubrubriek;
   echo "
     <li>
       <a href='rubriekenpagina.php'><i class='fi-folder-add'></i> $row[rubrieknaam]</a>
-      <ul class='menu vertical sublevel-1'>
+      <!--<ul class='menu vertical sublevel-1'>-->
   ";
-  for($i = 0; $i < $aantalSubrieken; $i++) {
-    $test = selectSubRubrieken($testplek, $row['rubrieknummer']);
-    echo"
-      <li><a class='subitem' href='rubriekenpagina.php'>$test</a></li>
-    ";
-  }
+//   for($i = 0; $i < $aantalSubrieken; $i++) {
+//     $subrieken = selectSubRubrieken($plekSubrubriek, $row['rubrieknummer']);
+//     echo"
+//       <li><a class='subitem' href='rubriekenpagina.php'>$subrieken</a></li>
+//     ";
+//   }
 
   echo "
-      </ul>
+      <!--</ul>-->
     </li>
   ";
 
@@ -47,8 +47,8 @@ function selectSubRubrieken($actueleplek, $rubriek) {
   ));
   $row = $query -> fetch();
 
-  global $testplek;
-  $testplek += 1;
+  global $plekSubrubriek;
+  $plekSubrubriek += 1;
   return $row['rubrieknaam'];
 }
 

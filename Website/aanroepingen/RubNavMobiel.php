@@ -1,20 +1,19 @@
 
 <div class="MobielZoekProduct">
-<button class="collapsible">Zoeken</button>
-<div class="content">
-  <Br>
-  <form action="" method="">
-  <input type="search" placeholder="Zoek Product..."><br>
-  <select>
-  <option>Rubrieken</option>
-  <option>Auto's kaas en kaaskasten</option>
-  <option>Rubrieken</option>
-  <option>Rubrieken</option>
-
-  </select>
-  <input class="button" type="submit" value="Zoeken">
-</form>
-</div>
+  <button class="collapsible">Zoeken</button>
+  <div class="content">
+    <Br>
+    <form action="" method="">
+      <input type="search" placeholder="Zoek Product..."><br>
+      <select>
+        <option>Rubrieken</option>
+        <option>Auto's kaas en kaaskasten</option>
+        <option>Rubrieken</option>
+        <option>Rubrieken</option>
+      </select>
+      <input class="button" type="submit" value="Zoeken">
+    </form>
+  </div>
 </div>
 
 
@@ -36,8 +35,9 @@ for (i = 0; i < coll.length; i++) {
 }
 </script>
 
-
-
+<?php
+// include 'aanroepingen/rubnav.php'?>
+<!-- 
 <nav class="MobileNav">
 <ul class="multilevel-accordion-menu vertical menu" data-accordion-menu>
   <li>
@@ -119,4 +119,4 @@ for (i = 0; i < coll.length; i++) {
   </li>
 </ul>
 </nav>
-
+ -->
