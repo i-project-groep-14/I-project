@@ -90,7 +90,16 @@
               $secs = abs(floor(($difference-($years * 31536000)-($days * 86400)-($hours * 3600))-($mins * 3600)/60));
 
               $looptijd = $days.'d '.$hours.'u '.$mins.'m '.$secs.'s';
-            
+              
+              // bieding moet nog gefixed worden
+              if($hoogstebod > 1 && $hoogstebod < 49.99){
+                $stapbieding  =  0.50;
+              } else {
+
+              }
+              // echo $stapbieding;
+              $minimalebod = $hoogstebod + 1 ;
+              // bieding
               echo"
             <h3>$titel</h3>
             <p><i>$verkoper</i></p>
@@ -136,7 +145,7 @@
                 <h1 class='InlogpaginaKopje'> Bieden </h1> 
                 <i> (Bieden vanaf: € $hoogstebod)</i><Br>
                 <Br>
-                <input type='text' name='fname' placeholder='€' type='number' pattern='[-+]?[0-9]*[.,]?[0-9]+' required><br>
+                <input type='number' name='bod'  min='$minimalebod' step='1' required>
                 <input type='submit' class='button large expanded' value='Plaats bod'>
               </form>
 
