@@ -19,11 +19,18 @@
     <h2>Beste toekomstige gebruiker/verkoper,</h2><p> 
         Hartelijk dank voor het registreren op de website van EenmaalAndermaal. Vul onderstaande code in op de website om daarmee uw registratie te bevestigen en definitief te maken.</p><Br><br>
 
-        <div style='height:150px; text-align:center; background-color:#F2552C; color:white; font-size:24px; font-weight:bold;'>".$code."</div>
+        <div style='width=100%'>
+        <table>
+        <tr>
+        <th style='height:fit-content; text-align:center; background-color:#F2552C; color:white; font-size:24px; font-weight:bold;'>".
+        $code."
+        </th>
+        </tr>
+        </table></div>
         
         <br><Br>Met vriendelijke groet,<Br><Br>
 
-        <p><span style='color:#F2552C;'>Team EenmaalAndermaal</span> | Groep 14</p>
+        <p><a href='iproject32.icasites.nl'<span style='color:#F2552C; text-decoration: none;'>Team EenmaalAndermaal</span></a> | Groep 14</p>
     </div>
         
    

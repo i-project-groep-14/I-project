@@ -116,15 +116,12 @@ function createBiedingen($plek) {
     $profielfoto = 'images/profielfotoPlaceholder.png';
     
     echo "
-    <div class='media-object stack-for-small'>
+    <div class='tab-biedingen media-object stack-for-small'>
       <div class='media-object-section'>
-        <img class='thumbnail' src='$profielfoto' alt='profielfoto'>
+        <img class='tab-biedingen-thumb thumbnail' src='$profielfoto' alt='profielfoto'>
       </div>
-
       <div class='media-object-section'>
-        <h5>$gebruiker</h5>
-        <p>Geboden: €$bod</p>
-        <p><i>Datum van bod: $dag $tijd</i></p>
+        <p>$gebruiker Geboden: €$bod <i>Datum van bod: $dag $tijd</i></p>
       </div>
     </div>";
     global $plek;

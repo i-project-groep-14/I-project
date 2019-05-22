@@ -91,8 +91,6 @@
               echo"
             <h3>$titel</h3>
             <p><i>$verkoper</i></p>
-            <p>$beschrijving</p>
-
             <div class='row'>
               <div class='small-3 columns'>
                 <p class='middle'>Plaats:</p>
@@ -130,10 +128,11 @@
           <hr>
           <ul class="tabs" data-tabs id="example-tabs">
             <li class="tabs-title is-active"><a href="#panel1" >Biedingen</a></li>
+            <li class="tabs-title"><a href="#panel2">Similar Products</a></li>
           </ul>
 
-          <div class="tabs-content" data-tabs-content="example-tabs">
-            <div class="tabs-panel is-active" id="panel1">
+        <div class="tab-biedingen tabs-content" data-tabs-content="example-tabs">
+          <div class=" tabs-panel is-active" id="panel1">
               <h4>Biedingen</h4>
               <?php
                 $plek = 0;
@@ -156,10 +155,21 @@
               }
               ?>
             </div>
+        <div class="tabs-panel" id="panel2">
+          <div class="row medium-up-3 large-up-5">
+            <div class="column">
+              <?php echo $beschrijving?>
+            </div>
           </div>
         </div>
       </div>
     </div>
+</div>
+</div>
+              
+        
+      
+    
 
     <?php 
       include_once 'aanroepingen/footer.html';
