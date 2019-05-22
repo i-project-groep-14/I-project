@@ -6,17 +6,15 @@
 
       //als ingelogd $gebruikersnaam = $_SESSION['gebruikersnaam']; $plaatsnaam = $_SESSION['plaatsnaam'] $landnaam = $_SESSION['landnaam'];
       //gaat naar de database
-
     
 
       //indicator = niet veilig is niet gesloten
 
-      if(isset($_SESSION['verkoper']) != true){
+      if(isset($_SESSION['verkoper_in']) != true || isset($_SESSION['beheerder']) != true){
        echo '<script type="text/javascript">
-          window.location = "inlogpagina.php"
-        </script>';
-     
-      }
+            window.location = "inlogpagina.php"
+            </script>';
+      } //wordt nog veranderd 
 
       try{
 
@@ -29,7 +27,7 @@
             $beschrijving_product = $_POST['beschrijving_product'];
             $startprijs = $_POST['startprijs'];
             $laagste_rubriek = $_POST['laagste_rubriek'];
-
+            
 
             if(empty($_POST['verzendkosten']) ){
                 $verzendkosten = "Geen";
