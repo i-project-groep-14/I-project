@@ -152,7 +152,7 @@ create table bestand (
 /* Table: Rubriek												*/
 /*==============================================================*/
 create table rubriek (
-	rubrieknummer				numeric(3)			not null,
+	rubrieknummer				numeric(3)			identity(0,1) not null,
 	rubrieknaam					varchar(50)			not null,
 	rubriek						numeric(3)			null,
 	volgnr						numeric(3)			not null
@@ -239,6 +239,22 @@ insert into bod values (5, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour,
 insert into bod values (4, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, -4, GETDATE())))
 insert into bod values (6, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 8, GETDATE())))
 
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Hoofdrubriek', null, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Muziekinstrumenten', 0, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Gitaren', 2, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trompetten', 2, 2)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trombones', 2, 3)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Pianos', 2, 4)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Elketrische Gitaren', 3, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Acoustische Gitaren', 3, 2)
+
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Computers', 0, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Laptops', 8, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Beelschermen', 8, 2)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Toetsenborden', 8, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Muizen', 8, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Opladers', 9, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Toetsenborden', 9, 1)
 
 /*
 select count(B.voorwerpnummer) as topproducten,V.voorwerpnummer, V.titel, V.verkoopprijs, V.looptijdeindeDag, V.looptijdeindeTijdstip
