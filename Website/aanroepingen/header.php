@@ -18,15 +18,13 @@
         ));
 
         $row = $query -> fetch();
-
         $_SESSION['gebruikersnaam'] = $row['gebruikersnaam'];
         $_SESSION['voornaam'] = $row['voornaam'];
         if ($row['rol'] == 5) {
             $_SESSION['beheerder'] = true;
         }
-        /*else if($row['rol'] == 3){
-            $_SESSION['verkoper'] = true;
-        }*/
+
+        $_SESSION['rol'] = $row['rol'];
         $_SESSION['plaatsnaam'] = $row['plaatsnaam'];
         $_SESSION['land'] = $row['land'];
 

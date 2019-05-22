@@ -2,12 +2,8 @@
       $config = ['pagina' => 'voorwerpplaatsenpagina'];
       require_once 'aanroepingen/connectie.php';
       include_once 'aanroepingen/header.php';
-
-
-      //als ingelogd $gebruikersnaam = $_SESSION['gebruikersnaam']; $plaatsnaam = $_SESSION['plaatsnaam'] $landnaam = $_SESSION['landnaam'];
-      //gaat naar de database
-    
-
+     
+     
       //indicator = niet veilig is niet gesloten
     
 
@@ -23,23 +19,28 @@
 
         //$row = $query -> fetch();
         $row = $query -> rowCount();
-        if($row > 0 ){
-            $_SESSION['verkoper'] = true;   
-        }else{
+        /*if($row > 0 && isset($_SESSION['rol']) == 3){
+           
+           // echo "Rol = ".$_SESSION['rol'];
+     
+        }else if(isset($_SESSION['rol']) == 2 || isset($_SESSION['rol']) == NULL ){
             $_SESSION['verkoper'] = false;
-        }
+            //echo "Rol = ".$_SESSION['rol'];
+            
+        }*/
 
         //echo "aantal rijen: ".$row;
         //echo $gebruikersnaam;
         
-      if(isset($_SESSION['verkoper']) == false){
-        echo '<script type="text/javascript">
-            window.location = "inlogpagina.php"
-            </script>';
-        echo"niet ingelogd/geen verkoper/beheerder";
-        } //wordt nog veranderd 
+      if(isset($_SESSION['rol']) != 3){    
+        $message = "U heeft de rechten niet om deze pagina te gebruiken!".$_SESSION['rol'];
+        echo ("<script LANGUAGE='JavaScript'>
+        window.alert('$message');
+        window.location.href='index.php';
+        </script>");
+        } 
         else{
-            //echo"ugh";
+            //echo "DIT IS ROL 3 |".$_SESSION['rol'];
         }
 
         $plaatsnaam = $_SESSION['plaatsnaam'];
@@ -84,6 +85,20 @@
             }
 
             $looptijd = $_POST['loopdag'];
+
+            $sql = "SELECT gebruiker FROM verkoper WHERE gebruiker = :gebruiker ";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(':gebruiker' => $gebruikersnaam));
+
+            $row = $query -> rowCount();
+
+            if($row == 0){
+                $message = "U heeft de rechten niet om deze pagina te gebruiken!".$_SESSION['rol'];
+                echo ("<script LANGUAGE='JavaScript'>
+                window.alert('$message');
+                window.location.href='index.php';
+                </script>");
+            }
 
             //In de database zetten van product
             $sql_product = "INSERT INTO voorwerp (titel,beschrijving,startprijs,betalingswijze,betalingsinstructie,plaatsnaam,land,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verzendkosten ,verzendinstructies ,looptijdeindeTijdstip,veilingGesloten,verkoper) 
@@ -185,14 +200,7 @@
                     echo $e->getMessage();
     
                 }
-               
-                 // echo "bestand: ". 
-                   //"<img src='".$filenaam. "'>"; 
-                // echo $filenaam ;
 
-
-                 
-    
 
             }
             } catch (RuntimeException $e) {
