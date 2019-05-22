@@ -10,7 +10,7 @@
     }
 
     if(isset($_SESSION['login'])) {
-        $sql = "SELECT rol, gebruikersnaam, voornaam FROM gebruiker 
+        $sql = "SELECT rol, gebruikersnaam, voornaam, plaatsnaam, land FROM gebruiker 
                 WHERE gebruikersnaam like :gebruikersnaam";
         $query = $dbh->prepare($sql);
         $query -> execute(array(
@@ -24,10 +24,11 @@
         if ($row['rol'] == 5) {
             $_SESSION['beheerder'] = true;
         }
-        else if($row['rol'] == 3){
-            $_SESSION['verkoper_in'] = true;
-        }
-        
+        /*else if($row['rol'] == 3){
+            $_SESSION['verkoper'] = true;
+        }*/
+        $_SESSION['plaatsnaam'] = $row['plaatsnaam'];
+        $_SESSION['land'] = $row['land'];
 
         $sql = "SELECT count(*) as 'aantalveilingen' FROM voorwerp 
                 WHERE verkoper like :gebruikersnaam";
