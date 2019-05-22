@@ -124,7 +124,20 @@
                 <p> Klik <a href='inlogpagina.php'> hier </a> om mee te bieden!!!!!!!!!!</p>
               </div>";
             } else {
-              
+              echo"
+              <div class='reveal' id='exampleModal1' data-reveal>
+              <button class='close-button' data-close aria-label='Close modal' type='button'>
+              <span aria-hidden='true'>&times;</span>
+              </button>
+              <form action=''>
+                <h1 class='InlogpaginaKopje'> Bieden </h1> 
+                <i> (Bieden vanaf: € $hoogstebod)</i><Br>
+                <Br>
+                <input type='text' name='fname' placeholder='€' type='number' pattern='[-+]?[0-9]*[.,]?[0-9]+' required><br>
+                <input type='submit' class='button large expanded' value='Plaats bod'>
+              </form>
+
+              </div>";
             }
             echo "<p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>
             <p>Looptijd:</p>
