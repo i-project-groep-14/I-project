@@ -64,6 +64,8 @@ function createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mi
     ";
 }
 
+
+
 function createFotos($plek) {
     global $dbh;
     $volgendeplek = $plek+1;
@@ -83,6 +85,8 @@ function createFotos($plek) {
       </div>
     ";
 }
+
+
 
 function createBiedingen($plek) {
     global $dbh;
@@ -118,6 +122,8 @@ function createBiedingen($plek) {
     </div>";
 }
 
+
+
 function createRandomCode() {
     $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW0123456789"; 
     srand((double)microtime()*1000000); 
@@ -132,4 +138,23 @@ function createRandomCode() {
     }
 
     return $code;
+}
+
+
+function createQuestions($plek) {
+    global $dbh;
+    $volgendeplek = $plek+1;
+    $sql = "SELECT * FROM vraag
+            ORDER BY tekstvraag OFFSET $plek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+    $query = $dbh->prepare($sql);
+    $query -> execute();
+
+    $row = $query -> fetch();
+
+    echo"
+      <option value='$row[vraagnummer]'>$row[tekstvraag]</option>
+    ";
+
+    global $plek;
+    $plek += 1;
 }
