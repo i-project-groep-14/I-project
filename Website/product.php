@@ -27,14 +27,18 @@
           <div class="medium-6 columns">
             <?php
                 $sql = "SELECT filenaam FROM bestand
-                      WHERE voorwerp like :voorwerpnummer";
+                        WHERE voorwerp like :voorwerpnummer";
                 $query = $dbh->prepare($sql);
                 $query -> execute(array(
                     ':voorwerpnummer' => $_POST['voorwerp']
                 ));
 
                 $row = $query -> fetch();
-                $afbeelding = $row['filenaam'];
+                if ($row['filenaam'] == NULL) {
+                  $afbeelding = "images/imageplaceholder.png";
+                } else {
+                  $afbeelding = $row['filenaam'];
+                }
 
             echo"
             <img class='thumbnail img-product' src=$afbeelding alt='afbeelding'>
