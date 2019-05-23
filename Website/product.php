@@ -278,25 +278,12 @@
 
 <!-- Afbeelding vergroten -->
 <div id="myModal" class="modal">
-                  <span class="close">&times;</span>
-                  <img class="modal-content" id="img01">
-                  <div id="caption"></div>
-                </div>
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption">
 
-
-     <?php  
-// $sql = "INSERT INTO bod VALUES
-//                   (:voorwerpnummer, :bodbedrag, :gebruiker, :boddag, :bodtijdstip)";
-//           $query = $dbh->prepare($sql);
-//           $query -> execute(array(
-//             ':voorwerpnummer' => $,
-//             ':bodbedrag' => $voornaam,
-//             ':gebruiker' => $achternaam,
-//             ':boddag' => $adres,
-//             ':bodtijdstip' => $oAdres
-//             )
-//           );
-    ?>
+  </div>
+</div>
 
     <?php 
       include_once 'aanroepingen/footer.html';
