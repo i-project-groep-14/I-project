@@ -2,7 +2,7 @@
   <ul class="multilevel-accordion-menu vertical menu" data-accordion-menu>
     
     <?php
-      $actueleplek = 0;
+      $rubriekenplek = 0;
       $subplek = 0;
       $sql = "SELECT COUNT(*) as aantalHoofdRubrieken FROM rubriek
               WHERE rubriek = 0";
@@ -11,7 +11,7 @@
       $row = $query -> fetch();
 
       for($i = 0; $i < $row['aantalHoofdRubrieken']; $i++) {
-        $actueleplek = createRubriek($actueleplek);
+        $rubriekenplek = createRubriek($rubriekenplek);
       }
     ?>
 

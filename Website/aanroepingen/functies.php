@@ -1,5 +1,4 @@
 <?php
-
 function createRubriek($actueleplek) {
   global $dbh;
   global $plek;
@@ -216,6 +215,7 @@ function selectAantalSubRubrieken($rubrieknummer) {
 
 
 
+
 function timeDiff($firstTime,$lastTime){
     $firstTime=strtotime($firstTime);
     $lastTime=strtotime($lastTime);
@@ -266,8 +266,8 @@ function createHomepageItem($sql, $actueleplek) {
     }
     
     createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins, $voorwerpnummer);
-    global $test;
-    $test += 1;
+    global $plek;
+    $plek += 1;
 }
 
 function createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins, $voorwerpnummer) {
@@ -342,8 +342,8 @@ function createBiedingen($actueleplek) {
         <p>$gebruiker Geboden: €$bod</p>
       </div>
     </div>";
-    global $test;
-    $test += 1;
+    global $plek;
+    $plek += 1;
 }
 
 
