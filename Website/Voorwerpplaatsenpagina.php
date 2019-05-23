@@ -38,13 +38,13 @@
 
     try{
         if(isset($_POST['plaatsen_voorwerp'])) {
-            // if (strlen($_POST['titel_product']) > 30) {
-            //     echo "Het aantal karakters van de titel is te groot. Het maximale toegestane aantal karakters is 30.";
-            // } else if (strlen($_POST['beschrijving_product']) > 500) {
-            //     echo "Het aantal karakters van de titel is te groot. Het maximale toegestane aantal karakters is 500. Momenteel heeft u er ".strlen($_POST['beschrijving_product']).".";
-            // } else if (strlen($_POST['beschrijving_product']) > 500) {
+            if (strlen($_POST['titel_product']) > 30) {
+                echo "Het aantal karakters van de titel is te groot. Het maximale toegestane aantal karakters is 30.";
+            } else if (strlen($_POST['beschrijving_product']) > 500) {
+                echo "Het aantal karakters van de titel is te groot. Het maximale toegestane aantal karakters is 500. Momenteel heeft u er ".strlen($_POST['beschrijving_product']).".";
+            } else if (strlen($_POST['beschrijving_product']) > 500) {
             
-            // } else {
+            } else {
                 $titel_product = $_POST['titel_product'];
                 //$foto_product = $_POST['fileToUpload'];
 
