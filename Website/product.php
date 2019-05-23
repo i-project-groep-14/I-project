@@ -176,7 +176,7 @@
                 
               </div>
             </div>
-            <p><i style='font-size: 10px;'>(Dagen / Uren / Minuten / Seconden)</i></p>
+            <!--<p><i style='font-size: 10px;'>(Dagen / Uren / Minuten / Seconden)</i></p>-->
             </div>
             
               ";
@@ -283,7 +283,7 @@ function timer() {
   function pad(n) {
     return (n < 10 ? "0" + n : n);
   }
-  document.getElementById('countdown').innerHTML = pad(days) + ":" + pad(hours) + ":" + pad(minutes) + ":" + pad(remainingSeconds);
+  document.getElementById('countdown').innerHTML = pad(days) + "d " + pad(hours) + "h " + pad(minutes) + "m " + pad(remainingSeconds) + "s ";
   if (seconds == 0) {
     clearInterval(countdownTimer);
     document.getElementById('countdown').innerHTML = "Veiling is afgelopen!";
