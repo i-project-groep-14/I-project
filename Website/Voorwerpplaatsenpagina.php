@@ -38,9 +38,13 @@
 
     try{
         if(isset($_POST['plaatsen_voorwerp'])) {
-            if (strlen($_POST['titel_product']) > 30) {
-                echo "Het aantal karakters van de titel is te groot. Het maximale toegestane aantal karakters is 30.";
-            } else {
+            // if (strlen($_POST['titel_product']) > 30) {
+            //     echo "Het aantal karakters van de titel is te groot. Het maximale toegestane aantal karakters is 30.";
+            // } else if (strlen($_POST['beschrijving_product']) > 500) {
+            //     echo "Het aantal karakters van de titel is te groot. Het maximale toegestane aantal karakters is 500. Momenteel heeft u er ".strlen($_POST['beschrijving_product']).".";
+            // } else if (strlen($_POST['beschrijving_product']) > 500) {
+            
+            // } else {
                 $titel_product = $_POST['titel_product'];
                 //$foto_product = $_POST['fileToUpload'];
 
@@ -48,27 +52,27 @@
                 $startprijs = $_POST['startprijs'];
                 $laagste_rubriek = $_POST['laagste_rubriek'];
                 
-                if (empty($_POST['verzendkosten']) ){
+                if (empty($_POST['verzendkosten']) ) {
                     $verzendkosten = "Geen";
-                } else{
+                } else {
                     $verzendkosten = $_POST['verzendkosten'];
-                } 
+                }
 
-                if (empty($_POST['verzend_details'])){
+                if (empty($_POST['verzend_details'])) {
                     $verzendinstructie = "Geen";
-                } else{
+                } else {
                     $verzendinstructie = $_POST['verzend_details'];
                 }
 
-                if (empty($_POST['betalingsinstructie'])){
+                if (empty($_POST['betalingsinstructie'])) {
                     $betalingsinstructie = "Geen";
-                } else{
+                } else {
                     $betalingsinstructie = $_POST['betalingsinstructie'];
                 }
 
-                if ($_POST['betaal_methode'] == -1){
+                if ($_POST['betaal_methode'] == -1) {
                     echo"Vul a.u.b";
-                } else{
+                } else {
                     $betalingswijze = $_POST['betaal_methode']; 
                 }
 
@@ -82,7 +86,7 @@
 
                 $row = $query -> rowCount();
 
-                if($row == 0){
+                if($row == 0) {
                     $message = "U heeft de rechten niet om deze pagina te gebruiken!".$_SESSION['rol'];
                     echo ("<script LANGUAGE='JavaScript'>
                     window.alert('$message');
@@ -189,7 +193,7 @@
                 } catch (RuntimeException $e) {
                     echo $e->getMessage();
                 }
-            }
+            // }
         }
     } catch (RuntimeException $e) {
         echo $e->getMessage();
@@ -320,7 +324,9 @@
                         </div>				
 					</div>
                     <div class="medium-12 cell">
-                    <input type="submit" class="veilingknop button" name="plaatsen_voorwerp" value="Plaatsen" onclick="location.href = 'index.php';">
+                    <input type="submit" class="veilingknop button" name="plaatsen_voorwerp" value="Plaatsen" 
+                    <?php //onclick="location.href = 'index.php';" ?>
+                    >
                 </div>
             </div>
         </form>
