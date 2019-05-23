@@ -42,37 +42,6 @@ function createRubriek($actueleplek) {
   return $actueleplek+1;
 }
 
-//   // <li>
-//   //   <a href="rubriekenpagina.php"><i class="fi-folder-add"></i> Item 1</a>
-//   //   <ul class="menu vertical sublevel-1">
-// // // //   //     <li>
-// // // //   //       <a href="rubriekenpagina.php">Sub-item 1</a>
-// // // //   //       <ul class="menu vertical sublevel-2">
-// // // //   //         <li><a  href="rubriekenpagina.php">Thing 1</a></li>
-// // // //   //         <li><a href="rubriekenpagina.php">Thing 2</a></li>
-// // // //   //         <li><a  href="rubriekenpagina.php">Thing 3</a></li>
-// // // //   //       </ul>
-// // // //   //     </li>
-// // // //   //     <li>
-// // // //   //       <a href="rubriekenpagina.php">Sub-item 2</a>
-// // // //   //       <ul class="menu vertical sublevel-2">
-// // // //   //         <li>
-// // // //   //           <a href="rubriekenpagina.php">Super-sub-item 1</a>
-// // // //   //           <ul class="menu vertical sublevel-3">
-// // // //   //             <li><a class="subitem" href="rubriekenpagina.php">Thing 1</a></li>
-// // // //   //             <li><a class="subitem" href="rubriekenpagina.php">Thing 2</a></li>
-// // // //   //           </ul>
-// // // //   //         </li>
-// // // //   //         <li><a class="subitem" href="rubriekenpagina.php">Thing 2</a></li>
-// // // //   //       </ul>
-// // // //   //     </li>
-// // // //   //     <li><a class="subitem" href="rubriekenpagina.php">Thing 1</a></li>
-// // // //   //     <li><a class="subitem" href="rubriekenpagina.php">Thing 2</a></li>
-//   //   </ul>
-//   //   <li><a class="subitem" href="rubriekenpagina.php">Thing 1</a></li>
-//   //   <li><a class="subitem" href="rubriekenpagina.php">Thing 2</a></li>
-//   // </li>
-
 function createSubRubrieken($parentRubriekNummer, $sublevel, $subplek) {
   $aantalSubrieken = selectAantalSubRubrieken($parentRubriekNummer);
   global $subsubplek;
@@ -86,26 +55,24 @@ function createSubRubrieken($parentRubriekNummer, $sublevel, $subplek) {
       <li>
         <a href='rubriekenpagina.php'>
           <i class='";
-            if (heeftSubriek($subrubrieknummer)) { echo"fi-folder-add"; }
+            if (heeftSubriek($subrubrieknummer)) { echo"fi-folder-add"; } else { echo"subitem"; }
             echo    "'>
           </i> $subrubrieknaam
         </a>
     ";
 
     if (heeftSubriek($subrubrieknummer)) {
+      echo "test";
 
       echo "
         <ul class='menu vertical sublevel-$sublevel'>
       ";
 
       $aantalSubrieken = selectAantalSubRubrieken($subrubrieknummer);
-  
+
       for($i = 0; $i < $aantalSubrieken; $i++) {
         $subsubplek = createSubRubrieken($subrubrieknummer, $sublevel+1, $subsubplek);
       }
-
-      // $subplek = createSubRubrieken($subrubrieknummer, $sublevel+1, $subplek);
-      // $subsubplek = createSubRubrieken($subrubrieknummer, $sublevel+1, $subsubplek);
       
       echo "
         </ul>
@@ -115,98 +82,10 @@ function createSubRubrieken($parentRubriekNummer, $sublevel, $subplek) {
     echo "
       </li>
     ";
-    
-    // global $subplek;
-    // $subplek += 1;
+
     return $subplek+1;
   }
-
-
-
-
-  //   $test++;
-  // echo "
-  //   <li>
-  //     <a href='rubriekenpagina.php'><i class='fi-folder-add'></i> test</a>
-  // ";
-
-  // if (heeftSubriek($parentRubriekNummer)) {
-  //   echo "
-  //     <ul class='menu vertical sublevel-$sublevel'>
-  //   ";
-  //   createSubRubrieken($parentRubriekNummer, $sublevel+1);
-  //   echo "
-  //     </ul>
-  //   ";
-  // } else {
-  //   echo "
-  //     <li><a class='subitem' href='rubriekenpagina.php'>...</a></li>
-  //   ";
-  // }
-
-  // echo "
-  //   </li>
-  // ";
-
-
-    // global $test;
-    // $aantalSubrieken = selectAantalSubRubrieken($test, $parentRubriekNummer);
-    
-    // for($i = 0; $i < $aantalSubrieken; $i++) {
-    //   $subrubriek = selectSubRubriekNaam($parentRubriekNummer);
-    //   $test++;
-
-    //   if (heeftSubriek($subrubriek)) {
-    //     // createSubRubriekenMetSubrubrieken($subrubriek, $sublevel+1);
-
-        
-    //   } else {
-    //     echo"
-    //       <li><a class='subitem' href='rubriekenpagina.php'>$subrubriek</a></li>
-    //     ";
-    //   }
-    // }
-
-
-    // global $test;
-    // $aantalSubrieken = selectAantalSubRubrieken($test, $row['rubrieknummer']);
-    // echo "
-    //   <ul class='menu vertical sublevel-1'>
-    //     <li>
-    // ";
-    // for($i = 0; $i < $aantalSubrieken; $i++) {
-    //   $subrieken = selectSubRubriekNaam($test, $row['rubrieknummer']);
-    //   echo"
-    //         <li><a class='subitem' href='rubriekenpagina.php'>$subrieken</a></li>
-    //   ";
-    //   echo $test;
-    // }
-
-    // echo "
-    //     </li>
-    //   </ul>
-    // ";
 }
-
-// function createSubRubriekenMetSubrubrieken($subrubriek, $sublevel) {
-//     echo "
-//       <ul class='menu vertical sublevel-$sublevel'>
-//     ";
-  
-//   //     <li>
-//   //       <a href="rubriekenpagina.php">Sub-item 1</a>
-//   //       <ul class="menu vertical sublevel-2">
-//   //         <li><a  href="rubriekenpagina.php">Thing 1</a></li>
-//   //         <li><a href="rubriekenpagina.php">Thing 2</a></li>
-//   //         <li><a  href="rubriekenpagina.php">Thing 3</a></li>
-//   //       </ul>
-//   //     </li>
-//   //     <li>
-
-//     echo "
-//       </ul>
-//     ";
-// }
 
 function heeftSubriek($rubrieknummer) {
   global $dbh;

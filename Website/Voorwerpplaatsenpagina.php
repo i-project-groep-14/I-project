@@ -1,17 +1,17 @@
 <?php
-      $config = ['pagina' => 'voorwerpplaatsenpagina'];
-      require_once 'aanroepingen/connectie.php';
-      include_once 'aanroepingen/header.php';
+    $config = ['pagina' => 'voorwerpplaatsenpagina'];
+    require_once 'aanroepingen/connectie.php';
+    include_once 'aanroepingen/header.php';
      
      
       //indicator = niet veilig is niet gesloten
     
 
-        if(isset($_SESSION['gebruikersnaam'])){
-            $gebruikersnaam = $_SESSION['gebruikersnaam'];
-        }else{
-            $gebruikersnaam = ' ';
-        }
+        // if (isset($_SESSION['gebruikersnaam'])){
+    $gebruikersnaam = $_SESSION['gebruikersnaam'];
+        // } else{
+            // $gebruikersnaam = ' ';
+        // }
 
         $sql = "SELECT gebruiker FROM verkoper WHERE gebruiker = :gebruiker ";
         $query = $dbh->prepare($sql);
@@ -21,16 +21,16 @@
         $row = $query -> rowCount();
       
         
-      if(isset($_SESSION['rol']) != 3){    
+      if($_SESSION['rol'] == 2) {
         $message = "U heeft de rechten niet om deze pagina te gebruiken!".$_SESSION['rol'];
-        echo ("<script LANGUAGE='JavaScript'>
-        window.alert('$message');
-        window.location.href='index.php';
+        echo ("<script 
+            LANGUAGE='JavaScript'>
+            window.alert('$message');
+            window.location.href='index.php';
         </script>");
-        } 
-        else{
-            //echo "DIT IS ROL 3 |".$_SESSION['rol'];
-        }
+        } //else {
+            // echo "DIT IS ROL 3 |".$_SESSION['rol'];
+        // }
 
         $plaatsnaam = $_SESSION['plaatsnaam'];
         $landnaam = $_SESSION['land'];
@@ -226,112 +226,112 @@
 
 
 <div class="holy-grail-middle">
-<h1>DEZE PAGINA IS IN BEWERKING</h1>
-			<br>
-			<h2 class="HomepaginaKopjes center">Voorwerp Plaatsen</h2>
-			<div class="">
-				<p class="center">Op deze pagina kan er een voorwerp worden geplaatst, vul a.u.b. alle gegevens in.</p>
-				<form action="Voorwerpplaatsenpagina.php" method="post" enctype="multipart/form-data">
-					<div class="grid-container">
-						<div class="grid-x grid-padding-x">
-							<div class="medium-12 cell">
-								<label>Titel product:</label>
-								<input type="text" placeholder="Titel van uw product" name="titel_product" value="" required>
-                            </div>
-                            <div class="medium-12 cell">
+    <h1>DEZE PAGINA IS IN BEWERKING</h1>
+	<br>
+	<h2 class="HomepaginaKopjes center">Voorwerp Plaatsen</h2>
+		<div class="">
+			<p class="center">Op deze pagina kan er een voorwerp worden geplaatst, vul a.u.b. alle gegevens in.</p>
+			<form action="Voorwerpplaatsenpagina.php" method="post" enctype="multipart/form-data">
+				<div class="grid-container">
+					<div class="grid-x grid-padding-x">
+						<div class="medium-12 cell">
+							<label>Titel product:</label>
+							<input type="text" placeholder="Titel van uw product" name="titel_product" value="" required>
+                        </div>
+                        <div class="medium-12 cell">
   
-                                <label>Rubriek: </label>
-                                <select name="laagste_rubriek"> 
-                                    <option value="-1">Rubriek</option>
-                                    <optgroup label="Rubriek1">
-                                        <option value="5">SubSubSubRubriek1</option>
-                                        <option value="6">SubSubSubRubriek2</option>
-                                        <option value="7">SubSubSubRubriek3</option>
-                                        <option value="8">SubSubSubRubriek4</option>
-                                    </optgroup>
-                                    <optgroup label="Rubriek2">
-                                        <option value="9">SubSubSubRubriek1</option>
-                                        <option value="10">SubSubSubRubriek2</option>
-                                        <option value="11">SubSubRubriek - SubSubSubRubriek3</option>
-                                        <option value="12">SubSubRubriek - SubSubSubRubriek4</option>
-                                    </optgroup>
-                                    <optgroup label="Rubriek3">
-                                        <option value="13">SubSubSubRubriek1</option>
-                                        <option value="14">SubSubSubRubriek2</option>
-                                        <option value="15">SubSubSubRubriek3</option>
-                                        <option value="16">SubSubSubRubriek4</option>
-                                    </optgroup>
-                                    <optgroup label="Rubriek4">
-                                        <option value="17">SubSubSubRubriek1</option>
-                                        <option value="18">SubSubSubRubriek2</option>
-                                        <option value="19">SubSubSubRubriek3</option>
-                                        <option value="20">SubSubSubRubriek4</option>
-                                    </optgroup>
-                                </select>
+                            <label>Rubriek: </label>
+                            <select name="laagste_rubriek"> 
+                                <option value="-1">Rubriek</option>
+                                <optgroup label="Rubriek1">
+                                    <option value="5">SubSubSubRubriek1</option>
+                                    <option value="6">SubSubSubRubriek2</option>
+                                    <option value="7">SubSubSubRubriek3</option>
+                                    <option value="8">SubSubSubRubriek4</option>
+                                </optgroup>
+                                <optgroup label="Rubriek2">
+                                    <option value="9">SubSubSubRubriek1</option>
+                                    <option value="10">SubSubSubRubriek2</option>
+                                    <option value="11">SubSubRubriek - SubSubSubRubriek3</option>
+                                    <option value="12">SubSubRubriek - SubSubSubRubriek4</option>
+                                </optgroup>
+                                <optgroup label="Rubriek3">
+                                    <option value="13">SubSubSubRubriek1</option>
+                                    <option value="14">SubSubSubRubriek2</option>
+                                    <option value="15">SubSubSubRubriek3</option>
+                                    <option value="16">SubSubSubRubriek4</option>
+                                </optgroup>
+                                <optgroup label="Rubriek4">
+                                    <option value="17">SubSubSubRubriek1</option>
+                                    <option value="18">SubSubSubRubriek2</option>
+                                    <option value="19">SubSubSubRubriek3</option>
+                                    <option value="20">SubSubSubRubriek4</option>
+                                </optgroup>
+                            </select>
                                 
-                                <!--
-                                    Laagste level wordt meegenomen
-                                    Laten zien van de rubrieknaam en de bovenste level van dit rubriek zodat het beter is voor dubbele namen
-                                -->
-                            </div>	
+                            <!--
+                                Laagste level wordt meegenomen
+                                Laten zien van de rubrieknaam en de bovenste level van dit rubriek zodat het beter is voor dubbele namen
+                            -->
+                        </div>	
 
-                            <div class="medium-12 cell beschrijving">
-                                <label>Beschrijving:</label>
-                                <textarea rows="3" name="beschrijving_product" onKeyDown="charLimit(this.form.limitedtextarea,this.form.countdown,100);" required></textarea>
-                            </div>
+                        <div class="medium-12 cell beschrijving">
+                            <label>Beschrijving:</label>
+                            <textarea rows="3" name="beschrijving_product" onKeyDown="charLimit(this.form.limitedtextarea,this.form.countdown,100);" required></textarea>
+                        </div>
 
-                            <div class="medium-12 cell">
-								<label>Startprijs:</label>
-								<input type="number" name="startprijs"  min="0.01" max="10000.00" step="0.01" required>
-							</div>
+                        <div class="medium-12 cell">
+							<label>Startprijs:</label>
+							<input type="number" name="startprijs"  min="0.01" max="10000.00" step="0.01" required>
+						</div>
 
-                            <div class="medium-12 cell">
-                                <label> Voeg foto's toe</label>
-                                <input type="file" name="upfile" id="upfile"  accept="image/*" multiple="" required>
-							</div>
+                        <div class="medium-12 cell">
+                            <label> Voeg foto's toe</label>
+                            <input type="file" name="upfile" id="upfile"  accept="image/*" multiple="" required>
+						</div>
 		
-							<div class="medium-12 cell">
-                                <label> Betaalmethode </label>
-                                    <select class = "meerkeuzevak" name="betaal_methode" required>
-                                        <option value="-1">Kies een betaalmethode...</option>
-                                        <option value="iDeal">iDeal</option>
-                                        <option value="PayPal">PayPal</option>
-                                        <option vlaue="Creditcard">Creditcard</option>
-                                        <option value="ZelfOphalen">Zelf ophalen</option>
-                                    </select>
-							</div>
-                            <div class="medium-12 cell">
-								<label>Betalingsinstructie: (Optioneel)</label>
-								<input type="text" name="betalingsinstructie" >
-							</div>
-						
-							<div class="medium-12 cell">
-								<label>Verzendkosten: (Optioneel)</label>
-								<input type="text" name="verzendkosten" >
-							</div>
-						
-							<div class="medium-12 cell">
-								<label>Verzend details: (Optioneel)</label>
-								<input type="text" name="verzend_details" >                    
-							</div>
-						    <div class="medium-12 cell">
-                                <label> Looptijd: </label>
-                                    <select class = "meerkeuzevak" name="loopdag"> 
-                                         <option value="1">1 Dag</option>
-                                         <option value="3">3 Dagen</option>
-                                         <option value="5">5 Dagen</option>
-                                         <option value="7" selected>7 Dagen</option>
-                                         <option value="10">10 Dagen</option>                             
-                                    </select>
-                            </div>				
+						<div class="medium-12 cell">
+                            <label> Betaalmethode </label>
+                            <select class = "meerkeuzevak" name="betaal_methode" required>
+                                <option value="-1">Kies een betaalmethode...</option>
+                                <option value="iDeal">iDeal</option>
+                                <option value="PayPal">PayPal</option>
+                                <option vlaue="Creditcard">Creditcard</option>
+                                <option value="ZelfOphalen">Zelf ophalen</option>
+                            </select>
 						</div>
                         <div class="medium-12 cell">
-                        <Input type="submit" class="veilingknop button" name="plaatsen_voorwerp" value="Plaatsen" onclick="location.href = 'index.php';>
-                    </div>
-                    </div>
-              </form>
+							<label>Betalingsinstructie: (Optioneel)</label>
+							<input type="text" name="betalingsinstructie" >
+						</div>
+						
+						<div class="medium-12 cell">
+							<label>Verzendkosten: (Optioneel)</label>
+							<input type="text" name="verzendkosten" >
+						</div>
+						
+						<div class="medium-12 cell">
+							<label>Verzend details: (Optioneel)</label>
+							<input type="text" name="verzend_details" >                    
+						</div>
+						<div class="medium-12 cell">
+                            <label> Looptijd: </label>
+                            <select class = "meerkeuzevak" name="loopdag"> 
+                                <option value="1">1 Dag</option>
+                                <option value="3">3 Dagen</option>
+                                <option value="5">5 Dagen</option>
+                                <option value="7" selected>7 Dagen</option>
+                                <option value="10">10 Dagen</option>                             
+                            </select>
+                        </div>				
+					</div>
+                    <div class="medium-12 cell">
+                    <input type="submit" class="veilingknop button" name="plaatsen_voorwerp" value="Plaatsen" onclick="location.href = 'index.php';">
+                </div>
             </div>
-        </div>
+        </form>
+    </div>
+</div>
 <?php 
-      include_once 'aanroepingen/footer.html';
+    include_once 'aanroepingen/footer.html';
 ?>
