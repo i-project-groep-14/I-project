@@ -234,7 +234,7 @@ function createFotos($actueleplek) {
             ORDER BY filenaam OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
     $query = $dbh->prepare($sql);
     $query -> execute(array(
-        ':voorwerpnummer' => $_POST['voorwerp']
+        ':voorwerpnummer' => $_SESSION['voorwerp']
     ));
 
     $row = $query -> fetch();
@@ -260,7 +260,7 @@ function createBiedingen($actueleplek) {
             ORDER BY bodtijdstip DESC OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
     $query = $dbh->prepare($sql);
     $query -> execute(array(
-        ':voorwerpnummer' => $_POST['voorwerp']
+        ':voorwerpnummer' => $_SESSION['voorwerp']
     ));
 
     $row = $query -> fetch();
