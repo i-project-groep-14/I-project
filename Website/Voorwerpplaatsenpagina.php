@@ -4,72 +4,70 @@
     include_once 'aanroepingen/header.php';
      
      
-      //indicator = niet veilig is niet gesloten
+    //indicator = niet veilig is niet gesloten
     
 
-        // if (isset($_SESSION['gebruikersnaam'])){
+    // if (isset($_SESSION['gebruikersnaam'])){
     $gebruikersnaam = $_SESSION['gebruikersnaam'];
-        // } else{
-            // $gebruikersnaam = ' ';
-        // }
+    // } else{
+        // $gebruikersnaam = ' ';
+    // }
 
-        $sql = "SELECT gebruiker FROM verkoper WHERE gebruiker = :gebruiker ";
-        $query = $dbh->prepare($sql);
-        $query -> execute(array(':gebruiker' => $gebruikersnaam));
+    $sql = "SELECT gebruiker FROM verkoper WHERE gebruiker = :gebruiker ";
+    $query = $dbh->prepare($sql);
+    $query -> execute(array(':gebruiker' => $gebruikersnaam));
 
-        //$row = $query -> fetch();
-        $row = $query -> rowCount();
+    //$row = $query -> fetch();
+    $row = $query -> rowCount();
       
         
-      if($_SESSION['rol'] == 2) {
+    if($_SESSION['rol'] == 2) {
         $message = "U heeft de rechten niet om deze pagina te gebruiken!".$_SESSION['rol'];
         echo ("<script 
             LANGUAGE='JavaScript'>
             window.alert('$message');
             window.location.href='index.php';
         </script>");
-        } //else {
-            // echo "DIT IS ROL 3 |".$_SESSION['rol'];
-        // }
+    } //else {
+        // echo "DIT IS ROL 3 |".$_SESSION['rol'];
+    // }
 
         $plaatsnaam = $_SESSION['plaatsnaam'];
         $landnaam = $_SESSION['land'];
 
 
-      try{
+    try{
 
-        if(isset($_POST['plaatsen_voorwerp'])){
+        if(isset($_POST['plaatsen_voorwerp'])) {
 
             $titel_product = $_POST['titel_product'];
             //$foto_product = $_POST['fileToUpload'];
-
 
             $beschrijving_product = $_POST['beschrijving_product'];
             $startprijs = $_POST['startprijs'];
             $laagste_rubriek = $_POST['laagste_rubriek'];
             
-
-            if(empty($_POST['verzendkosten']) ){
+            if (empty($_POST['verzendkosten']) ){
                 $verzendkosten = "Geen";
-            }else{
+            } else{
                 $verzendkosten = $_POST['verzendkosten'];
             } 
 
-            if(empty($_POST['verzend_details'])){
+            if (empty($_POST['verzend_details'])){
                 $verzendinstructie = "Geen";
-            }else{
+            } else{
                 $verzendinstructie = $_POST['verzend_details'];
             }
 
-            if(empty($_POST['betalingsinstructie'])){
+            if (empty($_POST['betalingsinstructie'])){
                 $betalingsinstructie = "Geen";
-            }else{
+            } else{
                 $betalingsinstructie = $_POST['betalingsinstructie'];
             }
 
-            if($_POST['betaal_methode'] == -1){
+            if ($_POST['betaal_methode'] == -1){
                 echo"Vul a.u.b";
-            }else{
+            } else{
                 $betalingswijze = $_POST['betaal_methode']; 
             }
 
@@ -77,7 +75,9 @@
 
             $sql = "SELECT gebruiker FROM verkoper WHERE gebruiker = :gebruiker ";
             $query = $dbh->prepare($sql);
-            $query -> execute(array(':gebruiker' => $gebruikersnaam));
+            $query -> execute(array(
+                ':gebruiker' => $gebruikersnaam
+            ));
 
             $row = $query -> rowCount();
 
@@ -91,7 +91,7 @@
 
             //In de database zetten van product
             $sql_product = "INSERT INTO voorwerp (titel,beschrijving,startprijs,betalingswijze,betalingsinstructie,plaatsnaam,land,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verzendkosten ,verzendinstructies ,looptijdeindeTijdstip,veilingGesloten,verkoper) 
-            VALUES (:titel ,:beschrijving ,:startprijs ,:betalingswijze ,:betalingsinstructie ,:plaatsnaam ,:land ,:looptijd ,GETDATE() ,CURRENT_TIMESTAMP ,:verzendkosten ,:verzendinstructie ,CURRENT_TIMESTAMP ,'niet',:verkoper)";
+                            VALUES (:titel ,:beschrijving ,:startprijs ,:betalingswijze ,:betalingsinstructie ,:plaatsnaam ,:land ,:looptijd ,GETDATE() ,CURRENT_TIMESTAMP ,:verzendkosten ,:verzendinstructie ,CURRENT_TIMESTAMP ,'niet',:verkoper)";
             $query_product = $dbh->prepare($sql_product);
             $query_product -> execute(array(
                 ':titel' => $titel_product, 
@@ -105,13 +105,10 @@
                 ':verzendkosten' => $verzendkosten,
                 ':verzendinstructie' => $verzendinstructie,
                 ':verkoper' => $gebruikersnaam
-                        
              ));
 
-
             //FOTOS UPLOADEN
-
-            try{
+            try {
                 //Is dit bestand wel goed
                 if (
                     !isset($_FILES['upfile']['error']) ||
@@ -139,68 +136,62 @@
                 
                 //Welke bestanden worden geaccepteert, gecheckt of deze eraan voldoen
                 $finfo = new finfo(FILEINFO_MIME_TYPE);
-                    if (false === $ext = array_search(
-                        $finfo->file($_FILES['upfile']['tmp_name']),
-                        array(
-                            'jpg' => 'image/jpeg',
-                            'png' => 'image/png',
-                            'gif' => 'image/gif',
-                        ), true )) {
-                        throw new RuntimeException('Bestand niet geldig.');
-                    }
-                    //Verplaatsen van afbeeldingen, hier wordt ook de lange unieke naam gegenergeerd met sha1_file en samengevoegd met sprintf
+                if (false === $ext = array_search(
+                    $finfo->file($_FILES['upfile']['tmp_name']),
+                    array(
+                        'jpg' => 'image/jpeg',
+                        'png' => 'image/png',
+                        'gif' => 'image/gif',
+                    ), true )) {
+                    throw new RuntimeException('Bestand niet geldig.');
+                }
+                //Verplaatsen van afbeeldingen, hier wordt ook de lange unieke naam gegenergeerd met sha1_file en samengevoegd met sprintf
                     
-                    $filenaam = sprintf('.\Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name']),  $ext);
-                    $i = 1;
-                    while(file_exists($filenaam)){
-                        $filenaam = sprintf('.\Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name']).$i,  $ext);
-                        $i++;
-                        if($i == 150){
-                            $i = 1;
-                            echo"Geef een andere naam aan het bestand!";
-                        }
+                $filenaam = sprintf('.\Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name']),  $ext);
+                $i = 1;
+                while (file_exists($filenaam)) {
+                    $filenaam = sprintf('.\Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name']).$i,  $ext);
+                    $i++;
+                    if($i == 150) {
+                        $i = 1;
+                        echo"Geef een andere naam aan het bestand!";
                     }
+                }
 
-                    if (!$filenaam){
-                        throw new RuntimeException('Kan bestand niet in de database zetten.');
-                    }
+                if (!$filenaam){
+                    throw new RuntimeException('Kan bestand niet in de database zetten.');
+                }
 
-                    if(!move_uploaded_file($_FILES['upfile']['tmp_name'],$filenaam)){
-                        //throw new RuntimeException('Kan bestand niet verplaatsen.');
-                    }
+                if(!move_uploaded_file($_FILES['upfile']['tmp_name'],$filenaam)){
+                    //throw new RuntimeException('Kan bestand niet verplaatsen.');
+                }
                     
                    
 
-                    $sql = "SELECT voorwerpnummer FROM voorwerp 
-                            WHERE titel = :titel AND beschrijving = :beschrijving AND startprijs = :startprijs AND betalingswijze = :betalingswijze";
-                    $query = $dbh->prepare($sql);
-                    $query -> execute(array(
-                        ':titel' => $titel_product, 
-                        ':beschrijving' => $beschrijving_product,
-                        ':startprijs' => $startprijs,
-                        ':betalingswijze' => $betalingswijze
-                    ));
+                $sql = "SELECT voorwerpnummer FROM voorwerp 
+                        WHERE titel = :titel AND beschrijving = :beschrijving AND startprijs = :startprijs AND betalingswijze = :betalingswijze";
+                $query = $dbh->prepare($sql);
+                $query -> execute(array(
+                    ':titel' => $titel_product, 
+                    ':beschrijving' => $beschrijving_product,
+                    ':startprijs' => $startprijs,
+                    ':betalingswijze' => $betalingswijze
+                ));
 
-                    $row = $query -> fetch();
+                $row = $query -> fetch();
 
-                    $sql_foto = "INSERT INTO bestand (filenaam, voorwerp) VALUES (:filenaam, :voorwerp)";
-                    $query_foto = $dbh->prepare($sql_foto);
-                    $query_foto -> execute(array(':filenaam' => $filenaam, ':voorwerp' => $row['voorwerpnummer']));
+                $sql_foto = "INSERT INTO bestand (filenaam, voorwerp) VALUES (:filenaam, :voorwerp)";
+                $query_foto = $dbh->prepare($sql_foto);
+                $query_foto -> execute(array(':filenaam' => $filenaam, ':voorwerp' => $row['voorwerpnummer']));
 
         
-                }catch (RuntimeException $e) {
-
-                    echo $e->getMessage();
-    
-                }
-
-
-            }
             } catch (RuntimeException $e) {
-
-                 echo $e->getMessage();
-
+                echo $e->getMessage();
             }
+        }
+    } catch (RuntimeException $e) {
+        echo $e->getMessage();
+    }
 
 
 
@@ -220,7 +211,7 @@
             limitField.value = limitField.value.substring(0, limitNum);
         } else {
             limitCount.value = limitNum - limitField.value.length;
-            }
+        }
     }
 </script>
 
@@ -230,7 +221,8 @@
 	<br>
 	<h2 class="HomepaginaKopjes center">Voorwerp Plaatsen</h2>
 		<div class="">
-			<p class="center">Op deze pagina kan er een voorwerp worden geplaatst, vul a.u.b. alle gegevens in.</p>
+            <p class="center">Op deze pagina kan er een voorwerp worden geplaatst, vul a.u.b. alle gegevens in.</p>
+            
 			<form action="Voorwerpplaatsenpagina.php" method="post" enctype="multipart/form-data">
 				<div class="grid-container">
 					<div class="grid-x grid-padding-x">
