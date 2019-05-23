@@ -31,7 +31,7 @@
               $plek = 0;
               $gebruikersnaam = $_SESSION['gebruikersnaam'];
               for($i = 0; $i < $aantalveilingen; $i++) {
-                createHomepageItem("SELECT titel, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip, voorwerpnummer FROM voorwerp 
+                createHomepageItem("SELECT titel, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip, voorwerpnummer, startprijs FROM voorwerp 
                                     WHERE verkoper like '%$gebruikersnaam%' and veilingGesloten = 'niet' ORDER BY titel", $plek);
               }
               echo "</div>";
@@ -46,9 +46,9 @@
           $plek = 0;
           for($i = 0; $i < 4; $i++) {
             createHomepageItem("SELECT count(b.voorwerpnummer) as topproducten, v.voorwerpnummer, v.titel, v.verkoopprijs, v.looptijdeindeDag,
-                        v.looptijdeindeTijdstip FROM voorwerp v inner join bod b on v.voorwerpnummer = b.voorwerpnummer
+                        v.looptijdeindeTijdstip, v.startprijs FROM voorwerp v inner join bod b on v.voorwerpnummer = b.voorwerpnummer
                         WHERE veilingGesloten = 'niet'
-                        GROUP BY b.voorwerpnummer, v.voorwerpnummer, v.titel, v.verkoopprijs, v.looptijdeindeDag, v.looptijdeindeTijdstip
+                        GROUP BY b.voorwerpnummer, v.voorwerpnummer, v.titel, v.verkoopprijs, v.looptijdeindeDag, v.looptijdeindeTijdstip, v.startprijs
                         ORDER BY topproducten desc", $plek
             );
           }
@@ -60,7 +60,7 @@
         <?php
           $plek = 0;
           for($i = 0; $i < 4; $i++) {
-            createHomepageItem("SELECT titel, voorwerpnummer, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp 
+            createHomepageItem("SELECT titel, voorwerpnummer, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip, startprijs FROM voorwerp 
                                 WHERE veilingGesloten = 'niet' and (
                                 looptijdeindeTijdstip >= CONVERT(TIME,GETDATE()) or
                                 looptijdeindeTijdstip < CONVERT(TIME,GETDATE()))
@@ -74,7 +74,7 @@
         <?php
           $plek = 0;
           for($i = 0; $i < 4; $i++) {
-            createHomepageItem("SELECT titel, voorwerpnummer, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp 
+            createHomepageItem("SELECT titel, voorwerpnummer, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip, startprijs FROM voorwerp 
                             WHERE veilingGesloten = 'niet' and (
                             looptijdbeginTijdstip >= CONVERT(TIME,GETDATE()) or
                             looptijdbeginTijdstip < CONVERT(TIME,GETDATE()))
