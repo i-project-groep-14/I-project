@@ -62,8 +62,6 @@ function createSubRubrieken($parentRubriekNummer, $sublevel, $subplek) {
     ";
 
     if (heeftSubriek($subrubrieknummer)) {
-      echo "test";
-
       echo "
         <ul class='menu vertical sublevel-$sublevel'>
       ";
