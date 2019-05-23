@@ -23,13 +23,15 @@
           )
         );
 
-        // $sql = "INSERT INTO gebruikerstelefoon VALUES (:gebruiker, :telefoon)";
-        // $query = $dbh->prepare($sql);
-        // $query -> execute(array(
-        //   ':gebruiker' => $gebruikersnaam,
-        //   ':telefoon' => $telefoonnr1
-        //   )
-        // );
+        $sql = "UPDATE voorwerp
+                SET verkoopprijs = :bod
+                WHERE voorwerpnummer = :voorwerpnummer";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(
+          ':bod' => $bod,
+          ':voorwerpnummer' => $voorwerpnummer
+          )
+        );
       }
 
     ?>
