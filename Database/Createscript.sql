@@ -14,10 +14,6 @@ drop database EenmaalAndermaal
 create database EenmaalAndermaal
 
 use EenmaalAndermaal
-/*
-select * from gebruiker
-select * from verkoper
-*/
 
 /*==============================================================*/
 /* Table: Gebruiker												*/
@@ -250,9 +246,9 @@ insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Muziekinstrumenten',
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Gitaren', 1, 1)
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trompetten', 1, 2)
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trombones', 1, 3)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Pianos', 1, 4)/*
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Pianos', 1, 4)
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Elektrische Gitaren', 2, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Acoustische Gitaren', 2, 2)*/
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Acoustische Gitaren', 2, 2)
 
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Computers', 0, 2)
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Laptops', 6, 1)
