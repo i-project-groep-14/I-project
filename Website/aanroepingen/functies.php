@@ -99,10 +99,12 @@ function createSubRubrieken($parentRubriekNummer, $sublevel, $subplek) {
       ";
 
       $aantalSubrieken = selectAantalSubRubrieken($subrubrieknummer);
-  
+      // $test = $subplek;
       for($i = 0; $i < $aantalSubrieken; $i++) {
         $subsubplek = createSubRubrieken($subrubrieknummer, $sublevel+1, $subsubplek);
+        // $subplek = createSubRubrieken($subrubrieknummer, $sublevel+1, $subplek);
       }
+      // $subplek = $test;
 
       // $subplek = createSubRubrieken($subrubrieknummer, $sublevel+1, $subplek);
       // $subsubplek = createSubRubrieken($subrubrieknummer, $sublevel+1, $subsubplek);

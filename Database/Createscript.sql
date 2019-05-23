@@ -237,7 +237,7 @@ insert into bod values (3, 5, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour,
 insert into bod values (3, 8, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 7, GETDATE())))
 insert into bod values (3, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, -1, GETDATE())))
 insert into bod values (5, 5, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, -21, GETDATE())))
-insert into bod values (5, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, -41, GETDATE())))
+insert into bod values (5, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, -9, GETDATE())))
 insert into bod values (4, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, -4, GETDATE())))
 insert into bod values (6, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 8, GETDATE())))
 
@@ -260,37 +260,4 @@ insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trackpads', 9, 1)
 
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Snaren', 6, 1)
 
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Test', 0, 3)
-
-select *
-from rubriek
-
-
-/*SELECT COUNT(*) as aantalSubRubrieken FROM rubriek
-          WHERE  and rubrieknummer = 1
-
-		  select * from rubriek where rubriek = 1*/
-/*
-select count(B.voorwerpnummer) as topproducten,V.voorwerpnummer, V.titel, V.verkoopprijs, V.looptijdeindeDag, V.looptijdeindeTijdstip
-from voorwerp V inner join bod B on V.voorwerpnummer = B.voorwerpnummer
-group by B.voorwerpnummer,V.voorwerpnummer,V.titel,V.verkoopprijs,V.looptijdeindeDag,V.looptijdeindeTijdstip
-order by topproducten desc
-
-
-select 
-top 4 
-* from voorwerp
-where veilingGesloten = 'niet'
-and (
-looptijdeindeTijdstip >= CONVERT(TIME(0),GETDATE())
-or looptijdeindeTijdstip < CONVERT(TIME(0),GETDATE())
-)
-order by looptijdeindeDag asc, looptijdeindeTijdstip asc
-
-SELECT titel, voorwerpnummer, verkoopprijs, looptijdbeginDag, looptijdbeginTijdstip FROM voorwerp 
-            WHERE veilingGesloten = 'niet' and (
-            looptijdbeginTijdstip >= CONVERT(TIME,GETDATE()) or
-            looptijdbeginTijdstip < CONVERT(TIME,GETDATE()))
-            ORDER BY looptijdbeginDag desc, looptijdbeginTijdstip desc
-*/
 use master
