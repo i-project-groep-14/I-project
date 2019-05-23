@@ -589,6 +589,9 @@ footer{
 .tab-biedingen-thumb{
   width: 50px;
 }
+.tab-biedingen{
+  width: 100%;
+}
 .tabs-panel{
   height: 300px;
   overflow-x: scroll;
