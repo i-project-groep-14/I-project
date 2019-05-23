@@ -127,7 +127,7 @@
                 if (isset($hoogstebod)) {
                   echo $hoogstebod;
                 } else {
-                  echo $startprijs
+                  echo $startprijs;
                 }
                 
                 echo "</b></p>
@@ -153,7 +153,13 @@
               </button>
               <form action=''>
                 <h1 class='InlogpaginaKopje'> Bieden </h1> 
-                <i> (Bieden vanaf: € $hoogstebod)</i><Br>
+                <i> (Bieden vanaf: €";
+                if (isset($hoogstebod)) {
+                  echo $hoogstebod;
+                } else {
+                  echo $startprijs;
+                }
+                 echo ")</i><Br>
                 <Br>
                 <input type='number' name='bod'  min='$minimalebod' step='1' required>
                 <input type='submit' class='button large expanded' value='Plaats bod'>
