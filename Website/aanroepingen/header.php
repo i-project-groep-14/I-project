@@ -81,11 +81,13 @@
                             <div class='dropdown-pane' data-position='bottom' data-alignment='right'  id='example-dropdown-bottom-right' data-dropdown data-auto-focus='true'>
                               <!-- Onderdelen van de dropdown komen hier te staan -->
                                 <img src='images/profielfotoplaceholder.png' width='150px'>
-                              
                                 <p>Naam: ".$_SESSION['voornaam']."</p>
                                 <p>Aantal actieve veilingen: ".$_SESSION['aantaleigenveilingen']."</p>";
+                                 if(isset($_SESSION['rol']) == 3){
+                                echo "<a href='voorwerpplaatsenpagina.php' class='button loginbutton uitlogknop'>Voorwerp Plaatsen</a>";
+                                 }
                                 if(isset($_SESSION['beheerder'])) {
-                                    echo "<a href='beheerderspagina.php' class='button'>Beheerderspagina</a>";
+                                    echo "<a href='beheerderspagina.php' class='button loginbutton uitlogknop'>Beheerderspagina</a>";
                                 }
                                 echo "
                               <form action='index.php' method='post'>
