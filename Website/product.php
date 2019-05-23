@@ -273,7 +273,7 @@ function timer() {
   document.getElementById('countdown').innerHTML = pad(days) + ":" + pad(hours) + ":" + pad(minutes) + ":" + pad(remainingSeconds);
   if (seconds == 0) {
     clearInterval(countdownTimer);
-    document.getElementById('countdown').innerHTML = "Completed";
+    document.getElementById('countdown').innerHTML = "Veiling is afgelopen!";
   } else {
     seconds--;
   }
