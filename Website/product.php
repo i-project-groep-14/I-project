@@ -123,7 +123,14 @@
                 <p class='middle'>Huidige Prijs:</p>
               </div>
               <div class='small-9 columns'>
-                <p><b>€$hoogstebod</b></p>
+                <p><b>€";
+                if (isset($hoogstebod)) {
+                  echo $hoogstebod;
+                } else {
+                  echo $startprijs
+                }
+                
+                echo "</b></p>
               </div>
             </div>";
             if(!isset($_SESSION['login'])) {
