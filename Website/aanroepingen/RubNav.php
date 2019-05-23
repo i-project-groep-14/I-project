@@ -3,7 +3,6 @@
     
     <?php
       $rubriekenplek = 0;
-      $subplek = 0;
       $sql = "SELECT COUNT(*) as aantalHoofdRubrieken FROM rubriek
               WHERE rubriek = 0";
       $query = $dbh->prepare($sql);
@@ -11,6 +10,7 @@
       $row = $query -> fetch();
 
       for($i = 0; $i < $row['aantalHoofdRubrieken']; $i++) {
+        $subplek = 0;
         $rubriekenplek = createRubriek($rubriekenplek);
       }
     ?>

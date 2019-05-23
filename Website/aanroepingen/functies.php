@@ -1,7 +1,7 @@
 <?php
 function createRubriek($actueleplek) {
   global $dbh;
-  global $plek;
+  global $subplek;
   $volgendeplek = $actueleplek+1;
   $sublevel = 1;
   $sql = "SELECT rubrieknaam, rubrieknummer FROM rubriek
@@ -13,29 +13,32 @@ function createRubriek($actueleplek) {
   
   echo "
     <li>
-      <a href='rubriekenpagina.php'><i class='fi-folder-add'></i> $row[rubrieknaam]</a>$actueleplek
+      <a href='rubriekenpagina.php'><i class='";
+      if (heeftSubriek($row['rubrieknummer'])) { echo"fi-folder-add"; }
+      echo "'></i> $row[rubrieknaam]</a>
   ";
 
   if (heeftSubriek($row['rubrieknummer'])) {
     echo "
       <ul class='menu vertical sublevel-$sublevel'>
     ";
-    $plek = createSubRubrieken($row['rubrieknummer'], $sublevel+1, $plek);
+
+    $aantalSubrieken = selectAantalSubRubrieken($row['rubrieknummer']);
+  
+    for($i = 0; $i < $aantalSubrieken; $i++) {
+      $subplek = createSubRubrieken($row['rubrieknummer'], $sublevel+1, $subplek);
+    }
     
     echo "
       </ul>
     ";
-  } //else {
-  //   echo "
-  //     <li><a class='subitem' href='rubriekenpagina.php'>...</a></li>
-  //   ";
-  // }
+  }
 
   echo "
     </li>
   ";
 
-  // global $test;
+  
   return $actueleplek+1;
 }
 
@@ -70,15 +73,52 @@ function createRubriek($actueleplek) {
 //   //   <li><a class="subitem" href="rubriekenpagina.php">Thing 2</a></li>
 //   // </li>
 
-function createSubRubrieken($parentRubriekNummer, $sublevel, $plek) {
+function createSubRubrieken($parentRubriekNummer, $sublevel, $subplek) {
   $aantalSubrieken = selectAantalSubRubrieken($parentRubriekNummer);
+  global $subsubplek;
+  $subsubplek = 0;
   
   for($i = 0; $i < $aantalSubrieken; $i++) {
-    $subrubrieknaam = selectSubRubriek($plek, $parentRubriekNummer);
-    echo $subrubrieknaam;
-    echo $plek;
-    global $plek;
-    $plek += 1;
+    $subrubrieknaam = selectSubRubriekNaam($subplek, $parentRubriekNummer);
+    $subrubrieknummer = selectSubRubriekNummer($subplek, $parentRubriekNummer);
+    
+    echo "
+      <li>
+        <a href='rubriekenpagina.php'>
+          <i class='";
+            if (heeftSubriek($subrubrieknummer)) { echo"fi-folder-add"; }
+            echo    "'>
+          </i> $subrubrieknaam
+        </a>
+    ";
+
+    if (heeftSubriek($subrubrieknummer)) {
+
+      echo "
+        <ul class='menu vertical sublevel-$sublevel'>
+      ";
+
+      $aantalSubrieken = selectAantalSubRubrieken($subrubrieknummer);
+  
+      for($i = 0; $i < $aantalSubrieken; $i++) {
+        $subsubplek = createSubRubrieken($subrubrieknummer, $sublevel+1, $subsubplek);
+      }
+
+      // $subplek = createSubRubrieken($subrubrieknummer, $sublevel+1, $subplek);
+      // $subsubplek = createSubRubrieken($subrubrieknummer, $sublevel+1, $subsubplek);
+      
+      echo "
+        </ul>
+      ";
+    }
+
+    echo "
+      </li>
+    ";
+    
+    // global $subplek;
+    // $subplek += 1;
+    return $subplek+1;
   }
 
 
@@ -113,7 +153,7 @@ function createSubRubrieken($parentRubriekNummer, $sublevel, $plek) {
     // $aantalSubrieken = selectAantalSubRubrieken($test, $parentRubriekNummer);
     
     // for($i = 0; $i < $aantalSubrieken; $i++) {
-    //   $subrubriek = selectSubRubriek($parentRubriekNummer);
+    //   $subrubriek = selectSubRubriekNaam($parentRubriekNummer);
     //   $test++;
 
     //   if (heeftSubriek($subrubriek)) {
@@ -135,7 +175,7 @@ function createSubRubrieken($parentRubriekNummer, $sublevel, $plek) {
     //     <li>
     // ";
     // for($i = 0; $i < $aantalSubrieken; $i++) {
-    //   $subrieken = selectSubRubriek($test, $row['rubrieknummer']);
+    //   $subrieken = selectSubRubriekNaam($test, $row['rubrieknummer']);
     //   echo"
     //         <li><a class='subitem' href='rubriekenpagina.php'>$subrieken</a></li>
     //   ";
@@ -185,7 +225,7 @@ function heeftSubriek($rubrieknummer) {
   }
 }
 
-function selectSubRubriek($actueleplek, $rubrieknummer) {
+function selectSubRubriekNaam($actueleplek, $rubrieknummer) {
   global $dbh;
   $volgendeplek = $actueleplek+1;
   $sql = "SELECT rubrieknaam FROM rubriek
@@ -198,6 +238,21 @@ function selectSubRubriek($actueleplek, $rubrieknummer) {
   $row = $query -> fetch();
   
   return $row['rubrieknaam'];
+}
+
+function selectSubRubriekNummer($actueleplek, $rubrieknummer) {
+  global $dbh;
+  $volgendeplek = $actueleplek+1;
+  $sql = "SELECT rubrieknummer FROM rubriek
+          WHERE rubriek like :rubrieknummer
+          ORDER BY rubrieknummer OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':rubrieknummer' => $rubrieknummer
+  ));
+  $row = $query -> fetch();
+  
+  return $row['rubrieknummer'];
 }
 
 function selectAantalSubRubrieken($rubrieknummer) {
