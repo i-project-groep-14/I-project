@@ -251,14 +251,21 @@ insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Elektrische Gitaren'
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Acoustische Gitaren', 2, 2)
 
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Computers', 0, 2)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Laptops', 6, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Beeldschermen', 6, 2)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Toetsenborden', 6, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Muizen', 6, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Opladers', 7, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trackpads', 7, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Laptops', 8, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Beeldschermen', 8, 2)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Toetsenborden', 8, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Muizen', 8, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Opladers', 9, 1)
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trackpads', 9, 1)
+
+insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Snaren', 6, 1)
 
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Test', 0, 3)
+
+select *
+from rubriek
+
+
 /*SELECT COUNT(*) as aantalSubRubrieken FROM rubriek
           WHERE  and rubrieknummer = 1
 
