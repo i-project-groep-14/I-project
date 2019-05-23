@@ -50,7 +50,6 @@
               createFotos(2);
               createFotos(3);
               createFotos(4);
-              
             echo"
             </div>
             ";
@@ -92,16 +91,22 @@
               $mins = abs(floor(($difference-($years * 31536000)-($days * 86400)-($hours * 3600))/60));
               $secs = abs(floor(($difference-($years * 31536000)-($days * 86400)-($hours * 3600))-($mins * 3600)/60));
 
-              $looptijd = $days.'d '.$hours.'u '.$mins.'m '.$secs.'s';
+              // $looptijd = $days.'d '.$hours.'u '.$mins.'m '.$secs.'s';
               
               // bieding moet nog gefixed worden
-              if($hoogstebod > 1 && $hoogstebod < 49.99){
+              if($hoogstebod > 1 && $hoogstebod <= 50) {
                 $stapbieding  =  0.50;
+              } else if($hoogstebod > 50 && $hoogstebod <= 100) {
+                $stapbieding = 1;
+              } else if($hoogstebod > 100 && $hoogstebod <= 500) {
+                $stapbieding = 10;
+              } else if($hoogstebod > 500 && $hoogstebod <= 2000) {
+                $stapbieding = 100;
               } else {
-
+                $stapbieding = 1;
               }
               // echo $stapbieding;
-              $minimalebod = $hoogstebod + 1 ;
+              $minimalebod = $hoogstebod + $stapbieding;
               // bieding
               echo"
             <h3>$titel</h3>
@@ -129,7 +134,6 @@
                 } else {
                   echo $startprijs;
                 }
-                
                 echo "</b></p>
               </div>
             </div>";
@@ -140,31 +144,30 @@
                   <span aria-hidden='true'>&times;</span>
                 </button>
                 <div class='popupbieden'>
-                <h3 class='InlogpaginaKopje'> Log in om mee te bieden! </h3>
-                <br>
-                <p> Klik <a href='inlogpagina.php'> hier </a> om in te loggen, zodat u daarna meteen kunt bieden!</p>
+                  <h3 class='InlogpaginaKopje'> Log in om mee te bieden! </h3>
+                  <br>
+                  <p> Klik <a href='inlogpagina.php'> hier </a> om in te loggen, zodat u daarna meteen kunt bieden!</p>
                 </div>
               </div>";
             } else {
               echo"
               <div class='reveal' id='exampleModal1' data-reveal>
-              <button class='close-button' data-close aria-label='Close modal' type='button'>
-              <span aria-hidden='true'>&times;</span>
-              </button>
-              <form action=''>
-                <h1 class='InlogpaginaKopje'> Bieden </h1> 
-                <i> (Bieden vanaf: €";
-                if (isset($hoogstebod)) {
-                  echo $hoogstebod;
-                } else {
-                  echo $startprijs;
-                }
-                 echo ")</i><Br>
-                <Br>
-                <input type='number' name='bod'  min='$minimalebod' step='1' required>
-                <input type='submit' class='button large expanded' value='Plaats bod'>
-              </form>
-
+                <button class='close-button' data-close aria-label='Close modal' type='button'>
+                  <span aria-hidden='true'>&times;</span>
+                </button>
+                <form action=''>
+                  <h1 class='InlogpaginaKopje'> Bieden </h1> 
+                  <i> (Bieden vanaf: €";
+                  if (isset($hoogstebod)) {
+                    echo $hoogstebod;
+                  } else {
+                    echo $startprijs;
+                  }
+                  echo ")</i><Br>
+                  <Br>
+                  <input type='number' name='bod'  min='$minimalebod' step='1' required>
+                  <input type='submit' class='button large expanded' value='Plaats bod'>
+                </form>
               </div>";
             }
             echo "<p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>
