@@ -41,10 +41,12 @@
             if (strlen($_POST['titel_product']) > 30) {
                 echo "Het aantal karakters van de titel is te groot. Het maximale toegestane aantal karakters is 30.";
             } else if (strlen($_POST['beschrijving_product']) > 500) {
-                echo "Het aantal karakters van de titel is te groot. Het maximale toegestane aantal karakters is 500. Momenteel heeft u er ".strlen($_POST['beschrijving_product']).".";
-            } else if (strlen($_POST['beschrijving_product']) > 500) {
-            
-            } else {
+                echo "Het aantal karakters van de product beschrijving is te groot. Het maximale toegestane aantal karakters is 500. Momenteel heeft u er ".strlen($_POST['beschrijving_product']).".";
+            } else if (strlen($_POST['betalingsinstructie']) > 30) {
+                echo "Het aantal karakters van de betalingsinstructie is te groot. Het maximale toegestane aantal karakters is 30. Momenteel heeft u er ".strlen($_POST['betalingsinstructie']).".";
+            } else if (strlen($_POST['verzend_details']) > 100) { 
+                echo "Het aantal karakters van de verzend details is te groot. Het maximale toegestane aantal karakters is 100. Momenteel heeft u er ".strlen($_POST['verzend_details']).".";
+            }else {
                 $titel_product = $_POST['titel_product'];
                 //$foto_product = $_POST['fileToUpload'];
 
@@ -234,7 +236,7 @@
 					<div class="grid-x grid-padding-x">
 						<div class="medium-12 cell">
 							<label>Titel product:</label>
-							<input type="text" placeholder="Titel van uw product" name="titel_product" value="" required>
+							<input type="text" placeholder="Titel van uw product" name="titel_product" value="" maxlength="30" required>
                         </div>
                         <div class="medium-12 cell">
   
@@ -275,7 +277,7 @@
 
                         <div class="medium-12 cell beschrijving">
                             <label>Beschrijving:</label>
-                            <textarea rows="3" name="beschrijving_product" onKeyDown="charLimit(this.form.limitedtextarea,this.form.countdown,100);" required></textarea>
+                            <textarea rows="3" name="beschrijving_product" onKeyDown="charLimit(this.form.limitedtextarea,this.form.countdown,100);" maxlength="500" required></textarea>
                         </div>
 
                         <div class="medium-12 cell">
@@ -285,13 +287,13 @@
 
                         <div class="medium-12 cell">
                             <label> Voeg foto's toe</label>
-                            <input type="file" name="upfile" id="upfile"  accept="image/*" multiple="" required>
+                            <input type="file" name="upfile" id="upfile"   accept="image/*" multiple="" required>
 						</div>
 		
 						<div class="medium-12 cell">
                             <label> Betaalmethode </label>
                             <select class = "meerkeuzevak" name="betaal_methode" required>
-                                <option value="-1">Kies een betaalmethode...</option>
+                                <option value="">Kies een betaalmethode...</option>
                                 <option value="iDeal">iDeal</option>
                                 <option value="PayPal">PayPal</option>
                                 <option vlaue="Creditcard">Creditcard</option>
@@ -300,17 +302,17 @@
 						</div>
                         <div class="medium-12 cell">
 							<label>Betalingsinstructie: (Optioneel)</label>
-							<input type="text" name="betalingsinstructie" >
+							<input type="text" name="betalingsinstructie" maxlength="30">
 						</div>
 						
 						<div class="medium-12 cell">
 							<label>Verzendkosten: (Optioneel)</label>
-							<input type="text" name="verzendkosten" >
+							<input type="number" name="verzendkosten" min="0.01" max="10000.00" step="0.01" required>
 						</div>
 						
 						<div class="medium-12 cell">
 							<label>Verzend details: (Optioneel)</label>
-							<input type="text" name="verzend_details" >                    
+							<input type="text"  maxlength="100"  name="verzend_details" >                    
 						</div>
 						<div class="medium-12 cell">
                             <label> Looptijd: </label>
