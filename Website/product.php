@@ -2,7 +2,36 @@
       $config = ['pagina' => 'product'];
 
       require_once 'aanroepingen/connectie.php';
-      include_once 'aanroepingen/header.php'; 
+      include_once 'aanroepingen/header.php';
+
+      if (isset($_POST['voorwerp'])) {
+        $_SESSION['voorwerp'] = $_POST['voorwerp'];
+      }
+
+      if (isset($_POST['bodgeplaatst'])) {
+        $voorwerpnummer = $_SESSION['voorwerp'];
+        $bod = $_POST['bod'];
+        $gebruiker = $_SESSION['gebruikersnaam'];        
+
+        $sql = "INSERT INTO bod VALUES
+                (:voorwerpnummer, :bodbedrag, :gebruiker, GETDATE(), CONVERT(TIME,GETDATE()))";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(
+          ':voorwerpnummer' => $voorwerpnummer,
+          ':bodbedrag' => $bod,
+          ':gebruiker' => $gebruiker
+          )
+        );
+
+        // $sql = "INSERT INTO gebruikerstelefoon VALUES (:gebruiker, :telefoon)";
+        // $query = $dbh->prepare($sql);
+        // $query -> execute(array(
+        //   ':gebruiker' => $gebruikersnaam,
+        //   ':telefoon' => $telefoonnr1
+        //   )
+        // );
+      }
+
     ?>
       
     <?php  include_once 'aanroepingen/header.php'?>
@@ -30,7 +59,7 @@
                         WHERE voorwerp like :voorwerpnummer";
                 $query = $dbh->prepare($sql);
                 $query -> execute(array(
-                    ':voorwerpnummer' => $_POST['voorwerp']
+                    ':voorwerpnummer' => $_SESSION['voorwerp']
                 ));
 
                 $row = $query -> fetch();
@@ -64,7 +93,7 @@
                       WHERE voorwerpnummer like :voorwerpnummer";
               $query = $dbh->prepare($sql);
               $query -> execute(array(
-                  ':voorwerpnummer' => $_POST['voorwerp']
+                  ':voorwerpnummer' => $_SESSION['voorwerp']
               ));
 
               $row = $query -> fetch();
@@ -155,7 +184,7 @@
                 <button class='close-button' data-close aria-label='Close modal' type='button'>
                   <span aria-hidden='true'>&times;</span>
                 </button>
-                <form action=''>
+                <form action='product.php' method='POST'>
                   <h1 class='InlogpaginaKopje'> Bieden </h1> 
                   <i> (Bieden vanaf: €";
                   if (isset($hoogstebod)) {
@@ -165,8 +194,8 @@
                   }
                   echo ")</i><Br>
                   <Br>
-                  <input type='number' name='bod'  min='$minimalebod' step='1' required>
-                  <input type='submit' class='button large expanded' value='Plaats bod'>
+                  <input type='number' name='bod' min='$minimalebod' step='1' required>
+                  <input type='submit' class='button large expanded' value='Plaats bod' name='bodgeplaatst'>
                 </form>
               </div>";
             }
@@ -223,7 +252,7 @@
                         WHERE voorwerpnummer like :voorwerpnummer";
                 $query = $dbh->prepare($sql);
                 $query -> execute(array(
-                  ':voorwerpnummer' => $_POST['voorwerp']
+                  ':voorwerpnummer' => $_SESSION['voorwerp']
                 ));
                 $row = $query -> fetch();
 
