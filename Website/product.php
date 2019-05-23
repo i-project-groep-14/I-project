@@ -39,9 +39,12 @@
                 } else {
                   $afbeelding = $row['filenaam'];
                 }
+                
 
+                
+                
             echo"
-            <img class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
+            <img id='myImg' class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
             <div class='row small-up-4'>";
               createFotos(1);
               createFotos(2);
@@ -154,7 +157,13 @@
             echo "<p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>
             <p>Looptijd:</p>
             <div class='klok'>
-              <p>$looptijd</p>
+            <div id='clockdiv'>
+              <div>
+                <span class='days' id='countdown'></span>
+                
+              </div>
+            </div>
+            <p><i style='font-size: 10px;'>(Dagen / Uren / Minuten / Seconden)</i></p>
             </div>
             
               ";
@@ -219,10 +228,65 @@
 </div>
 </div>
 
-      
-    
+<!-- Afbeelding vergroten -->
+<div id="myModal" class="modal">
+                  <span class="close">&times;</span>
+                  <img class="modal-content" id="img01">
+                  <div id="caption"></div>
+                </div>
+
+
 
     <?php 
       include_once 'aanroepingen/footer.html';
     ?>
     
+
+
+<script>
+var upgradeTime = <?php echo $difference?>;
+var seconds = upgradeTime;
+function timer() {
+  var days        = Math.floor(seconds/24/60/60);
+  var hoursLeft   = Math.floor((seconds) - (days*86400));
+  var hours       = Math.floor(hoursLeft/3600);
+  var minutesLeft = Math.floor((hoursLeft) - (hours*3600));
+  var minutes     = Math.floor(minutesLeft/60);
+  var remainingSeconds = seconds % 60;
+  function pad(n) {
+    return (n < 10 ? "0" + n : n);
+  }
+  document.getElementById('countdown').innerHTML = pad(days) + ":" + pad(hours) + ":" + pad(minutes) + ":" + pad(remainingSeconds);
+  if (seconds == 0) {
+    clearInterval(countdownTimer);
+    document.getElementById('countdown').innerHTML = "Completed";
+  } else {
+    seconds--;
+  }
+}
+var countdownTimer = setInterval('timer()', 1000);
+</script>
+
+
+    <script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
