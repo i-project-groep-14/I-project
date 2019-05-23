@@ -158,6 +158,7 @@
             </div>
             
               ";
+              $_SESSION['hoogstebod'] = $hoogstebod;
             ?>
           </div>
         </div>
@@ -219,8 +220,19 @@
 </div>
 </div>
 
-      
-    
+     <?php  
+$sql = "INSERT INTO bod VALUES
+                  (:voorwerpnummer, :bodbedrag, :gebruiker, :boddag, :bodtijdstip)";
+          $query = $dbh->prepare($sql);
+          $query -> execute(array(
+            ':voorwerpnummer' => $,
+            ':bodbedrag' => $voornaam,
+            ':gebruiker' => $achternaam,
+            ':boddag' => $adres,
+            ':bodtijdstip' => $oAdres
+            )
+          );
+    ?>
 
     <?php 
       include_once 'aanroepingen/footer.html';
