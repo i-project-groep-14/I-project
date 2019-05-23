@@ -175,6 +175,7 @@ function createHomepageItem($sql, $actueleplek) {
     $voorwerpnummer = $row['voorwerpnummer'];
     $looptijdeindeDag = $row['looptijdeindeDag'];
     $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
+    $startprijs = $row['startprijs'];
     $combinedDT = date('Y-m-d H:i:s', strtotime("$looptijdeindeDag $looptijdeindeTijdstip"));
     $difference = timeDiff(date("Y-m-d H:i:s"),$combinedDT);
     $years = abs(floor($difference / 31536000));
@@ -197,17 +198,23 @@ function createHomepageItem($sql, $actueleplek) {
       $afbeelding = $row['filenaam'];
     }
     
-    createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins, $voorwerpnummer);
+    createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins, $voorwerpnummer, $startprijs);
     global $plek;
     $plek += 1;
 }
 
-function createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins, $voorwerpnummer) {
+function createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins, $voorwerpnummer, $startprijs) {
     echo"
       <div class='card'>
         <img src='$afbeelding' alt='$titel'>
         <h4>$titel</h4>
-        <p class='price'>€$hoogstebod</p>
+        <p class='price'>€";
+        if (isset($hoogstebod)) {
+          echo $hoogstebod;
+        } else {
+          echo $startprijs;
+        }
+         echo "</p>
         <p> <i class='fa fi-clock' style='font-size:24px'>&nbsp;</i>Sluit over: ".$days."d $hours"."u $mins"."m</p>
         <!--<a href='product.php' class='button ProductButton'>Bekijk Meer!</a>-->
         <form action='product.php' method='POST'>
