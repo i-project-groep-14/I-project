@@ -204,7 +204,7 @@ insert into voorwerp values('Bezem', 'Ik ben makelaar in koffi, en woon op de La
 							2, GETDATE()+1, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 260)
 insert into voorwerp values('Schoen', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit ', 500, 'Paypal', null, 'plaatsnaam3', 'land3',
 							3, GETDATE()+2, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 500)
-insert into voorwerp values('Laptop', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit ', 200, 'Zelf halen', null, 'plaatsnaam4', 'land4',
+insert into voorwerp values('Laptop', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit ', 200, 'Creditcard', null, 'plaatsnaam4', 'land4',
 							4, GETDATE()-4, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'wel', 300)
 insert into voorwerp values('Sokken', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit ', 1, 'Creditcard', null, 'plaatsnaam5', 'land5',
 							5, GETDATE()-5, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'wel', 5)
@@ -226,20 +226,7 @@ insert into bestand values('images/sokken.jpg', 5)
 insert into bestand values('images/kaashond.jpg', 6)
 insert into bestand values('images/banaan.jpg', 7)
 
-insert into bod values (1, 4, 'Beheerder', getdate(), CONVERT(TIME,GETDATE()))
-insert into bod values (1, 5, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 1, GETDATE())))
-insert into bod values (1, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 4, GETDATE())))
 
-insert into bod values (2, 4, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 2, GETDATE())))
-insert into bod values (2, 5, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 3, GETDATE())))
-insert into bod values (3, 4, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 5, GETDATE())))
-insert into bod values (3, 5, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 6, GETDATE())))
-insert into bod values (3, 8, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 7, GETDATE())))
-insert into bod values (3, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, -1, GETDATE())))
-insert into bod values (5, 5, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, -21, GETDATE())))
-insert into bod values (5, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, -9, GETDATE())))
-insert into bod values (4, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, -4, GETDATE())))
-insert into bod values (6, 6, 'Beheerder', getdate(), CONVERT(TIME,dateadd(hour, 8, GETDATE())))
 
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Hoofdrubriek', null, 1)
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Muziekinstrumenten', 0, 1)
@@ -261,13 +248,3 @@ insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trackpads', 9, 1)
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Snaren', 6, 1)
 
 use master
-
-select *
-from voorwerp
-
-select *
-from bod
-
-select voorwerpnummer,max(bodbedrag)
-from bod
-group by voorwerpnummer
