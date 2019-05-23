@@ -128,7 +128,7 @@ create table voorwerp (
 )
 
 alter table voorwerp 
-	add constraint ck_voorwerp_betalingswijze check (betalingswijze IN ('iDeal', 'PayPal', 'Creditcard', 'Zelf halen')),
+	add constraint ck_voorwerp_betalingswijze check (betalingswijze IN ('-1','iDeal', 'PayPal', 'Creditcard', 'ZelfOphalen')),
 	constraint ck_voorwerp_startprijs check (startprijs > 0),
 	constraint ck_voorwerp_veilingGesloten check (veilingGesloten IN ('wel', 'niet')),
 	constraint ck_voorwerp_verkoopprijs_negatief check (verkoopprijs >= startprijs),
@@ -261,3 +261,13 @@ insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trackpads', 9, 1)
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Snaren', 6, 1)
 
 use master
+
+select *
+from voorwerp
+
+select *
+from bod
+
+select voorwerpnummer,max(bodbedrag)
+from bod
+group by voorwerpnummer
