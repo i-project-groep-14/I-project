@@ -1,0 +1,58 @@
+Notulen rein harlé - 24-05-2019 tijd 14:00
+
+Rubrieken 
+
+Filter rubrieken pagina{
+plaatskiezen afstand in kilometers {
+									 met postcodes 
+									 of kilometer afstand met een google API
+									}
+}
+
+product pagina{
+foto kleine versie in placeholder
+maximum bod opstellen voor producten (x10 van huidige bod)
+veiling sluiten naar database ( en niet meer mogelijk om te bieden)
+als nog niet geboden is geen huide prijs(als niet geboden is leeglaten)
+}
+
+contact pagina{
+ik ben geen robot check
+HTML check en JAVA script check in textbox
+}
+
+voorwerpplaatsen{
+thubnail van product die je wilt plaatsen
+meerdere afbeeldingen
+meerdere rubrieken kiezen
+}
+
+registreren{
+langere code
+postcode check{API}
+}
+
+verkoper{
+later verkoper worden op gebruikers pagina
+}
+
+
+som maken {
+nieuwe factor mailen
+}
+profiel pagina
+gebruikers blokkeren
+eigenveilingen
+beeindigen van een veiling
+sluiten van veilingen
+veilingen die gesloten zijn niet meer laten zien alleen beheerder
+batchgewijs naar de site converten hoef niet
+converten van aangeleverde sql wel
+could:inloggen regitreren ocnstrisnts
+profiel up to date houden
+medeldingen kunnen netter
+wachtwoord wijzigen voor het aanloggen
+
+documenten die gemaakt zijn even in een dossier en opsturen 
+( FO & TO & testrapport & conversie script)
+
