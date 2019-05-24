@@ -225,9 +225,8 @@
 
 
 <div class="holy-grail-middle">
-    <h1>DEZE PAGINA IS IN BEWERKING</h1>
 	<br>
-	<h2 class="HomepaginaKopjes center">Voorwerp Plaatsen</h2>
+	<h2 class="InlogpaginaKopje center">Voorwerp Plaatsen</h2>
 		<div class="">
             <p class="center">Op deze pagina kan er een voorwerp worden geplaatst, vul a.u.b. alle gegevens in.</p>
             
