@@ -602,7 +602,18 @@ footer{
   padding: 5px;
 }
 
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-family: calibri;
+}
 
+th, td {
+  text-align: left;
+  padding: 8px;
+}
 
 
 

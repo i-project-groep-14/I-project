@@ -200,8 +200,22 @@
                   <input type='submit' class='button large expanded' value='Plaats bod' name='bodgeplaatst'>
                 </form>
               </div>";
-            }
-            echo "<p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>
+            }// tabel met top 4 biedingen moet nog dynamisch gemaakt worden
+            echo "
+            <div>
+              <table>
+                <tr>
+                  <th>Naam</th>
+                  <th>Bod</th>
+                </tr>
+                <tr>
+                  <td>Jill</td>
+                  <td>€50</td>
+                </tr>
+              </table>
+            </div>
+            
+            <p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>
             <p>Looptijd:</p>
             <div class='klok'>
             <div id='clockdiv'>
