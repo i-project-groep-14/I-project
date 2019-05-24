@@ -148,6 +148,67 @@ function selectAantalSubRubrieken($rubrieknummer) {
 
 
 
+function createVoorwerpInRubriekItem() {
+  echo "
+    <article class='RubProduct'>
+      <img class='FotoRubProduct' src='$afbeelding' alt='Voorwerpfoto'> 
+      <div class='InfoRubProduct'>
+        <div class='TitelRubProduct'>
+          <h4>$titel</h4><br>
+        </div>
+        <div class='OmschRubProduct'>
+          <p>$beschrijving</p>
+        </div>
+      </div>
+      <a href='product.php'>
+        <div class='PrijsRubProduct'>
+          <h4>€ $hoogstebod</h4>
+          <p>$gebruikersnaam</p>
+          <p>$tijd</p>
+          <p>$locatie</p>
+        </div>
+      </a>
+    </article>
+  ";
+
+
+      // <article class='RubProduct'>
+      //   <img class='FotoRubProduct' src='Images/Eend.jpg'  alt='Eend'> 
+      //   <div class='InfoRubProduct'>
+      //     <div class='TitelRubProduct'>
+      //       <h4><a href='product.php'>Een Geweldige Rubberen Eend</a></h4><br>
+      //     </div>
+      //     <div class='OmschRubProduct'>
+      //       <p>Elektrische fietsen met bafang voorwiel of middenmotor. Model rocky shimano 3 versnellingsnaaf. Van 1199,00 voor 999,00 model grace shimano 7 versnellingsnaaf.</p>
+      //     </div>
+      //   </div>
+      //   <a href='product.php'>
+      //     <div class='PrijsRubProduct'>
+      //       <h4>€ 800</h4>
+      //       <p>$gebruikersnaam</p>
+      //       <p>09:09:09</p>
+      //       <p> Arnhem</p>
+      //     </div>
+      //   </a>
+      // </article>
+}
+
+function selectAantalVoorwerpen($rubrieknummer) {
+  global $dbh;
+  $sql = "SELECT COUNT(*) as aantalVoorwerpen FROM [voorwerp in rubriek]
+          WHERE [rubriek op laagste niveau] like :rubrieknummer";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':rubrieknummer' => $rubrieknummer
+  ));
+  $row = $query -> fetch();
+
+  return $row['aantalVoorwerpen'];
+}
+
+
+
+
 function timeDiff($firstTime,$lastTime){
     $firstTime=strtotime($firstTime);
     $lastTime=strtotime($lastTime);
