@@ -59,20 +59,20 @@ Tabel voorwerp:
 	voorwerpnummer				van numeric(10)	naar int
 	titel						van char(18)	naar varchar(30)
 	beschrijving				van char(22)	naar varchar(500)
-		startprijs					van char(5)		naar varchar(10) 	naar numeric(10,2) -> dit is zodat als mensen 12 erin voegen wordt dat automatisch 12,00
+	startprijs					van char(5)		naar varchar(10) 	naar numeric(10,2) -> dit is zodat als mensen 12 erin voegen wordt dat automatisch 12,00
 	betalingswijze				van char(9)		naar varchar(20)
 	betalingsinstructie			van char(23)	naar varchar(30)
 	plaatsnaam					van char(12)	naar varchar(20)
 	land						van char(9)		naar varchar(20)
 	looptijd					van integer(1)	naar numeric(3)
 	looptijdbeginDag			van char(10)	naar date
-	looptijdbeginTijdstip 			van char(7) 	naar time
+	looptijdbeginTijdstip 		van char(7) 	naar time
 	verzendkosten				van char(5) 	naar varchar(10)
 	verzendinstructies			van char(27)	naar varchar(100)
 	verkoper					van char(10)	naar varchar(20)
 	koper						van char(10)	naar varchar(20)
 	looptijdeindeDag			van char(10)	naar date naar 	AS  (dateadd(day,[looptijd],[looptijdbeginDag])), -> computed column dat de einddatum automatisch veranderd
-	looptijdeindeTijdstip 			van char(7) 	naar time (het is een tijdstip)
+	looptijdeindeTijdstip 		van char(7) 	naar time (het is een tijdstip)
 	veilinggesloten?			veranderd naar 'veilingGesloten' met een varchar(4) ipv char(3)
 	verkoopprijs				van char(5)		naar varchar(10)
 

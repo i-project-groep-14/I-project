@@ -166,7 +166,6 @@ create table [voorwerp in rubriek] (
 	constraint fk_voorwerpinrubriek_voorwerp foreign key (voorwerp) references voorwerp (voorwerpnummer) on update cascade on delete no action,
 	constraint fk_voorwerpinrubriek_rubriekoplaagsteniveau foreign key ([rubriek op laagste niveau]) references rubriek (rubrieknummer) on update no action on delete no action
 )
-
 /*==============================================================*/
 /* Table: Bod													*/
 /*==============================================================*/
@@ -197,7 +196,7 @@ insert into gebruiker values ('Beheerder', 'Danny', 'Hageman', 'Onbekend', null,
 
 insert into verkoper values('Beheerder', null, null, 'controle-optie', null)
 
-/*
+
 insert into voorwerp values('Kaaskast', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen.', 20, 'iDeal', null, 'plaatsnaam1', 'land1',
 							1, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 20)
 insert into voorwerp values('Bezem', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooitnooit', 250, 'Creditcard', null, 'plaatsnaam2', 'land2',
@@ -225,7 +224,7 @@ insert into bestand values('images/laptop.jpg', 4)
 insert into bestand values('images/sokken.jpg', 5)
 insert into bestand values('images/kaashond.jpg', 6)
 insert into bestand values('images/banaan.jpg', 7)
-*/
+
 
 
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Hoofdrubriek', null, 1)
@@ -246,5 +245,9 @@ insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Opladers', 9, 1)
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trackpads', 9, 1)
 
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Snaren', 6, 1)
+
+insert into [voorwerp in rubriek] values (1, 14)
+insert into [voorwerp in rubriek] values (2, 14)
+insert into [voorwerp in rubriek] values (3, 14)
 
 use master
