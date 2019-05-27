@@ -155,6 +155,19 @@ function selectAantalSubRubrieken($rubrieknummer) {
   return $row['aantalRubrieken'];
 }
 
+function selectAantalVeilingen($gebruiker) {
+  global $dbh;
+  $sql = "SELECT COUNT(*) as aantalveilingen FROM voorwerp
+          WHERE verkoper like :gebruiker";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':gebruiker' => $gebruiker
+  ));
+  $row = $query -> fetch();
+
+  return $row['aantalveilingen'];
+}
+
 function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
   global $dbh;
   $volgendeplek = $actueleplek+1;
@@ -241,6 +254,8 @@ function selectAantalVoorwerpen($rubrieknummer) {
   
   return $row['aantalVoorwerpen'];
 }
+
+
 
 function heeftParentRubriek($rubrieknummer) {
   global $dbh;
