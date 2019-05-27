@@ -69,7 +69,6 @@ function createSubRubrieken($parentRubriekNummer, $sublevel, $subplek) {
             echo    "'>
           </i> $subrubrieknaam
         </a>
-      </form>
     ";
 
     if (heeftSubriek($subrubrieknummer)) {
@@ -156,9 +155,6 @@ function selectAantalSubRubrieken($rubrieknummer) {
   return $row['aantalRubrieken'];
 }
 
-
-
-
 function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
   global $dbh;
   $volgendeplek = $actueleplek+1;
@@ -174,29 +170,23 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
 
   $voorwerpnummer = $row['voorwerp'];
 
-  echo "ActuelePlek: ".$actueleplek;
-  echo "VolgendePlek: ".$volgendeplek;
-
   $sql = "SELECT titel, beschrijving, verkoopprijs, verkoper, plaatsnaam FROM voorwerp
-          WHERE voorwerpnummer like :voorwerpnummer
-          ORDER BY voorwerpnummer OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+          WHERE voorwerpnummer like :voorwerpnummer";
   $query = $dbh->prepare($sql);
   $query -> execute(array(
     ':voorwerpnummer' => $voorwerpnummer
   ));
   $row = $query -> fetch();
 
-  echo $row['titel'];
-
   $titel = $row['titel'];
   $beschrijving = $row['beschrijving'];
   $hoogstebod = $row['verkoopprijs'];
   $gebruikersnaam = $row['verkoper'];
-  $tijd = "Hendrik/Mehmet voeg aub hier die timer toe.";
+  $tijd = "Hendrik/Mehmet voeg aub hier die timer toe!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
   $locatie = $row['plaatsnaam'];
   
   $sql = "SELECT filenaam FROM bestand
-  WHERE voorwerp like :voorwerpnummer";
+          WHERE voorwerp like :voorwerpnummer";
   $query = $dbh->prepare($sql);
   $query -> execute(array(
       ':voorwerpnummer' => $voorwerpnummer
@@ -251,19 +241,75 @@ function selectAantalVoorwerpen($rubrieknummer) {
   
   return $row['aantalVoorwerpen'];
 }
-function selectAantalVeilingen($gebruiker) {
+
+function heeftParentRubriek($rubrieknummer) {
   global $dbh;
-  $sql = "SELECT COUNT(*) as aantalveilingen FROM voorwerp
-          WHERE verkoper like :gebruiker";
+  $sql = "SELECT COUNT(*) as aantalParentRubrieken FROM rubriek
+          WHERE rubrieknummer like :rubrieknummer";
   $query = $dbh->prepare($sql);
   $query -> execute(array(
-    ':gebruiker' => $gebruiker
+    ':rubrieknummer' => $rubrieknummer
   ));
   $row = $query -> fetch();
 
-  return $row['aantalveilingen'];
+  if ($row['aantalParentRubrieken'] > 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
+function selectParentRubriekNaam($rubrieknummer) {
+  global $dbh;;
+  $sql = "SELECT rubrieknaam FROM rubriek
+          WHERE rubrieknummer like :rubrieknummer";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':rubrieknummer' => $rubrieknummer
+  ));
+  $row = $query -> fetch();
+  
+  return $row['rubrieknaam'];
+}
+
+function selectParentRubriekNummer($rubrieknummer) {
+  global $dbh;
+  $sql = "SELECT rubriek FROM rubriek
+          WHERE rubrieknummer like :rubrieknummer";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':rubrieknummer' => $rubrieknummer
+  ));
+  $row = $query -> fetch();
+  
+  if ($row['rubriek'] != 0) {
+    return $row['rubriek'];
+  }
+}
+
+function createProductRubrieken($rubrieknummer) {
+  $naam = selectParentRubriekNaam($rubrieknummer);
+  
+  echo"
+    <li";
+    if(!heeftSubriek($rubrieknummer)) {
+      echo"><span class='show-for-sr'></span>";
+    } else {
+      echo " class='disabled'>";
+    }
+    echo"$naam</li>
+  ";
+
+  if (heeftParentRubriek($rubrieknummer)) {
+    $parentRubriekNummer = selectParentRubriekNummer($rubrieknummer);
+    createProductRubrieken($parentRubriekNummer);
+  }
+  
+  // <li><a href="#">Home</a></li>
+  // <li><a href="#">Features</a></li>
+  // <li class="disabled">Gene Splicing</li>
+  // <li><span class="show-for-sr">Current: </span> Cloning</li>
+}
 
 
 
