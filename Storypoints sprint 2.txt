@@ -1,4 +1,14 @@
+Sprint 2
+
 66 Storypoints 
-10 * 8 * 5 = 400
-400 * 0.7 = 280
-280 / 66 = 4,2 = 4
+10 dagen * 8 uur * 5 personen = 400 uur
+400 * 0.7 overhead = 280 uur
+280 / 66 = 4.2, afgerond 4 uur per storypoint.
+
+
+Sprint 3
+
+59 Storypoints
+8 dagen * 8 uur * 5 personen = 320 uur
+320 * 0.7 overhead = 224 uur
+224 / 59 = 3.8, afgerond 4 uur per storypoint.
