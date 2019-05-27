@@ -69,7 +69,6 @@ function createSubRubrieken($parentRubriekNummer, $sublevel, $subplek) {
             echo    "'>
           </i> $subrubrieknaam
         </a>
-      </li>
     ";
 
     if (heeftSubriek($subrubrieknummer)) {
