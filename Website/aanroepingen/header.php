@@ -83,11 +83,14 @@
                                 <img src='images/profielfotoplaceholder.png' width='150px'>
                                 <p>Naam: ".$_SESSION['voornaam']."</p>
                                 <p>Aantal actieve veilingen: ".$_SESSION['aantaleigenveilingen']."</p>";
-                                if($_SESSION['rol'] == 3) {
+                                if($_SESSION['rol'] == 3 || $_SESSION['rol'] == 5) {
                                     echo "<a href='voorwerpplaatsenpagina.php' class='button loginbutton uitlogknop'>Voorwerp Plaatsen</a>";
                                     }
                                 if(isset($_SESSION['beheerder'])) {
                                     echo "<a href='beheerderspagina.php' class='button loginbutton uitlogknop'>Beheerderspagina</a>";
+                                }
+                                if($_SESSION['rol'] == 3 || $_SESSION['rol'] == 2 || $_SESSION['rol'] == 5) {
+                                    echo "<a href='Profielpagina.php' class='button loginbutton uitlogknop'>Profielpagina</a>";
                                 }
                                 echo "
                               <form action='index.php' method='post'>

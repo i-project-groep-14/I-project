@@ -243,10 +243,10 @@
           </ul>
 
         <div class="tab-biedingen tabs-content" data-tabs-content="example-tabs">
-          <div class=" tabs-panel is-active" id="panel1">
+          <div class=" tabs-panel tabs-panelv is-active" id="panel1">
           <?php echo $beschrijving?>
             </div>
-        <div class="tabs-panel" id="panel2">
+        <div class="tabs-panel tabs-panelv" id="panel2">
           <div class="row medium-up-3 large-up-5">
             <div class="tab-biedingen-omschrijving">
               <?php echo "
@@ -259,7 +259,7 @@
             </div>
           </div>
         </div>
-        <div class="tabs-panel" id="panel3">
+        <div class="tabs-panel tabs-panelv" id="panel3">
           <div class="row medium-up-3 large-up-5">
             <div class="tab-biedingen-omschrijving">
               <?php
