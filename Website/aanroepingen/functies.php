@@ -156,9 +156,6 @@ function selectAantalSubRubrieken($rubrieknummer) {
   return $row['aantalRubrieken'];
 }
 
-
-
-
 function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
   global $dbh;
   $volgendeplek = $actueleplek+1;
@@ -186,7 +183,7 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
   $beschrijving = $row['beschrijving'];
   $hoogstebod = $row['verkoopprijs'];
   $gebruikersnaam = $row['verkoper'];
-  $tijd = "Hendrik/Mehmet voeg aub hier die timer toe.";
+  $tijd = "Hendrik/Mehmet voeg aub hier die timer toe!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
   $locatie = $row['plaatsnaam'];
   
   $sql = "SELECT filenaam FROM bestand
@@ -244,6 +241,23 @@ function selectAantalVoorwerpen($rubrieknummer) {
   $row = $query -> fetch();
   
   return $row['aantalVoorwerpen'];
+}
+
+function heeftParentRubriek($rubrieknummer) {
+  global $dbh;
+  $sql = "SELECT COUNT(*) as aantalParentRubrieken FROM rubriek
+          WHERE rubrieknummer like :rubrieknummer";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':rubrieknummer' => $rubrieknummer
+  ));
+  $row = $query -> fetch();
+
+  if ($row['aantalParentRubrieken'] > 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 

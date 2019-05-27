@@ -250,4 +250,6 @@ insert into [voorwerp in rubriek] values (1, 14)
 insert into [voorwerp in rubriek] values (2, 14)
 insert into [voorwerp in rubriek] values (3, 14)
 
+select * from rubriek where rubriek like 14
+
 use master

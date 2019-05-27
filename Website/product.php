@@ -44,12 +44,24 @@
           <nav aria-label="You are here:">
             <ul class="breadcrumbs">
               <?php
-                //Rubrieken pakken waar dit product inzit(meegegeven van als je op een link klikt)
+                $sql = "SELECT [rubriek op laagste niveau] as rubriek FROM [voorwerp in rubriek]
+                        WHERE voorwerp like :voorwerpnummer";
+                $query = $dbh->prepare($sql);
+                $query -> execute(array(
+                    ':voorwerpnummer' => $_SESSION['voorwerp']
+                ));
+                $row = $query -> fetch();
+
+                echo $row['rubriek'];
+
+                if (heeftParentRubriek()) {
+                  createProductRubrieken($row['rubriek']);
+                }
               ?>
-              <li><a href="#">Home</a></li>
+              <!-- <li><a href="#">Home</a></li>
               <li><a href="#">Features</a></li>
               <li class="disabled">Gene Splicing</li>
-              <li><span class="show-for-sr">Current: </span> Cloning</li>
+              <li><span class="show-for-sr">Current: </span> Cloning</li> -->
             </ul>
           </nav>
         </div>
