@@ -7,11 +7,8 @@
     //indicator = niet veilig is niet gesloten
     
 
-    // if (isset($_SESSION['gebruikersnaam'])){
     $gebruikersnaam = $_SESSION['gebruikersnaam'];
-    // } else{
-        // $gebruikersnaam = ' ';
-    // }
+
 
     $sql = "SELECT gebruiker FROM verkoper WHERE gebruiker = :gebruiker ";
     $query = $dbh->prepare($sql);
@@ -38,6 +35,7 @@
 
     try{
         if(isset($_POST['plaatsen_voorwerp'])) {
+
             if (strlen($_POST['titel_product']) > 30) {
                 echo "Het aantal karakters van de titel is te groot. Het maximale toegestane aantal karakters is 30.";
             } else if (strlen($_POST['beschrijving_product']) > 500) {
@@ -115,17 +113,17 @@
                 ));
 
                 //FOTOS UPLOADEN
-                try {
+           
+                    $len = count($_FILES['upfile']['name']);
+                    for($i = 0; $i < $len; $i++){
+
                     //Is dit bestand wel goed
-                    if (
-                        !isset($_FILES['upfile']['error']) ||
-                        is_array($_FILES['upfile']['error'])
-                    ) {
+                    if (!isset($_FILES['upfile']['error'][$i]) || is_array($_FILES['upfile']['error'][$i])) {
                         throw new RuntimeException('Invalid parameters.');
                     }
 
                     //De foutmelding voor boven
-                    switch ($_FILES['upfile']['error']) {
+                    switch ($_FILES['upfile']['error'][$i]) {
                         case UPLOAD_ERR_OK:
                         break;
                         case UPLOAD_ERR_NO_FILE:
@@ -136,15 +134,16 @@
                         default:
                         throw new RuntimeException('Onbekende foutmelding');
                     }
+
                     //hoe groot het bestand kan zijn, in dit geval 1 mb
-                    if ($_FILES['upfile']['size'] > 1000000) {
+                    if ($_FILES['upfile']['size'][$i] > 1000000) {
                         throw new RuntimeException('Het bestand is te groot.');
                     }
                     
                     //Welke bestanden worden geaccepteert, gecheckt of deze eraan voldoen
                     $finfo = new finfo(FILEINFO_MIME_TYPE);
                     if (false === $ext = array_search(
-                        $finfo->file($_FILES['upfile']['tmp_name']),
+                        $finfo->file($_FILES['upfile']['tmp_name'][$i]),
                         array(
                             'jpg' => 'image/jpeg',
                             'png' => 'image/png',
@@ -154,13 +153,13 @@
                     }
                     //Verplaatsen van afbeeldingen, hier wordt ook de lange unieke naam gegenergeerd met sha1_file en samengevoegd met sprintf
                         
-                    $filenaam = sprintf('.\Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name']),  $ext);
-                    $i = 1;
+                    $filenaam = sprintf('.\Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]),  $ext);
+                    $aantal = 1;
                     while (file_exists($filenaam)) {
-                        $filenaam = sprintf('.\Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name']).$i,  $ext);
-                        $i++;
-                        if($i == 150) {
-                            $i = 1;
+                        $filenaam = sprintf('.\Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]).$aantal,  $ext);
+                        $aantal++;
+                        if($aantal == 150) {
+                            $aantal = 1;
                             echo"Geef een andere naam aan het bestand!";
                         }
                     }
@@ -169,8 +168,12 @@
                         throw new RuntimeException('Kan bestand niet in de database zetten.');
                     }
 
-                    if(!move_uploaded_file($_FILES['upfile']['tmp_name'],$filenaam)){
+                    if(!move_uploaded_file($_FILES['upfile']['tmp_name'][$i],$filenaam)){
                         //throw new RuntimeException('Kan bestand niet verplaatsen.');
+                    }
+
+                    if($i == 5){
+                        echo"Kan niet meer dan 5 bestanden toevoegen";
                     }
                         
                     
@@ -190,11 +193,9 @@
                     $sql_foto = "INSERT INTO bestand (filenaam, voorwerp) VALUES (:filenaam, :voorwerp)";
                     $query_foto = $dbh->prepare($sql_foto);
                     $query_foto -> execute(array(':filenaam' => $filenaam, ':voorwerp' => $row['voorwerpnummer']));
-
-            
-                } catch (RuntimeException $e) {
-                    echo $e->getMessage();
                 }
+            
+
             }
         }
     } catch (RuntimeException $e) {
@@ -212,16 +213,6 @@
 
 
     ?>
-<!--Dit script zorgt ervoor dat het aantal characters niet overschreven wordt, limitNum is het maximaal aantal characters-->
-<script language="javascript" type="text/javascript">
-   function charLimit(limitField, limitCount, limitNum) {
-        if (limitField.value.length > limitNum) {
-            limitField.value = limitField.value.substring(0, limitNum);
-        } else {
-            limitCount.value = limitNum - limitField.value.length;
-        }
-    }
-</script>
 
 
 <div class="holy-grail-middle">
@@ -268,15 +259,11 @@
                                 </optgroup>
                             </select>
                                 
-                            <!--
-                                Laagste level wordt meegenomen
-                                Laten zien van de rubrieknaam en de bovenste level van dit rubriek zodat het beter is voor dubbele namen
-                            -->
                         </div>	
 
                         <div class="medium-12 cell beschrijving">
                             <label>Beschrijving:</label>
-                            <textarea rows="3" name="beschrijving_product" onKeyDown="charLimit(this.form.limitedtextarea,this.form.countdown,100);" maxlength="500" required></textarea>
+                            <textarea rows="3" name="beschrijving_product" onKeyDown="charLimit(this.form.limitedtextarea,this.form.countdown,500);" maxlength="500" required></textarea>
                         </div>
 
                         <div class="medium-12 cell">
@@ -285,10 +272,25 @@
 						</div>
 
                         <div class="medium-12 cell">
-                            <label> Voeg foto's toe</label>
-                            <input type="file" name="upfile" id="upfile"   accept="image/*" multiple="" required>
-						</div>
-		
+                            <table id="table" width="50%">
+                                <thead>
+                                    <tr class="center">
+                                        <th colspan="3"><label>Voeg foto's toe</label></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="add_row">
+                                        <td id="no" width="5%">#</td>
+                                        <td width="75%"><input class="file" name="upfile[]" type='file' multiple required/></td>
+                                        <td width="20%"></td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        
+
+		                <button class="button" type="button" id="add" title='Voeg een bestand toe' value="toevoegen">Voeg nog een bestand toe</button>
+                        </div>
 						<div class="medium-12 cell">
                             <label >  Betaalmethode </label>
                             <select class = "meerkeuzevak" name="betaal_methode"  required>
@@ -325,7 +327,7 @@
                         </div>				
 					</div>
                     <div class="medium-12 cell">
-                    <input type="submit" class="veilingknop button" name="plaatsen_voorwerp" value="Plaatsen" 
+                    <input type="submit" class="veilingknop button submit" name="plaatsen_voorwerp" value="Plaatsen" 
                     <?php //onclick="location.href = 'index.php';" ?>
                     >
                 </div>
@@ -333,6 +335,53 @@
         </form>
     </div>
 </div>
+
+<!--Dit script zorgt ervoor dat het aantal characters niet overschreven wordt, limitNum is het maximaal aantal characters-->
+<script language="javascript" type="text/javascript">
+   function charLimit(limitField, limitCount, limitNum) {
+        if (limitField.value.length > limitNum) {
+            limitField.value = limitField.value.substring(0, limitNum);
+        } else {
+            limitCount.value = limitNum - limitField.value.length;
+        }
+    }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+    // Valideren
+    $('.submit').click(function(){
+        var file_val = $('.file').val();
+        if(file_val == "")
+        {
+            alert("Please select at least one file.");
+            return false;
+        }
+    });
+
+    //toevoegen van rij met max aantal bestanden        
+    var bestand = 0;
+    var max = 4;
+    $("#add").click(function(){
+        bestand++;
+        if(bestand <= max)
+            $("tbody").append('<tr class="add_row"><td>#</td><td><input name="upfile[]" type="file" multiple></td><td class="text-center"><button type="button" class="btn button btn-sm" id="delete" title="Verwijder bestand">Verwijder bestand</button></td><tr>');
+   
+    });
+              
+    // Verwijderen 
+    $('#table').on('click', "#delete", function(e) {
+        if (!confirm("Weet u zeker dat uw dit bestand wilt verwijderen?"))
+        return false;
+        $(this).closest('tr').remove();
+        e.preventDefault();
+    });
+}); 
+</script>
+
+
+
+
 <?php 
     include_once 'aanroepingen/footer.html';
 ?>
