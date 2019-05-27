@@ -172,8 +172,8 @@
                         //throw new RuntimeException('Kan bestand niet verplaatsen.');
                     }
 
-                    if($i == 5){
-                        echo"Kan niet meer dan 5 bestanden toevoegen";
+                    if($i == 4){
+                        echo"Kan niet meer dan 4 bestanden toevoegen";
                     }
                         
                     
@@ -361,7 +361,7 @@
 
     //toevoegen van rij met max aantal bestanden        
     var bestand = 0;
-    var max = 4;
+    var max = 3;
     $("#add").click(function(){
         bestand++;
         if(bestand <= max)
