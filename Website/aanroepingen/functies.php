@@ -51,14 +51,25 @@ function createSubRubrieken($parentRubriekNummer, $sublevel, $subplek) {
     $subrubrieknaam = selectSubRubriekNaam($subplek, $parentRubriekNummer);
     $subrubrieknummer = selectSubRubriekNummer($subplek, $parentRubriekNummer);
     
+    global $dbh;
+    $sql = "SELECT [rubriek op laagste niveau] as rubriek FROM [voorwerp in rubriek]
+            WHERE [rubriek op laagste niveau] = :rubrieknummer";
+    $query = $dbh->prepare($sql);
+    $query -> execute(array(
+        ':rubrieknummer' => $subrubrieknummer
+    ));
+
+    $row = $query -> fetch();
+    
     echo "
       <li>
-        <a href='rubriekenpagina.php'>
+        <a href='rubriekenpagina.php?id=$row[rubriek]'>
           <i class='";
             if (heeftSubriek($subrubrieknummer)) { echo"fi-folder-add"; } else { echo"subitem fi-page"; }
             echo    "'>
           </i> $subrubrieknaam
         </a>
+      </form>
     ";
 
     if (heeftSubriek($subrubrieknummer)) {
@@ -148,7 +159,51 @@ function selectAantalSubRubrieken($rubrieknummer) {
 
 
 
-function createVoorwerpInRubriekItem() {
+function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
+  global $dbh;
+  $volgendeplek = $actueleplek+1;
+
+  $sql = "SELECT voorwerp FROM [voorwerp in rubriek]
+          WHERE [rubriek op laagste niveau] like :rubriek
+          ORDER BY voorwerp OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+      ':rubriek' => $rubrieknummer
+  ));
+  $row = $query -> fetch();
+
+  $voorwerpnummer = $row['voorwerp'];
+
+  $sql = "SELECT titel, beschrijving, verkoopprijs, verkoper, plaatsnaam FROM voorwerp
+          WHERE voorwerpnummer like :voorwerpnummer";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':voorwerpnummer' => $voorwerpnummer
+  ));
+  $row = $query -> fetch();
+
+  $titel = $row['titel'];
+  $beschrijving = $row['beschrijving'];
+  $hoogstebod = $row['verkoopprijs'];
+  $gebruikersnaam = $row['verkoper'];
+  $tijd = "Hendrik/Mehmet voeg aub hier die timer toe.";
+  $locatie = $row['plaatsnaam'];
+  
+  $sql = "SELECT filenaam FROM bestand
+          WHERE voorwerp like :voorwerpnummer";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+      ':voorwerpnummer' => $voorwerpnummer
+  ));
+
+  $row = $query -> fetch();
+
+  if ($row['filenaam'] == NULL) {
+    $afbeelding = "images/imageplaceholder.png";
+  } else {
+    $afbeelding = $row['filenaam'];
+  }
+
   echo "
     <article class='RubProduct'>
       <img class='FotoRubProduct' src='$afbeelding' alt='Voorwerpfoto'> 
@@ -160,37 +215,22 @@ function createVoorwerpInRubriekItem() {
           <p>$beschrijving</p>
         </div>
       </div>
-      <a href='product.php'>
-        <div class='PrijsRubProduct'>
-          <h4>€ $hoogstebod</h4>
-          <p>$gebruikersnaam</p>
-          <p>$tijd</p>
-          <p>$locatie</p>
-        </div>
-      </a>
+      <!--<a href='product.php'>-->
+        <form action='product.php' method='POST'>
+          <button type='submit' value='$voorwerpnummer' name='voorwerp' class='button ProductButton'>
+            <div class='PrijsRubProduct'>
+              <h4>€ $hoogstebod</h4>
+              <p>$gebruikersnaam</p>
+              <p>$tijd</p>
+              <p>$locatie</p>
+            </div>
+          </button>
+        </form>
+      <!--</a>-->
     </article>
   ";
 
-
-      // <article class='RubProduct'>
-      //   <img class='FotoRubProduct' src='Images/Eend.jpg'  alt='Eend'> 
-      //   <div class='InfoRubProduct'>
-      //     <div class='TitelRubProduct'>
-      //       <h4><a href='product.php'>Een Geweldige Rubberen Eend</a></h4><br>
-      //     </div>
-      //     <div class='OmschRubProduct'>
-      //       <p>Elektrische fietsen met bafang voorwiel of middenmotor. Model rocky shimano 3 versnellingsnaaf. Van 1199,00 voor 999,00 model grace shimano 7 versnellingsnaaf.</p>
-      //     </div>
-      //   </div>
-      //   <a href='product.php'>
-      //     <div class='PrijsRubProduct'>
-      //       <h4>€ 800</h4>
-      //       <p>$gebruikersnaam</p>
-      //       <p>09:09:09</p>
-      //       <p> Arnhem</p>
-      //     </div>
-      //   </a>
-      // </article>
+  return $volgendeplek;
 }
 
 function selectAantalVoorwerpen($rubrieknummer) {
@@ -202,7 +242,7 @@ function selectAantalVoorwerpen($rubrieknummer) {
     ':rubrieknummer' => $rubrieknummer
   ));
   $row = $query -> fetch();
-
+  
   return $row['aantalVoorwerpen'];
 }
 
@@ -379,6 +419,5 @@ function createQuestions($actueleplek) {
       <option value='$row[vraagnummer]'>$row[tekstvraag]</option>
     ";
 
-    global $test;
-    $test += 1;
+    return $volgendeplek;
 }

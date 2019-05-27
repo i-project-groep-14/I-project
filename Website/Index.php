@@ -46,10 +46,10 @@
           $plek = 0;
           for($i = 0; $i < 4; $i++) {
             createHomepageItem("SELECT count(b.voorwerpnummer) as topproducten, v.voorwerpnummer, v.titel, v.verkoopprijs, v.looptijdeindeDag,
-                        v.looptijdeindeTijdstip, v.startprijs FROM voorwerp v inner join bod b on v.voorwerpnummer = b.voorwerpnummer
-                        WHERE veilingGesloten = 'niet'
-                        GROUP BY b.voorwerpnummer, v.voorwerpnummer, v.titel, v.verkoopprijs, v.looptijdeindeDag, v.looptijdeindeTijdstip, v.startprijs
-                        ORDER BY topproducten desc", $plek
+                                v.looptijdeindeTijdstip, v.startprijs FROM voorwerp v inner join bod b on v.voorwerpnummer = b.voorwerpnummer
+                                WHERE veilingGesloten = 'niet'
+                                GROUP BY b.voorwerpnummer, v.voorwerpnummer, v.titel, v.verkoopprijs, v.looptijdeindeDag, v.looptijdeindeTijdstip, v.startprijs
+                                ORDER BY topproducten desc", $plek
             );
           }
         ?>

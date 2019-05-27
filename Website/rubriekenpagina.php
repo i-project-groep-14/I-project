@@ -65,18 +65,19 @@
 <!--  EINDE FILTER  -->
 
 
-    <?php
-                                                  //voorwerpinrubrieknummer meekrijgen van rubnav
-      // $aantalVoorwerpen = selectAantalVoorwerpen($_SESSION['voorwerpinrubrieknummer']);
-      
-      // for($i = 0; $i < $aantalVoorwerpen; $i++) {
-        // createVoorwerpInRubriekItem();
-      // }
+    <?php    
+      $aantalVoorwerpen = selectAantalVoorwerpen($_GET['id']);
+
+      $plek = 0;
+
+      for($i = 0; $i < $aantalVoorwerpen; $i++) {
+        $plek = createVoorwerpInRubriekItem($plek, $_GET['id']);
+      }
     ?>
     
 
 
-    <article class="RubProduct">
+    <!-- <article class="RubProduct">
         <img class="FotoRubProduct" src="Images/Eend.jpg"  alt="Eend"> 
         <div class="InfoRubProduct">
           <div class="TitelRubProduct">
@@ -94,7 +95,7 @@
             <p> Arnhem</p>
           </div>
         </a>
-      </article>
+      </article> -->
     <!-- 
     <article class="RubProduct">
       <img class="FotoRubProduct" src="Images/Eend.jpg"  alt="Eend"> 

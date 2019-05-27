@@ -592,7 +592,7 @@ footer{
 .tab-biedingen{
   width: 100%;
 }
-.tabs-panel{
+ .tabs-panelv{
   height: 300px;
   overflow-x: scroll;
   
@@ -615,7 +615,13 @@ th, td {
   padding: 8px;
 }
 
+/* Profiel pagina */
+#panel2v{
+  overflow-y: scroll;
+  height: 500px;
+}
 
+/* EIDE PROFIEL PAGINA */ 
 
 
 .veilingknop {

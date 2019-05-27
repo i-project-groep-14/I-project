@@ -126,7 +126,7 @@
               
               // bieding moet nog gefixed worden
               if($hoogstebod > 1 && $hoogstebod <= 50) {
-                $stapbieding  =  0.50;
+                $stapbieding  =  1; //stond op .50
               } else if($hoogstebod > 50 && $hoogstebod <= 100) {
                 $stapbieding = 1;
               } else if($hoogstebod > 100 && $hoogstebod <= 500) {
@@ -158,14 +158,11 @@
               <div class='small-3 columns'>
                 <p class='middle'>Huidige Prijs:</p>
               </div>
-              <div class='small-9 columns'>
-                <p><b>€";
-                if (isset($hoogstebod)) {
-                  echo $hoogstebod;
-                } else {
-                  echo $startprijs;
+              <div class='small-9 columns'>";
+                if(isset($hoogstebod)) {
+                  echo"<p><b>€ $hoogstebod</b></p>";
                 }
-                echo "</b></p>
+              echo"
               </div>
             </div>";
             if(!isset($_SESSION['login'])) {
@@ -243,10 +240,10 @@
           </ul>
 
         <div class="tab-biedingen tabs-content" data-tabs-content="example-tabs">
-          <div class=" tabs-panel is-active" id="panel1">
-          <?php echo $beschrijving?>
+          <div class=" tabs-panel tabs-panelv is-active" id="panel1">
+          <?php echo $beschrijving; ?>
             </div>
-        <div class="tabs-panel" id="panel2">
+        <div class="tabs-panel tabs-panelv" id="panel2">
           <div class="row medium-up-3 large-up-5">
             <div class="tab-biedingen-omschrijving">
               <?php echo "
@@ -254,12 +251,12 @@
               <p class='middle'>Verzendinginstructies:  $verzendinstructies</p>
               <p class='middle'>Betalinginstructies:  $betalingsinstructie</p>
               <p class='middle'>Betaling: $betalingswijze </p>
-              " 
+              ";
               ?>
             </div>
           </div>
         </div>
-        <div class="tabs-panel" id="panel3">
+        <div class="tabs-panel tabs-panelv" id="panel3">
           <div class="row medium-up-3 large-up-5">
             <div class="tab-biedingen-omschrijving">
               <?php
