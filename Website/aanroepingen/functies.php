@@ -379,6 +379,8 @@ function createQuestions($actueleplek) {
       <option value='$row[vraagnummer]'>$row[tekstvraag]</option>
     ";
 
-    global $test;
-    $test += 1;
+    return $volgendeplek;
+
+    // global $plek;
+    // $plek += 1;
 }
