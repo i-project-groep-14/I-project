@@ -69,7 +69,7 @@ function createSubRubrieken($parentRubriekNummer, $sublevel, $subplek) {
             echo    "'>
           </i> $subrubrieknaam
         </a>
-      </form>
+      </li>
     ";
 
     if (heeftSubriek($subrubrieknummer)) {
@@ -260,6 +260,57 @@ function heeftParentRubriek($rubrieknummer) {
   }
 }
 
+function selectParentRubriekNaam($rubrieknummer) {
+  global $dbh;;
+  $sql = "SELECT rubrieknaam FROM rubriek
+          WHERE rubrieknummer like :rubrieknummer";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':rubrieknummer' => $rubrieknummer
+  ));
+  $row = $query -> fetch();
+  
+  return $row['rubrieknaam'];
+}
+
+function selectParentRubriekNummer($rubrieknummer) {
+  global $dbh;
+  $sql = "SELECT rubriek FROM rubriek
+          WHERE rubrieknummer like :rubrieknummer";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':rubrieknummer' => $rubrieknummer
+  ));
+  $row = $query -> fetch();
+  
+  if ($row['rubriek'] != 0) {
+    return $row['rubriek'];
+  }
+}
+
+function createProductRubrieken($rubrieknummer) {
+  $naam = selectParentRubriekNaam($rubrieknummer);
+  
+  echo"
+    <li";
+    if(!heeftSubriek($rubrieknummer)) {
+      echo"><span class='show-for-sr'></span>";
+    } else {
+      echo " class='disabled'>";
+    }
+    echo"$naam</li>
+  ";
+
+  if (heeftParentRubriek($rubrieknummer)) {
+    $parentRubriekNummer = selectParentRubriekNummer($rubrieknummer);
+    createProductRubrieken($parentRubriekNummer);
+  }
+  
+  // <li><a href="#">Home</a></li>
+  // <li><a href="#">Features</a></li>
+  // <li class="disabled">Gene Splicing</li>
+  // <li><span class="show-for-sr">Current: </span> Cloning</li>
+}
 
 
 

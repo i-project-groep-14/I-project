@@ -52,9 +52,7 @@
                 ));
                 $row = $query -> fetch();
 
-                echo $row['rubriek'];
-
-                if (heeftParentRubriek()) {
+                if (heeftParentRubriek($row['rubriek'])) {
                   createProductRubrieken($row['rubriek']);
                 }
               ?>
