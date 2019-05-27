@@ -174,19 +174,13 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
 
   $voorwerpnummer = $row['voorwerp'];
 
-  echo "ActuelePlek: ".$actueleplek;
-  echo "VolgendePlek: ".$volgendeplek;
-
   $sql = "SELECT titel, beschrijving, verkoopprijs, verkoper, plaatsnaam FROM voorwerp
-          WHERE voorwerpnummer like :voorwerpnummer
-          ORDER BY voorwerpnummer OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+          WHERE voorwerpnummer like :voorwerpnummer";
   $query = $dbh->prepare($sql);
   $query -> execute(array(
     ':voorwerpnummer' => $voorwerpnummer
   ));
   $row = $query -> fetch();
-
-  echo $row['titel'];
 
   $titel = $row['titel'];
   $beschrijving = $row['beschrijving'];
@@ -196,7 +190,7 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
   $locatie = $row['plaatsnaam'];
   
   $sql = "SELECT filenaam FROM bestand
-  WHERE voorwerp like :voorwerpnummer";
+          WHERE voorwerp like :voorwerpnummer";
   $query = $dbh->prepare($sql);
   $query -> execute(array(
       ':voorwerpnummer' => $voorwerpnummer
@@ -250,18 +244,6 @@ function selectAantalVoorwerpen($rubrieknummer) {
   $row = $query -> fetch();
   
   return $row['aantalVoorwerpen'];
-}
-function selectAantalVeilingen($gebruiker) {
-  global $dbh;
-  $sql = "SELECT COUNT(*) as aantalveilingen FROM voorwerp
-          WHERE verkoper like :gebruiker";
-  $query = $dbh->prepare($sql);
-  $query -> execute(array(
-    ':gebruiker' => $gebruiker
-  ));
-  $row = $query -> fetch();
-
-  return $row['aantalveilingen'];
 }
 
 
@@ -437,35 +419,5 @@ function createQuestions($actueleplek) {
       <option value='$row[vraagnummer]'>$row[tekstvraag]</option>
     ";
 
-    global $test;
-    $test += 1;
-}
-
-
-function createProfVeilingen($actueleplek){
-  global $dbh;
-  $volgendeplek = $actueleplek +1;
-  $sql = "SELECT * FROM voorwerp where verkoper in (
-              SELECT gebruikersnaam
-              from gebruiker
-          )
-          AND verkoper = :gebruiker
-          ORDER BY voorwerpnummer OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
-
-  $query = $dbh->prepare($sql);
-  $query -> execute(array(
-  ':gebruiker' => $_SESSION['gebruikersnaam']
-  ));
-  $row = $query -> fetch();
-
-  echo "<tr> 
-            <td>$row[titel]</td>
-            <td>$row[startprijs]</td>
-            <td>$row[titel]</td>
-            <td>$row[titel]</td>
-            <td>$row[titel]</td>
-        </tr>";
-
-return $volgendeplek;
-
+    return $volgendeplek;
 }
