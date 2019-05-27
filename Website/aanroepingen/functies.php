@@ -267,6 +267,7 @@ function selectAantalVeilingen($gebruiker) {
 
 
 
+
 function timeDiff($firstTime,$lastTime){
     $firstTime=strtotime($firstTime);
     $lastTime=strtotime($lastTime);
@@ -458,14 +459,47 @@ function createProfVeilingen($actueleplek){
   ));
   $row = $query -> fetch();
 
-  echo "<tr> 
+  echo "<tr style='text-align=center;'> 
             <td>$row[titel]</td>
             <td>$row[startprijs]</td>
-            <td>$row[titel]</td>
-            <td>$row[titel]</td>
-            <td>$row[titel]</td>
+            <td"; 
+              if ($row['betalingswijze'] == 'PayPal') { 
+                echo" class='fi-paypal'";
+              }
+            echo">$row[betalingswijze]</td>
+            <td>$row[plaatsnaam]</td>
+           <td>$row[looptijdbeginDag]</td>
+            <td>$row[looptijdeindeDag]</td>
+            <td>$row[verkoopprijs]</td>
+            <td>$row[koper]</td>
+            <td>$row[veilingGesloten]</td>
         </tr>";
 
 return $volgendeplek;
 
 }
+
+
+function createProfBiedingen($actueleplek){
+  global $dbh;
+  $volgendeplek = $actueleplek +1;
+  $sql = "SELECT b.voorwerpnummer,MAX(b.bodbedrag) as bod,b.gebruiker,v.titel,v.verkoopprijs
+          FROM bod b inner join voorwerp v on b.voorwerpnummer = v.voorwerpnummer
+          where b.gebruiker = :gebruiker
+          GROUP BY b.voorwerpnummer,b.gebruiker,v.titel,v.verkoopprijs";
+
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+  ':gebruiker' => $_SESSION['gebruikersnaam']
+  ));
+  $row = $query -> fetch();
+
+  echo "<tr>
+          <td>$row[titel]</td>
+          <td>$row[bod]</td>
+        </tr>";
+
+return $volgendeplek;
+
+}
+

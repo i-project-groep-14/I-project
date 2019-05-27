@@ -34,18 +34,25 @@
       <div class="tabs-content" data-tabs-content="example-tabs">
       <?php if($_SESSION['rol'] == 3 || $_SESSION['rol'] == 5){?>
         <div class="tabs-panel is-active" id="panel1v">
+          <!-- aantal veilingen-->
          <?php 
          $plek = 0;
          $aantalveilingen = selectAantalVeilingen($_SESSION['gebruikersnaam']);
           echo "<div style='overflow-x:auto;'>
-          <table>
+          <table >
             <tr>
               <td>Titel</td>
               <td>Startprijs</td>
+              <td>Betalingswijze</td>
+              <td>Plaats</td>
+              <td>StartVeiling</td>
+              <td>EindeVeiling</td>
+              <td>Verkoopprijs</td>
+              <td>Koper</td>
+              <td>Veilinggesloten</td>
             </tr>
             ";
             for($i = 0; $i < $aantalveilingen ; $i++) {
-
               $plek = createProfVeilingen($plek);
             }
         echo "
@@ -55,29 +62,40 @@
         </div>"
          
          ?>
+         <!-- einde aantal veilingen -->
         </div>
         <?php  } ?>
         <div class="tabs-panel" id="panel2v">
-          <p>Two</p>
-          <img class="thumbnail" src="assets/img/generic/rectangle-7.jpg">
-          <p>Two</p>
-          <img class="thumbnail" src="assets/img/generic/rectangle-7.jpg">
-          <p>Two</p>
-          <img class="thumbnail" src="assets/img/generic/rectangle-7.jpg">
-          <p>Two</p>
-          <img class="thumbnail" src="assets/img/generic/rectangle-7.jpg">
-          <p>Two</p>
-          <img class="thumbnail" src="assets/img/generic/rectangle-7.jpg">
-          <p>Two</p>
-          <img class="thumbnail" src="assets/img/generic/rectangle-7.jpg">
-          <p>Two</p>
-          <img class="thumbnail" src="assets/img/generic/rectangle-7.jpg">
-          <p>Two</p>
-          <img class="thumbnail" src="assets/img/generic/rectangle-7.jpg">
-          <p>Two</p>
-          <img class="thumbnail" src="assets/img/generic/rectangle-7.jpg">
-          <p>Two</p>
-          <img class="thumbnail" src="assets/img/generic/rectangle-7.jpg">
+            <!-- aantal biedingen-->
+            <?php 
+         $plek = 0;
+         $aantalveilingen = selectAantalVeilingen($_SESSION['gebruikersnaam']);
+          echo "<div style='overflow-x:auto;'>
+          <table >
+            <tr>
+              <td>Titel</td>
+              <td>uw bod</td>
+              <td>huidige prijs</td>
+              <td>Plaats</td>
+              <td>StartVeiling</td>
+              <td>EindeVeiling</td>
+              <td>Verkoopprijs</td>
+              <td>Koper</td>
+              <td>Veilinggesloten</td>
+            </tr>
+            ";
+            for($i = 0; $i < $aantalveilingen ; $i++) {
+              $plek = createProfBiedingen($plek);
+            }
+        echo "
+            
+        
+          </table>
+        </div>"
+         
+         ?>
+
+            <!-- einde aantal biedingen -->
         </div>
         <div class="tabs-panel" id="panel3v">
           <!-- Profiel gegevens -->

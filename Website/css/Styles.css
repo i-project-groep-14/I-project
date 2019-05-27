@@ -617,8 +617,9 @@ th, td {
 
 /* Profiel pagina */
 #panel2v{
-  overflow-y: scroll;
-  height: 500px;
+  overflow-x: auto;
+  width: 100%;
+  
 }
 
 /* EIDE PROFIEL PAGINA */ 
