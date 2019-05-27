@@ -142,7 +142,7 @@
                     $row = $query -> fetch();
 
                     for($i = 0; $i < $row['aantalVragen']; $i++) {
-                      createQuestions($plek);
+                      $plek = createQuestions($plek);
                     }
                   ?>
                   <!-- <option value="1" >Vraag 1</option>
