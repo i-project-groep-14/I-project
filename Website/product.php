@@ -34,6 +34,28 @@
         );
       }
 
+      $sql = "SELECT veilingGesloten, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
+              WHERE voorwerpnummer = :voorwerpnummer";
+      $query = $dbh->prepare($sql);
+      $query -> execute(array(
+          ':voorwerpnummer' => $_SESSION['voorwerp']
+      ));
+      $row = $query -> fetch();
+
+      $looptijdeindeDag = $row['looptijdeindeDag'];
+      $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
+      $combinedDT = date('Y-m-d H:i:s', strtotime("$looptijdeindeDag $looptijdeindeTijdstip"));
+
+      if($row['veilingGesloten'] = 'niet' && timeDiff(date("Y-m-d H:i:s"),$combinedDT) <= 0) {
+        $sql = "UPDATE voorwerp
+                SET veilingGesloten = 'wel'
+                WHERE voorwerpnummer = :voorwerpnummer";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(
+            ':voorwerpnummer' => $_SESSION['voorwerp']
+        ));
+      }
+
     ?>
       
     <?php  include_once 'aanroepingen/header.php'?>
@@ -332,15 +354,6 @@ function timer() {
   if (seconds <= 0) {
     clearInterval(countdownTimer);
     document.getElementById('countdown').innerHTML = "Veiling is afgelopen!";
-    <?php
-    $sql = "UPDATE voorwerp
- SET veilingGesloten = 'wel'
-WHERE voorwerpnummer = :voorwerpnummer";
-                $query = $dbh->prepare($sql);
-                $query -> execute(array(
-                    ':voorwerpnummer' => $_SESSION['voorwerp']
-                ));
-?>
   } else {
     seconds--;
   }
