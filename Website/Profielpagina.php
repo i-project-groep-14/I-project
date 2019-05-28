@@ -10,7 +10,7 @@
         ));
         $row = $query -> fetch();
 
-
+        
         
         
         
@@ -74,7 +74,8 @@
               <td>Startprijs</td>
               <td>uw bod</td>
               <td>huidige prijs</td>
-              <td>huidige prijs</td>
+              <td>Start Veiling</td>
+              <td>Einde Veiling</td>
               <td>Veilinggesloten</td>
             </tr>
             ";
@@ -117,11 +118,11 @@
                 </tr>
                 <tr>
                   <td>Telefoonnummer</td>
-                  <td><input type="text"  value="<?php echo $row['telefoon']?>" name="ProfTelefoon"></td>
+                  <!--<td><input type="text"  value="<?php echo $row['telefoon']?>" name="ProfTelefoon"></td>-->
                 </tr>
                 <tr>
                   <td>Alternatieve Telefoonnummer</td>
-                  <td><input type="text"  value="<?php echo $row['telefoon']?>" name="ProfTelefoon2"></td>
+                  <!--<td><input type="text"  value="<?php echo $row['telefoon']?>" name="ProfTelefoon2"></td>-->
                 </tr>
 
                 <tr>
@@ -146,7 +147,7 @@
                 </tr>
                 
               </table>
-              <input type="submit" class="veilingknop button" name="plaatsen_voorwerp" value="Opslaan" >
+              <input type="submit" class="veilingknop button" name="UpdateProfiel" value="Opslaan" >
             </div>
           </form>
         </div>
