@@ -75,10 +75,10 @@
           $plek = 0;
           for($i = 0; $i < 4; $i++) {
             createHomepageItem("SELECT titel, voorwerpnummer, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip, startprijs FROM voorwerp 
-                            WHERE veilingGesloten = 'niet' and (
-                            looptijdbeginTijdstip >= CONVERT(TIME,GETDATE()) or
-                            looptijdbeginTijdstip < CONVERT(TIME,GETDATE()))
-                            ORDER BY looptijdbeginDag desc, looptijdbeginTijdstip desc", $plek
+                                WHERE veilingGesloten = 'niet' and (
+                                looptijdbeginTijdstip >= CONVERT(TIME,GETDATE()) or
+                                looptijdbeginTijdstip < CONVERT(TIME,GETDATE()))
+                                ORDER BY looptijdbeginDag desc, looptijdbeginTijdstip desc", $plek
             );
           }
         ?>
