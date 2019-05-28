@@ -257,7 +257,7 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
         </div>
       </div>
       <!--<a href='product.php'>-->
-        <form action='product.php?id=$actueleplek' method='POST'>
+        <form action='product.php' method='POST'>
           <button type='submit' value='$voorwerpnummer' name='voorwerp' class='button ProductButton'>
             <div class='PrijsRubProduct'>
               <h4>€ $hoogstebod</h4>
@@ -393,7 +393,7 @@ function createProductRubrieken($rubrieknummer) {
     if (heeftSubriek($rubrieknummer)) {
       global $actueleRubriek;
                                 //aanpassen
-      if (selectSubRubriekNummer($_GET['id'], $rubrieknummer) != $actueleRubriek) {
+      if (selectSubRubriekNummer(    1     , $rubrieknummer) != $actueleRubriek) {
         $subrubrieknummer = selectSubRubriekNummerZonderPlek($rubrieknummer);
         createProductRubrieken($subrubrieknummer);
       }
