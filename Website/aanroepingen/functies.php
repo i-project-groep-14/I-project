@@ -183,7 +183,8 @@ function selectAantalSubRubrieken($rubrieknummer) {
 
 function selectAantalVeilingen($gebruiker) {
   global $dbh;
-  $sql = "SELECT COUNT(*) as aantalveilingen FROM voorwerp
+  $sql = "SELECT COUNT(*) as aantalveilingen
+          FROM voorwerp
           WHERE verkoper like :gebruiker";
   $query = $dbh->prepare($sql);
   $query -> execute(array(
@@ -193,6 +194,11 @@ function selectAantalVeilingen($gebruiker) {
 
   return $row['aantalveilingen'];
 }
+
+
+
+
+
 
 function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
   global $dbh;
@@ -595,7 +601,9 @@ function createProfVeilingen($actueleplek){
   $row = $query -> fetch();
 
   echo "<tr style='text-align=center;'> 
-            <td>$row[titel]</td>
+  <td><form action='product.php' method='POST'>
+  <button type='submit' value='$row[voorwerpnummer]' name='voorwerp' class='button ProductButton'>$row[titel]</button>
+</form></a></td>
             <td>$row[startprijs]</td>
             <td"; 
               if ($row['betalingswijze'] == 'PayPal') { 
@@ -607,21 +615,40 @@ function createProfVeilingen($actueleplek){
             <td>$row[looptijdeindeDag]</td>
             <td>$row[verkoopprijs]</td>
             <td>$row[koper]</td>
-            <td>$row[veilingGesloten]</td>
+            <td";if ($row['veilingGesloten'] == 'wel') { 
+              echo" class='profveilinggesloten'";
+            }
+            echo" class='profveilingopen'>$row[veilingGesloten]</td>
         </tr>";
 
 return $volgendeplek;
 
 }
 
+function selectAantalBiedingen($gebruiker) {
+  global $dbh;
+  $sql = "SELECT COUNT(*) as aantalbiedingenPp,gebruiker
+          FROM aantalBiedingenPerPersoon
+          WHERE gebruiker like :gebruiker
+          group by gebruiker";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':gebruiker' => $gebruiker
+  ));
+  $row = $query -> fetch();
+
+  return $row['aantalbiedingenPp'];
+}
+
 
 function createProfBiedingen($actueleplek){
   global $dbh;
   $volgendeplek = $actueleplek +1;
-  $sql = "SELECT b.voorwerpnummer,MAX(b.bodbedrag) as bod,b.gebruiker,v.titel,v.verkoopprijs
+  $sql = "SELECT b.voorwerpnummer,MAX(b.bodbedrag) as bod,b.gebruiker,v.titel,v.verkoopprijs,v.startprijs,v.looptijdbeginDag,v.looptijdeindeDag,v.verkoopprijs,v.veilingGesloten
           FROM bod b inner join voorwerp v on b.voorwerpnummer = v.voorwerpnummer
           where b.gebruiker = :gebruiker
-          GROUP BY b.voorwerpnummer,b.gebruiker,v.titel,v.verkoopprijs";
+          GROUP BY b.voorwerpnummer,b.gebruiker,v.titel,v.verkoopprijs,v.startprijs,v.looptijdbeginDag,v.looptijdeindeDag,v.verkoopprijs,v.veilingGesloten
+          ORDER BY b.voorwerpnummer OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
 
   $query = $dbh->prepare($sql);
   $query -> execute(array(
@@ -630,8 +657,19 @@ function createProfBiedingen($actueleplek){
   $row = $query -> fetch();
 
   echo "<tr>
-          <td>$row[titel]</td>
-          <td>$row[bod]</td>
+  
+          <td><form action='product.php' method='POST'>
+          <button type='submit' value='$row[voorwerpnummer]' name='voorwerp' class='button ProductButton'>$row[titel]</button>
+        </form></a></td>
+          <td>€ $row[startprijs]</td>
+          <td>€ $row[bod]</td>
+          <td>€ $row[verkoopprijs]</td>
+          <td>$row[looptijdbeginDag]</td>
+          <td>$row[looptijdeindeDag]</td>
+          <td";if ($row['veilingGesloten'] == 'wel') { 
+            echo" class='profveilinggesloten'";
+          }
+          echo" class='profveilingopen'>$row[veilingGesloten]</td>
         </tr>";
 
 return $volgendeplek;

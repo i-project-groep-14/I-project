@@ -10,7 +10,7 @@
         ));
         $row = $query -> fetch();
 
-
+        
         
         
         
@@ -56,11 +56,8 @@
               $plek = createProfVeilingen($plek);
             }
         echo "
-            
-        
           </table>
         </div>"
-         
          ?>
          <!-- einde aantal veilingen -->
         </div>
@@ -69,33 +66,27 @@
             <!-- aantal biedingen-->
             <?php 
          $plek = 0;
-         $aantalveilingen = selectAantalVeilingen($_SESSION['gebruikersnaam']);
+         $aantalveilingen = selectAantalBiedingen($_SESSION['gebruikersnaam']);
           echo "<div style='overflow-x:auto;'>
           <table >
             <tr>
               <td>Titel</td>
+              <td>Startprijs</td>
               <td>uw bod</td>
               <td>huidige prijs</td>
-              <td>Plaats</td>
-              <td>StartVeiling</td>
-              <td>EindeVeiling</td>
-              <td>Verkoopprijs</td>
-              <td>Koper</td>
+              <td>Start Veiling</td>
+              <td>Einde Veiling</td>
               <td>Veilinggesloten</td>
             </tr>
             ";
             for($i = 0; $i < $aantalveilingen ; $i++) {
               $plek = createProfBiedingen($plek);
-            }
+              }
         echo "
-            
-        
           </table>
         </div>"
-         
          ?>
-
-            <!-- einde aantal biedingen -->
+<!-- einde aantal biedingen -->
         </div>
         <div class="tabs-panel" id="panel3v">
           <!-- Profiel gegevens -->
@@ -127,11 +118,11 @@
                 </tr>
                 <tr>
                   <td>Telefoonnummer</td>
-                  <td><input type="text"  value="<?php echo $row['telefoon']?>" name="ProfTelefoon"></td>
+                  <!--<td><input type="text"  value="<?php echo $row['telefoon']?>" name="ProfTelefoon"></td>-->
                 </tr>
                 <tr>
                   <td>Alternatieve Telefoonnummer</td>
-                  <td><input type="text"  value="<?php echo $row['telefoon']?>" name="ProfTelefoon2"></td>
+                  <!--<td><input type="text"  value="<?php echo $row['telefoon']?>" name="ProfTelefoon2"></td>-->
                 </tr>
 
                 <tr>
@@ -156,7 +147,7 @@
                 </tr>
                 
               </table>
-              <input type="submit" class="veilingknop button" name="plaatsen_voorwerp" value="Opslaan" >
+              <input type="submit" class="veilingknop button" name="UpdateProfiel" value="Opslaan" >
             </div>
           </form>
         </div>

@@ -23,6 +23,19 @@
 .MobielZoekProduct{
   display: none;
 }
+.profveilingopen{
+  background-color: #F2552C;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+
+.profveilinggesloten{
+  background-color: green;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
 
 
 li{

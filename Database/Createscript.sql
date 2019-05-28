@@ -15,6 +15,7 @@ create database EenmaalAndermaal
 
 use EenmaalAndermaal
 
+
 /*==============================================================*/
 /* Table: Gebruiker												*/
 /*==============================================================*/
@@ -249,4 +250,25 @@ insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Snaren', 6, 1)
 insert into [voorwerp in rubriek] values (1, 14)
 insert into [voorwerp in rubriek] values (2, 14)
 insert into [voorwerp in rubriek] values (3, 14)
+
+
+
+
+/* 
+create view aantalBiedingenPerPersoon AS
+select  count(voorwerpnummer) as aantal, gebruiker
+from bod
+group by voorwerpnummer, gebruiker
+
+
+
+drop view aantalBiedingenPerPersoon 
+
+select count(*), gebruiker
+from aantalBiedingenPerPersoon
+group by gebruiker
+*/
+
+
+
 use master
