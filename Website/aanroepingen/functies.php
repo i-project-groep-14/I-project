@@ -127,12 +127,38 @@ function selectSubRubriekNaam($actueleplek, $rubrieknummer) {
   return $row['rubrieknaam'];
 }
 
+function selectSubRubriekNaamZonderPlek($rubrieknummer) {
+  global $dbh;
+  $sql = "SELECT rubrieknaam FROM rubriek
+          WHERE rubriek like :rubrieknummer";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':rubrieknummer' => $rubrieknummer
+  ));
+  $row = $query -> fetch();
+  
+  return $row['rubrieknaam'];
+}
+
 function selectSubRubriekNummer($actueleplek, $rubrieknummer) {
   global $dbh;
   $volgendeplek = $actueleplek+1;
   $sql = "SELECT rubrieknummer FROM rubriek
           WHERE rubriek like :rubrieknummer
           ORDER BY rubrieknummer OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':rubrieknummer' => $rubrieknummer
+  ));
+  $row = $query -> fetch();
+  
+  return $row['rubrieknummer'];
+}
+
+function selectSubRubriekNummerZonderPlek($rubrieknummer) {
+  global $dbh;
+  $sql = "SELECT rubrieknummer FROM rubriek
+          WHERE rubriek like :rubrieknummer";
   $query = $dbh->prepare($sql);
   $query -> execute(array(
     ':rubrieknummer' => $rubrieknummer
@@ -225,7 +251,7 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
         </div>
       </div>
       <!--<a href='product.php'>-->
-        <form action='product.php' method='POST'>
+        <form action='product.php?id=$actueleplek' method='POST'>
           <button type='submit' value='$voorwerpnummer' name='voorwerp' class='button ProductButton'>
             <div class='PrijsRubProduct'>
               <h4>€ $hoogstebod</h4>
@@ -302,22 +328,70 @@ function selectParentRubriekNummer($rubrieknummer) {
   }
 }
 
-function createProductRubrieken($rubrieknummer) {
-  $naam = selectParentRubriekNaam($rubrieknummer);
+function selectRubriekNaam($rubrieknummer) {
+  global $dbh;;
+  $sql = "SELECT rubrieknaam FROM rubriek
+          WHERE rubrieknummer like :rubrieknummer";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':rubrieknummer' => $rubrieknummer
+  ));
+  $row = $query -> fetch();
   
-  echo"
-    <li";
-    if(!heeftSubriek($rubrieknummer)) {
-      echo"><span class='show-for-sr'></span>";
-    } else {
-      echo " class='disabled'>";
-    }
-    echo"$naam</li>
-  ";
+  return $row['rubrieknaam'];
+}
 
-  if (heeftParentRubriek($rubrieknummer)) {
-    $parentRubriekNummer = selectParentRubriekNummer($rubrieknummer);
-    createProductRubrieken($parentRubriekNummer);
+function createProductRubrieken($rubrieknummer) {
+  global $nietBovenaan;
+
+  // echo $rubrieknummer;
+
+  if ($nietBovenaan) {
+
+    // echo "test";
+
+    if (heeftParentRubriek($rubrieknummer)) {
+      $parentRubriekNummer = selectParentRubriekNummer($rubrieknummer);
+      // echo $parentRubriekNummer;
+      if ($parentRubriekNummer != 0) {
+        global $test;
+        $test = $parentRubriekNummer;
+
+        // echo "test: ".$test;
+      }
+      createProductRubrieken($parentRubriekNummer);
+    } else {
+      $nietBovenaan = false;
+
+      // echo "bovenaan";
+
+      global $test;
+
+      // echo "test== ".$test;
+
+      createProductRubrieken($test);
+    }
+  } else {
+    $naam = selectRubriekNaam($rubrieknummer);
+
+    echo"
+      <li";
+      if(!heeftSubriek($rubrieknummer)) {
+        echo"><span class='show-for-sr'></span>";
+      } else {
+        echo " class='disabled'>";
+      }
+      echo"$naam</li>
+    ";
+
+    if (heeftSubriek($rubrieknummer)) {
+      global $actueleRubriek;
+                                //aanpassen
+      if (selectSubRubriekNummer($_GET['id'], $rubrieknummer) != $actueleRubriek) {
+        $subrubrieknummer = selectSubRubriekNummerZonderPlek($rubrieknummer);
+        createProductRubrieken($subrubrieknummer);
+      }
+    }
   }
   
   // <li><a href="#">Home</a></li>

@@ -51,9 +51,12 @@
                     ':voorwerpnummer' => $_SESSION['voorwerp']
                 ));
                 $row = $query -> fetch();
-
-                if (heeftParentRubriek($row['rubriek'])) {
-                  createProductRubrieken($row['rubriek']);
+                
+                $actueleRubriek = $row['rubriek'];
+                
+                if (heeftParentRubriek($actueleRubriek)) {
+                  $nietBovenaan = true;
+                  createProductRubrieken($actueleRubriek);
                 }
               ?>
               <!-- <li><a href="#">Home</a></li>
@@ -81,7 +84,7 @@
                   $afbeelding = $row['filenaam'];
                 }
                 
-
+                
                 
                 
             echo"
