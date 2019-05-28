@@ -101,7 +101,7 @@
           <!--Toevoegen informatie aan de rechterkant-->
           <div class="medium-6 large-5 columns lijn">
             <?php
-              $sql = "SELECT titel, verkoper, beschrijving, plaatsnaam, startprijs, verkoopprijs,verzendkosten, betalingswijze,betalingsinstructie, verzendinstructies, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
+              $sql = "SELECT titel, verkoper, beschrijving, plaatsnaam, startprijs, verkoopprijs,verzendkosten, betalingswijze,betalingsinstructie, verzendinstructies, looptijdeindeDag, looptijdeindeTijdstip  FROM voorwerp
                       WHERE voorwerpnummer like :voorwerpnummer";
               $query = $dbh->prepare($sql);
               $query -> execute(array(
@@ -326,13 +326,23 @@ function timer() {
     return (n < 10 ? "0" + n : n);
   }
   document.getElementById('countdown').innerHTML = pad(days) + "d " + pad(hours) + "h " + pad(minutes) + "m " + pad(remainingSeconds) + "s ";
-  if (seconds == 0) {
+  if (seconds <= 0) {
     clearInterval(countdownTimer);
     document.getElementById('countdown').innerHTML = "Veiling is afgelopen!";
+    <?php
+    $sql = "UPDATE voorwerp
+ SET veilingGesloten = 'wel'
+WHERE voorwerpnummer = :voorwerpnummer";
+                $query = $dbh->prepare($sql);
+                $query -> execute(array(
+                    ':voorwerpnummer' => $_SESSION['voorwerp']
+                ));
+?>
   } else {
     seconds--;
   }
 }
+
 var countdownTimer = setInterval('timer()', 1000);
 </script>
 
