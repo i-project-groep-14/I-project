@@ -255,7 +255,7 @@ insert into [voorwerp in rubriek] values (5, 13)
 
 insert into [voorwerp in rubriek] values (7, 7)
 insert into [voorwerp in rubriek] values (3, 15)
-insert into [voorwerp in rubriek] values (6, 8)
+insert into [voorwerp in rubriek] values (6, 12)
 
 /*
 voorwerp dat sluit na 20 seconden
