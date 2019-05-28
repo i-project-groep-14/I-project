@@ -157,7 +157,8 @@ function selectAantalSubRubrieken($rubrieknummer) {
 
 function selectAantalVeilingen($gebruiker) {
   global $dbh;
-  $sql = "SELECT COUNT(*) as aantalveilingen FROM voorwerp
+  $sql = "SELECT COUNT(*) as aantalveilingen
+          FROM voorwerp
           WHERE verkoper like :gebruiker";
   $query = $dbh->prepare($sql);
   $query -> execute(array(
@@ -167,6 +168,11 @@ function selectAantalVeilingen($gebruiker) {
 
   return $row['aantalveilingen'];
 }
+
+
+
+
+
 
 function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
   global $dbh;
@@ -540,14 +546,30 @@ return $volgendeplek;
 
 }
 
+function selectAantalBiedingen($gebruiker) {
+  global $dbh;
+  $sql = "SELECT COUNT(*) as aantalbiedingenPp,gebruiker
+          FROM aantalBiedingenPerPersoon
+          WHERE gebruiker like :gebruiker
+          group by gebruiker";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':gebruiker' => $gebruiker
+  ));
+  $row = $query -> fetch();
+
+  return $row['aantalbiedingenPp'];
+}
+
 
 function createProfBiedingen($actueleplek){
   global $dbh;
   $volgendeplek = $actueleplek +1;
-  $sql = "SELECT b.voorwerpnummer,MAX(b.bodbedrag) as bod,b.gebruiker,v.titel,v.verkoopprijs
+  $sql = "SELECT b.voorwerpnummer,MAX(b.bodbedrag) as bod,b.gebruiker,v.titel,v.verkoopprijs,v.startprijs,v.looptijdbeginDag,v.looptijdeindeDag,v.verkoopprijs
           FROM bod b inner join voorwerp v on b.voorwerpnummer = v.voorwerpnummer
           where b.gebruiker = :gebruiker
-          GROUP BY b.voorwerpnummer,b.gebruiker,v.titel,v.verkoopprijs";
+          GROUP BY b.voorwerpnummer,b.gebruiker,v.titel,v.verkoopprijs,v.startprijs,v.looptijdbeginDag,v.looptijdeindeDag,v.verkoopprijs
+          ORDER BY b.voorwerpnummer OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
 
   $query = $dbh->prepare($sql);
   $query -> execute(array(
@@ -557,7 +579,11 @@ function createProfBiedingen($actueleplek){
 
   echo "<tr>
           <td>$row[titel]</td>
-          <td>$row[bod]</td>
+          <td>€ $row[startprijs]</td>
+          <td>€ $row[bod]</td>
+          <td>€ $row[verkoopprijs]</td>
+          <td>$row[looptijdbeginDag]</td>
+          <td>$row[looptijdeindeDag]</td>
         </tr>";
 
 return $volgendeplek;
