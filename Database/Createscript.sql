@@ -248,7 +248,7 @@ insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trackpads', 9, 1)
 insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Snaren', 6, 1)
 
 insert into [voorwerp in rubriek] values (1, 14)
-insert into [voorwerp in rubriek] values (2, 14)
+insert into [voorwerp in rubriek] values (2, 5)
 
 insert into [voorwerp in rubriek] values (4, 13)
 insert into [voorwerp in rubriek] values (5, 13)
