@@ -75,6 +75,7 @@
                 $row = $query -> fetch();
                 
                 $actueleRubriek = $row['rubriek'];
+                $actueleParentRubriek = selectParentRubriekNummer($actueleRubriek);
                 
                 if (heeftParentRubriek($actueleRubriek)) {
                   $nietBovenaan = true;

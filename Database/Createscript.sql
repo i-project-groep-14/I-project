@@ -249,8 +249,13 @@ insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Snaren', 6, 1)
 
 insert into [voorwerp in rubriek] values (1, 14)
 insert into [voorwerp in rubriek] values (2, 14)
-insert into [voorwerp in rubriek] values (3, 14)
 
+insert into [voorwerp in rubriek] values (4, 13)
+insert into [voorwerp in rubriek] values (5, 13)
+
+insert into [voorwerp in rubriek] values (7, 7)
+insert into [voorwerp in rubriek] values (3, 15)
+insert into [voorwerp in rubriek] values (6, 8)
 
 /*
 voorwerp dat sluit na 20 seconden
