@@ -134,17 +134,17 @@
                 <label>Kies één veiligheidsvraag.</label>
                 <select name="veiligheidsvraag" >
                   <option value="0">...</option>
-                  <?php
-                    $plek = 0;
-                    $sql = "SELECT COUNT(*) as aantalVragen FROM vraag";
-                    $query = $dbh->prepare($sql);
-                    $query -> execute();
-                    $row = $query -> fetch();
+                    <?php
+                      $plek = 0;
+                      $sql = "SELECT COUNT(*) as aantalVragen FROM vraag";
+                      $query = $dbh->prepare($sql);
+                      $query -> execute();
+                      $row = $query -> fetch();
 
-                    for($i = 0; $i < $row['aantalVragen']; $i++) {
-                      $plek = createQuestions($plek);
-                    }
-                  ?>
+                      for($i = 0; $i < $row['aantalVragen']; $i++) {
+                        $plek = createQuestions($plek);
+                      }
+                    ?>
                   <!-- <option value="1" >Vraag 1</option>
                   <option value="2" >Vraag 2</option>
                   <option value="3" >Vraag 3</option>

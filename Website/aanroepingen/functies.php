@@ -423,8 +423,8 @@ function timeDiff($firstTime,$lastTime){
 function createHomepageItem($sql, $actueleplek) {
     global $dbh;
     $volgendeplek = $actueleplek+1;
-    $test = " OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
-    $sql = $sql.$test;
+    $merge = " OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+    $sql = $sql.$merge;
 
     $query = $dbh->prepare($sql);
     $query -> execute();
@@ -579,8 +579,7 @@ function createQuestions($actueleplek) {
       <option value='$row[vraagnummer]'>$row[tekstvraag]</option>
     ";
 
-    global $test;
-    $test += 1;
+    return $volgendeplek;
 }
 
 
