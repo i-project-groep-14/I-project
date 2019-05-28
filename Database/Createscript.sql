@@ -252,6 +252,11 @@ insert into [voorwerp in rubriek] values (2, 14)
 insert into [voorwerp in rubriek] values (3, 14)
 
 
+/*
+voorwerp dat sluit na 20 seconden
+insert into voorwerp values('Test', 'f', 1, 'PayPal', null, 'plaatsnaam7', 'land7', 0, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 
+							'Beheerder', null, CONVERT(TIME,dateadd(second, 20, GETDATE())), 'niet', 60)
+*/
 
 
 /* 
