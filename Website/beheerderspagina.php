@@ -7,23 +7,15 @@
     
     <div class="holy-grail-middle">
       <h3 class="InlogpaginaKopje"> Beheerders Pagina </h3>
-      <br>
-      <h4> Rubrieken Toevoegen </h4>
-
-      <h5> Nieuwe Rubriek maken </h5>
-      <label> Rubriek naam: </label>
-      <input type="text">
-      <label> Subrubrieken: </label>
-      <input type="text">
-      <br>
-      <h4> Gebruiker blokeren</h4>
+<br>
+      <h4> Gebruiker blokkeren</h4>
 
       <input type="text" id="myInput" onkeyup="zoekFunctie()" placeholder="Zoeken op gebruikersnaam...">
 
       <table id="myTable">
         <tr class="header">
-          <th style="width:60%;">Gebruikersnaam</th>
-          <th style="width:40%;">Gebruiker blokkeren</th>
+          <th>Gebruikersnaam</th>
+          <th>Gebruiker blokkeren</th>
         </tr>
             <?php
               $plek = 0;

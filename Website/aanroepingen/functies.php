@@ -662,7 +662,7 @@ function createGebruikers($actueleplek) {
   $volgendeplek = $actueleplek+1;
   $sql = "SELECT gebruikersnaam FROM gebruiker
           WHERE rol != 5
-          ORDER BY rol desc OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+          ORDER BY gebruikersnaam OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
   $query = $dbh->prepare($sql);
   $query -> execute();
   $row = $query -> fetch();
