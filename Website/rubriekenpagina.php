@@ -88,3 +88,28 @@
     <?php 
       include_once 'aanroepingen/footer.html';
     ?>
+
+<script>
+var upgradeTime = <?php echo $difference?>;
+var seconds = upgradeTime;
+function timer() {
+  var days        = Math.floor(seconds/24/60/60);
+  var hoursLeft   = Math.floor((seconds) - (days*86400));
+  var hours       = Math.floor(hoursLeft/3600);
+  var minutesLeft = Math.floor((hoursLeft) - (hours*3600));
+  var minutes     = Math.floor(minutesLeft/60);
+  var remainingSeconds = seconds % 60;
+  function pad(n) {
+    return (n < 10 ? "0" + n : n);
+  }
+  document.getElementById('countdown').innerHTML = pad(days) + "d " + pad(hours) + "h " + pad(minutes) + "m " + pad(remainingSeconds) + "s ";
+  if (seconds <= 0) {
+    clearInterval(countdownTimer);
+    document.getElementById('countdown').innerHTML = "Veiling is afgelopen!";
+  } else {
+    seconds--;
+  }
+}
+
+var countdownTimer = setInterval('timer()', 1000);
+</script>
