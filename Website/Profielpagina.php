@@ -19,6 +19,7 @@
 
     
     <div class="holy-grail-middle">
+    <h1>Deze pagina is in bewerking</h1>
     <div class="grid-container">
   <div class="grid-x grid-margin-x">
     <div class="cell medium-3">
