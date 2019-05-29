@@ -11,7 +11,7 @@
       <h4> Gebruiker blokkeren</h4>
 
       <input type="text" id="myInput" onkeyup="zoekFunctie()" placeholder="Zoeken op gebruikersnaam...">
-
+      <div class="scrollbar">
       <table id="myTable">
         <tr class="header">
           <th>Gebruikersnaam</th>
@@ -26,6 +26,7 @@
               }
             ?>
       </table>
+    </div>
     </div>
 
     <?php 
