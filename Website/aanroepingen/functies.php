@@ -622,7 +622,7 @@ function selectAantalBiedingen($gebruiker) {
 }
 
 
-function createProfBiedingen($actueleplek){
+function createProfBiedingen($actueleplek) {
   global $dbh;
   $volgendeplek = $actueleplek +1;
   $sql = "SELECT b.voorwerpnummer,MAX(b.bodbedrag) as bod,b.gebruiker,v.titel,v.verkoopprijs,v.startprijs,v.looptijdbeginDag,v.looptijdeindeDag,v.verkoopprijs,v.veilingGesloten
@@ -657,3 +657,35 @@ return $volgendeplek;
 
 }
 
+function createGebruikers($actueleplek) {
+  global $dbh;
+  $volgendeplek = $actueleplek+1;
+  $sql = "SELECT gebruikersnaam FROM gebruiker
+          WHERE rol != 5
+          ORDER BY rol desc OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
+  $query = $dbh->prepare($sql);
+  $query -> execute();
+  $row = $query -> fetch();
+
+  $gebruiker = $row['gebruikersnaam'];
+
+  echo"
+    <tr>
+      <td>$gebruiker</td>
+      <td><input class='button' type='submit' name='verzenden_pers' value='Blokkeren'></td>
+    </tr>
+  ";
+  
+  return $volgendeplek;
+}
+
+function selectAantalGebruikers() {
+  global $dbh;
+  $sql = "SELECT COUNT(*) as aantalGebruikers FROM gebruiker
+          WHERE rol != 5";
+  $query = $dbh->prepare($sql);
+  $query -> execute();
+  $row = $query -> fetch();
+
+  return $row['aantalGebruikers'];
+}

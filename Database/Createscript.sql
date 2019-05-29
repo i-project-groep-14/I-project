@@ -194,6 +194,8 @@ insert into vraag values ('5', 'Hoe heet je huisdier?')
 
 insert into gebruiker values ('Beheerder', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
 								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 5, null)
+insert into gebruiker values ('Test', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
+								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 5, null)
 
 insert into verkoper values('Beheerder', null, null, 'controle-optie', null)
 
@@ -262,7 +264,7 @@ voorwerp dat sluit na 20 seconden
 insert into voorwerp values('Test', 'f', 1, 'PayPal', null, 'plaatsnaam7', 'land7', 0, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 
 							'Beheerder', null, CONVERT(TIME,dateadd(second, 20, GETDATE())), 'niet', 60)
 */
-
+SELECT * FROM voorwerp
 
 /* 
 create view aantalBiedingenPerPersoon AS
@@ -271,7 +273,7 @@ from bod
 group by voorwerpnummer, gebruiker
 
 
-
+, 
 drop view aantalBiedingenPerPersoon 
 
 select count(*), gebruiker
