@@ -106,7 +106,6 @@ create table voorwerp (
 	constraint fk_voorwerp_verkoper foreign key (verkoper) references verkoper (gebruiker),
 	constraint fk_voorwerp_koper foreign key (koper) references gebruiker (gebruikersnaam) on update cascade on delete no action
 	/* bij rubriek een foreign key naar voorwerpnummer */
-
 	/*
 	AF 1	Tabel Voorwerp, kolom LooptijdeindeDag:
 	Kolom LooptijdeindeDag heeft de datum van LooptijdbeginDag + het aantal dagen dat Looptijd aangeeft.
@@ -117,7 +116,7 @@ create table voorwerp (
 	AF 3	Tabel Voorwerp, kolom VeilingGesloten?:
 	Kolom VeilingGesloten? heeft de waarde ‘niet’ als de systeemdatum en –tijd vroeger zijn dan wat kolommen LooptijdeindeDag en 
 	LooptijdeindeTijdstip aangeven, en de waarde ‘wel’ als de systeemdatum en –tijd later zijn dan dat.
-
+		
 	AF 4	Tabel Voorwerp, kolom Koper:
 	Kolom Koper heeft een NULL-waarde, tenzij de veiling is gesloten en er op het voorwerp een bod is uitgebracht. Dan heeft kolom Koper 
 	de waarde uit kolom Bod(Gebruiker) die bij het hoogste bod op hetzelfde voorwerp hoort.
@@ -149,10 +148,9 @@ create table bestand (
 /* Table: Rubriek												*/
 /*==============================================================*/
 create table rubriek (
-	rubrieknummer				numeric(3)			identity(0,1) not null,
+	rubrieknummer				int			not null,
 	rubrieknaam					varchar(50)			not null,
-	rubriek						numeric(3)			null,
-	volgnr						numeric(3)			not null
+	rubriek						int			null
 	constraint pk_rubriek_rubrieknummer primary key (rubrieknummer),
 	constraint fk_rubriek_rubriek foreign key (rubriek) references rubriek (rubrieknummer) on update no action on delete no action
 )
@@ -162,7 +160,7 @@ create table rubriek (
 /*==============================================================*/
 create table [voorwerp in rubriek] (
 	voorwerp					int					not null,
-	[rubriek op laagste niveau]	numeric(3)			not null
+	[rubriek op laagste niveau]	int					not null
 	constraint pk_voorwerpinrubriek_voorwerp primary key (voorwerp),
 	constraint fk_voorwerpinrubriek_voorwerp foreign key (voorwerp) references voorwerp (voorwerpnummer) on update cascade on delete no action,
 	constraint fk_voorwerpinrubriek_rubriekoplaagsteniveau foreign key ([rubriek op laagste niveau]) references rubriek (rubrieknummer) on update no action on delete no action
@@ -191,9 +189,9 @@ insert into vraag values ('2', 'Wat is de meisjesnaam van je moeder?')
 insert into vraag values ('3', 'Wat is je lievelingsgerecht?')
 insert into vraag values ('4', 'Hoe heet je oudste zusje?')
 insert into vraag values ('5', 'Hoe heet je huisdier?')
-
+select * from gebruiker
 insert into gebruiker values ('Beheerder', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
-								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 5, null)
+								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 5, null)/*
 insert into gebruiker values ('Test', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
 								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 2, null)
 insert into gebruiker values ('Boom', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
@@ -213,7 +211,7 @@ insert into gebruiker values ('Kop', 'Danny', 'Hageman', 'Onbekend', null, 'Unkn
 insert into gebruiker values ('Poep', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
 								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 2, null)
 insert into gebruiker values ('Peop', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
-								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 2, null)
+								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 2, null)*/
 
 insert into verkoper values('Beheerder', null, null, 'controle-optie', null)
 
@@ -247,25 +245,25 @@ insert into bestand values('images/kaashond.jpg', 6)
 insert into bestand values('images/banaan.jpg', 7)
 
 
+/*
+insert into rubriek values (0,'Hoofdrubriek', null)
+insert into rubriek values (1,'Muziekinstrumenten', 0)
+insert into rubriek values (2,'Gitaren', 1)
+insert into rubriek values (3,'Trompetten', 1)
+insert into rubriek values (4,'Trombones', 1)
+insert into rubriek values (5,'Pianos', 1)
+insert into rubriek values (6,'Elektrische Gitaren', 2)
+insert into rubriek values (7,'Acoustische Gitaren', 2)
 
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Hoofdrubriek', null, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Muziekinstrumenten', 0, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Gitaren', 1, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trompetten', 1, 2)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trombones', 1, 3)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Pianos', 1, 4)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Elektrische Gitaren', 2, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Acoustische Gitaren', 2, 2)
+insert into rubriek values (8,'Computers', 0)
+insert into rubriek values (9,'Laptops', 8)
+insert into rubriek values (10,'Beeldschermen', 8)
+insert into rubriek values (11,'Toetsenborden', 8)
+insert into rubriek values (12,'Muizen', 8)
+insert into rubriek values (13,'Opladers', 9)
+insert into rubriek values (14,'Trackpads', 9)
 
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Computers', 0, 2)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Laptops', 8, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Beeldschermen', 8, 2)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Toetsenborden', 8, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Muizen', 8, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Opladers', 9, 1)
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Trackpads', 9, 1)
-
-insert into rubriek (rubrieknaam, rubriek, volgnr) values ('Snaren', 6, 1)
+insert into rubriek values (15,'Snaren', 6)
 
 insert into [voorwerp in rubriek] values (1, 14)
 insert into [voorwerp in rubriek] values (2, 5)
@@ -276,13 +274,13 @@ insert into [voorwerp in rubriek] values (5, 13)
 insert into [voorwerp in rubriek] values (7, 7)
 insert into [voorwerp in rubriek] values (3, 15)
 insert into [voorwerp in rubriek] values (6, 12)
-
+*/
 /*
 voorwerp dat sluit na 20 seconden
 insert into voorwerp values('Test', 'f', 1, 'PayPal', null, 'plaatsnaam7', 'land7', 0, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 
 							'Beheerder', null, CONVERT(TIME,dateadd(second, 20, GETDATE())), 'niet', 60)
 */
-SELECT * FROM voorwerp
+SELECT * FROM gebruiker
 
 /* 
 create view aantalBiedingenPerPersoon AS

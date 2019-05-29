@@ -15,7 +15,7 @@ function createRubriek($actueleplek) {
     <li>
       <a href='rubriekenpagina.php'><i class='";
       if (heeftSubriek($row['rubrieknummer'])) { echo"fi-folder-add"; } else { echo"fi-page"; }
-      echo "'></i> $row[rubrieknaam]</a>
+      echo "'></i> $row[rubrieknaam], $row[rubrieknummer]</a>
   ";
 
   if (heeftSubriek($row['rubrieknummer'])) {
@@ -67,7 +67,7 @@ function createSubRubrieken($parentRubriekNummer, $sublevel, $subplek) {
           <i class='";
             if (heeftSubriek($subrubrieknummer)) { echo"fi-folder-add"; } else { echo"subitem fi-page"; }
             echo    "'>
-          </i> $subrubrieknaam
+          </i> $subrubrieknaam, $row[rubriek]
         </a>
     ";
 
