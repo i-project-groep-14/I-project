@@ -50,7 +50,7 @@
 
                 $beschrijving_product = $_POST['beschrijving_product'];
                 $startprijs = $_POST['startprijs'];
-                $laagste_rubriek = $_POST['laagste_rubriek'];
+                
                 
                 if (empty($_POST['verzendkosten']) ) {
                     $verzendkosten = "Geen";
@@ -78,6 +78,32 @@
 
                 $looptijd = $_POST['loopdag'];
 
+                $laagste_rubriek = -1;
+                $laagste_rubriek = $_POST['rubriek'];
+                if(!empty($_POST['sub-rubriek']) ){
+                    $laagste_rubriek = $_POST['sub-rubriek'];
+                    
+                }else{
+                    $laagste_rubriek = $_POST['rubriek']; 
+                }
+
+                if(!empty($_POST['sub-sub-rubriek']) ){
+                    $laagste_rubriek = $_POST['sub-sub-rubriek'];
+                }else{
+                    $laagste_rubriek = $_POST['sub-rubriek'];
+                }
+
+                if(!empty($_POST['sub-sub-sub-rubriek']) ){
+                    $laagste_rubriek = $_POST['sub-sub-sub-rubriek']; 
+                }
+                else if(empty($_POST['sub-sub-rubriek'])){
+                    $laagste_rubriek = $_POST['sub-rubriek'];
+                }else{
+                    $laagste_rubriek = $_POST['sub-sub-rubriek'];
+                }
+                //echo $laagste_rubriek;
+
+
                 $sql = "SELECT gebruiker FROM verkoper WHERE gebruiker = :gebruiker ";
                 $query = $dbh->prepare($sql);
                 $query -> execute(array(
@@ -93,6 +119,8 @@
                     window.location.href='index.php';
                     </script>");
                 }
+                
+            
 
                 //In de database zetten van product
                 $sql_product = "INSERT INTO voorwerp (titel,beschrijving,startprijs,betalingswijze,betalingsinstructie,plaatsnaam,land,looptijd,looptijdbeginDag,looptijdbeginTijdstip,verzendkosten ,verzendinstructies ,looptijdeindeTijdstip,veilingGesloten,verkoper) 
@@ -193,6 +221,10 @@
                     $sql_foto = "INSERT INTO bestand (filenaam, voorwerp) VALUES (:filenaam, :voorwerp)";
                     $query_foto = $dbh->prepare($sql_foto);
                     $query_foto -> execute(array(':filenaam' => $filenaam, ':voorwerp' => $row['voorwerpnummer']));
+
+                    $sql_rubriek = "INSERT INTO [voorwerp in rubriek] VALUES (:voorwerp, :laagste_rubriek)";
+                    $query_rubriek = $dbh->prepare($sql_rubriek);
+                    $query_rubriek -> execute(array(':voorwerp' => $row['voorwerpnummer'], ':laagste_rubriek' => $laagste_rubriek ));
                 }
             
 
@@ -202,15 +234,9 @@
         echo $e->getMessage();
     }
 
-
-
-        //Rubriek op laagste niveau moet worden genoteerd
-        //echo nieuwe selectie box als er meerdere sub rubrieken zijn
-        //zoek naar rubrieknummer OP "-" en tot e hoogste volgnummer is eerste rubrieken box
-        //daarna als erop is geklikt dan rubrieknummer OP , het nummer van deze rubriek en alle volgnummers daar van aangegeven
-        //enzovoort tot dat er geen sub rubrieken zijn dan geef het gekozen rubrieknummer en deze invullen als value='rubrieknummer'
-
-
+        $sql = "SELECT * FROM rubriek WHERE rubriek IS NULL ORDER BY volgnr "; //
+        $query = $dbh->prepare($sql);
+        $query -> execute();
 
     ?>
 
@@ -231,35 +257,26 @@
                         <div class="medium-12 cell">
   
                             <label>Rubriek: </label>
-                            <select name="laagste_rubriek"> 
-                                <option value="-1">Rubriek</option>
-                                <optgroup label="Rubriek1">
-                                    <option value="5">SubSubSubRubriek1</option>
-                                    <option value="6">SubSubSubRubriek2</option>
-                                    <option value="7">SubSubSubRubriek3</option>
-                                    <option value="8">SubSubSubRubriek4</option>
-                                </optgroup>
-                                <optgroup label="Rubriek2">
-                                    <option value="9">SubSubSubRubriek1</option>
-                                    <option value="10">SubSubSubRubriek2</option>
-                                    <option value="11">SubSubRubriek - SubSubSubRubriek3</option>
-                                    <option value="12">SubSubRubriek - SubSubSubRubriek4</option>
-                                </optgroup>
-                                <optgroup label="Rubriek3">
-                                    <option value="13">SubSubSubRubriek1</option>
-                                    <option value="14">SubSubSubRubriek2</option>
-                                    <option value="15">SubSubSubRubriek3</option>
-                                    <option value="16">SubSubSubRubriek4</option>
-                                </optgroup>
-                                <optgroup label="Rubriek4">
-                                    <option value="17">SubSubSubRubriek1</option>
-                                    <option value="18">SubSubSubRubriek2</option>
-                                    <option value="19">SubSubSubRubriek3</option>
-                                    <option value="20">SubSubSubRubriek4</option>
-                                </optgroup>
+                            
+                            <select id="rubrieken" name="rubriek"  onchange="getSubRubriek(this.value);">
+                                <option value="-1" selected>Kies een rubriek</option>
+                            <?php 
+                                while($data = $query -> fetch()){
+                                   echo"<option value='".$data['rubrieknummer']."'>".$data['rubrieknaam']."</option>";
+                                } 
+                            ?>
                             </select>
-                                
-                        </div>	
+
+                            <select id="sub-rubriek" name="sub-rubriek"  onchange="getSubSubRubriek(this.value);"> 
+                            </select>
+
+                            <select id="sub-sub-rubriek" name="sub-sub-rubriek" onchange="getSubSubSubRubriek(this.value);" >
+                            </select>
+
+                            <select id="sub-sub-sub-rubriek" name="sub-sub-sub-rubriek" >        
+                            </select>
+                            
+                        </div>
 
                         <div class="medium-12 cell beschrijving">
                             <label>Beschrijving:</label>
@@ -378,6 +395,75 @@
     });
 }); 
 </script>
+
+<script type="text/javascript"> 
+
+function getSubRubriek(rubrieknummer){
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", "get-rubrieken.php?rubrieknummer=" + rubrieknummer, true);
+    ajax.send();
+
+    ajax.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200){
+            var data = JSON.parse(this.responseText);
+            var html = "";
+                
+            for(var a = 0; a < data.length; a++){
+                html += "<option value='" + data[a].rubrieknummer + "'>"+ data[a].rubrieknaam +"</option>";
+            }
+            
+            document.getElementById("sub-rubriek").innerHTML = html;
+        }
+
+    };
+
+}
+
+function getSubSubRubriek(rubrieknummer){
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", "get-rubrieken.php?rubrieknummer=" + rubrieknummer, true);
+    ajax.send();
+
+    ajax.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200){
+            var data = JSON.parse(this.responseText);
+            var html = "";//"<option > Kies een subsubrubriek </option>";
+                
+            for(var a = 0; a < data.length; a++){
+                html += "<option value='" + data[a].rubrieknummer + "'>"+ data[a].rubrieknaam +"</option>";
+            }
+            
+            document.getElementById("sub-sub-rubriek").innerHTML = html;
+        }
+
+    };
+
+}
+
+function getSubSubSubRubriek(rubrieknummer){
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", "get-rubrieken.php?rubrieknummer=" + rubrieknummer, true);
+    ajax.send();
+
+    ajax.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200){
+            var data = JSON.parse(this.responseText);
+            var html = "";//"<option > Kies een subsubsubrubriek </option>";
+           
+                for(var a = 0; a < data.length; a++){
+                 html += "<option value='" + data[a].rubrieknummer + "'>"+ data[a].rubrieknaam +"</option>";
+                
+            }
+
+            document.getElementById("sub-sub-sub-rubriek").innerHTML = html;
+        }
+
+    };
+
+}
+
+</script>
+
 
 
 
