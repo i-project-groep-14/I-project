@@ -35,12 +35,16 @@
       <?php if($_SESSION['rol'] == 3 || $_SESSION['rol'] == 5){?>
         <div class="tabs-panel is-active" id="panel1v">
           <!-- aantal veilingen-->
+          
          <?php 
          $plek = 0;
          $aantalveilingen = selectAantalVeilingen($_SESSION['gebruikersnaam']);
           echo "<div style='overflow-x:auto;'>
+          
           <table >
+         
             <tr>
+            
               <td>Titel</td>
               <td>Startprijs</td>
               <td>Betalingswijze</td>
@@ -90,7 +94,7 @@
         </div>
         <div class="tabs-panel" id="panel3v">
           <!-- Profiel gegevens -->
-          <form class="UpdateProfielPagina" method="post" action="Profielpagina.php">
+          <form action="profielpagina.php" method='POST'>
             <div style="overflow-x:auto;">
               <table>
                 <tr>
@@ -108,7 +112,7 @@
                 </tr>
                 <tr>
                   <td>Voornaam</td>
-                  <td><input type="text"  value="<?php echo $row['voornaam']?>" name="ProfVoornaam"></td>
+                  <td><input type="text"  value="<?php echo $row['voornaam']?>" name="voornaam"></td>
 
                 </tr>
                 <tr>
@@ -144,18 +148,45 @@
                 <tr>
                   <td>Geboortedatum</td>
                   <td><input type="date"  value="<?php echo $row['geboortedatum']?>" name="ProfPlaatsnaam"></td>
+                  <td><input type="submit" class="veilingknop button" name="test" value="test" ></td>
                 </tr>
                 
               </table>
-              <input type="submit" class="veilingknop button" name="UpdateProfiel" value="Opslaan" >
+              
             </div>
           </form>
+          <?php
+
+
+    $gebruiker = $_SESSION['gebruikersnaam'];
+    
+
+    if (isset($_POST['test'])) {
+      $voornaam = $_POST['voornaam'];
+            $sql = "UPDATE gebruiker 
+                           SET voornaam = :voornaam
+                           WHERE gebruikersnaam like :gebruikersnaam";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+                ':voornaam' => $voornaam,
+                ':gebruikersnaam' => $gebruiker
+            ));
+    }
+?>
+    
+      
+  
         </div>
+         <!-- EINDE Profiel gegevens -->
       </div>
-      <!-- EINDE Profiel gegevens -->
+     
+
+
+      
     </div>
   </div>
 </div>
+
 
 
 
