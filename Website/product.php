@@ -54,6 +54,15 @@
         $query -> execute(array(
             ':voorwerpnummer' => $_SESSION['voorwerp']
         ));
+
+        $sql = "UPDATE voorwerp
+                SET koper = :gebruiker
+                WHERE voorwerpnummer = :voorwerpnummer";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(
+            ':gebruiker' => $_SESSION['gebruikersnaam'],
+            ':voorwerpnummer' => $_SESSION['voorwerp']
+        ));
       }
 
     ?>
