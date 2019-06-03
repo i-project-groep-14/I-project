@@ -119,14 +119,14 @@
                 <tr>
                   <td>Voornaam</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="text"  value="<?php echo $row['voornaam']?>" name="voornaam"></td>
+                  <td><input type="text"  value="<?php echo $row['voornaam']?>" pattern="[^\s]+"  name="voornaam"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderVnaam" value="↻" ></td>
                   </form>
                 </tr>
                 <tr>
                   <td>Achternaam</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="text"  value="<?php echo $row['achternaam']?>" name="achternaam"></td>
+                  <td><input type="text"  value="<?php echo $row['achternaam']?>" pattern="[^\s]+" name="achternaam"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderAnaam" value="↻" ></td>
                   </form>
                 </tr>
@@ -148,28 +148,28 @@
                 <tr>
                   <td>Adres</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="text"  value="<?php echo $row['adresregel1']?>" name="adresregel1"></td>
+                  <td><input type="text"  value="<?php echo $row['adresregel1']?>" pattern="[a-zA-Z0-9\s]+" name="adresregel1"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderAdress" value="↻" ></td>
                   </form>
                 </tr>
                 <tr>
                   <td>Toevoeging Adres</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="text"  value="<?php echo $row['adresregel2']?>" name="adresregel2"></td>
+                  <td><input type="text"  value="<?php echo $row['adresregel2']?>" pattern="[a-zA-Z0-9\s]+"  name="adresregel2"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderAdresstwee" value="↻" ></td>
                   </form>
                 </tr>
                 <tr>
                   <td>Postcode</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="text"  value="<?php echo $row['postcode']?>" name="postcode"></td>
+                  <td><input type="text"  value="<?php echo $row['postcode']?>" pattern="[^\s]+" name="postcode"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderPostcode" value="↻" ></td>
                   </form>
                 </tr>
                 <tr>
                   <td>Land</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="text"  value="<?php echo $row['land']?>" name="Land"></td>
+                  <td><input type="text"  value="<?php echo $row['land']?>" pattern="[^\s]+" name="Land"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderLand" value="↻" ></td>
                   </form>
                 </tr>
