@@ -70,20 +70,23 @@
             )
           );
     
-          $sql = "INSERT INTO gebruikerstelefoon VALUES (:gebruiker, :telefoon)";
-          $query = $dbh->prepare($sql);
-          $query -> execute(array(
-            ':gebruiker' => $gebruikersnaam,
-            ':telefoon' => $telefoonnr1
-            )
-          );
-    
+          
+
           if(isset($telefoonnr2)) {
-            $sql = "INSERT INTO gebruikerstelefoon VALUES (:gebruiker, :telefoon)";
+            $sql = "INSERT INTO gebruikerstelefoon (gebruiker,telefoon,alttelefoon) VALUES (:gebruiker,:telefoon, :alttelefoon)";
             $query = $dbh->prepare($sql);
             $query -> execute(array(
               ':gebruiker' => $gebruikersnaam,
-              ':telefoon' => $telefoonnr2
+              ':telefoon' => $telefoonnr1,
+              ':alttelefoon' => $telefoonnr2
+              )
+            );
+          }else{
+            $sql = "INSERT INTO gebruikerstelefoon (gebruiker,telefoon) VALUES (:gebruiker, :telefoon)";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+              ':gebruiker' => $gebruikersnaam,
+              ':telefoon' => $telefoonnr1
               )
             );
           }

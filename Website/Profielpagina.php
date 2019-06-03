@@ -3,7 +3,7 @@
 
       require_once 'aanroepingen/connectie.php';
       include_once 'aanroepingen/header.php';
-      $sql = "SELECT * FROM gebruiker where gebruikersnaam=:gebruiker";
+      $sql = "SELECT * FROM gebruiker g inner join gebruikerstelefoon gf on g.gebruikersnaam = gf.gebruiker where gebruikersnaam=:gebruiker";
         $query = $dbh->prepare($sql);
         $query -> execute(array(
           ':gebruiker' => $_SESSION['gebruikersnaam']
@@ -95,7 +95,7 @@
         </div>
         <div class="tabs-panel" id="panel3v">
           <!-- Profiel gegevens -->
-          <form action="profielpagina.php" method='POST'>
+          
             <div style="overflow-x:auto;">
               <table>
                 <tr>
@@ -104,65 +104,88 @@
                 </tr>
                 <tr>
                   <td>Gebruikersnaam</td>
+                  
                   <td><input type="text"  value="<?php  echo $row['gebruikersnaam']?>" name="Profgebruikersnaam" disabled></td>
-
+                  
                 </tr>
                 <tr>
                   <td>E-mail</td>
-                  <td><input type="text"  value="<?php echo $row['mailadres']?>" name="ProfMail"></td>
+                  <td><input type="text"  value="<?php echo $row['mailadres']?>" name="ProfMail" disabled></td>
                 </tr>
                 <tr>
                   <td>Voornaam</td>
+                  <form action="profielpagina.php" method='POST'>
                   <td><input type="text"  value="<?php echo $row['voornaam']?>" name="voornaam"></td>
-
+                  <td><input type="submit" class="veilingknop button" name="VeranderVnaam" value="↻" ></td>
+                  </form>
                 </tr>
                 <tr>
                   <td>Achternaam</td>
-                  <td><input type="text"  value="<?php echo $row['achternaam']?>" name="ProfAchternaam"></td>
-
+                  <form action="profielpagina.php" method='POST'>
+                  <td><input type="text"  value="<?php echo $row['achternaam']?>" name="achternaam"></td>
+                  <td><input type="submit" class="veilingknop button" name="VeranderAnaam" value="↻" ></td>
+                  </form>
                 </tr>
                 <tr>
                   <td>Telefoonnummer</td>
-                  <!--<td><input type="text"  value="<?php echo $row['telefoon']?>" name="ProfTelefoon"></td>-->
+                  <form action="profielpagina.php" method='POST'>
+                  <td><input type="text"  value="<?php echo $row['telefoon']?>" name="telefoon"></td>
+                  <td><input type="submit" class="veilingknop button" name="VeranderTel" value="↻" ></td>
+                  </form>
                 </tr>
                 <tr>
                   <td>Alternatieve Telefoonnummer</td>
-                  <!--<td><input type="text"  value="<?php echo $row['telefoon']?>" name="ProfTelefoon2"></td>-->
+                  <form action="profielpagina.php" method='POST'>
+                  <td><input type="text"  value="<?php echo $row['alttelefoon']?>" name="telefoon2"></td>
+                  <td><input type="submit" class="veilingknop button" name="VeranderTels" value="↻" ></td>
+                  </form>
                 </tr>
 
                 <tr>
                   <td>Adres</td>
-                  <td><input type="text"  value="<?php echo $row['adresregel1']?>" name="ProfAdresregel1"></td>
+                  <form action="profielpagina.php" method='POST'>
+                  <td><input type="text"  value="<?php echo $row['adresregel1']?>" name="adresregel1"></td>
+                  <td><input type="submit" class="veilingknop button" name="VeranderAdress" value="↻" ></td>
+                  </form>
                 </tr>
                 <tr>
                   <td>Toevoeging Adres</td>
-                  <td><input type="text"  value="<?php echo $row['adresregel2']?>" name="ProfAdresregel2"></td>
+                  <form action="profielpagina.php" method='POST'>
+                  <td><input type="text"  value="<?php echo $row['adresregel2']?>" name="adresregel2"></td>
+                  <td><input type="submit" class="veilingknop button" name="VeranderAdresstwee" value="↻" ></td>
+                  </form>
                 </tr>
                 <tr>
                   <td>Postcode</td>
-                  <td><input type="text"  value="<?php echo $row['postcode']?>" name="ProfPostcode"></td>
+                  <form action="profielpagina.php" method='POST'>
+                  <td><input type="text"  value="<?php echo $row['postcode']?>" name="postcode"></td>
+                  <td><input type="submit" class="veilingknop button" name="VeranderPostcode" value="↻" ></td>
+                  </form>
                 </tr>
                 <tr>
                   <td>Land</td>
-                  <td><input type="text"  value="<?php echo $row['land']?>" name="ProfLand"></td>
+                  <form action="profielpagina.php" method='POST'>
+                  <td><input type="text"  value="<?php echo $row['land']?>" name="Land"></td>
+                  <td><input type="submit" class="veilingknop button" name="VeranderLand" value="↻" ></td>
+                  </form>
                 </tr>
                 <tr>
                   <td>Geboortedatum</td>
-                  <td><input type="date"  value="<?php echo $row['geboortedatum']?>" name="ProfPlaatsnaam"></td>
-                  <td><input type="submit" class="veilingknop button" name="test" value="test" ></td>
+                  <td><input type="date"  value="<?php echo $row['geboortedatum']?>" name="ProfPlaatsnaam" disabled></td>
+                  
                 </tr>
                 
               </table>
               
             </div>
-          </form>
+          
           <?php
 
 
     $gebruiker = $_SESSION['gebruikersnaam'];
     
 
-    if (isset($_POST['test'])) {
+    if (isset($_POST['VeranderVnaam'])) {
       $voornaam = $_POST['voornaam'];
             $sql = "UPDATE gebruiker 
                            SET voornaam = :voornaam
@@ -173,6 +196,91 @@
                 ':gebruikersnaam' => $gebruiker
             ));
     }
+
+
+    if (isset($_POST['VeranderAnaam'])) {
+      $achternaam = $_POST['achternaam'];
+            $sql = "UPDATE gebruiker 
+                           SET achternaam = :achternaam
+                           WHERE gebruikersnaam like :gebruikersnaam";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+                ':achternaam' => $achternaam,
+                ':gebruikersnaam' => $gebruiker
+            ));
+    }
+
+    if (isset($_POST['VeranderAdress'])) {
+      $adres = $_POST['adresregel1'];
+            $sql = "UPDATE gebruiker 
+                           SET adresregel1 = :adresregel1
+                           WHERE gebruikersnaam like :gebruikersnaam";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+                ':adresregel1' => $adres,
+                ':gebruikersnaam' => $gebruiker
+            ));
+    }
+
+    if (isset($_POST['VeranderAdresstwee'])) {
+      $adres = $_POST['adresregel2'];
+            $sql = "UPDATE gebruiker 
+                           SET adresregel2 = :adresregel2
+                           WHERE gebruikersnaam like :gebruikersnaam";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+                ':adresregel2' => $adres,
+                ':gebruikersnaam' => $gebruiker
+            ));
+    }
+
+    if (isset($_POST['VeranderPostcode'])) {
+      $adres = $_POST['postcode'];
+            $sql = "UPDATE gebruiker 
+                           SET postcode = :postcode
+                           WHERE gebruikersnaam like :gebruikersnaam";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+                ':postcode' => $adres,
+                ':gebruikersnaam' => $gebruiker
+            ));
+    }
+
+    if (isset($_POST['VeranderTel'])) {
+      $telefoon = $_POST['telefoon'];
+            $sql = "UPDATE gebruikerstelefoon 
+                           SET telefoon = :telefoon
+                           WHERE gebruiker like :gebruiker";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+                ':telefoon' => $telefoon,
+                ':gebruiker' => $gebruiker
+            ));
+    }
+
+    if (isset($_POST['VeranderTels'])) {
+      $telefoon = $_POST['telefoon2'];
+            $sql = "UPDATE gebruikerstelefoon 
+                           SET alttelefoon = :telefoon
+                           WHERE gebruiker like :gebruiker";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+                ':telefoon' => $telefoon,
+                ':gebruiker' => $gebruiker
+            ));
+    }
+    if (isset($_POST['VeranderLand'])) {
+      $adres = $_POST['Land'];
+            $sql = "UPDATE gebruiker 
+                           SET Land = :Land
+                           WHERE gebruikersnaam like :gebruikersnaam";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+                ':Land' => $adres,
+                ':gebruikersnaam' => $gebruiker
+            ));
+    }
+
 ?>
     
       
