@@ -577,7 +577,7 @@ function createProfVeilingen($actueleplek){
 
   $query = $dbh->prepare($sql);
   $query -> execute(array(
-  ':gebruiker' => $_SESSION['gebruikersnaam']
+      ':gebruiker' => $_SESSION['gebruikersnaam']
   ));
   $row = $query -> fetch();
 
@@ -661,7 +661,7 @@ function createGebruikers($actueleplek) {
   global $dbh;
   $volgendeplek = $actueleplek+1;
   $sql = "SELECT gebruikersnaam FROM gebruiker
-          WHERE rol != 5
+          WHERE rol != 5 and rol != 0
           ORDER BY gebruikersnaam OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
   $query = $dbh->prepare($sql);
   $query -> execute();
@@ -671,8 +671,12 @@ function createGebruikers($actueleplek) {
 
   echo"
     <tr>
-      <td>$gebruiker</td>
-      <td><input class='button' type='submit' name='verzenden_pers' value='Blokkeren'></td>
+      <td>".strip_tags($gebruiker)."</td>
+      <td>
+        <form action='beheerderspagina.php' method='post'>
+          <button type='submit' value='$gebruiker' name='gebruiker' class='button'>Blokkeren</button>
+        </form>
+      </td>
     </tr>
   ";
   

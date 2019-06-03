@@ -87,20 +87,20 @@
                     $laagste_rubriek = $_POST['rubriek']; 
                 }
 
-                if(!empty($_POST['sub-sub-rubriek']) ){
-                    $laagste_rubriek = $_POST['sub-sub-rubriek'];
-                }else{
-                    $laagste_rubriek = $_POST['sub-rubriek'];
-                }
+                // if(!empty($_POST['sub-sub-rubriek']) ){
+                //     $laagste_rubriek = $_POST['sub-sub-rubriek'];
+                // }else{
+                //     $laagste_rubriek = $_POST['sub-rubriek'];
+                // }
 
-                if(!empty($_POST['sub-sub-sub-rubriek']) ){
-                    $laagste_rubriek = $_POST['sub-sub-sub-rubriek']; 
-                }
-                else if(empty($_POST['sub-sub-rubriek'])){
-                    $laagste_rubriek = $_POST['sub-rubriek'];
-                }else{
-                    $laagste_rubriek = $_POST['sub-sub-rubriek'];
-                }
+                // if(!empty($_POST['sub-sub-sub-rubriek']) ){
+                //     $laagste_rubriek = $_POST['sub-sub-sub-rubriek']; 
+                // }
+                // else if(empty($_POST['sub-sub-rubriek'])){
+                //     $laagste_rubriek = $_POST['sub-rubriek'];
+                // }else{
+                //     $laagste_rubriek = $_POST['sub-sub-rubriek'];
+                // }
                 //echo $laagste_rubriek;
 
 
@@ -234,7 +234,7 @@
         echo $e->getMessage();
     }
 
-        $sql = "SELECT * FROM rubriek WHERE rubriek = 0"; //
+        $sql = "SELECT * FROM rubriek WHERE rubriek = 0 ORDER BY rubrieknummer"; //
         $query = $dbh->prepare($sql);
         $query -> execute();
 

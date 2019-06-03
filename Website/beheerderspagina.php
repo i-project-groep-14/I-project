@@ -3,6 +3,17 @@
 
       require_once 'aanroepingen/connectie.php';
       include_once 'aanroepingen/header.php';
+      
+      if(isset($_POST['gebruiker'])) {
+        $sql = "UPDATE gebruiker
+                SET rol = 0
+                WHERE gebruikersnaam = :gebruiker";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(
+          ':gebruiker' => $_POST['gebruiker']
+          )
+        );
+      }
     ?>
     
     <div class="holy-grail-middle">
