@@ -3,17 +3,19 @@
 
       require_once 'aanroepingen/connectie.php';
       include_once 'aanroepingen/header.php';
-      $sql = "SELECT * FROM gebruiker g inner join gebruikerstelefoon gf on g.gebruikersnaam = gf.gebruiker where gebruikersnaam=:gebruiker";
+      $sql = "SELECT * FROM gebruiker where gebruikersnaam = :gebruiker";
         $query = $dbh->prepare($sql);
         $query -> execute(array(
           ':gebruiker' => $_SESSION['gebruikersnaam']
         ));
         $row = $query -> fetch();
-
         
-        
-        
-        
+        $sql = "SELECT * FROM gebruikerstelefoon where gebruiker = :gebruiker";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(
+          ':gebruiker' => $_SESSION['gebruikersnaam']
+        ));
+        $hj = $query -> fetch();
         
     ?>
 
@@ -127,16 +129,22 @@
                   </form>
                 </tr>
                 <tr>
+                <?php
+                
+
+        
+        
+        ?>
                   <td>Telefoonnummer</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="text"  value="<?php echo $row['telefoon']?>" name="telefoon"></td>
+                  <td><input type="number"  value="<?php echo (int)$hj['telefoon']?>" name="telefoon"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderTel" value="↻" ></td>
                   </form>
                 </tr>
                 <tr>
                   <td>Alternatieve Telefoonnummer</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="text"  value="<?php echo $row['alttelefoon']?>" name="telefoon2"></td>
+                  <td><input type="number"  value="<?php echo (int)$hj['alttelefoon']?>" name="telefoon2"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderTels" value="↻" ></td>
                   </form>
                 </tr>
