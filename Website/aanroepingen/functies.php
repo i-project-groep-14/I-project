@@ -577,7 +577,7 @@ function createProfVeilingen($actueleplek){
 
   $query = $dbh->prepare($sql);
   $query -> execute(array(
-  ':gebruiker' => $_SESSION['gebruikersnaam']
+      ':gebruiker' => $_SESSION['gebruikersnaam']
   ));
   $row = $query -> fetch();
 
