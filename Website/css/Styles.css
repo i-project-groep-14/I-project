@@ -1052,10 +1052,6 @@ padding: 5px;
   margin-bottom: 12px; 
 }
 
-
-
-
-
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -1076,7 +1072,7 @@ padding: 5px;
 
 .scrollbar {
   overflow-y: scroll;
-  height: 400px;
+  height: 600px;
 }
 
 
