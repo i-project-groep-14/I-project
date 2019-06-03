@@ -39,6 +39,8 @@ Tabel gebruikerstelefoon:
 
 	volgnr						van integer(2)	naar numeric(3)
 	gebruiker					van char(10)	naar varchar(20)
+	telefoon					
+	alttelefoon
 
 	fk op gebuiker -> on update cascade, on delete restrict
 

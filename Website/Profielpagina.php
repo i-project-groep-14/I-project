@@ -31,6 +31,9 @@
       <?php  } ?>
         <li class="tabs-title"><a href="#panel2v">Biedingen</a></li>
         <li class="tabs-title"><a href="#panel3v">Gegevens</a></li>
+        <?php if($_SESSION['rol'] == 2 || $_SESSION['rol'] == 5){?>
+        <li class="tabs-title"><a href="#panel4v">Upgrade</a></li>
+        <?php }?>
       </ul>
     </div>
     <div class="cell medium-9">
@@ -97,8 +100,7 @@
         </div>
         <div class="tabs-panel" id="panel3v">
           <!-- Profiel gegevens -->
-          
-            <div style="overflow-x:auto;">
+          <div style="overflow-x:auto;">
               <table>
                 <tr>
                   <th>Persoonsgegevens</th>
@@ -129,12 +131,6 @@
                   </form>
                 </tr>
                 <tr>
-                <?php
-                
-
-        
-        
-        ?>
                   <td>Telefoonnummer</td>
                   <form action="profielpagina.php" method='POST'>
                   <td><input type="number"  value="<?php echo (int)$hj['telefoon']?>" name="telefoon"></td>
@@ -289,18 +285,70 @@
             ));
     }
 
-?>
-    
+         
+         
       
-  
+?>
+
+
         </div>
          <!-- EINDE Profiel gegevens -->
+         <?php if($_SESSION['rol'] == 2 || $_SESSION['rol'] == 5){?>
+         <div class="tabs-panel" id="panel4v">
+         <fieldset class="fieldset medium-12 cell">
+         <legend>Wilt u spullen verkopen?</legend>
+            <form action="profielpagina.php" method='POST'>
+            <label>Verkoper worden?</label>
+            
+            <label>Bank?</label>
+              <input type="text" name="bank" required >
+              <input type="text" name="rekeningnummer"required>
+            <select>
+            <option name="controleoptie" value="post">post</option>
+            <option name="controleoptie" value="controle-optie">creditcard</option>
+            </select>
+              <input type="text" name="creditcardnummer" required>
+              <label>Accepteer voorwaarden</label>
+              <input type="radio"  value="3" name="rol" required>
+
+                <input type="submit" class="veilingknop button" name="VeranderRol" value="↻" >
+            </form>
+            </fieldset>
+<?php 
+
+
+if (isset($_POST['VeranderRol'])) {
+  $rol = $_POST['rol'];
+        $sql = "UPDATE gebruiker 
+        SET rol = :rol
+        WHERE gebruikersnaam like :gebruikersnaam";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(
+          ':rol' => $rol,
+          ':gebruikersnaam' => $gebruiker
+      ));       
+  
+  $sql = "INSERT INTO verkoper VALUES (:gebruiker, :bank, :bankrekening, :controleoptie, :creditcard)";
+    $query = $dbh->prepare($sql);
+    $query -> execute(array(
+      ':gebruiker' => $_SESSION['gebruikersnaam'],
+      ':bank' => $_POST['bank'],
+      ':bankrekening' => $_POST['rekeningnummer'],
+      ':controleoptie' => $_POST['controleoptie'],
+      ':creditcard' => $_POST['creditcardnummer']
+      )
+    );
+}
+?>
+         
+        </div>
+      <?php } ?>
+
       </div>
-     
-
-
-      
     </div>
+    
+
+    
   </div>
 </div>
 
