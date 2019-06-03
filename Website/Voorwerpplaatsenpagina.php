@@ -234,7 +234,7 @@
         echo $e->getMessage();
     }
 
-        $sql = "SELECT * FROM rubriek WHERE rubriek IS NULL ORDER BY rubrieknummer "; //
+        $sql = "SELECT * FROM rubriek WHERE rubriek = 0 ORDER BY rubrieknummer"; //
         $query = $dbh->prepare($sql);
         $query -> execute();
 
@@ -344,8 +344,8 @@
                         </div>				
 					</div>
                     <div class="medium-12 cell">
-                    <input type="submit" class="veilingknop button submit" name="plaatsen_voorwerp" value="Plaatsen" 
-                    <?php //onclick="location.href = 'index.php';" ?>
+                    <input type="submit" class="veilingknop button submit" name="plaatsen_voorwerp" value="Plaatsen"
+                    <?php //onclick="location.href = 'index.php'" ?>
                     >
                 </div>
             </div>
