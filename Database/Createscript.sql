@@ -5,7 +5,10 @@
 /*==============================================================*/
 
 use master
-
+/*
+drop database nepebay
+create database nepebay
+*/
 drop database EenmaalAndermaal
 
 /*==============================================================*/
@@ -87,7 +90,7 @@ create table verkoper (
 /* Table: Voorwerp												*/
 /*==============================================================*/
 create table voorwerp (
-	voorwerpnummer				int					identity(1,1) not null,
+	voorwerpnummer				bigint					identity(1,1) not null,
 	titel						varchar(30)			not null,
 	beschrijving				varchar(500)		not null,
 	startprijs					numeric(10,2)			not null,
@@ -146,7 +149,7 @@ alter table voorwerp
 /*==============================================================*/
 create table bestand (
 	filenaam					varchar(200)		not null,
-	voorwerp					int					not null
+	voorwerp					bigint					not null
 	constraint pk_bestand_filenaam primary key (filenaam),
 	constraint fk_bestand_voorwerp foreign key (voorwerp) references voorwerp (voorwerpnummer) on update cascade on delete no action
 )
@@ -166,7 +169,7 @@ create table rubriek (
 /* Table: Voorwerp in rubriek									*/
 /*==============================================================*/
 create table [voorwerp in rubriek] (
-	voorwerp					int					not null,
+	voorwerp					bigint					not null,
 	[rubriek op laagste niveau]	int					not null
 	constraint pk_voorwerpinrubriek_voorwerp primary key (voorwerp),
 	constraint fk_voorwerpinrubriek_voorwerp foreign key (voorwerp) references voorwerp (voorwerpnummer) on update cascade on delete no action,
@@ -176,7 +179,7 @@ create table [voorwerp in rubriek] (
 /* Table: Bod													*/
 /*==============================================================*/
 create table bod (
-	voorwerpnummer				int					not null,
+	voorwerpnummer				bigint					not null,
 	bodbedrag					varchar(10)			not null,
 	gebruiker					varchar(20)			not null,
 	boddag						date				not null,
@@ -238,7 +241,7 @@ insert into voorwerp values('Kaashond', 'Ik ben makelaar in koffi, en woon op de
 insert into voorwerp values('Banaan', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit ', 1, 'PayPal', null, 'plaatsnaam7', 'land7',
 							10, GETDATE()+5, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME,dateadd(hour, -1, GETDATE()))
 							, 'niet', 60)
-
+							
 insert into bestand values('images/Salade.jpg', 1)
 insert into bestand values('images/Fiets.jpg', 1)
 insert into bestand values('images/Eend.jpg', 1)
