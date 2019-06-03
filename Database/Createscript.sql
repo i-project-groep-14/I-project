@@ -35,10 +35,7 @@ create table gebruiker (
    antwoordtekst				varchar(50)			not null,
    rol							numeric(1)			not null,
    profielfoto					varchar(255)		null
-   constraint pk_gebruiker_gebruikersnaam primary key (gebruikersnaam),
-   --CONSTRAINT CHK_Postcode CHECK (  (land = 'Nederland' AND postcode like '[0-9][0-9][0-9][0-9][A-Z][A-Z]') OR (postcode like '%[0-9]%') ),
-   --CONSTRAINT CHK_email CHECK (mailadres LIKE '%@%.%')
-
+   constraint pk_gebruiker_gebruikersnaam primary key (gebruikersnaam)
 )	
 
 /*==============================================================*/
@@ -109,7 +106,6 @@ create table voorwerp (
 	constraint pk_voorwerp_voorwerpnummer primary key (voorwerpnummer),
 	constraint fk_voorwerp_verkoper foreign key (verkoper) references verkoper (gebruiker),
 	constraint fk_voorwerp_koper foreign key (koper) references gebruiker (gebruikersnaam) on update cascade on delete no action
-
 	/* bij rubriek een foreign key naar voorwerpnummer */
 	/*
 	AF 1	Tabel Voorwerp, kolom LooptijdeindeDag:
@@ -137,9 +133,7 @@ alter table voorwerp
 	constraint ck_voorwerp_startprijs check (startprijs > 0),
 	constraint ck_voorwerp_veilingGesloten check (veilingGesloten IN ('wel', 'niet')),
 	constraint ck_voorwerp_verkoopprijs_negatief check (verkoopprijs >= startprijs),
-	constraint ck_voorwerp_verkoper_geen_koper check (verkoper != koper),
-	CONSTRAINT ck_looptijd CHECK ( looptijd IN (1,3,5,7,10) ),
-	CONSTRAINT CHK_startprijs CHECK ( startPrijs >= 0 )
+	constraint ck_voorwerp_verkoper_geen_koper check (verkoper != koper)
 
 /*==============================================================*/
 /* Table: Bestand												*/
@@ -196,8 +190,8 @@ insert into vraag values ('2', 'Wat is de meisjesnaam van je moeder?')
 insert into vraag values ('3', 'Wat is je lievelingsgerecht?')
 insert into vraag values ('4', 'Hoe heet je oudste zusje?')
 insert into vraag values ('5', 'Hoe heet je huisdier?')
-
-insert into gebruiker values ('Beheerder', 'Danny', 'Hageman', 'Onbekend', null, '0000AA', 's-Heerenberg', 'Nederland', '11/09/2000', 
+select * from gebruiker
+insert into gebruiker values ('Beheerder', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
 								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 5, null)/*
 insert into gebruiker values ('Test', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
 								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 2, null)
@@ -226,17 +220,17 @@ insert into verkoper values('Beheerder', null, null, 'controle-optie', null)
 insert into voorwerp values('Kaaskast', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen.', 20, 'iDeal', null, 'plaatsnaam1', 'land1',
 							1, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 20)
 insert into voorwerp values('Bezem', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooitnooit', 250, 'Creditcard', null, 'plaatsnaam2', 'land2',
-							3, GETDATE()+1, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 260)
+							2, GETDATE()+1, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 260)
 insert into voorwerp values('Schoen', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit ', 500, 'Paypal', null, 'plaatsnaam3', 'land3',
 							3, GETDATE()+2, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 500)
 insert into voorwerp values('Laptop', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit ', 200, 'Creditcard', null, 'plaatsnaam4', 'land4',
-							5, GETDATE()-4, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'wel', 300)
+							4, GETDATE()-4, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'wel', 300)
 insert into voorwerp values('Sokken', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit ', 1, 'Creditcard', null, 'plaatsnaam5', 'land5',
 							5, GETDATE()-5, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'wel', 5)
 insert into voorwerp values('Kaashond', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit ', 1, 'Creditcard', null, 'plaatsnaam6', 'land6',
-							7, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 60)
+							6, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 60)
 insert into voorwerp values('Banaan', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit ', 1, 'PayPal', null, 'plaatsnaam7', 'land7',
-							10, GETDATE()+5, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME,dateadd(hour, -1, GETDATE()))
+							6, GETDATE()+5, CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME,dateadd(hour, -1, GETDATE()))
 							, 'niet', 60)
 
 insert into bestand values('images/Salade.jpg', 1)
@@ -287,6 +281,7 @@ voorwerp dat sluit na 20 seconden
 insert into voorwerp values('Test', 'f', 1, 'PayPal', null, 'plaatsnaam7', 'land7', 0, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 
 							'Beheerder', null, CONVERT(TIME,dateadd(second, 20, GETDATE())), 'niet', 60)
 */
+SELECT * FROM gebruiker
 
 /* 
 create view aantalBiedingenPerPersoon AS
@@ -294,170 +289,15 @@ select  count(voorwerpnummer) as aantal, gebruiker
 from bod
 group by voorwerpnummer, gebruiker
 
+
+, 
 drop view aantalBiedingenPerPersoon 
+
+select count(*), gebruiker
+from aantalBiedingenPerPersoon
+group by gebruiker
 */
 
-
-GO
-
-CREATE TRIGGER trgMaxAfbeeldingen ON bestand
-FOR INSERT, UPDATE
-AS
-BEGIN
-	BEGIN TRANSACTION
-	IF EXISTS
-		(
-		SELECT *
-		FROM bestand
-		GROUP BY voorwerp
-		HAVING COUNT(*) > 4 
-		)
-		BEGIN
-			PRINT('Er mogen niet meer dan 4 bestanden per artikel worden vastgelegd')
-			ROLLBACK
-		END
-	ELSE
-		COMMIT
-END
-
-
-GO
-
-
-CREATE FUNCTION fnRubriekIsOpLaagsteNiveau
-(
-  @rubriekNummer int
-) RETURNS BIT
-AS
-BEGIN
- IF EXISTS
- (
-   SELECT * FROM rubriek
-   WHERE rubriek = @rubriekNummer
- ) RETURN 0
-
- RETURN 1
-END
-
-
-GO
-
-ALTER TABLE [voorwerp in rubriek]
-ADD CONSTRAINT CHK_LaagsteNiveau CHECK ( dbo.fnRubriekIsOpLaagsteNiveau([rubriek op laagste niveau]) = 1  )
-
-GO
-
-
-CREATE FUNCTION fnWieIsVerkoper
-(
-  @voorwerpNummer INT
-) RETURNS VARCHAR(20)
-AS
-BEGIN
- RETURN 
-  ( SELECT verkoper FROM voorwerp WHERE voorwerpNummer = @voorwerpNummer )
-END
-
-GO
-
-ALTER TABLE bod
-ADD CONSTRAINT ck_NietBiedenEigenProduct CHECK (dbo.fnWieIsVerkoper(voorwerpNummer) <> gebruiker  )
-
-
-GO
-
-
-CREATE FUNCTION fnVeilingGesloten
-(
-  @voorwerpNummer INT
-) RETURNS BIT
-AS
-BEGIN
-  RETURN 
-  ( 
-  SELECT veilingGesloten
-  FROM voorwerp
-  WHERE voorwerpNummer = @voorwerpNummer
-  )
-
-END
-
-
-GO
-
-
-ALTER TABLE bod
-ADD CONSTRAINT CHK_VeilingOpen CHECK (dbo.fnVeilingGesloten(voorwerpNummer) = 0 )
-
-GO
-
-CREATE FUNCTION fnHoogsteBieder
-(
-  @voorwerpNummer INT
-) RETURNS VARCHAR(20)
-AS
-BEGIN
- RETURN
-   (SELECT TOP 1 B.gebruiker 
-    FROM voorwerp V
-    INNER JOIN bod B ON V.voorwerpNummer = B.voorwerpNummer
-    WHERE V.voorwerpNummer = @voorwerpNummer AND veilingGesloten = 1
-    ORDER BY bodBedrag DESC
-   )
-END
-
-GO
-
-ALTER TABLE voorwerp
-ADD HoogsteBieder AS dbo.fnHoogsteBieder(voorwerpNummer) --Appendix E, blz 13  AF4
-/*
-GO
-
-
-CREATE FUNCTION fnHoogsteBod
-(
-  @voorwerpNummer INT
-) RETURNS VARCHAR(20)
-AS
-BEGIN
- RETURN
-   (SELECT TOP 1 bodBedrag
-    FROM voorwerp V
-    INNER JOIN bod B ON V.voorwerpNummer = B.voorwerpNummer
-    WHERE V.voorwerpNummer = @voorwerpNummer AND veilingGesloten = 1
-    ORDER BY bodBedrag DESC
-   )
-END
-
-GO
-
-ALTER TABLE voorwerp
-ADD verkoopprijs AS dbo.fnHoogsteBod(voorwerpnummer)
-*/
-GO
-
-CREATE FUNCTION fnIsVerkoper
-	(
-	  @gebruikersNaam varchar(20)
-	) RETURNS BIT
-	AS
-	BEGIN
-	 IF EXISTS
-			(
-			  SELECT * 
-			  FROM verkoper 
-			  WHERE gebruiker = @gebruikersNaam
-			) 
-	 RETURN 1 
-	RETURN 0 
-END
-
-GO
-
-ALTER TABLE gebruiker
-ADD isVerkoper AS dbo.fnIsVerkoper(gebruikersNaam)
-
-GO
 
 
 use master
