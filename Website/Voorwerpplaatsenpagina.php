@@ -234,7 +234,7 @@
         echo $e->getMessage();
     }
 
-        $sql = "SELECT * FROM rubriek WHERE rubriek IS NULL ORDER BY volgnr "; //
+        $sql = "SELECT * FROM rubriek WHERE rubriek IS NULL ORDER BY rubrieknummer "; //
         $query = $dbh->prepare($sql);
         $query -> execute();
 
