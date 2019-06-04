@@ -122,10 +122,10 @@
             echo"
             <img id='myImg' class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
             <div class='row small-up-4'>";
+              createFotos(0);
               createFotos(1);
               createFotos(2);
               createFotos(3);
-              createFotos(4);
             echo"
             </div>
             ";
