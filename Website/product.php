@@ -113,8 +113,8 @@
                 if ($row['filenaam'] == NULL) {
                   $afbeelding = "images/imageplaceholder.png";
                 } else {
-                  $afbeelding = $row['filenaam'];
-                }
+                  $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
+                } 
                 
             echo"
             <img id='myImg' class='thumbnail img-product' src=$afbeelding alt='afbeelding' >

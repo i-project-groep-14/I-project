@@ -73,11 +73,11 @@
                 </div>
                 <?php
             }else {
-                $titel_product = $_POST['titel_product'];
+                $titel_product = strip_tags($_POST['titel_product']);
                 //$foto_product = $_POST['fileToUpload'];
 
-                $beschrijving_product = $_POST['beschrijving_product'];
-                $startprijs = $_POST['startprijs'];
+                $beschrijving_product = strip_tags($_POST['beschrijving_product']);
+                $startprijs = strip_tags($_POST['startprijs']);
                 
                 
                 if (empty($_POST['verzendkosten']) ) {
