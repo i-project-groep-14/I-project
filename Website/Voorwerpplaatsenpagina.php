@@ -45,11 +45,11 @@
             } else if (strlen($_POST['verzend_details']) > 100) { 
                 echo "Het aantal karakters van de verzend details is te groot. Het maximale toegestane aantal karakters is 100. Momenteel heeft u er ".strlen($_POST['verzend_details']).".";
             }else {
-                $titel_product = $_POST['titel_product'];
+                $titel_product = strip_tags($_POST['titel_product']);
                 //$foto_product = $_POST['fileToUpload'];
 
-                $beschrijving_product = $_POST['beschrijving_product'];
-                $startprijs = $_POST['startprijs'];
+                $beschrijving_product = strip_tags($_POST['beschrijving_product']);
+                $startprijs = strip_tags($_POST['startprijs']);
                 
                 
                 if (empty($_POST['verzendkosten']) ) {
