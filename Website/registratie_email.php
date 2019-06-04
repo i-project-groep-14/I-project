@@ -10,7 +10,14 @@
 
       if (isset($_POST['verzenden_email'])) {
         if (strlen($_POST['email']) > 50) {
-          echo "Het aantal karakters is te groot. Het maximale toegestane aantal karakters is 50.";
+          ?>
+          <div data-closable class="callout alert-callout-border alert radius">
+            <strong>Error</strong> - Het aantal karakters is te groot. Het maximale toegestane aantal karakters is 50.
+            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <?php
           $mailverzonden = false;
         } else {
           $mailverzonden = true;
@@ -28,7 +35,14 @@
         if($_POST['code'] == $_SESSION['code']) {
           header('Location: registratie_persoonsgegevens.php');
         } else {
-          echo "De code is verkeerd.";
+          ?>
+          <div data-closable class="callout alert-callout-border alert radius">
+            <strong>Error</strong> - De code is verkeerd.
+            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <?php  
         }
       }
       

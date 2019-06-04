@@ -674,7 +674,18 @@ function createGebruikers($actueleplek) {
       <td>".strip_tags($gebruiker)."</td>
       <td>
         <form action='beheerderspagina.php' method='post'>
-          <button type='submit' value='".strip_tags($gebruiker)."' name='gebruiker' class='button'>Blokkeren</button>
+          <button type='submit' value='".strip_tags($gebruiker)."' name='gebruiker' class='button'>Blokkeren</button>";
+          if (isset($_POST['gebruiker'])) {
+            ?>
+            <div data-closable class="callout alert-callout-border success">
+              <strong>Yay!</strong> - Gebruiker is succesvol geblokkeerd.
+              <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+              <span aria-hidden="true">&times;</span>
+              </button>
+              <?php
+          }
+          echo"
+          </div>
         </form>
       </td>
     </tr>

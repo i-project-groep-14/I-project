@@ -37,13 +37,41 @@
         if(isset($_POST['plaatsen_voorwerp'])) {
 
             if (strlen($_POST['titel_product']) > 30) {
-                echo "Het aantal karakters van de titel is te groot. Het maximale toegestane aantal karakters is 30.";
+                    ?>
+                    <div data-closable class="callout alert-callout-border alert radius">
+                    <strong>Error</strong> - Het aantal karakters van de titel is te groot. Het maximale toegestane aantal karakters is 30.
+                    <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <?php
             } else if (strlen($_POST['beschrijving_product']) > 500) {
-                echo "Het aantal karakters van de product beschrijving is te groot. Het maximale toegestane aantal karakters is 500. Momenteel heeft u er ".strlen($_POST['beschrijving_product']).".";
+                ?>
+                <div data-closable class="callout alert-callout-border alert radius">
+                <strong>Error</strong> - Het aantal karakters van de product beschrijving is te groot. Het maximale toegestane aantal karakters is 500.
+                <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <?php
             } else if (strlen($_POST['betalingsinstructie']) > 30) {
-                echo "Het aantal karakters van de betalingsinstructie is te groot. Het maximale toegestane aantal karakters is 30. Momenteel heeft u er ".strlen($_POST['betalingsinstructie']).".";
+                ?>
+                <div data-closable class="callout alert-callout-border alert radius">
+                <strong>Error</strong> - Het aantal karakters van de betalingsinstructie is te groot. Het maximale toegestane aantal karakters is 30.
+                <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <?php
             } else if (strlen($_POST['verzend_details']) > 100) { 
-                echo "Het aantal karakters van de verzend details is te groot. Het maximale toegestane aantal karakters is 100. Momenteel heeft u er ".strlen($_POST['verzend_details']).".";
+                ?>
+                <div data-closable class="callout alert-callout-border alert radius">
+                <strong>Error</strong> - Het aantal karakters van de verzend details is te groot. Het maximale toegestane aantal karakters is 100.
+                <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <?php
             }else {
                 $titel_product = $_POST['titel_product'];
                 //$foto_product = $_POST['fileToUpload'];

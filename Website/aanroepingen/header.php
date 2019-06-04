@@ -116,7 +116,7 @@
 
         <div class="holy-grail-left">
             <?php
-                include_once 'aanroepingen/RubNavMobiel.php';
-                include_once 'aanroepingen/RubNav.php';
+                // include_once 'aanroepingen/RubNavMobiel.php';
+                // include_once 'aanroepingen/RubNav.php';
             ?>
         </div>

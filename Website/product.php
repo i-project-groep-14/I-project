@@ -116,9 +116,6 @@
                   $afbeelding = $row['filenaam'];
                 }
                 
-                
-                
-                
             echo"
             <img id='myImg' class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
             <div class='row small-up-4'>";
@@ -239,7 +236,17 @@
                   echo ")</i><Br>
                   <Br>
                   <input type='number' name='bod' min='$minimalebod' step='1' required>
-                  <input type='submit' class='button large expanded' value='Plaats bod' name='bodgeplaatst'>
+                  <input type='submit' class='button large expanded' value='Plaats bod' name='bodgeplaatst'>";
+                  if (isset($_POST['bodgeplaatst'])) {
+                    ?>
+                    <div data-closable class="callout alert-callout-border success">
+                      <strong>Yay!</strong> - Uw bieding is geplaatst.
+                      <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                      <span aria-hidden="true">&times;</span>
+                      </button>
+                      <?php
+                  }
+                  echo"
                 </form>
               </div>";
             }// tabel met top 4 biedingen moet nog dynamisch gemaakt worden
