@@ -119,7 +119,7 @@
                 <tr>
                   <td>Voornaam</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="text"  value="<?php echo $row['voornaam']?>" pattern="[^\s]+"  name="voornaam"></td>
+                  <td><input type="text"  value="<?php echo strip_tags($row['voornaam'])?>" pattern="[^\s]+"  name="voornaam"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderVnaam" value="↻" ></td>
                   </form>
                 </tr>
@@ -196,7 +196,7 @@
                            WHERE gebruikersnaam like :gebruikersnaam";
             $query = $dbh->prepare($sql);
             $query -> execute(array(
-                ':voornaam' => $voornaam,
+                ':voornaam' => strip_tags($voornaam),
                 ':gebruikersnaam' => $gebruiker
             ));
     }
@@ -209,7 +209,7 @@
                            WHERE gebruikersnaam like :gebruikersnaam";
             $query = $dbh->prepare($sql);
             $query -> execute(array(
-                ':achternaam' => $achternaam,
+                ':achternaam' => strip_tags($achternaam),
                 ':gebruikersnaam' => $gebruiker
             ));
     }
@@ -221,7 +221,7 @@
                            WHERE gebruikersnaam like :gebruikersnaam";
             $query = $dbh->prepare($sql);
             $query -> execute(array(
-                ':adresregel1' => $adres,
+                ':adresregel1' => strip_tags($adres),
                 ':gebruikersnaam' => $gebruiker
             ));
     }
@@ -233,7 +233,7 @@
                            WHERE gebruikersnaam like :gebruikersnaam";
             $query = $dbh->prepare($sql);
             $query -> execute(array(
-                ':adresregel2' => $adres,
+                ':adresregel2' => strip_tags($adres),
                 ':gebruikersnaam' => $gebruiker
             ));
     }
@@ -245,7 +245,7 @@
                            WHERE gebruikersnaam like :gebruikersnaam";
             $query = $dbh->prepare($sql);
             $query -> execute(array(
-                ':postcode' => $adres,
+                ':postcode' => strip_tags($adres),
                 ':gebruikersnaam' => $gebruiker
             ));
     }
@@ -257,7 +257,7 @@
                            WHERE gebruiker like :gebruiker";
             $query = $dbh->prepare($sql);
             $query -> execute(array(
-                ':telefoon' => $telefoon,
+                ':telefoon' => strip_tags($telefoon),
                 ':gebruiker' => $gebruiker
             ));
     }
@@ -269,7 +269,7 @@
                            WHERE gebruiker like :gebruiker";
             $query = $dbh->prepare($sql);
             $query -> execute(array(
-                ':telefoon' => $telefoon,
+                ':telefoon' => strip_tags($telefoon),
                 ':gebruiker' => $gebruiker
             ));
     }
@@ -280,7 +280,7 @@
                            WHERE gebruikersnaam like :gebruikersnaam";
             $query = $dbh->prepare($sql);
             $query -> execute(array(
-                ':Land' => $adres,
+                ':Land' => strip_tags($adres),
                 ':gebruikersnaam' => $gebruiker
             ));
     }
