@@ -109,7 +109,7 @@
                 <tr>
                   <td>Gebruikersnaam</td>
                   
-                  <td><input type="text"  value="<?php  echo htmlentities($row['gebruikersnaam'])?>" name="Profgebruikersnaam" disabled></td>
+                  <td><input type="text"  value="<?php  echo $row['gebruikersnaam']?>" name="Profgebruikersnaam" disabled></td>
                   
                 </tr>
                 <tr>
@@ -126,21 +126,21 @@
                 <tr>
                   <td>Achternaam</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="text"  value="<?php echo $row['achternaam']?>" pattern="[^\s]+" name="achternaam"></td>
+                  <td><input type="text"  value="<?php echo strip_tags($row['achternaam'])?>" pattern="[^\s]+" name="achternaam"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderAnaam" value="↻" ></td>
                   </form>
                 </tr>
                 <tr>
                   <td>Telefoonnummer</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="number"  value="<?php echo (int)$hj['telefoon']?>" name="telefoon"></td>
+                  <td><input type="number"  value="<?php echo strip_tags((int)$hj['telefoon'])?>" name="telefoon"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderTel" value="↻" ></td>
                   </form>
                 </tr>
                 <tr>
                   <td>Alternatieve Telefoonnummer</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="number"  value="<?php echo (int)$hj['alttelefoon']?>" name="telefoon2"></td>
+                  <td><input type="number"  value="<?php echo strip_tags((int)$hj['alttelefoon'])?>" name="telefoon2"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderTels" value="↻" ></td>
                   </form>
                 </tr>
@@ -148,28 +148,28 @@
                 <tr>
                   <td>Adres</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="text"  value="<?php echo $row['adresregel1']?>" pattern="[a-zA-Z0-9\s]+" name="adresregel1"></td>
+                  <td><input type="text"  value="<?php echo strip_tags($row['adresregel1'])?>" pattern="[a-zA-Z0-9\s]+" name="adresregel1"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderAdress" value="↻" ></td>
                   </form>
                 </tr>
                 <tr>
                   <td>Toevoeging Adres</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="text"  value="<?php echo $row['adresregel2']?>" pattern="[a-zA-Z0-9\s]+"  name="adresregel2"></td>
+                  <td><input type="text"  value="<?php echo strip_tags($row['adresregel2'])?>" pattern="[a-zA-Z0-9\s]+"  name="adresregel2"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderAdresstwee" value="↻" ></td>
                   </form>
                 </tr>
                 <tr>
                   <td>Postcode</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="text"  value="<?php echo $row['postcode']?>" pattern="[^\s]+" name="postcode"></td>
+                  <td><input type="text"  value="<?php echo strip_tags($row['postcode'])?>" pattern="[^\s]+" name="postcode"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderPostcode" value="↻" ></td>
                   </form>
                 </tr>
                 <tr>
                   <td>Land</td>
                   <form action="profielpagina.php" method='POST'>
-                  <td><input type="text"  value="<?php echo $row['land']?>" pattern="[^\s]+" name="Land"></td>
+                  <td><input type="text"  value="<?php echo strip_tags($row['land'])?>" pattern="[^\s]+" name="Land"></td>
                   <td><input type="submit" class="veilingknop button" name="VeranderLand" value="↻" ></td>
                   </form>
                 </tr>
@@ -301,8 +301,8 @@
             <label>Verkoper worden?</label>
             
             <label>Bank?</label>
-              <input type="text" name="bank" required >
-              <input type="text" name="rekeningnummer"required>
+              <input type="text" name="bank"  required >
+              <input type="text" name="rekeningnummer"  required>
             <select>
             <option name="controleoptie" value="post">post</option>
             <option name="controleoptie" value="controle-optie">creditcard</option>
