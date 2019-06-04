@@ -18,15 +18,15 @@
         ));
 
         $row = $query -> fetch();
-        $_SESSION['gebruikersnaam'] = $row['gebruikersnaam'];
-        $_SESSION['voornaam'] = $row['voornaam'];
+        $_SESSION['gebruikersnaam'] = strip_tags($row['gebruikersnaam']);
+        $_SESSION['voornaam'] = strip_tags($row['voornaam']);
         if ($row['rol'] == 5) {
             $_SESSION['beheerder'] = true;
         }
 
-        $_SESSION['rol'] = $row['rol'];
-        $_SESSION['plaatsnaam'] = $row['plaatsnaam'];
-        $_SESSION['land'] = $row['land'];
+        $_SESSION['rol'] = strip_tags($row['rol']);
+        $_SESSION['plaatsnaam'] = strip_tags($row['plaatsnaam']);
+        $_SESSION['land'] = strip_tags($row['land']);
 
         $sql = "SELECT count(*) as 'aantalveilingen' FROM voorwerp 
                 WHERE verkoper like :gebruikersnaam";

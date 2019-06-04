@@ -4,8 +4,8 @@
   require_once 'aanroepingen/connectie.php';
 
   if(isset($_POST['login'])){
-    $inlognaam = $_POST['inlogAccNaam'];
-    $wachtwoord = $_POST['inlogWw'];
+    $inlognaam = strip_tags($_POST['inlogAccNaam']);
+    $wachtwoord = strip_tags($_POST['inlogWw']);
 
     $sql = "SELECT wachtwoord FROM gebruiker 
             WHERE gebruikersnaam like :gebruikersnaam";
@@ -21,7 +21,7 @@
       session_start();
 
       $_SESSION['login'] = $_POST['login'];
-      $_SESSION['gebruikersnaam'] = $inlognaam;
+      $_SESSION['gebruikersnaam'] = strip_tags($inlognaam);
 
       echo "U bent succesvol ingelogd.";
       header ('Location: index.php');

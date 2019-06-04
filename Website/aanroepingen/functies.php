@@ -15,7 +15,7 @@ function createRubriek($actueleplek) {
     <li>
       <a href='rubriekenpagina.php'><i class='";
       if (heeftSubriek($row['rubrieknummer'])) { echo"fi-folder-add"; } else { echo"fi-page"; }
-      echo "'></i> $row[rubrieknaam], $row[rubrieknummer]</a>
+      echo "'></i> ".strip_tags($row['rubrieknaam']).", ".strip_tags($row['rubrieknummer'])."</a>
   ";
 
   if (heeftSubriek($row['rubrieknummer'])) {
@@ -67,7 +67,7 @@ function createSubRubrieken($parentRubriekNummer, $sublevel, $subplek) {
           <i class='";
             if (heeftSubriek($subrubrieknummer)) { echo"fi-folder-add"; } else { echo"subitem fi-page"; }
             echo    "'>
-          </i> $subrubrieknaam, $row[rubriek]
+          </i> ".strip_tags($subrubrieknaam).", ".strip_tags($row['rubriek'])."
         </a>
     ";
 
@@ -223,12 +223,12 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
   ));
   $row = $query -> fetch();
 
-  $titel = $row['titel'];
-  $beschrijving = $row['beschrijving'];
-  $hoogstebod = $row['verkoopprijs'];
-  $gebruikersnaam = $row['verkoper'];
+  $titel = strip_tags($row['titel']);
+  $beschrijving = strip_tags($row['beschrijving']);
+  $hoogstebod = strip_tags($row['verkoopprijs']);
+  $gebruikersnaam = strip_tags($row['verkoper']);
   $tijd = "Hendrik/Mehmet voeg aub hier die timer toe!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
-  $locatie = $row['plaatsnaam'];
+  $locatie = strip_tags($row['plaatsnaam']);
   
   $sql = "SELECT filenaam FROM bestand
           WHERE voorwerp like :voorwerpnummer";
@@ -242,7 +242,7 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
   if ($row['filenaam'] == NULL) {
     $afbeelding = "images/imageplaceholder.png";
   } else {
-    $afbeelding = $row['filenaam'];
+    $afbeelding = strip_tags($row['filenaam']);
   }
 
   echo "
@@ -373,7 +373,7 @@ function createProductRubrieken($rubrieknummer) {
     if (selectParentRubriekNummer($rubrieknummer) != $actueleParentRubriek) {
       echo"
         <li class='disabled'>";
-        echo"$naam</li>
+        echo strip_tags($naam)."</li>
       ";
 
       if (heeftSubriek($rubrieknummer)) {
@@ -383,7 +383,7 @@ function createProductRubrieken($rubrieknummer) {
     } else {
       $naam = selectRubriekNaam($actueleRubriek);
       echo"<li><span class='show-for-sr'></span>";
-      echo"$naam</li>";
+      echo strip_tags($naam)."</li>";
     }
   }
 }
@@ -438,7 +438,7 @@ function createHomepageItem($sql, $actueleplek) {
     if ($row['filenaam'] == NULL) {
       $afbeelding = "images/imageplaceholder.png";
     } else {
-      $afbeelding = $row['filenaam'];
+      $afbeelding = strip_tags($row['filenaam']);
     }
     
     createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins, $voorwerpnummer, $startprijs);
@@ -484,7 +484,7 @@ function createFotos($actueleplek) {
     if ($row['filenaam'] == NULL) {
       $afbeelding = "images/imageplaceholder.png";
     } else {
-      $afbeelding = $row['filenaam'];
+      $afbeelding = strip_tags($row['filenaam']);
     }
     echo"
       <div class='column'>
@@ -508,10 +508,10 @@ function createBiedingen($actueleplek) {
 
     $row = $query -> fetch();
                 
-    $gebruiker = $row['gebruiker'];
-    $bod = $row['bodbedrag'];
-    $dag = $row['boddag'];
-    $tijd = $row['bodtijdstip'];
+    $gebruiker = strip_tags($row['gebruiker']);
+    $bod = strip_tags($row['bodbedrag']);
+    $dag = strip_tags($row['boddag']);
+    $tijd = strip_tags($row['bodtijdstip']);
 
     $profielfoto = 'images/profielfotoPlaceholder.png';
     
@@ -583,19 +583,19 @@ function createProfVeilingen($actueleplek){
 
   echo "<tr style='text-align=center;'> 
   <td><form action='product.php' method='POST'>
-  <button type='submit' value='$row[voorwerpnummer]' name='voorwerp' class='button ProductButton'>$row[titel]</button>
+  <button type='submit' value='$row[voorwerpnummer]' name='voorwerp' class='button ProductButton'>".strip_tags($row['titel'])."</button>
 </form></a></td>
-            <td>$row[startprijs]</td>
+            <td>".strip_tags($row['startprijs'])."</td>
             <td"; 
               if ($row['betalingswijze'] == 'PayPal') { 
                 echo" class='fi-paypal'";
               }
-            echo">$row[betalingswijze]</td>
-            <td>$row[plaatsnaam]</td>
-           <td>$row[looptijdbeginDag]</td>
-            <td>$row[looptijdeindeDag]</td>
-            <td>$row[verkoopprijs]</td>
-            <td>$row[koper]</td>
+            echo">".strip_tags($row['betalingswijze'])."</td>
+            <td>".strip_tags($row['plaatsnaam'])."</td>
+           <td>".strip_tags($row['looptijdbeginDag'])."</td>
+            <td>".strip_tags($row['looptijdeindeDag'])."</td>
+            <td>".strip_tags($row['verkoopprijs'])."</td>
+            <td>".strip_tags($row['koper'])."</td>
             <td";if ($row['veilingGesloten'] == 'wel') { 
               echo" class='profveilinggesloten'";
             }
@@ -642,11 +642,11 @@ function createProfBiedingen($actueleplek) {
           <td><form action='product.php' method='POST'>
           <button type='submit' value='$row[voorwerpnummer]' name='voorwerp' class='button ProductButton'>$row[titel]</button>
         </form></a></td>
-          <td>€ $row[startprijs]</td>
-          <td>€ $row[bod]</td>
-          <td>€ $row[verkoopprijs]</td>
-          <td>$row[looptijdbeginDag]</td>
-          <td>$row[looptijdeindeDag]</td>
+          <td>€ ".strip_tags($row['startprijs'])."</td>
+          <td>€ ".strip_tags($row['bod'])."</td>
+          <td>€ ".strip_tags($row['verkoopprijs'])."</td>
+          <td>".strip_tags($row['looptijdbeginDag'])."</td>
+          <td>".strip_tags($row['looptijdeindeDag'])."</td>
           <td";if ($row['veilingGesloten'] == 'wel') { 
             echo" class='profveilinggesloten'";
           }
@@ -674,7 +674,7 @@ function createGebruikers($actueleplek) {
       <td>".strip_tags($gebruiker)."</td>
       <td>
         <form action='beheerderspagina.php' method='post'>
-          <button type='submit' value='$gebruiker' name='gebruiker' class='button'>Blokkeren</button>
+          <button type='submit' value='".strip_tags($gebruiker)."' name='gebruiker' class='button'>Blokkeren</button>
         </form>
       </td>
     </tr>

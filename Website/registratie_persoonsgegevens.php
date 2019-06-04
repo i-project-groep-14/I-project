@@ -12,7 +12,7 @@
 						WHERE gebruikersnaam like :gebruikersnaam";
 				$query = $dbh->prepare($sql);
 				$query -> execute(array(
-					':gebruikersnaam' => $_POST['gebruikersnaam']
+					':gebruikersnaam' => strip_tags($_POST['gebruikersnaam'])
 				));
 				$row = $query -> fetch();
 				if($_POST['gebruikersnaam'] != $row['gebruikersnaam']) {
@@ -57,40 +57,40 @@
 									if ($_POST['controle'] == 'creditcard' && strlen($_POST['creditcardnummer']) > 30) {
 										echo "Het aantal karakters van uw creditcardnummer is te groot. Het maximale toegestane aantal karakters is 20.";
 									} else {
-										$_SESSION['rekeningnummer'] = $_POST['verkoopgegevens-rekeningnr'];
-										$_SESSION['bank'] = $_POST['verkoopgegevens-bank'];
-										$_SESSION['controlepost'] = $_POST['controle'];
+										$_SESSION['rekeningnummer'] = strip_tags($_POST['verkoopgegevens-rekeningnr']);
+										$_SESSION['bank'] = strip_tags($_POST['verkoopgegevens-bank']);
+										$_SESSION['controlepost'] = strip_tags($_POST['controle']);
 										if(isset($_POST['creditcardnummer'])) {
-											$_SESSION['creditcardnummer'] = $_POST['creditcardnummer'];
+											$_SESSION['creditcardnummer'] = strip_tags($_POST['creditcardnummer']);
 										} //else {
 										// 	$_SESSION['creditcardnummer'] = NULL;
 										// }
-										echo $_SESSION['rekeningnummer'];
-										echo $_SESSION['bank'];
-										echo $_SESSION['controlepost'];
-										echo $_SESSION['creditcardnummer'];
+										// echo $_SESSION['rekeningnummer'];
+										// echo $_SESSION['bank'];
+										// echo $_SESSION['controlepost'];
+										// echo $_SESSION['creditcardnummer'];
 									}
 								}
 							}
 
-							$_SESSION['gebruikersnaam'] = $_POST['gebruikersnaam'];
-							$_SESSION['voornaam'] = $_POST['voornaam'];
-							$_SESSION['achternaam'] = $_POST['achternaam'];
-							$_SESSION['adres'] = $_POST['adres'];
+							$_SESSION['gebruikersnaam'] = strip_tags($_POST['gebruikersnaam']);
+							$_SESSION['voornaam'] = strip_tags($_POST['voornaam']);
+							$_SESSION['achternaam'] = strip_tags($_POST['achternaam']);
+							$_SESSION['adres'] = strip_tags($_POST['adres']);
 							if(isset($_POST['oAdres'])) {
-								$_SESSION['oAdres'] = $_POST['oAdres'];
+								$_SESSION['oAdres'] = strip_tags($_POST['oAdres']);
 							}
-							$_SESSION['postcode'] = $_POST['postcode'];
-							$_SESSION['plaats'] = $_POST['plaats'];
-							$_SESSION['land'] = $_POST['land'];
-							$_SESSION['telnr1'] = $_POST['telnr1'];
+							$_SESSION['postcode'] = strip_tags($_POST['postcode']);
+							$_SESSION['plaats'] = strip_tags($_POST['plaats']);
+							$_SESSION['land'] = strip_tags($_POST['land']);
+							$_SESSION['telnr1'] = strip_tags($_POST['telnr1']);
 							if(isset($_POST['telnr2'])) {
-								$_SESSION['telnr2'] = $_POST['telnr2'];
+								$_SESSION['telnr2'] = strip_tags($_POST['telnr2']);
 							}
-							$_SESSION['geboortedatum'] = $_POST['geboortedatum'];
-							$_SESSION['wachtwoord'] = $_POST['wachtwoord'];
+							$_SESSION['geboortedatum'] = strip_tags($_POST['geboortedatum']);
+							$_SESSION['wachtwoord'] = strip_tags($_POST['wachtwoord']);
 							if(isset($_POST['eenVerkoper'])) {
-								$_SESSION['eenVerkoper'] = $_POST['eenVerkoper'];
+								$_SESSION['eenVerkoper'] = strip_tags($_POST['eenVerkoper']);
 							} else {
 								$_SESSION['eenVerkoper'] = 2;
 							}
