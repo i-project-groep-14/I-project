@@ -1,4 +1,4 @@
-<?php
+ <?php
       $config = ['pagina' => 'Profielpagina'];
 
       require_once 'aanroepingen/connectie.php';
@@ -16,8 +16,8 @@
           ':gebruiker' => $_SESSION['gebruikersnaam']
         ));
         $hj = $query -> fetch();
-        
-    ?>
+       
+    ?> 
 
     
     <div class="holy-grail-middle">
@@ -109,7 +109,7 @@
                 <tr>
                   <td>Gebruikersnaam</td>
                   
-                  <td><input type="text"  value="<?php  echo $row['gebruikersnaam']?>" name="Profgebruikersnaam" disabled></td>
+                  <td><input type="text"  value="<?php  echo htmlentities($row['gebruikersnaam'])?>" name="Profgebruikersnaam" disabled></td>
                   
                 </tr>
                 <tr>
