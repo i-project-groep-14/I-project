@@ -145,19 +145,19 @@
 
               $row = $query -> fetch();
                 
-              $titel = $row['titel'];
-              $verkoper = $row['verkoper'];
-              $beschrijving = $row['beschrijving'];
-              $locatie = $row['plaatsnaam'];
-              $startprijs = $row['startprijs'];
-              $hoogstebod = $row['verkoopprijs'];
-              $betalingswijze = $row['betalingswijze'];
-              $verzendinstructies = $row['verzendinstructies'];
-              $verzendkosten = $row['verzendkosten'];
-              $betalingsinstructie = $row['betalingsinstructie'];
+              $titel = strip_tags($row['titel']);
+              $verkoper = strip_tags($row['verkoper']);
+              $beschrijving = strip_tags($row['beschrijving']);
+              $locatie = strip_tags($row['plaatsnaam']);
+              $startprijs = strip_tags($row['startprijs']);
+              $hoogstebod = strip_tags($row['verkoopprijs']);
+              $betalingswijze = strip_tags($row['betalingswijze']);
+              $verzendinstructies = strip_tags($row['verzendinstructies']);
+              $verzendkosten = strip_tags($row['verzendkosten']);
+              $betalingsinstructie = strip_tags($row['betalingsinstructie']);
                 
-              $looptijdeindeDag = $row['looptijdeindeDag'];
-              $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
+              $looptijdeindeDag = strip_tags($row['looptijdeindeDag']);
+              $looptijdeindeTijdstip = strip_tags($row['looptijdeindeTijdstip']);
 
               $combinedDT = date('Y-m-d H:i:s', strtotime("$looptijdeindeDag $looptijdeindeTijdstip"));
               $difference = timeDiff(date("Y-m-d H:i:s"),$combinedDT);
