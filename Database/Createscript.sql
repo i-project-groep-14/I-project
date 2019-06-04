@@ -225,7 +225,7 @@ insert into gebruiker values ('Peop', 'Danny', 'Hageman', 'Onbekend', null, 'Unk
 
 insert into verkoper values('Beheerder', null, null, 'controle-optie', null)
 
-
+/*
 insert into voorwerp values('Kaaskast', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen.', 20, 'iDeal', null, 'plaatsnaam1', 'land1',
 							1, GETDATE(), CONVERT(TIME(0),GETDATE()), null, null, 'Beheerder', null, CONVERT(TIME(0),GETDATE()), 'niet', 20)
 insert into voorwerp values('Bezem', 'Ik ben makelaar in koffi, en woon op de Lauriergracht No 37. Het is mijn gewoonte niet, romans te schrijven, of zulke dingen, en het heeft dan ook lang geduurd, voor ik er toe overging een paar riem papier extra te bestellen, en het werk aan te vangen, dat gij, lieve lezer, zoâven in de hand hebt genomen, en dat ge lezen moet als ge makelaar in koffie zijt, of als ge wat anders zijt. Niet alleen dat ik nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooit nooitnooit', 250, 'Creditcard', null, 'plaatsnaam2', 'land2',
@@ -253,7 +253,7 @@ insert into bestand values('images/laptop.jpg', 4)
 insert into bestand values('images/sokken.jpg', 5)
 insert into bestand values('images/kaashond.jpg', 6)
 insert into bestand values('images/banaan.jpg', 7)
-
+*/
 
 /*
 insert into rubriek values (0,'Hoofdrubriek', null)
@@ -291,14 +291,12 @@ insert into voorwerp values('Test', 'f', 1, 'PayPal', null, 'plaatsnaam7', 'land
 							'Beheerder', null, CONVERT(TIME,dateadd(second, 20, GETDATE())), 'niet', 60)
 */
 
-/* 
+go
+
 create view aantalBiedingenPerPersoon AS
 select  count(voorwerpnummer) as aantal, gebruiker
 from bod
 group by voorwerpnummer, gebruiker
-
-drop view aantalBiedingenPerPersoon 
-*/
 
 
 GO

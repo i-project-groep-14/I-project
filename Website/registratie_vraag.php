@@ -46,7 +46,7 @@
           }
     
           $vraag = $_POST['veiligheidsvraag'];
-          $antwoord = $_POST['veiligheidsvraag_antwoord'];
+          $antwoord = strip_tags($_POST['veiligheidsvraag_antwoord']);
     
           $sql = "INSERT INTO gebruiker VALUES
                   (:gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :postcode, :plaatsnaam, :land, :geboortedatum, :mailadres,:wachtwoord, :vraag, :antwoordtekst, :rol, :profielfoto)";

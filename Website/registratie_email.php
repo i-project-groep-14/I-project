@@ -14,7 +14,7 @@
           $mailverzonden = false;
         } else {
           $mailverzonden = true;
-          $_SESSION['email'] = $_POST['email'];
+          $_SESSION['email'] = strip_tags($_POST['email']);
           
           $code = 
                   // createRandomCode();

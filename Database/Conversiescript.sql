@@ -58,18 +58,31 @@ INSERT INTO EenmaalAndermaal.dbo.voorwerp (voorwerpnummer, titel, beschrijving, 
 	LEFT('niet', 4) as veilingGesloten,
 	null as verkoopprijs
 FROM nepebay.dbo.items
-/*
+
+use nepebay
+
 INSERT INTO EenmaalAndermaal.dbo.bestand
 	SELECT distinct left(IllustratieFile,200) as filenaam,
 	cast(ItemID as bigint) as voorwerp
-FROM nepebay.dbo.Illustraties
-group by IllustratieFile, ItemID
-having (COUNT(*) < 4)
+FROM (SELECT *, Rank() 
+          over (Partition BY itemid
+                ORDER BY illustratiefile) AS Rank
+        FROM Illustraties 
+        ) Illustraties 
+WHERE Rank <= 4
 
+/*
 INSERT INTO EenmaalAndermaal.dbo.[voorwerp in rubriek]
-	SELECT CAST(ID as bigint) as voorwerp,
-	CAST(Categorie as int) as [rubriek op laagste niveau]
-FROM nepebay.dbo.Items
+	SELECT distinct CAST(i.ID as bigint) as voorwerp,
+	CAST(i.Categorie as int) as [rubriek op laagste niveau]
+FROM nepebay.dbo.Items i full join categorieen c on c.id = i.id
+where c.ID != c.parent and c.id != null
+
+select * from categorieen
+where id in (select parent from categorieen group by parent)
+
+select * from items
+select * from categorieen where parent = 179170
 */
 
 

@@ -113,8 +113,8 @@
                 if ($row['filenaam'] == NULL) {
                   $afbeelding = "images/imageplaceholder.png";
                 } else {
-                  $afbeelding = $row['filenaam'];
-                }
+                  $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
+                } 
                 
                 
                 
@@ -122,10 +122,10 @@
             echo"
             <img id='myImg' class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
             <div class='row small-up-4'>";
+              createFotos(0);
               createFotos(1);
               createFotos(2);
               createFotos(3);
-              createFotos(4);
             echo"
             </div>
             ";
@@ -145,16 +145,16 @@
 
               $row = $query -> fetch();
                 
-              $titel = $row['titel'];
-              $verkoper = $row['verkoper'];
-              $beschrijving = $row['beschrijving'];
-              $locatie = $row['plaatsnaam'];
+              $titel = strip_tags($row['titel']);
+              $verkoper = strip_tags($row['verkoper']);
+              $beschrijving = strip_tags($row['beschrijving']);
+              $locatie = strip_tags($row['plaatsnaam']);
               $startprijs = $row['startprijs'];
               $hoogstebod = $row['verkoopprijs'];
-              $betalingswijze = $row['betalingswijze'];
-              $verzendinstructies = $row['verzendinstructies'];
-              $verzendkosten = $row['verzendkosten'];
-              $betalingsinstructie = $row['betalingsinstructie'];
+              $betalingswijze = strip_tags($row['betalingswijze']);
+              $verzendinstructies = strip_tags($row['verzendinstructies']);
+              $verzendkosten = strip_tags($row['verzendkosten']);
+              $betalingsinstructie = strip_tags($row['betalingsinstructie']);
                 
               $looptijdeindeDag = $row['looptijdeindeDag'];
               $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
@@ -244,19 +244,7 @@
               </div>";
             }// tabel met top 4 biedingen moet nog dynamisch gemaakt worden
             echo "
-            <div>
-              <table>
-                <tr>
-                  <th>Naam</th>
-                  <th>Bod</th>
-                </tr>
-                <tr>
-                  <td>Jill</td>
-                  <td>€50</td>
-                </tr>
-              </table>
-            </div>
-            
+                        
             <p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>
             <p>Looptijd:</p>
             <div class='klok'>

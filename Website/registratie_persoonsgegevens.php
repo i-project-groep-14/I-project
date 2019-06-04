@@ -12,7 +12,7 @@
 						WHERE gebruikersnaam like :gebruikersnaam";
 				$query = $dbh->prepare($sql);
 				$query -> execute(array(
-					':gebruikersnaam' => $_POST['gebruikersnaam']
+					':gebruikersnaam' => strip_tags($_POST['gebruikersnaam'])
 				));
 				$row = $query -> fetch();
 				if($_POST['gebruikersnaam'] != $row['gebruikersnaam']) {
@@ -57,40 +57,40 @@
 									if ($_POST['controle'] == 'creditcard' && strlen($_POST['creditcardnummer']) > 30) {
 										echo "Het aantal karakters van uw creditcardnummer is te groot. Het maximale toegestane aantal karakters is 20.";
 									} else {
-										$_SESSION['rekeningnummer'] = $_POST['verkoopgegevens-rekeningnr'];
-										$_SESSION['bank'] = $_POST['verkoopgegevens-bank'];
-										$_SESSION['controlepost'] = $_POST['controle'];
+										$_SESSION['rekeningnummer'] = strip_tags($_POST['verkoopgegevens-rekeningnr']);
+										$_SESSION['bank'] = strip_tags($_POST['verkoopgegevens-bank']);
+										$_SESSION['controlepost'] = strip_tags($_POST['controle']);
 										if(isset($_POST['creditcardnummer'])) {
-											$_SESSION['creditcardnummer'] = $_POST['creditcardnummer'];
+											$_SESSION['creditcardnummer'] = strip_tags($_POST['creditcardnummer']);
 										} //else {
 										// 	$_SESSION['creditcardnummer'] = NULL;
 										// }
-										echo $_SESSION['rekeningnummer'];
-										echo $_SESSION['bank'];
-										echo $_SESSION['controlepost'];
-										echo $_SESSION['creditcardnummer'];
+										// echo $_SESSION['rekeningnummer'];
+										// echo $_SESSION['bank'];
+										// echo $_SESSION['controlepost'];
+										// echo $_SESSION['creditcardnummer'];
 									}
 								}
 							}
 
-							$_SESSION['gebruikersnaam'] = $_POST['gebruikersnaam'];
-							$_SESSION['voornaam'] = $_POST['voornaam'];
-							$_SESSION['achternaam'] = $_POST['achternaam'];
-							$_SESSION['adres'] = $_POST['adres'];
+							$_SESSION['gebruikersnaam'] = strip_tags($_POST['gebruikersnaam']);
+							$_SESSION['voornaam'] = strip_tags($_POST['voornaam']);
+							$_SESSION['achternaam'] = strip_tags($_POST['achternaam']);
+							$_SESSION['adres'] = strip_tags($_POST['adres']);
 							if(isset($_POST['oAdres'])) {
-								$_SESSION['oAdres'] = $_POST['oAdres'];
+								$_SESSION['oAdres'] = strip_tags($_POST['oAdres']);
 							}
-							$_SESSION['postcode'] = $_POST['postcode'];
-							$_SESSION['plaats'] = $_POST['plaats'];
-							$_SESSION['land'] = $_POST['land'];
-							$_SESSION['telnr1'] = $_POST['telnr1'];
+							$_SESSION['postcode'] = strip_tags($_POST['postcode']);
+							$_SESSION['plaats'] = strip_tags($_POST['plaats']);
+							$_SESSION['land'] = strip_tags($_POST['land']);
+							$_SESSION['telnr1'] = strip_tags($_POST['telnr1']);
 							if(isset($_POST['telnr2'])) {
-								$_SESSION['telnr2'] = $_POST['telnr2'];
+								$_SESSION['telnr2'] = strip_tags($_POST['telnr2']);
 							}
-							$_SESSION['geboortedatum'] = $_POST['geboortedatum'];
-							$_SESSION['wachtwoord'] = $_POST['wachtwoord'];
+							$_SESSION['geboortedatum'] = strip_tags($_POST['geboortedatum']);
+							$_SESSION['wachtwoord'] = strip_tags($_POST['wachtwoord']);
 							if(isset($_POST['eenVerkoper'])) {
-								$_SESSION['eenVerkoper'] = $_POST['eenVerkoper'];
+								$_SESSION['eenVerkoper'] = strip_tags($_POST['eenVerkoper']);
 							} else {
 								$_SESSION['eenVerkoper'] = 2;
 							}
@@ -120,22 +120,22 @@
 						<div class="grid-x grid-padding-x">
 							<div class="medium-12 cell">
 								<label>Gebruikersnaam:</label>
-								<input type="text" placeholder="Gebruikersnaam" name="gebruikersnaam" value="<?php  if(isset($_POST['gebruikersnaam'])) { echo htmlentities($_POST['gebruikersnaam']);} ?>" required>
+								<input type="text" placeholder="Gebruikersnaam" name="gebruikersnaam" value="<?php  if(isset($_POST['gebruikersnaam'])) { echo strip_tags($_POST['gebruikersnaam']);} ?>" required>
 							</div>
 						
 							<div class="medium-6 cell">
 								<label>Voornaam:</label>
-								<input  type="text" placeholder="Voornaam" name="voornaam" value="<?php  if(isset($_POST['voornaam'])) { echo htmlentities($_POST['voornaam']);} ?>" required>
+								<input  type="text" placeholder="Voornaam" name="voornaam" value="<?php  if(isset($_POST['voornaam'])) { echo strip_tags($_POST['voornaam']);} ?>" required>
 							</div> 
 						
 							<div class="medium-6 cell">
 								<label>Achternaam:</label>
-								<input type="text" placeholder="Achternaam" name="achternaam" value="<?php  if(isset($_POST['achternaam'])) { echo htmlentities($_POST['achternaam']);} ?>" required>
+								<input type="text" placeholder="Achternaam" name="achternaam" value="<?php  if(isset($_POST['achternaam'])) { echo strip_tags($_POST['achternaam']);} ?>" required>
 							</div>
 						
 							<div class="medium-6 cell">
 								<label>Adres:</label>
-								<input type="text" placeholder="Adres" name="adres" value="<?php  if(isset($_POST['adres'])) { echo htmlentities($_POST['adres']);} ?>" required>
+								<input type="text" placeholder="Adres" name="adres" value="<?php  if(isset($_POST['adres'])) { echo strip_tags($_POST['adres']);} ?>" required>
 							</div>
 						
 							<div class="medium-6 cell">
@@ -145,37 +145,37 @@
 										<span class="tooltiptext">Dit is een extra adres regel voor mensen die buiten Nederland wonen.</span>
 									</span>
 								</label>
-								<input type="text" placeholder="Tweede adres" name="oAdres" value="<?php  if(isset($_POST['oAdres'])) { echo htmlentities($_POST['oAdres']);} ?>">
+								<input type="text" placeholder="Tweede adres" name="oAdres" value="<?php  if(isset($_POST['oAdres'])) { echo strip_tags($_POST['oAdres']);} ?>">
 							</div>
 						
 							<div class="medium-4 cell">
 								<label>Postcode:</label>
-								<input type="text" placeholder="Postcode" name="postcode" value="<?php  if(isset($_POST['postcode'])) { echo htmlentities($_POST['postcode']);} ?>" required>
+								<input type="text" placeholder="Postcode" name="postcode" value="<?php  if(isset($_POST['postcode'])) { echo strip_tags($_POST['postcode']);} ?>" required>
 							</div>
 						
 							<div class="medium-4 cell">
 								<label>Plaatsnaam:</label>
-								<input type="text" placeholder="Plaats" name="plaats" value="<?php  if(isset($_POST['plaats'])) { echo htmlentities($_POST['plaats']);} ?>" required>
+								<input type="text" placeholder="Plaats" name="plaats" value="<?php  if(isset($_POST['plaats'])) { echo strip_tags($_POST['plaats']);} ?>" required>
 							</div>
 						
 							<div class="medium-4 cell">
 								<label>Landsnaam:</label>
-								<input type="text" placeholder="Land" name="land" value="<?php  if(isset($_POST['land'])) { echo htmlentities($_POST['land']);} ?>" required>
+								<input type="text" placeholder="Land" name="land" value="<?php  if(isset($_POST['land'])) { echo strip_tags($_POST['land']);} ?>" required>
 							</div>
 						
 							<div class="medium-6 cell">
 								<label>Telefoonnr:</label>
-								<input type="tel" placeholder="Telefoonnr" name="telnr1" value="<?php  if(isset($_POST['telnr1'])) { echo htmlentities($_POST['telnr1']);} ?>" required>
+								<input type="tel" placeholder="Telefoonnr" name="telnr1" value="<?php  if(isset($_POST['telnr1'])) { echo strip_tags($_POST['telnr1']);} ?>" required>
 							</div>
 						
 							<div class="medium-6 cell">
 								<label>Telefoonnr 2 (Optioneel):</label>
-								<input type="tel" placeholder="Telefoonnr" name="telnr2" value="<?php  if(isset($_POST['telnr2'])) { echo htmlentities($_POST['telnr2']);} ?>">
+								<input type="tel" placeholder="Telefoonnr" name="telnr2" value="<?php  if(isset($_POST['telnr2'])) { echo strip_tags($_POST['telnr2']);} ?>">
 							</div>
 						
 							<div class="medium-12 cell">
 								<label>Geboortedatum:</label>
-								<input type="date" name="geboortedatum" value="<?php  if(isset($_POST['geboortedatum'])) { echo htmlentities($_POST['geboortedatum']);} ?>" required>
+								<input type="date" name="geboortedatum" value="<?php  if(isset($_POST['geboortedatum'])) { echo strip_tags($_POST['geboortedatum']);} ?>" required>
 							</div>
 						
 							<div class="medium-12 cell">
@@ -197,10 +197,10 @@
 						
 								<div class="wel-verkopergegevens">
 									<label>Rekeningnummer:</label>
-									<input type="text" name="verkoopgegevens-rekeningnr" placeholder="Rekeningnummer" value="<?php  if(isset($_POST['verkoopgegevens-rekeningnr'])) { echo htmlentities($_POST['verkoopgegevens-rekeningnr']);} ?>">
+									<input type="text" name="verkoopgegevens-rekeningnr" placeholder="Rekeningnummer" value="<?php  if(isset($_POST['verkoopgegevens-rekeningnr'])) { echo strip_tags($_POST['verkoopgegevens-rekeningnr']);} ?>">
 
 									<label>Bank:</label>
-									<input type="text" name="verkoopgegevens-bank" placeholder="Bank" value="<?php  if(isset($_POST['verkoopgegevens-bank'])) { echo htmlentities($_POST['verkoopgegevens-bank']);} ?>" >
+									<input type="text" name="verkoopgegevens-bank" placeholder="Bank" value="<?php  if(isset($_POST['verkoopgegevens-bank'])) { echo strip_tags($_POST['verkoopgegevens-bank']);} ?>" >
 									<p>
 										Om uw verkopersaccount te activeren heeft u een code nodig. Deze code kan opgestuurd worden
 										bij post of er wordt naar uw creditcard gegevens gevraagd. Maak een keuze hieronder.
@@ -213,7 +213,7 @@
 
 									<div class="controle-creditcard-gegevens">
 										<label for="creditcard-gegevens">Creditcardnummer</label>
-										<input type="text" name="creditcardnummer" id="creditcard-gegevens" placeholder="Creditcardnummer" value="<?php  if(isset($_POST['creditcardnummer'])) { echo htmlentities($_POST['creditcardnummer']);} ?>">
+										<input type="text" name="creditcardnummer" id="creditcard-gegevens" placeholder="Creditcardnummer" value="<?php  if(isset($_POST['creditcardnummer'])) { echo strip_tags($_POST['creditcardnummer']);} ?>">
 									</div>
 								</div>
 							</fieldset>
