@@ -301,8 +301,8 @@
             <label>Verkoper worden?</label>
             
             <label>Bank?</label>
-              <input type="text" name="bank"  required >
-              <input type="text" name="rekeningnummer"  required>
+              <input type="text" name="bank" value="<?php striptags('') ?>" required >
+              <input type="text" name="rekeningnummer" value="<?php striptags('') ?>" required>
             <select>
             <option name="controleoptie" value="post">post</option>
             <option name="controleoptie" value="controle-optie">creditcard</option>
