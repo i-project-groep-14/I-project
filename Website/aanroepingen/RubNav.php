@@ -14,7 +14,7 @@
         $rubriekenplek = createRubriek($rubriekenplek);
       }*/
 
-      $sql = "SELECT * FROM rubriek WHERE rubriek is null"; //Veranderen naar = 0 , dit is alleen om te testen met meerdere rubrieken
+      $sql = "SELECT * FROM rubriek WHERE rubriek = 0"; //Veranderen naar = 0 , dit is alleen om te testen met meerdere rubrieken
       $query = $dbh->prepare($sql);
       $query -> execute();
 
