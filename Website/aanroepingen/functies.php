@@ -242,7 +242,7 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
   if ($row['filenaam'] == NULL) {
     $afbeelding = "images/imageplaceholder.png";
   } else {
-    $afbeelding = strip_tags($row['filenaam']);
+    $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
   }
 
   echo "
@@ -438,7 +438,7 @@ function createHomepageItem($sql, $actueleplek) {
     if ($row['filenaam'] == NULL) {
       $afbeelding = "images/imageplaceholder.png";
     } else {
-      $afbeelding = strip_tags($row['filenaam']);
+      $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
     }
     
     createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mins, $voorwerpnummer, $startprijs);
@@ -484,7 +484,7 @@ function createFotos($actueleplek) {
     if ($row['filenaam'] == NULL) {
       $afbeelding = "images/imageplaceholder.png";
     } else {
-      $afbeelding = strip_tags($row['filenaam']);
+      $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
     }
     echo"
       <div class='column'>
