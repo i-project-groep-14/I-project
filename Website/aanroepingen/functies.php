@@ -227,7 +227,7 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
   $beschrijving = strip_tags($row['beschrijving']);
   $hoogstebod = strip_tags($row['verkoopprijs']);
   $gebruikersnaam = strip_tags($row['verkoper']);
-  $tijd = "Hendrik/Mehmet voeg aub hier die timer toe!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+  $tijd = "Danny voeg aub hier die timer toe!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
   $locatie = strip_tags($row['plaatsnaam']);
   
   $sql = "SELECT filenaam FROM bestand
@@ -241,6 +241,8 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
 
   if ($row['filenaam'] == NULL) {
     $afbeelding = "images/imageplaceholder.png";
+  } else if (substr($row['filenaam'],0,2) != "dt" ) {
+    $afbeelding = $row['filenaam'];
   } else {
     $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
   }
@@ -435,8 +437,12 @@ function createHomepageItem($sql, $actueleplek) {
 
     $row = $query -> fetch();
 
+    echo substr($row['filenaam'],0,2);
+
     if ($row['filenaam'] == NULL) {
       $afbeelding = "images/imageplaceholder.png";
+    } else if (substr($row['filenaam'],0,2) != "dt" ) {
+      $afbeelding = $row['filenaam'];
     } else {
       $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
     }
@@ -483,6 +489,8 @@ function createFotos($actueleplek) {
     $row = $query -> fetch();
     if ($row['filenaam'] == NULL) {
       $afbeelding = "images/imageplaceholder.png";
+    } else if (substr($row['filenaam'],0,2) != "dt" ) {
+      $afbeelding = $row['filenaam'];
     } else {
       $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
     }

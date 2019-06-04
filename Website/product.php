@@ -112,9 +112,11 @@
                 $row = $query -> fetch();
                 if ($row['filenaam'] == NULL) {
                   $afbeelding = "images/imageplaceholder.png";
+                } else if (substr($row['filenaam'],0,2) != "dt" ) {
+                  $afbeelding = $row['filenaam'];
                 } else {
                   $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
-                } 
+                }
                 
                 
                 
