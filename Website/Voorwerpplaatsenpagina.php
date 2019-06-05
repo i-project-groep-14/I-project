@@ -397,7 +397,7 @@
         var file_val = $('.file').val();
         if(file_val == "")
         {
-            alert("Please select at least one file.");
+            alert("Kies a.u.b minstens één bestand.");
             return false;
         }
     });
@@ -407,9 +407,12 @@
     var max = 3;
     $("#add").click(function(){
         bestand++;
-        if(bestand <= max)
+        if(bestand <= max){ 
             $("tbody").append('<tr class="add_row"><td>#</td><td><input name="upfile[]" type="file" multiple></td><td class="text-center"><button type="button" class="btn button btn-sm" id="delete" title="Verwijder bestand">Verwijder bestand</button></td><tr>');
-   
+        }
+        if(bestand == max){
+            $("#add").css("visibility", "hidden");
+        }
     });
               
     // Verwijderen 
@@ -418,6 +421,9 @@
         return false;
         $(this).closest('tr').remove();
         e.preventDefault();
+        bestand--;
+        $("#add").css("visibility", "visible");
+
     });
 }); 
 </script>
