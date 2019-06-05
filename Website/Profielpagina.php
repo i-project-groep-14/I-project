@@ -4,6 +4,35 @@
       require_once 'aanroepingen/connectie.php';
       include_once 'aanroepingen/header.php';
 
+      $sql = "SELECT gebruikersnaam, mailadres, voornaam, achternaam, adresregel1, adresregel2, postcode, land, geboortedatum FROM gebruiker 
+              WHERE gebruikersnaam = :gebruiker";
+      $query = $dbh->prepare($sql);
+      $query -> execute(array(
+        ':gebruiker' => $_SESSION['gebruikersnaam']
+      ));
+      $row = $query -> fetch();
+
+      $gebruiker = strip_tags($row['gebruikersnaam']);
+      $mail = strip_tags($row['mailadres']);
+      $voornaam = strip_tags($row['voornaam']);
+      $achternaam = strip_tags($row['achternaam']);
+      $adres = strip_tags($row['adresregel1']);
+      $adres2 = strip_tags($row['adresregel2']);
+      $postcode = strip_tags($row['postcode']);
+      $land = strip_tags($row['land']);
+      $geboortedatum = $row['geboortedatum'];
+      
+      
+      $sql = "SELECT telefoon, alttelefoon FROM gebruikerstelefoon WHERE gebruiker = :gebruiker";
+      $query = $dbh->prepare($sql);
+      $query -> execute(array(
+        ':gebruiker' => $gebruiker
+      ));
+      $hj = $query -> fetch();
+
+      $telefoonnummer = strip_tags($hj['telefoon']);
+      $alttelefoon = strip_tags($hj['alttelefoon']);
+
       if (isset($_POST['VeranderVnaam'])) {
         $voornaam = $_POST['voornaam'];
 
@@ -73,14 +102,25 @@
       if (isset($_POST['VeranderTel'])) {
         $telefoon = $_POST['telefoon'];
 
-        $sql = "UPDATE gebruikerstelefoon 
-                SET telefoon = :telefoon
-                WHERE gebruiker like :gebruiker";
-        $query = $dbh->prepare($sql);
-        $query -> execute(array(
-          ':telefoon' => strip_tags($telefoon),
-          ':gebruiker' => $gebruiker
-        ));
+        if ($telefoonnummer == NULL) {
+          $sql = "INSERT INTO gebruikerstelefoon VALUES (:gebruiker, :telefoon, NULL) ";
+          $query = $dbh->prepare($sql);
+          $query -> execute(array(
+            ':telefoon' => strip_tags($telefoon),
+            ':gebruiker' => $gebruiker
+          ));
+          $telefoonnummer = strip_tags($telefoon);
+        } else {
+          $sql = "UPDATE gebruikerstelefoon 
+                  SET telefoon = :telefoon
+                  WHERE gebruiker like :gebruiker";
+          $query = $dbh->prepare($sql);
+          $query -> execute(array(
+            ':telefoon' => strip_tags($telefoon),
+            ':gebruiker' => $gebruiker
+          ));
+          $telefoonnummer = strip_tags($telefoon);
+        }
       }
 
       if (isset($_POST['VeranderTels'])) {
@@ -94,7 +134,10 @@
           ':telefoon' => strip_tags($telefoon),
           ':gebruiker' => $gebruiker
         ));
+          
+        $alttelefoon = strip_tags($telefoon);
       }
+
       if (isset($_POST['VeranderLand'])) {
         $adres = $_POST['Land'];
 
@@ -107,37 +150,6 @@
           ':gebruikersnaam' => $gebruiker
         ));
       }
-
-
-      $sql = "SELECT gebruikersnaam, mailadres, voornaam, achternaam, adresregel1, adresregel2, postcode, land, geboortedatum FROM gebruiker 
-              WHERE gebruikersnaam = :gebruiker";
-      $query = $dbh->prepare($sql);
-      $query -> execute(array(
-        ':gebruiker' => $_SESSION['gebruikersnaam']
-      ));
-      $row = $query -> fetch();
-
-      $gebruiker = strip_tags($row['gebruikersnaam']);
-      $mail = strip_tags($row['mailadres']);
-      $voornaam = strip_tags($row['voornaam']);
-      $achternaam = strip_tags($row['achternaam']);
-      $adres = strip_tags($row['adresregel1']);
-      $adres2 = strip_tags($row['adresregel2']);
-      $postcode = strip_tags($row['postcode']);
-      $land = strip_tags($row['land']);
-      $geboortedatum = $row['geboortedatum'];
-      
-      
-      $sql = "SELECT telefoon, alttelefoon FROM gebruikerstelefoon WHERE gebruiker = :gebruiker";
-      $query = $dbh->prepare($sql);
-      $query -> execute(array(
-        ':gebruiker' => $gebruiker
-      ));
-      $hj = $query -> fetch();
-
-      $telefoonnummer = strip_tags((int) $hj['telefoon']);
-      $alttelefoon = strip_tags((int) $hj['alttelefoon'])
-      
     ?> 
 
     
@@ -223,7 +235,6 @@
                 ?>
               </div>
 
-
 <!-- Profiel gegevens -->
               <div class="tabs-panel" id="panel3v">
                 <div style="overflow-x:auto;">
@@ -243,63 +254,68 @@
                     <tr>
                       <td>Voornaam</td>
                       <form action="profielpagina.php" method='POST'>
-                        <td><input type="text" value="<?php echo $voornaam?>" pattern="[^\s]+"  name="voornaam"></td>
+                        <td><input type="text" value="<?php echo $voornaam?>" pattern="[^\s]+"  name="voornaam" maxlength="20"></td>
                         <td><input type="submit" class="veilingknop button" name="VeranderVnaam" value="↻" ></td>
                       </form>
                     </tr>
                     <tr>
                       <td>Achternaam</td>
                       <form action="profielpagina.php" method='POST'>
-                      <td><input type="text"  value="<?php echo $achternaam?>" pattern="[^\s]+" name="achternaam"></td>
+                      <td><input type="text" value="<?php echo $achternaam?>" pattern="[^\s]+" name="achternaam" maxlength="20"></td>
                       <td><input type="submit" class="veilingknop button" name="VeranderAnaam" value="↻" ></td>
                       </form>
                     </tr>
                     <tr>
                       <td>Telefoonnummer</td>
                       <form action="profielpagina.php" method='POST'>
-                      <td><input type="number"  value="<?php echo $telefoonnummer?>" name="telefoon"></td>
+                      <td><input type="tel" value="<?php echo $telefoonnummer?>" pattern="[0-9]{11}" name="telefoon" required></td>
                       <td><input type="submit" class="veilingknop button" name="VeranderTel" value="↻" ></td>
                       </form>
                     </tr>
-                    <tr>
-                      <td>Alternatieve Telefoonnummer</td>
-                      <form action="profielpagina.php" method='POST'>
-                      <td><input type="number"  value="<?php echo $alttelefoon?>" name="telefoon2"></td>
-                      <td><input type="submit" class="veilingknop button" name="VeranderTels" value="↻" ></td>
-                      </form>
-                    </tr>
+                      <?php 
+                        if($telefoonnummer != NULL) { 
+                          echo"
+                          <tr>
+                            <td>Alternatieve Telefoonnummer</td>
+                            <form action='profielpagina.php' method='POST'>
+                            <td><input type='tel' value='"; echo $alttelefoon."' pattern='[0-9]{11}' name='telefoon2' required></td>
+                            <td><input type='submit' class='veilingknop button' name='VeranderTels' value='↻' ></td>
+                            </form>
+                          </tr>";
+                        }
+                      ?>
 
                     <tr>
                       <td>Adres</td>
                       <form action="profielpagina.php" method='POST'>
-                      <td><input type="text"  value="<?php echo $adres?>" pattern="[a-zA-Z0-9\s]+" name="adresregel1"></td>
+                      <td><input type="text" value="<?php echo $adres?>" pattern="[a-zA-Z0-9\s]+" name="adresregel1" maxlength="20"></td>
                       <td><input type="submit" class="veilingknop button" name="VeranderAdress" value="↻" ></td>
                       </form>
                     </tr>
                     <tr>
                       <td>Toevoeging Adres</td>
                       <form action="profielpagina.php" method='POST'>
-                      <td><input type="text"  value="<?php echo $adres2?>" pattern="[a-zA-Z0-9\s]+"  name="adresregel2"></td>
+                      <td><input type="text" value="<?php echo $adres2?>" pattern="[a-zA-Z0-9\s]+"  name="adresregel2" maxlength="20"></td>
                       <td><input type="submit" class="veilingknop button" name="VeranderAdresstwee" value="↻" ></td>
                       </form>
                     </tr>
                     <tr>
                       <td>Postcode</td>
                       <form action="profielpagina.php" method='POST'>
-                      <td><input type="text"  value="<?php echo $postcode?>" pattern="[^\s]+" name="postcode"></td>
+                      <td><input type="text" value="<?php echo $postcode?>" pattern="[^\s]+" name="postcode" maxlength="7"></td>
                       <td><input type="submit" class="veilingknop button" name="VeranderPostcode" value="↻" ></td>
                       </form>
                     </tr>
                     <tr>
                       <td>Land</td>
                       <form action="profielpagina.php" method='POST'>
-                      <td><input type="text"  value="<?php echo $land?>" pattern="[^\s]+" name="Land"></td>
+                      <td><input type="text" value="<?php echo $land?>" pattern="[^\s]+" name="Land" maxlength="20"></td>
                       <td><input type="submit" class="veilingknop button" name="VeranderLand" value="↻" ></td>
                       </form>
                     </tr>
                     <tr>
                       <td>Geboortedatum</td>
-                      <td><input type="date"  value="<?php echo $geboortedatum?>" name="ProfPlaatsnaam" disabled></td>
+                      <td><input type="date" value="<?php echo $geboortedatum?>" name="ProfPlaatsnaam" disabled></td>
                     </tr>
                   </table>
                 </div>
@@ -316,8 +332,8 @@
                       <label>Verkoper worden?</label>
                     
                       <label>Bank?</label>
-                        <input type="text" name="bank" value="<?php striptags('') ?>" required >
-                        <input type="text" name="rekeningnummer" value="<?php striptags('') ?>" required>
+                        <input type="text" name="bank" value="<?php //striptags('') ?>" required >
+                        <input type="text" name="rekeningnummer" value="<?php //striptags('') ?>" required>
                       <select>
                         <option name="controleoptie" value="post">post</option>
                         <option name="controleoptie" value="controle-optie">creditcard</option>
