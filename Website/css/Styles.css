@@ -325,6 +325,11 @@ input:checked + .side-label::after {
 .sim-thumb{
   width: 20%;
 }
+
+#add{
+  visibility: visible;
+}
+
 /**/
 
 footer{
