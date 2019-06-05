@@ -148,7 +148,12 @@
         $query -> execute(array(
           ':land' => strip_tags($adres),
           ':gebruikersnaam' => $gebruiker
+       
         ));
+      }
+
+      if (isset($_POST['VeranderRol'])) {
+        
       }
     ?> 
 
@@ -284,7 +289,6 @@
                           </tr>";
                         }
                       ?>
-
                     <tr>
                       <td>Adres</td>
                       <form action="profielpagina.php" method='POST'>
@@ -325,19 +329,21 @@
               <?php 
                 if($_SESSION['rol'] == 2 || $_SESSION['rol'] == 5) {
               ?>
-                <!-- <div class="tabs-panel" id="panel4v">
+                <div class="tabs-panel" id="panel4v">
                   <fieldset class="fieldset medium-12 cell">
                     <legend>Wilt u spullen verkopen?</legend>
                     <form action="profielpagina.php" method='POST'>
                       <label>Verkoper worden?</label>
                     
                       <label>Bank?</label>
-                        <input type="text" name="bank" value="<?php //striptags('') ?>" required >
-                        <input type="text" name="rekeningnummer" value="<?php //striptags('') ?>" required>
+                      <input type="text" name="bank" value="<?php strip_tags('') ?>" required >
+                      <input type="text" name="rekeningnummer" value="<?php strip_tags('') ?>" required>
+
                       <select>
                         <option name="controleoptie" value="post">post</option>
                         <option name="controleoptie" value="controle-optie">creditcard</option>
                       </select>
+
                       <input type="text" name="creditcardnummer" required>
                       <label>Accepteer voorwaarden</label>
                       <input type="radio"  value="3" name="rol" required>
@@ -345,7 +351,7 @@
                       <input type="submit" class="veilingknop button" name="VeranderRol" value="↻" >
                     </form>
                   </fieldset>
-                </div> -->
+                </div>
               <?php 
                 }
               ?>
