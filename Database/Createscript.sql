@@ -60,7 +60,7 @@ create table gebruikerstelefoon (
 	volgnr						numeric(3)			identity(1,1) not null,
 	gebruiker					varchar(20)			not null,
 	telefoon					char(11)			not null,
-	alttelefoon					char(11)			 null
+	alttelefoon					char(11)			null
 	constraint pk_gebruikerstelefoon_volgnr primary key (volgnr),
 	constraint fk_gebruikerstelefoon_gebruiker foreign key (gebruiker) references gebruiker (gebruikersnaam) on update cascade on delete no action
 )

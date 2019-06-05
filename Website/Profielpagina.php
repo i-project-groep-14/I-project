@@ -148,18 +148,36 @@
         $query -> execute(array(
           ':land' => strip_tags($adres),
           ':gebruikersnaam' => $gebruiker
-       
         ));
       }
 
       if (isset($_POST['VeranderRol'])) {
-        $sql = "UPDATE gebruiker 
-                SET rol = 3
-                WHERE gebruikersnaam like :gebruikersnaam";
-        $query = $dbh->prepare($sql);
-        $query -> execute(array(
-          ':gebruikersnaam' => $gebruiker
-        ));
+        if ($_POST['controle'] == 'creditcard' && strlen($_POST['creditcardnummer']) > 30) {
+          $melding = "
+          <div data-closable class='callout alert-callout-border alert radius'>
+          <strong>Error</strong> - Het aantal karakters van uw creditcardnummer is te groot. Het maximale toegestane aantal karakters is 20.
+          <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+          </div>";
+        } else {
+          $_SESSION['rekeningnummer'] = strip_tags($_POST['verkoopgegevens-rekeningnr']);
+          $_SESSION['bank'] = strip_tags($_POST['verkoopgegevens-bank']);
+          $_SESSION['controlepost'] = strip_tags($_POST['controle']);
+          if(isset($_POST['creditcardnummer'])) {
+            $_SESSION['creditcardnummer'] = strip_tags($_POST['creditcardnummer']);
+          } 
+          
+          $sql = "UPDATE gebruiker 
+                  SET rol = 3
+                  WHERE gebruikersnaam like :gebruikersnaam";
+          $query = $dbh->prepare($sql);
+          $query -> execute(array(
+            ':gebruikersnaam' => $gebruiker
+          ));
+
+          $_SESSION['rol'] = 3;
+        }
       }
     ?>
 
@@ -339,11 +357,33 @@
                   <fieldset class="fieldset medium-12 cell">
                     <legend>Wilt u spullen verkopen?</legend>
                     <form action="profielpagina.php" method='POST'>
-                      <label>Verkoper worden?</label>
+                      <label>Rekeningnummer:</label>
+                      <input type="text" name="verkoopgegevens-rekeningnr" placeholder="Rekeningnummer" value="<?php  if(isset($_POST['verkoopgegevens-rekeningnr'])) { echo strip_tags($_POST['verkoopgegevens-rekeningnr']);} ?>">
+
+                      <label>Bank:</label>
+                      <input type="text" name="verkoopgegevens-bank" placeholder="Bank" value="<?php  if(isset($_POST['verkoopgegevens-bank'])) { echo strip_tags($_POST['verkoopgegevens-bank']);} ?>" >
+                      <p>
+                        Om uw verkopersaccount te activeren heeft u een code nodig. Deze code kan opgestuurd worden
+                        bij post of er wordt naar uw creditcard gegevens gevraagd. Maak een keuze hieronder.
+                      </p>
+
+                      <input type="radio" name="controle" value="creditcard" id="controle-creditcard">
+                      <label for="controle-creditcard" class="label-next side-label">Creditcard</label>
+                      <input type="radio" name="controle" value="post" id="controle-post">
+                      <label for="controle-post">Post</label>
+
+                      <div class="controle-creditcard-gegevens">
+                        <label for="creditcard-gegevens">Creditcardnummer</label>
+                        <input type="text" name="creditcardnummer" id="creditcard-gegevens" placeholder="Creditcardnummer" value="<?php  if(isset($_POST['creditcardnummer'])) { echo strip_tags($_POST['creditcardnummer']);} ?>">
+                      </div>
+
+                      <input type="submit" class="veilingknop button" name="VeranderRol" value="Verzenden" >
+
+                      <!-- <label>Verkoper worden?</label>
                     
                       <label>Bank?</label>
-                      <input type="text" name="bank" value="<?php strip_tags('') ?>" required >
-                      <input type="text" name="rekeningnummer" value="<?php strip_tags('') ?>" required>
+                      <input type="text" name="bank" value="<?php //strip_tags('') ?>" required >
+                      <input type="text" name="rekeningnummer" value="<?php //strip_tags('') ?>" required>
 
                       <select>
                         <option name="controleoptie" value="post">post</option>
@@ -354,10 +394,11 @@
                       <label>Accepteer voorwaarden</label>
                       <input type="radio"  value="3" name="rol" required>
 
-                      <input type="submit" class="veilingknop button" name="VeranderRol" value="↻" >
+                      <input type="submit" class="veilingknop button" name="VeranderRol" value="↻" > -->
                     </form>
                   </fieldset>
                 </div>
+
               <?php 
                 }
               ?>
