@@ -576,10 +576,10 @@ function createQuestions($actueleplek) {
 function createProfVeilingen($actueleplek){
   global $dbh;
   $volgendeplek = $actueleplek +1;
-  $sql = "SELECT * FROM voorwerp where verkoper in (
+  $sql = "SELECT voorwerpnummer, titel, startprijs, betalingswijze, plaatsnaam, looptijdbeginDag, looptijdeindeDag, verkoopprijs, koper, veilingGesloten 
+          FROM voorwerp WHERE verkoper in (
               SELECT gebruikersnaam
-              from gebruiker
-          )
+              FROM gebruiker)
           AND verkoper = :gebruiker
           ORDER BY voorwerpnummer OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
 
@@ -589,29 +589,40 @@ function createProfVeilingen($actueleplek){
   ));
   $row = $query -> fetch();
 
-  echo "<tr style='text-align=center;'> 
-  <td><form action='product.php' method='POST'>
-  <button type='submit' value='$row[voorwerpnummer]' name='voorwerp' class='button ProductButton'>".strip_tags($row['titel'])."</button>
-</form></a></td>
-            <td>".strip_tags($row['startprijs'])."</td>
-            <td"; 
-              if ($row['betalingswijze'] == 'PayPal') { 
-                echo" class='fi-paypal'";
-              }
-            echo">".strip_tags($row['betalingswijze'])."</td>
-            <td>".strip_tags($row['plaatsnaam'])."</td>
-           <td>".strip_tags($row['looptijdbeginDag'])."</td>
-            <td>".strip_tags($row['looptijdeindeDag'])."</td>
-            <td>".strip_tags($row['verkoopprijs'])."</td>
-            <td>".strip_tags($row['koper'])."</td>
-            <td";if ($row['veilingGesloten'] == 'wel') { 
-              echo" class='profveilinggesloten'";
-            }
-            echo" class='profveilingopen'>$row[veilingGesloten]</td>
-        </tr>";
+  echo "
+  <tr style='text-align=center;'> 
+    <td>
+      <form action='product.php' method='POST'>
+        <button type='submit' value='$row[voorwerpnummer]' name='voorwerp' class='button ProductButton'>".strip_tags($row['titel'])."</button>
+      </form>
+    </td>
+    <td>".strip_tags($row['startprijs'])."</td>
+    <td"; 
+      if ($row['betalingswijze'] == 'PayPal') { 
+         echo" class='fi-paypal'";
+      }
+    echo">".strip_tags($row['betalingswijze'])."</td>
+    <td>".strip_tags($row['plaatsnaam'])."</td>
+    <td>".strip_tags($row['looptijdbeginDag'])."</td>
+    <td>".strip_tags($row['looptijdeindeDag'])."</td>
+    <td>".strip_tags($row['verkoopprijs'])."</td>
+    <td>".strip_tags($row['koper'])."</td>
+    <td";
+      if ($row['veilingGesloten'] == 'wel') { 
+        echo" class='profveilinggesloten'";
+      } else {
+        echo" class='profveilingopen'";
+      }
+    echo">";
+      if ($row['veilingGesloten'] == 'wel') {
+        $veiling = 'gesloten';
+      } else {
+        $veiling = 'open';
+      }
+    echo "$veiling</td>
+  </tr>";
 
-return $volgendeplek;
-
+  return $volgendeplek;
 }
 
 function selectAantalBiedingen($gebruiker) {
