@@ -253,6 +253,7 @@
                     $sql_rubriek = "INSERT INTO [voorwerp in rubriek] VALUES (:voorwerp, :laagste_rubriek)";
                     $query_rubriek = $dbh->prepare($sql_rubriek);
                     $query_rubriek -> execute(array(':voorwerp' => $row['voorwerpnummer'], ':laagste_rubriek' => $laagste_rubriek ));
+                    header ('Location: index.php');
                 }
             
 
@@ -265,7 +266,6 @@
         $sql = "SELECT * FROM rubriek WHERE rubriek = 0 ORDER BY rubrieknummer"; //
         $query = $dbh->prepare($sql);
         $query -> execute();
-
     ?>
 
 
@@ -274,14 +274,6 @@
 	<h2 class="InlogpaginaKopje center">Voorwerp Plaatsen</h2>
 		<div class="">
             <p class="center">Op deze pagina kan er een voorwerp worden geplaatst, vul a.u.b. alle gegevens in.</p>
-            
-            <?php
-                    if(isset($melding)) {
-                        echo "<br>";
-                        echo $melding; 
-                        echo "<br>";
-                      }
-                ?>
 
 			<form action="Voorwerpplaatsenpagina.php" method="post" enctype="multipart/form-data">
 				<div class="grid-container">
@@ -381,17 +373,6 @@
 					</div>
                     <div class="medium-12 cell">
                     <input type="submit" class="veilingknop button submit" name="plaatsen_voorwerp" value="Plaatsen">
-                    <?php
-                                      if (isset($_POST['plaatsen_voorwerp'])) {
-                                        $melding = "
-                                       <div data-closable class='callout alert-callout-border success'>
-                                 <strong>Yay!</strong> - Uw product is succevol geplaatst.
-                                 <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
-                                 <span aria-hidden='true'>&times;</span>
-                                 </button>
-                                 ";
-                                      }
-  ?>
                 </div>
             </div>
         </form>
