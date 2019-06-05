@@ -437,7 +437,7 @@ function createHomepageItem($sql, $actueleplek) {
 
     $row = $query -> fetch();
 
-    echo substr($row['filenaam'],0,2);
+    
 
     if ($row['filenaam'] == NULL) {
       $afbeelding = "images/imageplaceholder.png";
@@ -495,9 +495,10 @@ function createFotos($actueleplek) {
       $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
     }
     echo"
-      <div class='column'>
-        <img class='thumbnail' src='$afbeelding' alt='afbeelding'>
-      </div>
+    
+        <li> <a class='sim-thumb' data-image='$afbeelding'><img src='$afbeelding' alt=''></a> </li>
+
+    
     ";
 }
 

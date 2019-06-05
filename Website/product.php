@@ -119,13 +119,18 @@
                 }
                 
             echo"
-            <img id='myImg' class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
-            <div class='row small-up-4'>";
+            <div class='row align-center'>
+              <div class='product-image-gallery'>
+            <img id='main-product-image' class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
+            <ul class='product-thumbs'>
+            ";
               createFotos(0);
               createFotos(1);
               createFotos(2);
               createFotos(3);
             echo"
+            </ul>
+            </div>
             </div>
             ";
             ?>
@@ -391,4 +396,10 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() { 
   modal.style.display = "none";
 }
+</script>
+<script>
+$('.sim-thumb').on('click', function() {
+  $('#main-product-image').attr('src', $(this).data('image'));
+})
+
 </script>
