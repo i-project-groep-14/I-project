@@ -90,7 +90,7 @@ create table verkoper (
 /* Table: Voorwerp												*/
 /*==============================================================*/
 create table voorwerp (
-	voorwerpnummer				bigint					identity(1,1) not null,
+	voorwerpnummer				int					identity(1,1) not null,
 	titel						varchar(30)			not null,
 	beschrijving				varchar(500)		not null,
 	startprijs					numeric(10,2)			not null,
@@ -148,7 +148,7 @@ alter table voorwerp
 /*==============================================================*/
 create table bestand (
 	filenaam					varchar(200)		not null,
-	voorwerp					bigint					not null
+	voorwerp					int					not null
 	constraint pk_bestand_filenaam primary key (filenaam),
 	constraint fk_bestand_voorwerp foreign key (voorwerp) references voorwerp (voorwerpnummer) on update cascade on delete no action
 )
@@ -168,7 +168,7 @@ create table rubriek (
 /* Table: Voorwerp in rubriek									*/
 /*==============================================================*/
 create table [voorwerp in rubriek] (
-	voorwerp					bigint					not null,
+	voorwerp					int					not null,
 	[rubriek op laagste niveau]	int					not null
 	constraint pk_voorwerpinrubriek_voorwerp primary key (voorwerp),
 	constraint fk_voorwerpinrubriek_voorwerp foreign key (voorwerp) references voorwerp (voorwerpnummer) on update cascade on delete no action,
@@ -178,7 +178,7 @@ create table [voorwerp in rubriek] (
 /* Table: Bod													*/
 /*==============================================================*/
 create table bod (
-	voorwerpnummer				bigint					not null,
+	voorwerpnummer				int					not null,
 	bodbedrag					varchar(10)			not null,
 	gebruiker					varchar(20)			not null,
 	boddag						date				not null,
