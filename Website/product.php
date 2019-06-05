@@ -70,6 +70,13 @@
     <?php  include_once 'aanroepingen/header.php'?>
         
     <div class="holy-grail-middle">
+    <?php 
+					if(isset($melding)) {
+						echo "<br>";
+						echo $melding; 
+						echo "<br>";
+					}
+				?>
       <div class="ProductInformatie">
         <div class="row columns">
           <nav aria-label="You are here:">
@@ -240,13 +247,13 @@
                   <input type='number' name='bod' min='$minimalebod' step='1' required>
                   <input type='submit' class='button large expanded' value='Plaats bod' name='bodgeplaatst'>";
                   if (isset($_POST['bodgeplaatst'])) {
-                    ?>
-                    <div data-closable class="callout alert-callout-border success">
+                    $melding = "  
+                    <div data-closable class='callout alert-callout-border success'>
                       <strong>Yay!</strong> - Uw bieding is geplaatst.
-                      <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-                      <span aria-hidden="true">&times;</span>
+                      <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+                      <span aria-hidden='true'>&times;</span>
                       </button>
-                      <?php
+                      ";
                   }
                   echo"
                 </form>

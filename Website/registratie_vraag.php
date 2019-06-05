@@ -9,9 +9,23 @@
 
       if(isset($_POST['register']) && isset($_POST['veiligheidsvraag'])) {
         if (strlen($_POST['veiligheidsvraag_antwoord']) > 50) {
-          echo "Het aantal karakters is te groot. Het maximale toegestane aantal karakters is 50.";
+          $melding = "
+          <div data-closable class='callout alert-callout-border alert radius'>
+          <strong>Error</strong> - Het aantal karakters is te groot. Het maximale toegestane aantal karakters is 50.
+          <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+          </div>
+          ";
         } else if ($_POST['veiligheidsvraag'] == 0) {
-          echo "U moet nog een veiligheidsvraag selecteren.";
+          $melding = "
+          <div data-closable class='callout alert-callout-border alert radius'>
+          <strong>Error</strong> - U moet nog een veiligheidsvraag selecteren.
+          <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+          </div>
+          ";
         } else {
           // $_SESSION['register'] = $_POST['register'];
           // $_SESSION['veiligheidsvraag'] = $_POST['veiligheidsvraag'];
@@ -129,7 +143,15 @@
           Hierin wordt naar een veiligheidsvraag gevraagd die wordt gevraagd als de gebruiker het wachtwoord is vergeten.
           Kies hieronder uit welke vraag en geef een antwoordt. Dit antwoordt is nodig om uw wachtwoord te herstellen. 
         </p>
-          
+
+        <?php 
+					if(isset($melding)) {
+						echo "<br>";
+						echo $melding; 
+						echo "<br>";
+					}
+				?>
+
         <form action="registratie_vraag.php" method="post">
           <div class="grid-container">
             <div class="grid-x grid-padding-x">
