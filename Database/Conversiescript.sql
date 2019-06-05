@@ -35,7 +35,7 @@ FROM nepebay.dbo.items
 update EenmaalAndermaal.dbo.gebruiker
 set rol = 3
 from EenmaalAndermaal.dbo.gebruiker
-where gebruikersnaam in (select gebruiker from verkoper)
+where gebruikersnaam in (select gebruiker from verkoper) and rol != 5
 
 set identity_insert dbo.voorwerp on
 INSERT INTO EenmaalAndermaal.dbo.voorwerp (voorwerpnummer, titel, beschrijving, startprijs, betalingswijze, betalingsinstructie, plaatsnaam, land, looptijd, looptijdbeginDag, looptijdbeginTijdstip, verzendkosten, verzendinstructies, verkoper, koper, looptijdeindeTijdstip, veilingGesloten, verkoopprijs)
