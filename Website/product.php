@@ -10,17 +10,26 @@
 
       if (isset($_POST['bodgeplaatst'])) {
         $voorwerpnummer = $_SESSION['voorwerp'];
-        $bod = $_POST['bod'];
-        $gebruiker = $_SESSION['gebruikersnaam'];        
+        $bod = (float) $_POST['bod'];
+        $gebruiker = $_SESSION['gebruikersnaam'];
 
-        // $sql = "INSERT INTO bod VALUES
-        //         (:voorwerpnummer, :bodbedrag, :gebruiker, GETDATE(), CONVERT(TIME,GETDATE()))";
-        // $query = $dbh->prepare($sql);
-        // $query -> execute(array(
-        //   ':voorwerpnummer' => $voorwerpnummer,
-        //   ':bodbedrag' => $bod,
-        //   ':gebruiker' => $gebruiker
-        // ));
+        $melding = "  
+        <div data-closable class='callout alert-callout-border success'>
+          <strong>Yay!</strong> - Uw bieding is geplaatst.
+          <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
+        
+        echo $bod;
+
+        $sql = "INSERT INTO bod VALUES (:voorwerpnummer, :bodbedrag, :gebruiker, GETDATE(), CONVERT(TIME,GETDATE()))";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(
+          ':voorwerpnummer' => $voorwerpnummer,
+          ':bodbedrag' => 1,
+          ':gebruiker' => $gebruiker
+        ));
 
         // $sql = "UPDATE voorwerp
         //         SET verkoopprijs = :bod
@@ -64,17 +73,15 @@
       }
 
     ?>
-    
-    <?php  include_once 'aanroepingen/header.php'?>
         
     <div class="holy-grail-middle">
-    <?php 
-					if(isset($melding)) {
-						echo "<br>";
-						echo $melding; 
-						echo "<br>";
-					}
-				?>
+      <?php 
+				if(isset($melding)) {
+				  echo "<br>";
+					echo $melding; 
+					echo "<br>";
+				}
+			?>
       <div class="ProductInformatie">
         <div class="row columns">
           <nav aria-label="You are here:">
@@ -127,6 +134,7 @@
             <div class='row align-center'>
               <div class='product-image-gallery'>
             <img id='main-product-image' class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
+            
             <ul class='product-thumbs'>
             ";
               createFotos(0);
@@ -135,6 +143,7 @@
               createFotos(3);
             echo"
             </ul>
+           
             </div>
             </div>
             ";
@@ -248,17 +257,7 @@
                   echo ")</i><Br>
                   <Br>
                   <input type='number' name='bod' min='$minimalebod' step='1' required>
-                  <input type='submit' class='button large expanded' value='Plaats bod' name='bodgeplaatst'>";
-                  if (isset($_POST['bodgeplaatst'])) {
-                    $melding = "  
-                    <div data-closable class='callout alert-callout-border success'>
-                      <strong>Yay!</strong> - Uw bieding is geplaatst.
-                      <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
-                      <span aria-hidden='true'>&times;</span>
-                      </button>
-                      ";
-                  }
-                  echo"
+                  <input type='submit' class='button large expanded' value='Plaats bod' name='bodgeplaatst'>
                 </form>
               </div>";
             }// tabel met top 4 biedingen moet nog dynamisch gemaakt worden
@@ -374,12 +373,17 @@ var countdownTimer = setInterval('timer()', 1000);
 </script>
 
 
-    <script>
-// Get the modal
+
+<script>
+$('.sim-thumb').on('click', function() {
+  $('#main-product-image').attr('src', $(this).data('image'));
+})
+
+
 var modal = document.getElementById("myModal");
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg");
+var img = document.getElementById("main-product-image");
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 img.onclick = function(){
@@ -395,10 +399,6 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() { 
   modal.style.display = "none";
 }
-</script>
-<script>
-$('.sim-thumb').on('click', function() {
-  $('#main-product-image').attr('src', $(this).data('image'));
-})
+
 
 </script>
