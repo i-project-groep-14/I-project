@@ -10,17 +10,26 @@
 
       if (isset($_POST['bodgeplaatst'])) {
         $voorwerpnummer = $_SESSION['voorwerp'];
-        $bod = $_POST['bod'];
-        $gebruiker = $_SESSION['gebruikersnaam'];        
+        $bod = (float) $_POST['bod'];
+        $gebruiker = $_SESSION['gebruikersnaam'];
 
-        // $sql = "INSERT INTO bod VALUES
-        //         (:voorwerpnummer, :bodbedrag, :gebruiker, GETDATE(), CONVERT(TIME,GETDATE()))";
-        // $query = $dbh->prepare($sql);
-        // $query -> execute(array(
-        //   ':voorwerpnummer' => $voorwerpnummer,
-        //   ':bodbedrag' => $bod,
-        //   ':gebruiker' => $gebruiker
-        // ));
+        $melding = "  
+        <div data-closable class='callout alert-callout-border success'>
+          <strong>Yay!</strong> - Uw bieding is geplaatst.
+          <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
+        
+        echo $bod;
+
+        $sql = "INSERT INTO bod VALUES (:voorwerpnummer, :bodbedrag, :gebruiker, GETDATE(), CONVERT(TIME,GETDATE()))";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(
+          ':voorwerpnummer' => $voorwerpnummer,
+          ':bodbedrag' => 1,
+          ':gebruiker' => $gebruiker
+        ));
 
         // $sql = "UPDATE voorwerp
         //         SET verkoopprijs = :bod
@@ -64,17 +73,15 @@
       }
 
     ?>
-    
-    <?php  include_once 'aanroepingen/header.php'?>
         
     <div class="holy-grail-middle">
-    <?php 
-					if(isset($melding)) {
-						echo "<br>";
-						echo $melding; 
-						echo "<br>";
-					}
-				?>
+      <?php 
+				if(isset($melding)) {
+				  echo "<br>";
+					echo $melding; 
+					echo "<br>";
+				}
+			?>
       <div class="ProductInformatie">
         <div class="row columns">
           <nav aria-label="You are here:">
@@ -248,17 +255,7 @@
                   echo ")</i><Br>
                   <Br>
                   <input type='number' name='bod' min='$minimalebod' step='1' required>
-                  <input type='submit' class='button large expanded' value='Plaats bod' name='bodgeplaatst'>";
-                  if (isset($_POST['bodgeplaatst'])) {
-                    $melding = "  
-                    <div data-closable class='callout alert-callout-border success'>
-                      <strong>Yay!</strong> - Uw bieding is geplaatst.
-                      <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
-                      <span aria-hidden='true'>&times;</span>
-                      </button>
-                      ";
-                  }
-                  echo"
+                  <input type='submit' class='button large expanded' value='Plaats bod' name='bodgeplaatst'>
                 </form>
               </div>";
             }// tabel met top 4 biedingen moet nog dynamisch gemaakt worden
