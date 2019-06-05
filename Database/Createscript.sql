@@ -141,7 +141,7 @@ alter table voorwerp
 	constraint ck_voorwerp_veilingGesloten check (veilingGesloten IN ('wel', 'niet')),
 	constraint ck_voorwerp_verkoopprijs_negatief check (verkoopprijs >= startprijs),
 	constraint ck_voorwerp_verkoper_geen_koper check (verkoper != koper),
-	CONSTRAINT ck_looptijd CHECK ( looptijd IN (1,3,5,7,10) ),
+	CONSTRAINT ck_looptijd CHECK ( looptijd IN (1,3,5,7,10) )
 
 /*==============================================================*/
 /* Table: Bestand												*/
