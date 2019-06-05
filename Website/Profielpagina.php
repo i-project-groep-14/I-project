@@ -153,9 +153,15 @@
       }
 
       if (isset($_POST['VeranderRol'])) {
-        
+        $sql = "UPDATE gebruiker 
+                SET rol = 3
+                WHERE gebruikersnaam like :gebruikersnaam";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(
+          ':gebruikersnaam' => $gebruiker
+        ));
       }
-    ?> 
+    ?>
 
     
     <div class="holy-grail-middle">
@@ -327,7 +333,7 @@
 
 
               <?php 
-                if($_SESSION['rol'] == 2 || $_SESSION['rol'] == 5) {
+                if($_SESSION['rol'] == 2) {
               ?>
                 <div class="tabs-panel" id="panel4v">
                   <fieldset class="fieldset medium-12 cell">
