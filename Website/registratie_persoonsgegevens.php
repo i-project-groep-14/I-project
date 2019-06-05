@@ -19,43 +19,139 @@
 					//constraints
 
 					if (strlen($_POST['gebruikersnaam']) > 20) {
-						echo "Het aantal karakters van uw gebruikersnaam is te groot. Het maximale toegestane aantal karakters is 20.";
+						$melding = "
+						<div data-closable class='callout alert-callout-border alert radius'>
+						<strong>Error</strong> - Het aantal karakters van uw gebruikersnaam is te groot. Het maximale toegestane aantal karakters is 20.
+						<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+							<span aria-hidden='true'>&times;</span>
+						</button>
+						</div>";
 					} else if (strlen($_POST['voornaam']) > 20) {
-						echo "Het aantal karakters van uw voornaam is te groot. Het maximale toegestane aantal karakters is 20.";
+						$melding = "
+						<div data-closable class='callout alert-callout-border alert radius'>
+						<strong>Error</strong> - Het aantal karakters van uw voornaam is te groot. Het maximale toegestane aantal karakters is 20.
+						<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+							<span aria-hidden='true'>&times;</span>
+						</button>
+						</div>";
 					} else if (strlen($_POST['achternaam']) > 20) {
-						echo "Het aantal karakters van uw achternaam is te groot. Het maximale toegestane aantal karakters is 20.";
+						$melding = "
+						<div data-closable class='callout alert-callout-border alert radius'>
+						<strong>Error</strong> - Het aantal karakters van uw achternaam is te groot. Het maximale toegestane aantal karakters is 20.
+						<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+							<span aria-hidden='true'>&times;</span>
+						</button>
+						</div>";
 					} else if (strlen($_POST['adres']) > 20) {
-						echo "Het aantal karakters van uw eerste adres is te groot. Het maximale toegestane aantal karakters is 20.";
+						$melding = "
+						<div data-closable class='callout alert-callout-border alert radius'>
+						<strong>Error</strong> - Het aantal karakters van uw eerste adres is te groot. Het maximale toegestane aantal karakters is 20.
+						<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+							<span aria-hidden='true'>&times;</span>
+						</button>
+						</div>";
 					} else if (isset($_POST['oAdres']) && strlen($_POST['oAdres']) > 20) {
-						echo "Het aantal karakters van uw tweede adres is te groot. Het maximale toegestane aantal karakters is 20.";
+						$melding = "
+						<div data-closable class='callout alert-callout-border alert radius'>
+						<strong>Error</strong> - Het aantal karakters van uw tweede adres is te groot. Het maximale toegestane aantal karakters is 20.
+						<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+							<span aria-hidden='true'>&times;</span>
+						</button>
+						</div>";
 					} else if (strlen($_POST['postcode']) > 7) {
-						echo "Het aantal karakters van uw postcode is te groot. Het maximale toegestane aantal karakters is 7.";
+						$melding = "
+						<div data-closable class='callout alert-callout-border alert radius'>
+						<strong>Error</strong> - Het aantal karakters van uw postcode is te groot. Het maximale toegestane aantal karakters is 7.
+						<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+							<span aria-hidden='true'>&times;</span>
+						</button>
+						</div>";
 					} else if (strlen($_POST['plaats']) > 20) {
-						echo "Het aantal karakters van uw plaatsnaam is te groot. Het maximale toegestane aantal karakters is 20.";
+						$melding = "
+						<div data-closable class='callout alert-callout-border alert radius'>
+						<strong>Error</strong> - Het aantal karakters van uw plaatsnaam is te groot. Het maximale toegestane aantal karakters is 20.
+						<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+							<span aria-hidden='true'>&times;</span>
+						</button>
+						</div>";
 					} else if (strlen($_POST['land']) > 20) {
-						echo "Het aantal karakters van uw land is te groot. Het maximale toegestane aantal karakters is 20.";
+						$melding = "
+						<div data-closable class='callout alert-callout-border alert radius'>
+						<strong>Error</strong> - Het aantal karakters van uw land is te groot. Het maximale toegestane aantal karakters is 20.
+						<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+							<span aria-hidden='true'>&times;</span>
+						</button>
+						</div>";
 					} else if (strlen($_POST['telnr1']) > 11) {
-						echo "Het aantal karakters van uw eerste telefoonnummer is te groot. Het maximale toegestane aantal karakters is 11.";
+						$melding = "
+						<div data-closable class='callout alert-callout-border alert radius'>
+						<strong>Error</strong> - Het aantal karakters van uw eerste telefoonnummer is te groot. Het maximale toegestane aantal karakters is 11.
+						<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+							<span aria-hidden='true'>&times;</span>
+						</button>
+						</div>";
 					} else if (isset($_POST['telnr2']) && strlen($_POST['telnr2']) > 11) {
-						echo "Het aantal karakters van uw tweede telefoonnummer is te groot. Het maximale toegestane aantal karakters is 11.";
+						$melding = "
+						<div data-closable class='callout alert-callout-border alert radius'>
+						<strong>Error</strong> - Het aantal karakters van uw tweede telefoonnummer is te groot. Het maximale toegestane aantal karakters is 11.
+						<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+							<span aria-hidden='true'>&times;</span>
+						</button>
+						</div>";
 					} else if ($_POST['geboortedatum'] > date("Y-m-d")) {
-						echo "De datum is ouder dan vandaag.";
+						$melding = "
+						<div data-closable class='callout alert-callout-border alert radius'>
+						<strong>Error</strong> - De datum is ouder dan vandaag.
+						<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+							<span aria-hidden='true'>&times;</span>
+						</button>
+						</div>";
 					} else if (strlen($_POST['wachtwoord']) < 7) {
-						echo "Het wachtwoord moet 7 of meer karakters hebben.";
+						$melding = "
+						<div data-closable class='callout alert-callout-border alert radius'>
+						<strong>Error</strong> - Het wachtwoord moet 7 of meer karakters hebben.
+						<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+							<span aria-hidden='true'>&times;</span>
+						</button>
+						</div>";
 					} else if (!(preg_match('/[A-Za-z]/', $_POST['wachtwoord']) && preg_match('/[0-9]/', $_POST['wachtwoord']))) {
-						echo "Het wachtwoord moet minimaal 1 letter en 1 nummer hebben.";
+						$melding = "
+						<div data-closable class='callout alert-callout-border alert radius'>
+						<strong>Error</strong> - Het wachtwoord moet minimaal 1 letter en 1 nummer hebben.
+						<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+							<span aria-hidden='true'>&times;</span>
+						</button>
+						</div>";
 					} else {
 						// wachtwoord check
 						if($_POST['wachtwoord'] == $_POST['bWachtwoord']) {
 							if ($_POST['eenVerkoper'] == 3) {
 								if (strlen($_POST['verkoopgegevens-rekeningnr']) > 30) {
-									echo "Het aantal karakters van uw rekeningnummer is te groot. Het maximale toegestane aantal karakters is 30.";
+									$melding = "
+									<div data-closable class='callout alert-callout-border alert radius'>
+									<strong>Error</strong> - Het aantal karakters van uw rekeningnummer is te groot. Het maximale toegestane aantal karakters is 30.
+									<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+										<span aria-hidden='true'>&times;</span>
+									</button>
+									</div>";
 									// hashen!!!!!
 								} else if (strlen($_POST['verkoopgegevens-bank']) > 20) {
-									echo "Het aantal karakters van uw bank is te groot. Het maximale toegestane aantal karakters is 20.";
+									$melding = "
+										<div data-closable class='callout alert-callout-border alert radius'>
+										<strong>Error</strong> - Het aantal karakters van uw bank is te groot. Het maximale toegestane aantal karakters is 20.
+										<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+											<span aria-hidden='true'>&times;</span>
+										</button>
+										</div>";
 								} else {
 									if ($_POST['controle'] == 'creditcard' && strlen($_POST['creditcardnummer']) > 30) {
-										echo "Het aantal karakters van uw creditcardnummer is te groot. Het maximale toegestane aantal karakters is 20.";
+										$melding = "
+										<div data-closable class='callout alert-callout-border alert radius'>
+										<strong>Error</strong> - Het aantal karakters van uw creditcardnummer is te groot. Het maximale toegestane aantal karakters is 20.
+										<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+											<span aria-hidden='true'>&times;</span>
+										</button>
+										</div>";
 									} else {
 										$_SESSION['rekeningnummer'] = strip_tags($_POST['verkoopgegevens-rekeningnr']);
 										$_SESSION['bank'] = strip_tags($_POST['verkoopgegevens-bank']);
@@ -96,11 +192,25 @@
 							}
 							header('Location: registratie_vraag.php');
 						} else {
-							echo "De wachtwoorden komen niet met elkaar overeen.";
+							$melding = "
+								<div data-closable class='callout alert-callout-border alert radius'>
+								<strong>Error</strong> - De wachtwoorden komen niet met elkaar overeen.
+								<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+									<span aria-hidden='true'>&times;</span>
+								</button>
+								</div>
+								";
 						}
 					}
 				} else {
-					echo "Gebruikersnaam is al in gebruik.";
+					$melding = "
+					<div data-closable class='callout alert-callout-border alert radius'>
+					<strong>Error</strong> - Gebruikersnaam is al in gebruik.
+					<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+						<span aria-hidden='true'>&times;</span>
+					</button>
+					</div>
+					";
 				}
 			}
 
@@ -112,9 +222,17 @@
 				include_once 'aanroepingen/registratie_progressbar.php';
 			?>  
 			<br>
+			
 			<h2 class="HomepaginaKopjes center">Registreren</h2>
 			<div class="body-tekst">
 				<p class="center">Dit is de tweede stap van het registreren. Vul a.u.b uw persoonlijkegegevens hieronder in.</p>
+				<?php 
+					if(isset($melding)) {
+						echo "<br>";
+						echo $melding; 
+						echo "<br>";
+					}
+				?>
 				<form action="registratie_persoonsgegevens.php" method="post" class="form-body-center" >
 					<div class="grid-container">
 						<div class="grid-x grid-padding-x">

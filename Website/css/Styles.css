@@ -38,6 +38,36 @@
 }
 
 
+.product-image-gallery {
+  background-color: #fefefe;
+  padding: 1.5rem;
+}
+
+.pdp-product-image {
+  margin-bottom: 20px;
+}
+
+.product-thumbs a {
+  margin-left: 8px;
+  margin-right: 8px;
+  padding: 0 !important;
+}
+
+.product-thumbs a img {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  border: solid 4px #fefefe;
+  border-radius: 0;
+  box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
+  line-height: 0;
+  border-radius: 3px;
+  width: 50px;
+  height: 50px;
+  border: none;
+}
+
+
 li{
   list-style-type: none;
 }
@@ -287,12 +317,14 @@ input:checked + .side-label::after {
   position: relative;
   float: left;
   width:  600px;
-  max-height: 400px;
+  max-height: 250px;
   background-position: 50% 50%;
   background-repeat:   no-repeat;
   background-size:     cover;
 }
-
+.sim-thumb{
+  width: 20%;
+}
 /**/
 
 footer{
@@ -1073,6 +1105,71 @@ padding: 5px;
 .scrollbar {
   overflow-y: scroll;
   height: 600px;
+}
+
+
+.alert-callout-border {
+  width: 100%;
+  padding: 1.3rem;
+  border-left-width: 0.3125rem;
+  border-left-color: #cacaca;
+  align-items: center;
+}
+
+.alert-callout-border strong {
+  color: #0a0a0a;
+}
+
+.alert-callout-border .close-button {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.alert-callout-border.radius {
+  border-radius: 0.6rem;
+}
+
+.alert-callout-border.primary {
+  border-left-color: #1779ba;
+}
+
+.alert-callout-border.primary strong {
+  color: #1779ba;
+}
+
+.alert-callout-border.secondary {
+  border-left-color: #767676;
+}
+
+.alert-callout-border.secondary strong {
+  color: #767676;
+}
+
+.alert-callout-border.alert {
+  border-left-color: #cc4b37;
+}
+
+.alert-callout-border.alert strong {
+  color: #cc4b37;
+}
+
+.alert-callout-border.success {
+  border-left-color: #3adb76;
+}
+
+.alert-callout-border.success strong {
+  color: #3adb76;
+}
+
+.alert-callout-border.warning {
+  border-left-color: #ffae00;
+}
+
+.alert-callout-border.warning strong {
+  color: #ffae00;
 }
 
 

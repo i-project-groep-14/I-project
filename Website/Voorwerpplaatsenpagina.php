@@ -37,13 +37,41 @@
         if(isset($_POST['plaatsen_voorwerp'])) {
 
             if (strlen($_POST['titel_product']) > 30) {
-                echo "Het aantal karakters van de titel is te groot. Het maximale toegestane aantal karakters is 30.";
+                $melding = "
+                    <div data-closable class='callout alert-callout-border alert radius'>
+                    <strong>Error</strong> - Het aantal karakters van de titel is te groot. Het maximale toegestane aantal karakters is 30.
+                    <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+                    <span aria-hidden='true'>&times;</span>
+                    </button>
+                    </div>
+                    ";
             } else if (strlen($_POST['beschrijving_product']) > 500) {
-                echo "Het aantal karakters van de product beschrijving is te groot. Het maximale toegestane aantal karakters is 500. Momenteel heeft u er ".strlen($_POST['beschrijving_product']).".";
+                $melding = "
+                <div data-closable class='callout alert-callout-border alert radius'>
+                <strong>Error</strong> - Het aantal karakters van de product beschrijving is te groot. Het maximale toegestane aantal karakters is 500.
+                <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+                <span aria-hidden='true'>&times;</span>
+                </button>
+                </div>
+                ";
             } else if (strlen($_POST['betalingsinstructie']) > 30) {
-                echo "Het aantal karakters van de betalingsinstructie is te groot. Het maximale toegestane aantal karakters is 30. Momenteel heeft u er ".strlen($_POST['betalingsinstructie']).".";
+                $melding = "
+                <div data-closable class='callout alert-callout-border alert radius'>
+                <strong>Error</strong> - Het aantal karakters van de betalingsinstructie is te groot. Het maximale toegestane aantal karakters is 30.
+                <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+                <span aria-hidden='true'>&times;</span>
+                </button>
+                </div>
+                ";
             } else if (strlen($_POST['verzend_details']) > 100) { 
-                echo "Het aantal karakters van de verzend details is te groot. Het maximale toegestane aantal karakters is 100. Momenteel heeft u er ".strlen($_POST['verzend_details']).".";
+                $melding = "
+                <div data-closable class='callout alert-callout-border alert radius'>
+                <strong>Error</strong> - Het aantal karakters van de verzend details is te groot. Het maximale toegestane aantal karakters is 100.
+                <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+                <span aria-hidden='true'>&times;</span>
+                </button>
+                </div>
+                ";
             }else {
                 $titel_product = strip_tags($_POST['titel_product']);
                 //$foto_product = $_POST['fileToUpload'];
@@ -225,6 +253,7 @@
                     $sql_rubriek = "INSERT INTO [voorwerp in rubriek] VALUES (:voorwerp, :laagste_rubriek)";
                     $query_rubriek = $dbh->prepare($sql_rubriek);
                     $query_rubriek -> execute(array(':voorwerp' => $row['voorwerpnummer'], ':laagste_rubriek' => $laagste_rubriek ));
+                    header ('Location: index.php');
                 }
             
 
@@ -237,7 +266,6 @@
         $sql = "SELECT * FROM rubriek WHERE rubriek = 0 ORDER BY rubrieknummer"; //
         $query = $dbh->prepare($sql);
         $query -> execute();
-
     ?>
 
 
@@ -246,7 +274,7 @@
 	<h2 class="InlogpaginaKopje center">Voorwerp Plaatsen</h2>
 		<div class="">
             <p class="center">Op deze pagina kan er een voorwerp worden geplaatst, vul a.u.b. alle gegevens in.</p>
-            
+
 			<form action="Voorwerpplaatsenpagina.php" method="post" enctype="multipart/form-data">
 				<div class="grid-container">
 					<div class="grid-x grid-padding-x">
@@ -344,9 +372,7 @@
                         </div>				
 					</div>
                     <div class="medium-12 cell">
-                    <input type="submit" class="veilingknop button submit" name="plaatsen_voorwerp" value="Plaatsen"
-                    <?php //onclick="location.href = 'index.php'" ?>
-                    >
+                    <input type="submit" class="veilingknop button submit" name="plaatsen_voorwerp" value="Plaatsen">
                 </div>
             </div>
         </form>
@@ -463,10 +489,6 @@ function getSubSubSubRubriek(rubrieknummer){
 }
 
 </script>
-
-
-
-
 
 <?php 
     include_once 'aanroepingen/footer.html';

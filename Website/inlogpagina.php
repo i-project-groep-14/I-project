@@ -23,10 +23,24 @@
       $_SESSION['login'] = $_POST['login'];
       $_SESSION['gebruikersnaam'] = strip_tags($inlognaam);
 
-      echo "U bent succesvol ingelogd.";
+  $melding = "
+      <div data-closable class='callout alert-callout-border success'>
+  <strong>Yay!</strong> - U bent succesvol ingelogd.
+  <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+</div>
+";
       header ('Location: index.php');
     } else {
-      echo "Gebruikersnaam of wachtwoord onjuist.";
+$melding = "
+      <div data-closable class='callout alert-callout-border alert radius'>
+  <strong>Error</strong> - Gebruikersnaam of wachtwoord onjuist.
+  <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+</div>
+";
     }
   }
 
@@ -35,6 +49,13 @@
 
     <div class="holy-grail-middle">
     <h1 class="InlogpaginaKopje"> Inloggen </h1>
+    <?php
+    if(isset($melding)) {
+						echo "<br>";
+						echo $melding; 
+            echo "<br>";
+    }
+            ?>
       <div class="InlogContainer">
        
         <form class="inlogpaginaContainer" method="post" action="inlogpagina.php">

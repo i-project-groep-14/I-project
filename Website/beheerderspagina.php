@@ -19,6 +19,7 @@
     <div class="holy-grail-middle">
       <h3 class="InlogpaginaKopje"> Beheerders Pagina </h3>
 <br>
+
       <h4> Gebruiker blokkeren</h4>
 
       <input type="text" id="myInput" onkeyup="zoekFunctie()" placeholder="Zoeken op gebruikersnaam...">
@@ -39,6 +40,8 @@
       </table>
     </div>
     </div>
+
+    
 
     <?php 
       include_once 'aanroepingen/footer.html';

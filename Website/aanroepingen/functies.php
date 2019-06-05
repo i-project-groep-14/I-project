@@ -227,7 +227,7 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
   $beschrijving = strip_tags($row['beschrijving']);
   $hoogstebod = strip_tags($row['verkoopprijs']);
   $gebruikersnaam = strip_tags($row['verkoper']);
-  $tijd = "Hendrik/Mehmet voeg aub hier die timer toe!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+  $tijd = "Danny voeg aub hier die timer toe!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
   $locatie = strip_tags($row['plaatsnaam']);
   
   $sql = "SELECT filenaam FROM bestand
@@ -241,6 +241,8 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
 
   if ($row['filenaam'] == NULL) {
     $afbeelding = "images/imageplaceholder.png";
+  } else if (substr($row['filenaam'],0,2) != "dt" ) {
+    $afbeelding = $row['filenaam'];
   } else {
     $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
   }
@@ -435,8 +437,12 @@ function createHomepageItem($sql, $actueleplek) {
 
     $row = $query -> fetch();
 
+    
+
     if ($row['filenaam'] == NULL) {
       $afbeelding = "images/imageplaceholder.png";
+    } else if (substr($row['filenaam'],0,2) != "dt" ) {
+      $afbeelding = $row['filenaam'];
     } else {
       $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
     }
@@ -483,13 +489,16 @@ function createFotos($actueleplek) {
     $row = $query -> fetch();
     if ($row['filenaam'] == NULL) {
       $afbeelding = "images/imageplaceholder.png";
+    } else if (substr($row['filenaam'],0,2) != "dt" ) {
+      $afbeelding = $row['filenaam'];
     } else {
       $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
     }
     echo"
-      <div class='column'>
-        <img class='thumbnail' src='$afbeelding' alt='afbeelding'>
-      </div>
+    
+        <li> <a class='sim-thumb' data-image='$afbeelding'><img src='$afbeelding' alt=''></a> </li>
+
+    
     ";
 }
 
@@ -568,10 +577,10 @@ function createQuestions($actueleplek) {
 function createProfVeilingen($actueleplek){
   global $dbh;
   $volgendeplek = $actueleplek +1;
-  $sql = "SELECT * FROM voorwerp where verkoper in (
+  $sql = "SELECT voorwerpnummer, titel, startprijs, betalingswijze, plaatsnaam, looptijdbeginDag, looptijdeindeDag, verkoopprijs, koper, veilingGesloten 
+          FROM voorwerp WHERE verkoper in (
               SELECT gebruikersnaam
-              from gebruiker
-          )
+              FROM gebruiker)
           AND verkoper = :gebruiker
           ORDER BY voorwerpnummer OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
 
@@ -581,29 +590,40 @@ function createProfVeilingen($actueleplek){
   ));
   $row = $query -> fetch();
 
-  echo "<tr style='text-align=center;'> 
-  <td><form action='product.php' method='POST'>
-  <button type='submit' value='$row[voorwerpnummer]' name='voorwerp' class='button ProductButton'>".strip_tags($row['titel'])."</button>
-</form></a></td>
-            <td>".strip_tags($row['startprijs'])."</td>
-            <td"; 
-              if ($row['betalingswijze'] == 'PayPal') { 
-                echo" class='fi-paypal'";
-              }
-            echo">".strip_tags($row['betalingswijze'])."</td>
-            <td>".strip_tags($row['plaatsnaam'])."</td>
-           <td>".strip_tags($row['looptijdbeginDag'])."</td>
-            <td>".strip_tags($row['looptijdeindeDag'])."</td>
-            <td>".strip_tags($row['verkoopprijs'])."</td>
-            <td>".strip_tags($row['koper'])."</td>
-            <td";if ($row['veilingGesloten'] == 'wel') { 
-              echo" class='profveilinggesloten'";
-            }
-            echo" class='profveilingopen'>$row[veilingGesloten]</td>
-        </tr>";
+  echo "
+  <tr style='text-align=center;'> 
+    <td>
+      <form action='product.php' method='POST'>
+        <button type='submit' value='$row[voorwerpnummer]' name='voorwerp' class='button ProductButton'>".strip_tags($row['titel'])."</button>
+      </form>
+    </td>
+    <td>".strip_tags($row['startprijs'])."</td>
+    <td"; 
+      if ($row['betalingswijze'] == 'PayPal') { 
+         echo" class='fi-paypal'";
+      }
+    echo">".strip_tags($row['betalingswijze'])."</td>
+    <td>".strip_tags($row['plaatsnaam'])."</td>
+    <td>".strip_tags($row['looptijdbeginDag'])."</td>
+    <td>".strip_tags($row['looptijdeindeDag'])."</td>
+    <td>".strip_tags($row['verkoopprijs'])."</td>
+    <td>".strip_tags($row['koper'])."</td>
+    <td";
+      if ($row['veilingGesloten'] == 'wel') { 
+        echo" class='profveilinggesloten'";
+      } else {
+        echo" class='profveilingopen'";
+      }
+    echo">";
+      if ($row['veilingGesloten'] == 'wel') {
+        $veiling = 'gesloten';
+      } else {
+        $veiling = 'open';
+      }
+    echo "$veiling</td>
+  </tr>";
 
-return $volgendeplek;
-
+  return $volgendeplek;
 }
 
 function selectAantalBiedingen($gebruiker) {
@@ -674,7 +694,18 @@ function createGebruikers($actueleplek) {
       <td>".strip_tags($gebruiker)."</td>
       <td>
         <form action='beheerderspagina.php' method='post'>
-          <button type='submit' value='".strip_tags($gebruiker)."' name='gebruiker' class='button'>Blokkeren</button>
+          <button type='submit' value='".strip_tags($gebruiker)."' name='gebruiker' class='button'>Blokkeren</button>";
+          if (isset($_POST['gebruiker'])) {
+            $melding = "
+            <div data-closable class='callout alert-callout-border success'>
+              <strong>Yay!</strong> - Gebruiker is succesvol geblokkeerd.
+              <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+              <span aria-hidden='true'>&times;</span>
+              </button>
+              ";
+          }
+          echo"
+          </div>
         </form>
       </td>
     </tr>

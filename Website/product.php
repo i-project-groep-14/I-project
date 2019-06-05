@@ -13,25 +13,23 @@
         $bod = $_POST['bod'];
         $gebruiker = $_SESSION['gebruikersnaam'];        
 
-        $sql = "INSERT INTO bod VALUES
-                (:voorwerpnummer, :bodbedrag, :gebruiker, GETDATE(), CONVERT(TIME,GETDATE()))";
-        $query = $dbh->prepare($sql);
-        $query -> execute(array(
-          ':voorwerpnummer' => $voorwerpnummer,
-          ':bodbedrag' => $bod,
-          ':gebruiker' => $gebruiker
-          )
-        );
+        // $sql = "INSERT INTO bod VALUES
+        //         (:voorwerpnummer, :bodbedrag, :gebruiker, GETDATE(), CONVERT(TIME,GETDATE()))";
+        // $query = $dbh->prepare($sql);
+        // $query -> execute(array(
+        //   ':voorwerpnummer' => $voorwerpnummer,
+        //   ':bodbedrag' => $bod,
+        //   ':gebruiker' => $gebruiker
+        // ));
 
-        $sql = "UPDATE voorwerp
-                SET verkoopprijs = :bod
-                WHERE voorwerpnummer = :voorwerpnummer";
-        $query = $dbh->prepare($sql);
-        $query -> execute(array(
-          ':bod' => $bod,
-          ':voorwerpnummer' => $voorwerpnummer
-          )
-        );
+        // $sql = "UPDATE voorwerp
+        //         SET verkoopprijs = :bod
+        //         WHERE voorwerpnummer = :voorwerpnummer";
+        // $query = $dbh->prepare($sql);
+        // $query -> execute(array(
+        //   ':bod' => $bod,
+        //   ':voorwerpnummer' => $voorwerpnummer
+        // ));
       }
 
       $sql = "SELECT veilingGesloten, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
@@ -70,6 +68,13 @@
     <?php  include_once 'aanroepingen/header.php'?>
         
     <div class="holy-grail-middle">
+    <?php 
+					if(isset($melding)) {
+						echo "<br>";
+						echo $melding; 
+						echo "<br>";
+					}
+				?>
       <div class="ProductInformatie">
         <div class="row columns">
           <nav aria-label="You are here:">
@@ -112,21 +117,25 @@
                 $row = $query -> fetch();
                 if ($row['filenaam'] == NULL) {
                   $afbeelding = "images/imageplaceholder.png";
+                } else if (substr($row['filenaam'],0,2) != "dt" ) {
+                  $afbeelding = $row['filenaam'];
                 } else {
                   $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
-                } 
-                
-                
-                
+                }
                 
             echo"
-            <img id='myImg' class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
-            <div class='row small-up-4'>";
+            <div class='row align-center'>
+              <div class='product-image-gallery'>
+            <img id='main-product-image' class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
+            <ul class='product-thumbs'>
+            ";
               createFotos(0);
               createFotos(1);
               createFotos(2);
               createFotos(3);
             echo"
+            </ul>
+            </div>
             </div>
             ";
             ?>
@@ -239,7 +248,17 @@
                   echo ")</i><Br>
                   <Br>
                   <input type='number' name='bod' min='$minimalebod' step='1' required>
-                  <input type='submit' class='button large expanded' value='Plaats bod' name='bodgeplaatst'>
+                  <input type='submit' class='button large expanded' value='Plaats bod' name='bodgeplaatst'>";
+                  if (isset($_POST['bodgeplaatst'])) {
+                    $melding = "  
+                    <div data-closable class='callout alert-callout-border success'>
+                      <strong>Yay!</strong> - Uw bieding is geplaatst.
+                      <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+                      <span aria-hidden='true'>&times;</span>
+                      </button>
+                      ";
+                  }
+                  echo"
                 </form>
               </div>";
             }// tabel met top 4 biedingen moet nog dynamisch gemaakt worden
@@ -274,50 +293,44 @@
 
         <div class="tab-biedingen tabs-content" data-tabs-content="example-tabs">
           <div class=" tabs-panel tabs-panelv is-active" id="panel1">
-          <?php echo $beschrijving; ?>
-            </div>
-        <div class="tabs-panel tabs-panelv" id="panel2">
-          <div class="row medium-up-3 large-up-5">
-            <div class="tab-biedingen-omschrijving">
-              <?php echo "
-              <p class='middle'>Verzendingkosten:  $verzendkosten</p>
-              <p class='middle'>Verzendinginstructies:  $verzendinstructies</p>
-              <p class='middle'>Betalinginstructies:  $betalingsinstructie</p>
-              <p class='middle'>Betaling: $betalingswijze </p>
-              ";
-              ?>
+            <?php echo $beschrijving; ?>
+          </div>
+          <div class="tabs-panel tabs-panelv" id="panel2">
+            <div class="row medium-up-3 large-up-5">
+              <div class="tab-biedingen-omschrijving">
+                <?php echo "
+                <p class='middle'>Verzendingkosten: $verzendkosten</p>
+                <p class='middle'>Verzendinginstructies: $verzendinstructies</p>
+                <p class='middle'>Betalinginstructies: $betalingsinstructie</p>
+                <p class='middle'>Betaling: $betalingswijze </p>
+                ";
+                ?>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="tabs-panel tabs-panelv" id="panel3">
-          <div class="row medium-up-3 large-up-5">
-            <div class="tab-biedingen-omschrijving">
-              <?php
-                $plek = 0;
-                $sql = "SELECT COUNT(*) as aantalBiedingen FROM bod
-                        WHERE voorwerpnummer like :voorwerpnummer";
-                $query = $dbh->prepare($sql);
-                $query -> execute(array(
-                  ':voorwerpnummer' => $_SESSION['voorwerp']
-                ));
-                $row = $query -> fetch();
+          <div class="tabs-panel tabs-panelv" id="panel3">
+            <div class="row medium-up-3 large-up-5">
+              <div class="tab-biedingen-omschrijving">
+                <?php
+                  $plek = 0;
+                  $sql = "SELECT COUNT(*) as aantalBiedingen FROM bod
+                          WHERE voorwerpnummer like :voorwerpnummer";
+                  $query = $dbh->prepare($sql);
+                  $query -> execute(array(
+                    ':voorwerpnummer' => $_SESSION['voorwerp']
+                  ));
+                  $row = $query -> fetch();
 
-                for($i = 0; $i < $row['aantalBiedingen']; $i++) {
-                  createBiedingen($plek);
-                }
-              ?>
-              
-              <?php 
-              if(isset($_SESSION['login'])) {
-                // echo"<button class='button'>Bied mee!</button>";  is dit niet dubbel op??
-              }
-              ?>
+                  for($i = 0; $i < $row['aantalBiedingen']; $i++) {
+                    createBiedingen($plek);
+                  }
+                ?>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-</div>
 </div>
 
 <!-- Afbeelding vergroten -->
@@ -382,4 +395,10 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() { 
   modal.style.display = "none";
 }
+</script>
+<script>
+$('.sim-thumb').on('click', function() {
+  $('#main-product-image').attr('src', $(this).data('image'));
+})
+
 </script>

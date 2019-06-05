@@ -324,7 +324,7 @@ END
 
 GO
 
-
+/*
 CREATE FUNCTION fnRubriekIsOpLaagsteNiveau
 (
   @rubriekNummer int
@@ -347,7 +347,7 @@ ALTER TABLE [voorwerp in rubriek]
 ADD CONSTRAINT CHK_LaagsteNiveau CHECK ( dbo.fnRubriekIsOpLaagsteNiveau([rubriek op laagste niveau]) = 1  )
 
 GO
-
+*/
 
 CREATE FUNCTION fnWieIsVerkoper
 (
