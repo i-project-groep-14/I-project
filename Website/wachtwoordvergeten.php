@@ -11,11 +11,17 @@
           <h5>Kies een veiligheidsvraag</h5>
           <select>
             <option>Vragen</option>
-            <option>In welke straat ben je geboren?</option>
-            <option>Wat is de meisjesnaam van je moeder?</option>
-            <option>Wat is je lievelingsgerecht?</option>
-            <option>Hoe heet je oudste zusje?</option>
-            <option>Hoe heet je huisdier?</option>
+            <?php
+              $plek = 0;
+              $sql = "SELECT COUNT(*) as aantalVragen FROM vraag";
+              $query = $dbh->prepare($sql);
+              $query -> execute();
+              $row = $query -> fetch();
+
+              for($i = 0; $i < $row['aantalVragen']; $i++) {
+                $plek = createQuestions($plek);
+              }
+            ?>
           </select>
           <hr>
           <h5>Antwoord op de veiligheidsvraag</h5>

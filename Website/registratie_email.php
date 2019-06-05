@@ -10,14 +10,14 @@
 
       if (isset($_POST['verzenden_email'])) {
         if (strlen($_POST['email']) > 50) {
-          ?>
-          <div data-closable class="callout alert-callout-border alert radius">
+          $melding = "
+          <div data-closable class='callout alert-callout-border alert radius'>
             <strong>Error</strong> - Het aantal karakters is te groot. Het maximale toegestane aantal karakters is 50.
-            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-            <span aria-hidden="true">&times;</span>
+            <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+            <span aria-hidden='true'>&times;</span>
             </button>
         </div>
-        <?php
+        ";
           $mailverzonden = false;
         } else {
           $mailverzonden = true;
@@ -35,14 +35,14 @@
         if($_POST['code'] == $_SESSION['code']) {
           header('Location: registratie_persoonsgegevens.php');
         } else {
-          ?>
-          <div data-closable class="callout alert-callout-border alert radius">
+          $melding = "
+          <div data-closable class='callout alert-callout-border alert radius'>
             <strong>Error</strong> - De code is verkeerd.
-            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-            <span aria-hidden="true">&times;</span>
+            <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+            <span aria-hidden='true'>&times;</span>
             </button>
         </div>
-        <?php  
+        ";
         }
       }
       
@@ -58,8 +58,17 @@
       <h2 class="">Registreren</h2>
       <div class=" body-tekst">
         <p>
-          Welkom op de registratiepagina. Vul hieronder uw e-mailadres in om te verifiëren. 
-        </p>      
+          Welkom op de registratiepagina. Vul hieronder uw e-mailadres in om te verifiëren.
+        </p> 
+
+                <?php
+                    if(isset($melding)) {
+                        echo "<br>";
+                        echo $melding; 
+                        echo "<br>";
+                      }
+                ?>
+
         <form action="registratie_email.php" method="post">
           <div class="grid-container">  
             <div class="grid-x grid-padding-x">
