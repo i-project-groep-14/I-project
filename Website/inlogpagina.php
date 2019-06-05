@@ -4,6 +4,24 @@
   require_once 'aanroepingen/connectie.php';
 
   if(isset($_POST['login'])){
+    $sql = "SELECT rol FROM gebruiker 
+            WHERE gebruikersnaam like :gebruikersnaam";
+    $query = $dbh->prepare($sql);
+    $query -> execute(array(
+      ':gebruikersnaam' => $_POST['inlogAccNaam']
+    ));
+    $row = $query -> fetch();
+
+    if($row['rol'] == 1) {
+      $melding = "
+      <div data-closable class='callout alert-callout-border alert radius'>
+      <strong> Error </strong> U bent geblokkeerd, neem <a href='contact.php'> contact </a> met ons op voor meer informatie.
+  <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+</div>
+";
+    } else {
     $inlognaam = strip_tags($_POST['inlogAccNaam']);
     $wachtwoord = strip_tags($_POST['inlogWw']);
 
@@ -42,7 +60,7 @@ $melding = "
 </div>
 ";
     }
-  }
+  }}
 
   include_once 'aanroepingen/header.php';
 ?>

@@ -6,7 +6,7 @@
       
       if(isset($_POST['gebruiker'])) {
         $sql = "UPDATE gebruiker
-                SET rol = 0
+                SET rol = 1
                 WHERE gebruikersnaam = :gebruiker";
         $query = $dbh->prepare($sql);
         $query -> execute(array(
