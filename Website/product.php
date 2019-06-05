@@ -13,11 +13,8 @@
         $bod = $_POST['bod'];
         $gebruiker = $_SESSION['gebruikersnaam'];        
 
-        $sql = "INSERT INTO bod VALUES
-          ':gebruiker' => $gebruiker
-          )
-        );
         // $sql = "INSERT INTO bod VALUES
+        //         (:voorwerpnummer, :bodbedrag, :gebruiker, GETDATE(), CONVERT(TIME,GETDATE()))";
         // $query = $dbh->prepare($sql);
         // $query -> execute(array(
         //   ':voorwerpnummer' => $voorwerpnummer,
