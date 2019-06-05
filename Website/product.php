@@ -134,6 +134,7 @@
             <div class='row align-center'>
               <div class='product-image-gallery'>
             <img id='main-product-image' class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
+            
             <ul class='product-thumbs'>
             ";
               createFotos(0);
@@ -142,6 +143,7 @@
               createFotos(3);
             echo"
             </ul>
+           
             </div>
             </div>
             ";
@@ -371,12 +373,17 @@ var countdownTimer = setInterval('timer()', 1000);
 </script>
 
 
-    <script>
-// Get the modal
+
+<script>
+$('.sim-thumb').on('click', function() {
+  $('#main-product-image').attr('src', $(this).data('image'));
+})
+
+
 var modal = document.getElementById("myModal");
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg");
+var img = document.getElementById("main-product-image");
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 img.onclick = function(){
@@ -392,10 +399,6 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() { 
   modal.style.display = "none";
 }
-</script>
-<script>
-$('.sim-thumb').on('click', function() {
-  $('#main-product-image').attr('src', $(this).data('image'));
-})
+
 
 </script>
