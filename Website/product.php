@@ -14,24 +14,25 @@
         $gebruiker = $_SESSION['gebruikersnaam'];        
 
         $sql = "INSERT INTO bod VALUES
-                (:voorwerpnummer, :bodbedrag, :gebruiker, GETDATE(), CONVERT(TIME,GETDATE()))";
-        $query = $dbh->prepare($sql);
-        $query -> execute(array(
-          ':voorwerpnummer' => $voorwerpnummer,
-          ':bodbedrag' => $bod,
           ':gebruiker' => $gebruiker
           )
         );
+        // $sql = "INSERT INTO bod VALUES
+        // $query = $dbh->prepare($sql);
+        // $query -> execute(array(
+        //   ':voorwerpnummer' => $voorwerpnummer,
+        //   ':bodbedrag' => $bod,
+        //   ':gebruiker' => $gebruiker
+        // ));
 
-        $sql = "UPDATE voorwerp
-                SET verkoopprijs = :bod
-                WHERE voorwerpnummer = :voorwerpnummer";
-        $query = $dbh->prepare($sql);
-        $query -> execute(array(
-          ':bod' => $bod,
-          ':voorwerpnummer' => $voorwerpnummer
-          )
-        );
+        // $sql = "UPDATE voorwerp
+        //         SET verkoopprijs = :bod
+        //         WHERE voorwerpnummer = :voorwerpnummer";
+        // $query = $dbh->prepare($sql);
+        // $query -> execute(array(
+        //   ':bod' => $bod,
+        //   ':voorwerpnummer' => $voorwerpnummer
+        // ));
       }
 
       $sql = "SELECT veilingGesloten, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
@@ -283,50 +284,44 @@
 
         <div class="tab-biedingen tabs-content" data-tabs-content="example-tabs">
           <div class=" tabs-panel tabs-panelv is-active" id="panel1">
-          <?php echo $beschrijving; ?>
-            </div>
-        <div class="tabs-panel tabs-panelv" id="panel2">
-          <div class="row medium-up-3 large-up-5">
-            <div class="tab-biedingen-omschrijving">
-              <?php echo "
-              <p class='middle'>Verzendingkosten:  $verzendkosten</p>
-              <p class='middle'>Verzendinginstructies:  $verzendinstructies</p>
-              <p class='middle'>Betalinginstructies:  $betalingsinstructie</p>
-              <p class='middle'>Betaling: $betalingswijze </p>
-              ";
-              ?>
+            <?php echo $beschrijving; ?>
+          </div>
+          <div class="tabs-panel tabs-panelv" id="panel2">
+            <div class="row medium-up-3 large-up-5">
+              <div class="tab-biedingen-omschrijving">
+                <?php echo "
+                <p class='middle'>Verzendingkosten: $verzendkosten</p>
+                <p class='middle'>Verzendinginstructies: $verzendinstructies</p>
+                <p class='middle'>Betalinginstructies: $betalingsinstructie</p>
+                <p class='middle'>Betaling: $betalingswijze </p>
+                ";
+                ?>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="tabs-panel tabs-panelv" id="panel3">
-          <div class="row medium-up-3 large-up-5">
-            <div class="tab-biedingen-omschrijving">
-              <?php
-                $plek = 0;
-                $sql = "SELECT COUNT(*) as aantalBiedingen FROM bod
-                        WHERE voorwerpnummer like :voorwerpnummer";
-                $query = $dbh->prepare($sql);
-                $query -> execute(array(
-                  ':voorwerpnummer' => $_SESSION['voorwerp']
-                ));
-                $row = $query -> fetch();
+          <div class="tabs-panel tabs-panelv" id="panel3">
+            <div class="row medium-up-3 large-up-5">
+              <div class="tab-biedingen-omschrijving">
+                <?php
+                  $plek = 0;
+                  $sql = "SELECT COUNT(*) as aantalBiedingen FROM bod
+                          WHERE voorwerpnummer like :voorwerpnummer";
+                  $query = $dbh->prepare($sql);
+                  $query -> execute(array(
+                    ':voorwerpnummer' => $_SESSION['voorwerp']
+                  ));
+                  $row = $query -> fetch();
 
-                for($i = 0; $i < $row['aantalBiedingen']; $i++) {
-                  createBiedingen($plek);
-                }
-              ?>
-              
-              <?php 
-              if(isset($_SESSION['login'])) {
-                // echo"<button class='button'>Bied mee!</button>";  is dit niet dubbel op??
-              }
-              ?>
+                  for($i = 0; $i < $row['aantalBiedingen']; $i++) {
+                    createBiedingen($plek);
+                  }
+                ?>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-</div>
 </div>
 
 <!-- Afbeelding vergroten -->
