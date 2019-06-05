@@ -192,25 +192,25 @@
 							}
 							header('Location: registratie_vraag.php');
 						} else {
-							?>
-								<div data-closable class="callout alert-callout-border alert radius">
+							$melding = "
+								<div data-closable class='callout alert-callout-border alert radius'>
 								<strong>Error</strong> - De wachtwoorden komen niet met elkaar overeen.
-								<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-									<span aria-hidden="true">&times;</span>
+								<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+									<span aria-hidden='true'>&times;</span>
 								</button>
 								</div>
-							<?php
+								";
 						}
 					}
 				} else {
-					?>
-					<div data-closable class="callout alert-callout-border alert radius">
+					$melding = "
+					<div data-closable class='callout alert-callout-border alert radius'>
 					<strong>Error</strong> - Gebruikersnaam is al in gebruik.
-					<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-						<span aria-hidden="true">&times;</span>
+					<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+						<span aria-hidden='true'>&times;</span>
 					</button>
 					</div>
-				<?php
+					";
 				}
 			}
 
