@@ -470,23 +470,27 @@ footer{
 }
 
 .multilevel-accordion-menu .is-accordion-submenu a {
-  background: rgb(255, 130, 98);
+  /*background: rgb(255, 130, 98);*/
 }
 
 .multilevel-accordion-menu .sublevel-1 {
   text-indent: 1rem;
+  background: #f56d49;
 }
 
 .multilevel-accordion-menu .sublevel-2 {
   text-indent: 2rem;
+  background: #f68365;
 }
 
 .multilevel-accordion-menu .sublevel-3 {
   text-indent: 3rem;
+  background: #f59881;
 }
 
 .multilevel-accordion-menu .sublevel-4 {
   text-indent: 4rem;
+  background: #f1ad9c;
 }
 
 .multilevel-accordion-menu .sublevel-5 {
