@@ -7,7 +7,7 @@ $subject = "Uw veiling ".$row['titel']. " is afgelopen!!!!";
 $message ="
 <html>
 <head>
-<img src='http://iproject14.icasites.nl/images/logo.png'  alt='' />
+
 </head>
 <body >
 <div style='background-color:white; width=100%; height:100px;'>
@@ -17,7 +17,7 @@ $message ="
     </div>
     
     <div style='font-family:Calibri;'>
-    <p>Uw veiling '".$row['titel']."' is verlopen en verijderd. De veiling is gewonnen door ".$row['koper']." met als hoogste bod: ".$row['verkoopprijs']." . Wij hopen dat u het artikel met succes heeft verkocht. De artikel ter inzage beschikbaar op uw profielpagina </p><Br><br>
+    <p>Uw veiling '".$row['titel']."' is verlopen en verwijderd. De veiling is gewonnen door '".$row['koper']."' met als hoogste bod: ".$row['verkoopprijs']." . Wij hopen dat u het artikel met succes heeft verkocht. De artikel ter inzage beschikbaar op uw profielpagina </p><Br><br>
 
         </div>
         Wij zien u graag terug op EenmaalAndermaal <br>
@@ -25,6 +25,7 @@ $message ="
         <br><Br>Met vriendelijke groet,<Br><Br>
 
         <p><a href='iproject14.icasites.nl'<span style='color:#F2552C; text-decoration: none;'>Team EenmaalAndermaal</span></a> | Groep 14</p>
+        <img src='http://iproject14.icasites.nl/images/logo.png'  alt='' />
     </div>
 
 </body>
