@@ -16,6 +16,19 @@ drop database EenmaalAndermaal
 /*==============================================================*/
 create database EenmaalAndermaal
 
+
+/*
+drop table bestand
+drop table bod
+drop table gebruikerstelefoon
+drop table [voorwerp in rubriek]
+drop table voorwerp
+drop table verkoper
+drop table gebruiker
+drop table vraag
+drop table rubriek
+*/
+
 use EenmaalAndermaal
 
 
@@ -140,8 +153,8 @@ alter table voorwerp
 	constraint ck_voorwerp_startprijs check (startprijs > 0),
 	constraint ck_voorwerp_veilingGesloten check (veilingGesloten IN ('wel', 'niet')),
 	constraint ck_voorwerp_verkoopprijs_negatief check (verkoopprijs >= startprijs),
-	constraint ck_voorwerp_verkoper_geen_koper check (verkoper != koper),
-	CONSTRAINT ck_looptijd CHECK ( looptijd IN (1,3,5,7,10) )
+	constraint ck_voorwerp_verkoper_geen_koper check (verkoper != koper)--,
+	--CONSTRAINT ck_looptijd CHECK ( looptijd IN (1,3,5,7,10) )
 
 /*==============================================================*/
 /* Table: Bestand												*/
@@ -200,7 +213,7 @@ insert into vraag values ('4', 'Hoe heet je oudste zusje?')
 insert into vraag values ('5', 'Hoe heet je huisdier?')
 
 insert into gebruiker values ('Beheerder', 'Danny', 'Hageman', 'Onbekend', null, '0000AA', 's-Heerenberg', 'Nederland', '11/09/2000', 
-								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 5, null)/*
+								'mehmet.batal@hotmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 5, null)/*
 insert into gebruiker values ('Test', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
 								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 2, null)
 insert into gebruiker values ('Boom', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 

@@ -61,16 +61,31 @@
         $query -> execute(array(
             ':voorwerpnummer' => $_SESSION['voorwerp']
         ));
+        
 
-        $sql = "UPDATE voorwerp
-                SET koper = :gebruiker
-                WHERE voorwerpnummer = :voorwerpnummer";
-        $query = $dbh->prepare($sql);
+        // $sql = "UPDATE voorwerp
+        //         SET koper = :gebruiker
+        //         WHERE voorwerpnummer = :voorwerpnummer";
+        // $query = $dbh->prepare($sql);
+        // $query -> execute(array(
+        //     ':gebruiker' => $_SESSION['gebruikersnaam'],
+        //     ':voorwerpnummer' => $_SESSION['voorwerp']
+        // ));
+        
+        $sql = "SELECT v.verkoper, g.mailadres
+                FROM voorwerp v inner join gebruiker g on v.verkoper = g.gebruikersnaam
+                where v.voorwerpnummer = :voorwerpnummer";
+                $query = $dbh->prepare($sql);
         $query -> execute(array(
-            ':gebruiker' => $_SESSION['gebruikersnaam'],
             ':voorwerpnummer' => $_SESSION['voorwerp']
         ));
+        $row = $query -> fetch();
+
+        include_once 'aanroepingen/EindeveilingMail.php';
+        
       }
+
+
 
     ?>
         
@@ -143,7 +158,7 @@
               createFotos(3);
             echo"
             </table>
-           
+                
             </div>
             </div>
             ";
@@ -266,6 +281,7 @@
             <p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>
             <p>Looptijd:</p>
             <div class='klok'>
+            
             <div id='clockdiv'>
               <div>
                 <span class='days' id='countdown'></span>
