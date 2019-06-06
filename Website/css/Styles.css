@@ -441,11 +441,7 @@ footer{
     flex-wrap: wrap;
     height: 100%;
   }
-  .RubProduct{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+  
   .FotoRubProduct{
     width: fit-content;
   }
@@ -609,7 +605,7 @@ footer{
 
 .RubProduct{
   display: flex;
-	width: fit-content;
+  justify-content: space-between;
   margin-bottom: 10px;
   box-shadow: 0 4px 8px 0px;
 }
@@ -625,7 +621,7 @@ footer{
 	
 }
 .TitelRubProduct{
-	width: 100%;
+	width: 1000px;
 }
 .OmschRubProduct{
   height: auto;
