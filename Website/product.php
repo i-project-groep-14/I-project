@@ -31,14 +31,15 @@
           ':gebruiker' => $gebruiker
         ));
 
-        // $sql = "UPDATE voorwerp
-        //         SET verkoopprijs = :bod
-        //         WHERE voorwerpnummer = :voorwerpnummer";
-        // $query = $dbh->prepare($sql);
-        // $query -> execute(array(
-        //   ':bod' => $bod,
-        //   ':voorwerpnummer' => $voorwerpnummer
-        // ));
+          $sql = "UPDATE voorwerp
+                SET verkoopprijs = :bod
+                WHERE voorwerpnummer = :voorwerpnummer";
+         $query = $dbh->prepare($sql);
+         $query -> execute(array(
+           ':bod' => $bod,
+           ':voorwerpnummer' => $voorwerpnummer
+         ));
+
       }
 
       $sql = "SELECT veilingGesloten, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
@@ -265,7 +266,7 @@
                   <h1 class='InlogpaginaKopje'> Bieden </h1> 
                   <i> (Bieden vanaf: €";
                   if (isset($hoogstebod)) {
-                    echo $hoogstebod;
+                    echo $minimalebod;
                   } else {
                     echo $startprijs;
                   }
