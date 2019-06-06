@@ -753,7 +753,7 @@ if (isset($_POST['gebruiker'])) {
 function createGebruikers($actueleplek) {
   global $dbh;
   $volgendeplek = $actueleplek+1;
-  $sql = "SELECT gebruikersnaam FROM gebruiker
+  $sql = "SELECT gebruikersnaam, rol FROM gebruiker
           WHERE rol != 5 and rol != 1
           ORDER BY gebruikersnaam OFFSET $actueleplek ROWS FETCH NEXT $volgendeplek ROWS ONLY";
   $query = $dbh->prepare($sql);
@@ -761,10 +761,19 @@ function createGebruikers($actueleplek) {
   $row = $query -> fetch();
 
   $gebruiker = $row['gebruikersnaam'];
+  $rol = $row['rol'];
+  if ($rol == 2) {
+    $rol = "Gebruiker";
+  } else if ($rol == 3) {
+    $rol = "Verkoper";
+  } else {
+    $rol = "Beheerder";
+  }
 
   echo"
     <tr>
       <td>".strip_tags($gebruiker)."</td>
+      <td>$rol</td>
       <td>
         <form action='beheerderspagina.php' method='post'>
           <button type='submit' value='".strip_tags($gebruiker)."' name='gebruiker' class='button'>Blokkeren</button>

@@ -34,6 +34,7 @@
       <table id="myTable">
         <tr class="header">
           <th>Gebruikersnaam</th>
+          <th>Rol</th>
           <th>Gebruiker blokkeren</th>
         </tr>
             <?php

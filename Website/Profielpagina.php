@@ -196,7 +196,7 @@
                 <li class="tabs-title"><a href="#panel2v">Biedingen</a></li>
                 <li class="tabs-title"><a href="#panel3v">Gegevens</a></li>
                 <?php 
-                  if($_SESSION['rol'] == 2 || $_SESSION['rol'] == 5) {
+                  if($_SESSION['rol'] == 2) {
                     echo "<li class='tabs-title'><a href='#panel4v'>Upgrade</a></li>";
                   }
                 ?>
@@ -350,9 +350,7 @@
               </div>
 
 
-              <?php 
-                if($_SESSION['rol'] == 2) {
-              ?>
+              
                 <div class="tabs-panel" id="panel4v">
                   <fieldset class="fieldset medium-12 cell">
                     <legend>Wilt u spullen verkopen?</legend>
@@ -399,9 +397,7 @@
                   </fieldset>
                 </div>
 
-              <?php 
-                }
-              ?>
+              
 
             </div>
           </div>
