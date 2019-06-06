@@ -84,7 +84,7 @@
                     WHERE mailadres like :emailadres";
             $query = $dbh->prepare($sql);
             $query -> execute(array(
-              ':wachtwoord' => strip_tags($_POST['wachtwoord']),
+              ':wachtwoord' => password_hash(strip_tags($_POST['wachtwoord']), PASSWORD_DEFAULT),
               ':emailadres' => $_SESSION['mail']
             ));
 
