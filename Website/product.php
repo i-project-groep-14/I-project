@@ -21,24 +21,25 @@
           </button>
         </div>";
         
-        echo $bod;
+        //echo $bod;
 
         $sql = "INSERT INTO bod VALUES (:voorwerpnummer, :bodbedrag, :gebruiker, GETDATE(), CONVERT(TIME,GETDATE()))";
         $query = $dbh->prepare($sql);
         $query -> execute(array(
           ':voorwerpnummer' => $voorwerpnummer,
-          ':bodbedrag' => 1,
+          ':bodbedrag' => $bod,
           ':gebruiker' => $gebruiker
         ));
 
-        // $sql = "UPDATE voorwerp
-        //         SET verkoopprijs = :bod
-        //         WHERE voorwerpnummer = :voorwerpnummer";
-        // $query = $dbh->prepare($sql);
-        // $query -> execute(array(
-        //   ':bod' => $bod,
-        //   ':voorwerpnummer' => $voorwerpnummer
-        // ));
+          $sql = "UPDATE voorwerp
+                SET verkoopprijs = :bod
+                WHERE voorwerpnummer = :voorwerpnummer";
+         $query = $dbh->prepare($sql);
+         $query -> execute(array(
+           ':bod' => $bod,
+           ':voorwerpnummer' => $voorwerpnummer
+         ));
+
       }
 
       $sql = "SELECT veilingGesloten, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
@@ -72,7 +73,7 @@
         //     ':voorwerpnummer' => $_SESSION['voorwerp']
         // ));
         
-        $sql = "SELECT v.verkoper, g.mailadres
+        $sql = "SELECT v.verkoper, g.mailadres,v.titel,v.verkoopprijs,v.koper
                 FROM voorwerp v inner join gebruiker g on v.verkoper = g.gebruikersnaam
                 where v.voorwerpnummer = :voorwerpnummer";
                 $query = $dbh->prepare($sql);
@@ -265,7 +266,7 @@
                   <h1 class='InlogpaginaKopje'> Bieden </h1> 
                   <i> (Bieden vanaf: €";
                   if (isset($hoogstebod)) {
-                    echo $hoogstebod;
+                    echo $minimalebod;
                   } else {
                     echo $startprijs;
                   }
