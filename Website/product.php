@@ -135,14 +135,14 @@
               <div class='product-image-gallery'>
             <img id='main-product-image' class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
             
-            <ul class='product-thumbs'>
+            <table>
             ";
               createFotos(0);
               createFotos(1);
               createFotos(2);
               createFotos(3);
             echo"
-            </ul>
+            </table>
            
             </div>
             </div>

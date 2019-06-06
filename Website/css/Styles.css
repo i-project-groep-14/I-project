@@ -323,7 +323,8 @@ input:checked + .side-label::after {
   background-size:     cover;
 }
 .sim-thumb{
-  width: 20%;
+  width: 100px;
+  height: fit-content;
 }
 
 #add{

@@ -496,7 +496,7 @@ function createFotos($actueleplek) {
     }
     echo"
     
-        <li> <a class='sim-thumb' data-image='$afbeelding'><img src='$afbeelding' alt=''></a> </li>
+        <td class='sim-thumb'> <a class='sim-thumb'  data-image='$afbeelding'><img src='$afbeelding' alt=''></a> </td>
 
     
     ";
