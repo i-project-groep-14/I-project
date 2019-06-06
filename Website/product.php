@@ -72,7 +72,7 @@
         //     ':voorwerpnummer' => $_SESSION['voorwerp']
         // ));
         
-        $sql = "SELECT v.verkoper, g.mailadres
+        $sql = "SELECT v.verkoper, g.mailadres,v.titel,v.verkoopprijs,v.koper
                 FROM voorwerp v inner join gebruiker g on v.verkoper = g.gebruikersnaam
                 where v.voorwerpnummer = :voorwerpnummer";
                 $query = $dbh->prepare($sql);
