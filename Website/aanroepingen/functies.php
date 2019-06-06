@@ -215,7 +215,7 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
 
   $voorwerpnummer = $row['voorwerp'];
 
-  $sql = "SELECT titel, beschrijving, verkoopprijs, verkoper, plaatsnaam FROM voorwerp
+  $sql = "SELECT titel, beschrijving, verkoopprijs, verkoper, plaatsnaam, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
           WHERE voorwerpnummer like :voorwerpnummer";
   $query = $dbh->prepare($sql);
   $query -> execute(array(
@@ -227,8 +227,17 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
   $beschrijving = strip_tags($row['beschrijving']);
   $hoogstebod = strip_tags($row['verkoopprijs']);
   $gebruikersnaam = strip_tags($row['verkoper']);
-  $tijd = "Danny voeg aub hier die timer toe!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
   $locatie = strip_tags($row['plaatsnaam']);
+
+  $looptijdeindeDag = $row['looptijdeindeDag'];
+  $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
+
+  $combinedDT = date('Y-m-d H:i:s', strtotime("$looptijdeindeDag $looptijdeindeTijdstip"));
+  $difference = timeDiff(date("Y-m-d H:i:s"),$combinedDT);
+  $years = abs(floor($difference / 31536000));
+  $days = abs(floor(($difference-($years * 31536000))/86400));
+  $hours = abs(floor(($difference-($years * 31536000)-($days * 86400))/3600));
+  $mins = abs(floor(($difference-($years * 31536000)-($days * 86400)-($hours * 3600))/60));
   
   $sql = "SELECT filenaam FROM bestand
           WHERE voorwerp like :voorwerpnummer";
@@ -264,7 +273,7 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
             <div class='PrijsRubProduct'>
               <h4>€ $hoogstebod</h4>
               <p>$gebruikersnaam</p>
-              <p>$tijd</p>
+              <p>".$days."d ".$hours."h</p>
               <p>$locatie</p>
             </div>
           </button>
@@ -293,7 +302,7 @@ function selectAantalVoorwerpen($rubrieknummer) {
 function createZoekVoorwerpen($voorwerpnummer) {
   global $dbh;
   
-  $sql = "SELECT titel, beschrijving, verkoopprijs, verkoper, plaatsnaam FROM voorwerp
+  $sql = "SELECT titel, beschrijving, verkoopprijs, verkoper, plaatsnaam, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
           WHERE voorwerpnummer like :voorwerpnummer";
   $query = $dbh->prepare($sql);
   $query -> execute(array(
@@ -305,8 +314,17 @@ function createZoekVoorwerpen($voorwerpnummer) {
   $beschrijving = strip_tags($row['beschrijving']);
   $hoogstebod = strip_tags($row['verkoopprijs']);
   $gebruikersnaam = strip_tags($row['verkoper']);
-  $tijd = "Danny voeg aub hier die timer toe!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
   $locatie = strip_tags($row['plaatsnaam']);
+
+  $looptijdeindeDag = $row['looptijdeindeDag'];
+  $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
+
+  $combinedDT = date('Y-m-d H:i:s', strtotime("$looptijdeindeDag $looptijdeindeTijdstip"));
+  $difference = timeDiff(date("Y-m-d H:i:s"),$combinedDT);
+  $years = abs(floor($difference / 31536000));
+  $days = abs(floor(($difference-($years * 31536000))/86400));
+  $hours = abs(floor(($difference-($years * 31536000)-($days * 86400))/3600));
+  $mins = abs(floor(($difference-($years * 31536000)-($days * 86400)-($hours * 3600))/60));
 
   $sql = "SELECT filenaam FROM bestand
           WHERE voorwerp like :voorwerpnummer";
@@ -342,7 +360,7 @@ function createZoekVoorwerpen($voorwerpnummer) {
             <div class='PrijsRubProduct'>
               <h4>€ $hoogstebod</h4>
               <p>$gebruikersnaam</p>
-              <p>$tijd</p>
+              <p>".$days."d ".$hours."h</p>
               <p>$locatie</p>
             </div>
           </button>
