@@ -101,6 +101,9 @@ FROM nepebay.dbo.Items v inner join nepebay.dbo.illustraties i on v.id = i.itemi
 select * from [voorwerp in rubriek]
 select * from voorwerp inner join [voorwerp in rubriek] on voorwerp.voorwerpnummer = [voorwerp in rubriek].voorwerp where [rubriek op laagste niveau] = 109025
 select * from rubriek where rubrieknummer = 35010
+
+SELECT [rubriek op laagste niveau] as rubriek FROM [voorwerp in rubriek] r inner join voorwerp v on v.voorwerpnummer = r.voorwerp
+              WHERE v.titel like '%dvd%'
 */
 
 
