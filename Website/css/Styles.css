@@ -317,7 +317,8 @@ input:checked + .side-label::after {
   position: relative;
   float: left;
   width:  600px;
-  max-height: 250px;
+  height: 400px;
+  max-height: 400px;
   background-position: 50% 50%;
   background-repeat:   no-repeat;
   background-size:     cover;
