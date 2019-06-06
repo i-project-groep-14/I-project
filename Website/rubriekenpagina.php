@@ -3,6 +3,7 @@
 
       require_once 'aanroepingen/connectie.php';
       include_once 'aanroepingen/header.php';
+
     ?>
 
     <div class="holy-grail-middle">
@@ -61,13 +62,32 @@
               <option>Sluittijd (lang-kort)</option>
             </select>
           </div>
+
           <div class="FilterZoek">
-            <h3>Zoeken </h3>
-            <br>
-            <input type="text" id="myInput" onkeyup="zoekFunctie()" placeholder="Zoeken op rubriek...">
-            <input type='submit' class='button' value="Zoeken">
+            <form action="rubriekenpagina.php?id=<?php echo $_GET['id'];?>" method="post">
+              <div class="ZoekProduct">
+                <input class="InputZoekProduct" type="search" name="zoekwoord" placeholder="Zoek product...">
+                <input type="submit" class="button" name="zoeken" value="Zoek">
+              </div>
+            </form>
           </div>
-        </div>
+  <?php
+    if (isset($_POST['zoeken'])) {
+      $zoekterm = $_POST['zoekwoord'];
+      $sql = "SELECT voorwerp FROM [voorwerp in rubriek] r inner join voorwerp v on v.voorwerpnummer = r.voorwerp
+              WHERE v.titel like '%$zoekterm%' and [rubriek op laagste niveau] like :rubriek";
+      $query = $dbh->prepare($sql);
+      $query -> execute(array(
+        ':rubriek' => $_GET['id']
+      ));
+
+      while ($row = $query -> fetch()) {
+        createZoekVoorwerpen($row['voorwerp']);
+      }
+    }
+    ?>
+    
+  </div>
 <!--  EINDE FILTER  -->
 
 
@@ -75,12 +95,14 @@
       </div>
 
       <?php    
-        $aantalVoorwerpen = selectAantalVoorwerpen($_GET['id']);
+        if (!isset($_POST['zoeken'])) {
+          $aantalVoorwerpen = selectAantalVoorwerpen($_GET['id']);
 
-        $plek = 0;
+          $plek = 0;
 
-        for($i = 0; $i < $aantalVoorwerpen; $i++) {
-          $plek = createVoorwerpInRubriekItem($plek, $_GET['id']);
+          for($i = 0; $i < $aantalVoorwerpen; $i++) {
+            $plek = createVoorwerpInRubriekItem($plek, $_GET['id']);
+          }
         }
       ?>
     </div>

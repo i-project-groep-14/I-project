@@ -621,15 +621,15 @@ footer{
 .InfoRubProduct{
   padding: 10px;
 	height: 100%;
-	width: 100%;
+	max-width: 200px;
 	
 }
 .TitelRubProduct{
 	width: 100%;
 }
 .OmschRubProduct{
-	width: 600px;
-	height: auto;
+  height: auto;
+  width: 200px;
 	
 }
 .PrijsRubProduct{

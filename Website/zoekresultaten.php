@@ -22,6 +22,7 @@
       // echo $zoekterm;
     }
   ?>
+  
 </div>
 
     <?php 
