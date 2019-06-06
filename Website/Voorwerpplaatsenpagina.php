@@ -253,7 +253,8 @@
                     $sql_rubriek = "INSERT INTO [voorwerp in rubriek] VALUES (:voorwerp, :laagste_rubriek)";
                     $query_rubriek = $dbh->prepare($sql_rubriek);
                     $query_rubriek -> execute(array(':voorwerp' => $row['voorwerpnummer'], ':laagste_rubriek' => $laagste_rubriek ));
-                    header ('Location: index.php');
+                    //
+                    echo "<script> window.location.href = 'index.php' </script>";
                 }
             
 
@@ -372,7 +373,7 @@
                         </div>				
 					</div>
                     <div class="medium-12 cell">
-                    <input type="submit" class="veilingknop button submit" name="plaatsen_voorwerp" value="Plaatsen">
+                    <input type="submit" class="veilingknop button submit" name="plaatsen_voorwerp" value="Plaatsen"  >
                 </div>
             </div>
         </form>
@@ -429,6 +430,7 @@
 </script>
 
 <script type="text/javascript"> 
+
 
 function getSubRubriek(rubrieknummer){
     var ajax = new XMLHttpRequest();
