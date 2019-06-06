@@ -104,6 +104,16 @@
             $plek = createVoorwerpInRubriekItem($plek, $_GET['id']);
           }
         }
+
+        if ($aantalVoorwerpen == 0) {
+          echo "
+          <div data-closable class='callout alert-callout-border alert radius'>
+            Er zijn geen producten in deze rubriek.
+            <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+              <span aria-hidden='true'>&times;</span>
+            </button>
+          </div>";
+        }
       ?>
     </div>
 

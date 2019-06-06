@@ -19,6 +19,16 @@
         createZoekVoorwerpen($row['voorwerp']);
       }
 
+      if ($row['voorwerp'] == NULL) {
+        echo "
+        <div data-closable class='callout alert-callout-border alert radius'>
+          Er zijn geen zoekresultaten voor $zoekterm
+          <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+            <span aria-hidden='true'>&times;</span>
+          </button>
+        </div>";
+      }
+
       // echo $zoekterm;
     }
   ?>
