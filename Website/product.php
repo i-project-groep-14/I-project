@@ -184,7 +184,11 @@
               $beschrijving = strip_tags($row['beschrijving']);
               $locatie = strip_tags($row['plaatsnaam']);
               $startprijs = $row['startprijs'];
-              $hoogstebod = $row['verkoopprijs'];
+              if($row['verkoopprijs'] == NULL) {
+                $hoogstebod = $startprijs;
+              } else {
+                $hoogstebod = $row['verkoopprijs'];
+              }
               $betalingswijze = strip_tags($row['betalingswijze']);
               $verzendinstructies = strip_tags($row['verzendinstructies']);
               $verzendkosten = strip_tags($row['verzendkosten']);
@@ -238,7 +242,7 @@
                 <p class='middle'>Huidige Prijs:</p>
               </div>
               <div class='small-9 columns'>";
-                if(isset($hoogstebod)) {
+                if($hoogstebod != $startprijs) {
                   echo"<p><b>€ $hoogstebod</b></p>";
                 }
               echo"
@@ -277,10 +281,10 @@
                 </form>
               </div>";
             }// tabel met top 4 biedingen moet nog dynamisch gemaakt worden
-            echo "
-                        
-            <p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>
-            <p>Looptijd:</p>
+            if($_SESSION['gebruikersnaam'] != $verkoper) {
+              echo"<p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>";
+            }
+            echo "<p>Looptijd:</p>
             <div class='klok'>
             
             <div id='clockdiv'>
