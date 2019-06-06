@@ -14,25 +14,28 @@
               WHERE v.titel like '%$zoekterm%'";
       $query = $dbh->prepare($sql);
       $query -> execute();
-
+      $zoeken = false;
       while ($row = $query -> fetch()) {
         createZoekVoorwerpen($row['voorwerp']);
+        $zoeken = true;
       }
 
-      if ($row['voorwerp'] == NULL) {
-        echo "
-        <div data-closable class='callout alert-callout-border alert radius'>
-          Er zijn geen zoekresultaten voor $zoekterm
-          <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
-            <span aria-hidden='true'>&times;</span>
-          </button>
-        </div>";
+      if($zoeken == false) {
+        if ($row['voorwerp'] == NULL) {
+          echo "
+          <div data-closable class='callout alert-callout-border alert radius'>
+            Er zijn geen zoekresultaten voor $zoekterm
+            <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+              <span aria-hidden='true'>&times;</span>
+            </button>
+          </div>";
+        }
       }
 
       // echo $zoekterm;
     }
   ?>
-  
+
 </div>
 
     <?php 

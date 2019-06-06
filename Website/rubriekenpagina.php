@@ -64,6 +64,8 @@
           </div>
 
           <div class="FilterZoek">
+            <h3>Zoeken</h3>
+            <br>
             <form action="rubriekenpagina.php?id=<?php echo $_GET['id'];?>" method="post">
               <div class="ZoekProduct">
                 <input class="InputZoekProduct" type="search" name="zoekwoord" placeholder="Zoek product...">
@@ -80,9 +82,21 @@
       $query -> execute(array(
         ':rubriek' => $_GET['id']
       ));
-
+      $zoeken = false;
       while ($row = $query -> fetch()) {
         createZoekVoorwerpen($row['voorwerp']);
+        $zoeken = true;
+      }
+      if($zoeken == false) {
+        if ($row['voorwerp'] == NULL) {
+          echo "
+          <div data-closable class='callout alert-callout-border alert radius'>
+            Er zijn geen zoekresultaten voor $zoekterm
+            <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+              <span aria-hidden='true'>&times;</span>
+            </button>
+          </div>";
+        }
       }
     }
     ?>
@@ -103,16 +117,16 @@
           for($i = 0; $i < $aantalVoorwerpen; $i++) {
             $plek = createVoorwerpInRubriekItem($plek, $_GET['id']);
           }
-        }
 
-        if ($aantalVoorwerpen == 0) {
-          echo "
-          <div data-closable class='callout alert-callout-border alert radius'>
-            Er zijn geen producten in deze rubriek.
-            <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
-              <span aria-hidden='true'>&times;</span>
-            </button>
-          </div>";
+          if ($aantalVoorwerpen == 0) {
+            echo "
+            <div data-closable class='callout alert-callout-border alert radius'>
+              Er zijn geen producten in deze rubriek.
+              <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+                <span aria-hidden='true'>&times;</span>
+              </button>
+            </div>";
+          }
         }
       ?>
     </div>
