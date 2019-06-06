@@ -18,9 +18,16 @@
     
     <div class="holy-grail-middle">
       <h3 class="InlogpaginaKopje"> Beheerders Pagina </h3>
+
+      <?php
+      if(isset($melding)) {
+						echo "<br>";
+						echo $melding; 
+    }
+    ?>
 <br>
 
-      <h4> Gebruiker blokkeren</h4>
+      <h2> Gebruiker blokkeren</h2>
 
       <input type="text" id="myInput" onkeyup="zoekFunctie()" placeholder="Zoeken op gebruikersnaam...">
       <div class="scrollbar">
