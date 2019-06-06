@@ -215,7 +215,7 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
 
   $voorwerpnummer = $row['voorwerp'];
 
-  $sql = "SELECT titel, beschrijving, verkoopprijs, verkoper, plaatsnaam, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
+  $sql = "SELECT titel, beschrijving, verkoopprijs, startprijs, verkoper, plaatsnaam, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
           WHERE voorwerpnummer like :voorwerpnummer";
   $query = $dbh->prepare($sql);
   $query -> execute(array(
@@ -225,7 +225,8 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
 
   $titel = strip_tags($row['titel']);
   $beschrijving = strip_tags($row['beschrijving']);
-  $hoogstebod = strip_tags($row['verkoopprijs']);
+  $hoogstebod = $row['verkoopprijs'];
+  $startprijs = $row['startprijs'];
   $gebruikersnaam = strip_tags($row['verkoper']);
   $locatie = strip_tags($row['plaatsnaam']);
 
@@ -271,7 +272,13 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
         <form action='product.php' method='POST'>
           <button type='submit' value='$voorwerpnummer' name='voorwerp' class='button ProductButton'>
             <div class='PrijsRubProduct'>
-              <h4>€ $hoogstebod</h4>
+              <h4>€ ";
+              if (isset($hoogstebod)) {
+                echo $hoogstebod;
+              } else {
+                echo $startprijs;
+              }
+              echo"</h4>
               <p>$gebruikersnaam</p>
               <p>".$days."d ".$hours."h</p>
               <p>$locatie</p>
@@ -302,7 +309,7 @@ function selectAantalVoorwerpen($rubrieknummer) {
 function createZoekVoorwerpen($voorwerpnummer) {
   global $dbh;
   
-  $sql = "SELECT titel, beschrijving, verkoopprijs, verkoper, plaatsnaam, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
+  $sql = "SELECT titel, beschrijving, verkoopprijs, startprijs, verkoper, plaatsnaam, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
           WHERE voorwerpnummer like :voorwerpnummer";
   $query = $dbh->prepare($sql);
   $query -> execute(array(
@@ -312,7 +319,8 @@ function createZoekVoorwerpen($voorwerpnummer) {
 
   $titel = strip_tags($row['titel']);
   $beschrijving = strip_tags($row['beschrijving']);
-  $hoogstebod = strip_tags($row['verkoopprijs']);
+  $hoogstebod = $row['verkoopprijs'];
+  $startprijs = $row['startprijs'];
   $gebruikersnaam = strip_tags($row['verkoper']);
   $locatie = strip_tags($row['plaatsnaam']);
 
@@ -358,7 +366,13 @@ function createZoekVoorwerpen($voorwerpnummer) {
         <form action='product.php' method='POST'>
           <button type='submit' value='$voorwerpnummer' name='voorwerp' class='button ProductButton'>
             <div class='PrijsRubProduct'>
-              <h4>€ $hoogstebod</h4>
+              <h4>€ ";
+              if (isset($hoogstebod)) {
+                echo $hoogstebod;
+              } else {
+                echo $startprijs;
+              }
+              echo"</h4>
               <p>$gebruikersnaam</p>
               <p>".$days."d ".$hours."h</p>
               <p>$locatie</p>
@@ -471,8 +485,6 @@ function createProductRubrieken($rubrieknummer) {
 }
 
 
-
-
 function timeDiff($firstTime,$lastTime){
     $firstTime=strtotime($firstTime);
     $lastTime=strtotime($lastTime);
@@ -495,7 +507,7 @@ function createHomepageItem($sql, $actueleplek) {
 
     $row = $query -> fetch();
 
-    $titel = $row['titel'];
+    $titel = strip_tags($row['titel']);
     $hoogstebod = $row['verkoopprijs'];
     $voorwerpnummer = $row['voorwerpnummer'];
     $looptijdeindeDag = $row['looptijdeindeDag'];
