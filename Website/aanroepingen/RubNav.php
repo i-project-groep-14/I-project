@@ -19,7 +19,7 @@
       $query -> execute();
 
       while($row = $query -> fetch()){  
-        echo"<a id=$row[rubrieknummer] class='addressClick fi-folder-add'>$row[rubrieknaam]</a>";
+        echo"<a id=$row[rubrieknummer] class='addressClick fi-folder-add'> $row[rubrieknaam]</a>";
         echo"<div class='1-rub multilevel-accordion-menu is-accordion-submenu a ' id='sub-rubriek-nav-$row[rubrieknummer]'></div>";
       }
      
@@ -68,7 +68,7 @@ $(".addressClick").click(function () {
                 }else{
                   $("#"+data[a].rubrieknummer).addClass("fi-folder-add");
                 }*/
-                html += "<li><a class='addressClick2 "+icon+"' id='"+data[a].rubrieknummer+"'>"+ data[a].rubrieknaam +"</a></li>";
+                html += "<li><a class='addressClick2 "+icon+"' id='"+data[a].rubrieknummer+"'> "+ data[a].rubrieknaam +"</a></li>";
                 html += "<div class='2-rub' id='sub-rubriek-nav-2-"+data[a].rubrieknummer+"' ></div>";
             }
             html += "</ul>";
@@ -116,7 +116,7 @@ function getSubSubRubriekRub(rubrieknummer){
               location.replace("rubriekenpagina.php?id="+ rubrieknummer)
             }else{
               for(var a = 0; a < data.length; a++){
-                html += "<li><a class='addressClick3 "+icon+"' id="+data[a].rubrieknummer+">"+ data[a].rubrieknaam +"</a></li>";
+                html += "<li><a class='addressClick3 "+icon+"' id="+data[a].rubrieknummer+"> "+ data[a].rubrieknaam +"</a></li>";
                 html += "<div class='3-rub' id='sub-rubriek-nav-3-"+data[a].rubrieknummer+"' ></div>";
             }
             html += "</ul>";
@@ -156,7 +156,7 @@ function getSubSubSubRubriekRub(rubrieknummer){
               location.replace("rubriekenpagina.php?id="+ rubrieknummer)
             }else{
               for(var a = 0; a < data.length; a++){
-                html += "<li><a class='addressClick4 "+icon+"' id="+data[a].rubrieknummer+">"+ data[a].rubrieknaam +"</a></li>";
+                html += "<li><a class='addressClick4 "+icon+"' id="+data[a].rubrieknummer+"> "+ data[a].rubrieknaam +"</a></li>";
                 html += "<div class='4-rub' id='sub-rubriek-nav-4-"+data[a].rubrieknummer+"' ></div>";
             }
             html += "</ul>";
@@ -198,7 +198,7 @@ function getSubSubSubSubRubriekRub(rubrieknummer){
             }else{
               for(var a = 0; a < data.length; a++){
                 
-                  html += "<li><a class='addressClick5 "+icon+"' id="+data[a].rubrieknummer+">"+ data[a].rubrieknaam +"</a></li>";
+                  html += "<li><a class='addressClick5 "+icon+"' id="+data[a].rubrieknummer+"> "+ data[a].rubrieknaam +"</a></li>";
                   html += "<div id='sub-rubriek-nav-5-"+data[a].rubrieknummer+"' ></div>";
               }
               html += "</ul>";
