@@ -390,7 +390,7 @@ ALTER TABLE bod
 ADD CONSTRAINT CHK_VeilingOpen CHECK (dbo.fnVeilingGesloten(voorwerpNummer) = 0 )
 
 GO
-
+/*
 CREATE FUNCTION fnHoogsteBieder
 (
   @voorwerpNummer INT
@@ -409,7 +409,7 @@ END
 GO
 
 ALTER TABLE voorwerp
-ADD HoogsteBieder AS dbo.fnHoogsteBieder(voorwerpNummer) --Appendix E, blz 13  AF4
+ADD HoogsteBieder AS dbo.fnHoogsteBieder(voorwerpNummer) --Appendix E, blz 13  AF4*/
 /*
 GO
 

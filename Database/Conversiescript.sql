@@ -84,29 +84,23 @@ use nepebay
 
 INSERT INTO EenmaalAndermaal.dbo.bestand
 	SELECT distinct left(IllustratieFile,200) as filenaam,
-	CAST(left(ITEMID,9) as int) as voorwerp
+	CAST(right(ITEMID,9) as int) as voorwerp
 FROM (SELECT *, Rank() 
           over (Partition BY itemid
                 ORDER BY illustratiefile) AS Rank
         FROM Illustraties
-        ) Illustraties inner join items on Illustraties.itemid = items.id
+        ) Illustraties
 WHERE Rank <= 4
 
-/*
 INSERT INTO EenmaalAndermaal.dbo.[voorwerp in rubriek]
-	SELECT distinct CAST(i.ID as bigint) as voorwerp,
-	CAST(i.Categorie as int) as [rubriek op laagste niveau]
-FROM nepebay.dbo.Items i full join categorieen c on c.id = i.id
-where c.ID != c.parent and c.id != null
+	SELECT distinct CAST(right(v.id,9) as int) as voorwerp,
+	CAST(Categorie+1 as int) as [rubriek op laagste niveau]
+FROM nepebay.dbo.Items v inner join nepebay.dbo.illustraties i on v.id = i.itemid
 
-select * from categorieen
-select parent from categorieen group by parent
-
-select * from categorieen
-where id not in (select parent from categorieen)
-
-select * from categorieen where parent = 179170
-select * from categorieen where id = 179170
+/*
+select * from [voorwerp in rubriek]
+select * from voorwerp inner join [voorwerp in rubriek] on voorwerp.voorwerpnummer = [voorwerp in rubriek].voorwerp where [rubriek op laagste niveau] = 109025
+select * from rubriek where rubrieknummer = 35010
 */
 
 
