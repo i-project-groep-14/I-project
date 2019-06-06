@@ -1,23 +1,32 @@
-<div class="ZoekProduct">
-    <input class="InputZoekProduct" type="search" placeholder="Zoek product...">
-    
-    
+<?php
+require_once "connectie.php";
 
-    <select class="ZoekRubrieken">
-        <option value="1000">Rubrieken</option>
-        <option value="Auto">Auto's</option>
-        <option value="Fietsen">Auto's en fietsen</option>
-        <option value="Kasten">Kaas en Kasten</option>
-        <option value="Keuken">Keuken</option>
-    </select>
-    
-    
-    <div class="input-group-button">
-        <input type="submit" class="button" id="search"  value="Zoek"><br>         
-    </div> 
-</div> 
+$zoekterm = "";
 
+// if (isset($_POST['zoeken'])) {
+//     try {
+//         $zoekterm = $_POST['zoekwoord'];
+//         $sql = "SELECT titel FROM voorwerp WHERE titel like '%:zoekterm%'";
+//         $query = $dbh->prepare($sql);
+//         $query -> execute(array(
+//             ':zoekterm' => $zoekterm
+//         ));
 
+//         $row = $query -> fetch();
+        
+//         }
+//     } catch (PDOException $e) {
+//        die ("Fout met de database: {$e->getMessage()} ");
+//     }
+// }
 
+?>
+
+<form method="post">
+    <div class="ZoekProduct">
+        <input class="InputZoekProduct" type="search" name="zoekwoord" placeholder="Zoek product...">
+        <input type="submit" class="button" name="zoeken" value="Zoek">
+    </div>
+</form>
 
 
