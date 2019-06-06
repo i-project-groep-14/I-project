@@ -290,6 +290,68 @@ function selectAantalVoorwerpen($rubrieknummer) {
 }
 
 
+function createZoekVoorwerpen($voorwerpnummer) {
+  global $dbh;
+  
+  $sql = "SELECT titel, beschrijving, verkoopprijs, verkoper, plaatsnaam FROM voorwerp
+          WHERE voorwerpnummer like :voorwerpnummer";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':voorwerpnummer' => $voorwerpnummer
+  ));
+  $row = $query -> fetch();
+
+  $titel = strip_tags($row['titel']);
+  $beschrijving = strip_tags($row['beschrijving']);
+  $hoogstebod = strip_tags($row['verkoopprijs']);
+  $gebruikersnaam = strip_tags($row['verkoper']);
+  $tijd = "Danny voeg aub hier die timer toe!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+  $locatie = strip_tags($row['plaatsnaam']);
+
+  $sql = "SELECT filenaam FROM bestand
+          WHERE voorwerp like :voorwerpnummer";
+  $query = $dbh->prepare($sql);
+  $query -> execute(array(
+    ':voorwerpnummer' => $voorwerpnummer
+  ));
+
+  $row = $query -> fetch();
+
+  if ($row['filenaam'] == NULL) {
+    $afbeelding = "images/imageplaceholder.png";
+  } else if (substr($row['filenaam'],0,2) != "dt" ) {
+    $afbeelding = $row['filenaam'];
+  } else {
+    $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
+  }
+
+  echo "
+    <article class='RubProduct'>
+      <img class='FotoRubProduct' src='$afbeelding' alt='Voorwerpfoto'> 
+      <div class='InfoRubProduct'>
+        <div class='TitelRubProduct'>
+          <h4>$titel</h4><br>
+        </div>
+        <div class='OmschRubProduct'>
+          <p>$beschrijving</p>
+        </div>
+      </div>
+      <!--<a href='product.php'>-->
+        <form action='product.php' method='POST'>
+          <button type='submit' value='$voorwerpnummer' name='voorwerp' class='button ProductButton'>
+            <div class='PrijsRubProduct'>
+              <h4>€ $hoogstebod</h4>
+              <p>$gebruikersnaam</p>
+              <p>$tijd</p>
+              <p>$locatie</p>
+            </div>
+          </button>
+        </form>
+      <!--</a>-->
+    </article>
+  ";
+}
+
 
 function heeftParentRubriek($rubrieknummer) {
   global $dbh;
