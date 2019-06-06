@@ -21,13 +21,13 @@
           </button>
         </div>";
         
-        echo $bod;
+        //echo $bod;
 
         $sql = "INSERT INTO bod VALUES (:voorwerpnummer, :bodbedrag, :gebruiker, GETDATE(), CONVERT(TIME,GETDATE()))";
         $query = $dbh->prepare($sql);
         $query -> execute(array(
           ':voorwerpnummer' => $voorwerpnummer,
-          ':bodbedrag' => 1,
+          ':bodbedrag' => $bod,
           ':gebruiker' => $gebruiker
         ));
 

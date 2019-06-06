@@ -383,7 +383,7 @@ GO
 CREATE FUNCTION fnVeilingGesloten
 (
   @voorwerpNummer INT
-) RETURNS BIT
+) RETURNS VARCHAR(4)
 AS
 BEGIN
   RETURN 
@@ -400,7 +400,7 @@ GO
 
 
 ALTER TABLE bod
-ADD CONSTRAINT CHK_VeilingOpen CHECK (dbo.fnVeilingGesloten(voorwerpNummer) = 0 )
+ADD CONSTRAINT CHK_VeilingOpen CHECK (dbo.fnVeilingGesloten(voorwerpNummer) = 'niet' )
 
 GO
 /*
