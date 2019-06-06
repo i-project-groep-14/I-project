@@ -9,7 +9,7 @@
         session_start();
     }
 
-    if(isset($_SESSION['login'])) {
+    if(isset($_SESSION['login']) || isset($_SESSION['nieuwWachtwoord'])) {
         $sql = "SELECT rol, gebruikersnaam, voornaam, plaatsnaam, land FROM gebruiker 
                 WHERE gebruikersnaam like :gebruikersnaam";
         $query = $dbh->prepare($sql);
@@ -75,7 +75,7 @@
                 </div>
                 <div class="top-bar-rechts">
                     <?php
-                        if(isset($_SESSION['login'])) {                        
+                        if(isset($_SESSION['login']) || isset($_SESSION['nieuwWachtwoord'])) {                        
                             echo "
                             </li> <button class='button loginbutton uitlogknop' type='submit' data-toggle='example-dropdown-bottom-right'>Account</button>
                                 
