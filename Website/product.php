@@ -61,16 +61,46 @@
         $query -> execute(array(
             ':voorwerpnummer' => $_SESSION['voorwerp']
         ));
+        
 
-        $sql = "UPDATE voorwerp
-                SET koper = :gebruiker
-                WHERE voorwerpnummer = :voorwerpnummer";
-        $query = $dbh->prepare($sql);
+        // $sql = "UPDATE voorwerp
+        //         SET koper = :gebruiker
+        //         WHERE voorwerpnummer = :voorwerpnummer";
+        // $query = $dbh->prepare($sql);
+        // $query -> execute(array(
+        //     ':gebruiker' => $_SESSION['gebruikersnaam'],
+        //     ':voorwerpnummer' => $_SESSION['voorwerp']
+        // ));
+        
+        $sql = "SELECT v.verkoper, g.mailadres
+                FROM voorwerp v inner join gebruiker g on v.verkoper = g.gebruikersnaam
+                where v.voorwerpnummer = :voorwerpnummer";
+                $query = $dbh->prepare($sql);
         $query -> execute(array(
-            ':gebruiker' => $_SESSION['gebruikersnaam'],
             ':voorwerpnummer' => $_SESSION['voorwerp']
         ));
+        $row = $query -> fetch();
+
+        $to = $row['mailadres'];
+        $from = "Noreply-EenmaalAndermaal@icasites.nl";
+        $subject = 'Bevestingingscode EenmaalAndermaal';
+    
+        //begin of HTML message 
+        $message ="
+    <html> 
+      <body > 
+     <p>hallo</p>
+      </body>
+    </html>";
+       //end of message 
+        $headers  = "From: $from\r\n"; 
+        $headers .= "Content-type: text/html\r\n";
+        // now lets send the email. 
+        mail($to, $subject, $message, $headers); 
+        
       }
+
+
 
     ?>
         
@@ -143,7 +173,7 @@
               createFotos(3);
             echo"
             </table>
-           
+                
             </div>
             </div>
             ";
@@ -266,6 +296,7 @@
             <p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>
             <p>Looptijd:</p>
             <div class='klok'>
+            
             <div id='clockdiv'>
               <div>
                 <span class='days' id='countdown'></span>
