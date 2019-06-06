@@ -29,7 +29,7 @@ drop table vraag
 drop table rubriek
 */
 
-use iproject14
+use EenmaalAndermaal
 
 
 /*==============================================================*/
