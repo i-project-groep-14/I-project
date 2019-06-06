@@ -17,9 +17,15 @@
       $sql = "SELECT * FROM rubriek WHERE rubriek = 0"; 
       $query = $dbh->prepare($sql);
       $query -> execute();
+      $icon = "";
 
-      while($row = $query -> fetch()){  
-        echo"<a id=$row[rubrieknummer] class='addressClick fi-folder-add'> $row[rubrieknaam]</a>";
+      while($row = $query -> fetch()){ 
+        if(heeftSubriek($row['rubrieknummer'])){
+          $icon="fi-folder-add";
+        }else{
+          $icon="subitem fi-page";
+        }
+        echo"<a id=$row[rubrieknummer] class='addressClick ".$icon."'> $row[rubrieknaam]</a>";
         echo"<div class='1-rub multilevel-accordion-menu is-accordion-submenu a ' id='sub-rubriek-nav-$row[rubrieknummer]'></div>";
       }
      
@@ -58,10 +64,13 @@ $(".addressClick").click(function () {
             var data = JSON.parse(this.responseText);
             var html = "<ul class='menu vertical sublevel-1'>";
             var icon = "fi-folder-add";
-
+           
             if(data.length == 0){
               location.replace("rubriekenpagina.php?id="+ rubrieknummer)
             }else{
+
+             
+
               for(var a = 0; a < data.length; a++){
               /*if(data[a].aantal == 0){
                   $("#"+data[a].rubrieknummer).addClass("fi-page");
