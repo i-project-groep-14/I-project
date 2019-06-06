@@ -32,6 +32,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
 <script>
+//Als je op een subrubriek klikt zal deze open klappen of naar andere pagina worden verwezen. Maar je kan niet meerdere sub rubrieken open laten staan. 
+//Er is hiervoor gekozen zodat de performance beter is met veel rubrieken. 
+
 var klik = 0;
 $(".addressClick").click(function () {
   klik++;
@@ -56,7 +59,10 @@ $(".addressClick").click(function () {
             var html = "<ul class='menu vertical sublevel-1'>";
             var icon = "fi-folder-add";
 
-            for(var a = 0; a < data.length; a++){
+            if(data.length == 0){
+              location.replace("rubriekenpagina.php?id="+ rubrieknummer)
+            }else{
+              for(var a = 0; a < data.length; a++){
               /*if(data[a].aantal == 0){
                   $("#"+data[a].rubrieknummer).addClass("fi-page");
                 }else{
@@ -66,6 +72,10 @@ $(".addressClick").click(function () {
                 html += "<div class='2-rub' id='sub-rubriek-nav-2-"+data[a].rubrieknummer+"' ></div>";
             }
             html += "</ul>";
+
+            }
+
+        
           
             document.getElementById("sub-rubriek-nav-" + rubrieknummer).innerHTML = html;
         }
@@ -101,16 +111,16 @@ function getSubSubRubriekRub(rubrieknummer){
             var data = JSON.parse(this.responseText);
             var html = "<ul class='menu vertical sublevel-2'>";
             var icon = "fi-folder-add";
-            for(var a = 0; a < data.length; a++){
-              /*if(data.length == 0){
-                $("#"+data[a].rubrieknummer).addClass("fi-page");
-                }else{
-                  icon = "fi-folder-add";
-                }*/
+            
+            if(data.length == 0){
+              location.replace("rubriekenpagina.php?id="+ rubrieknummer)
+            }else{
+              for(var a = 0; a < data.length; a++){
                 html += "<li><a class='addressClick3 "+icon+"' id="+data[a].rubrieknummer+">"+ data[a].rubrieknaam +"</a></li>";
                 html += "<div class='3-rub' id='sub-rubriek-nav-3-"+data[a].rubrieknummer+"' ></div>";
             }
             html += "</ul>";
+            }  
             document.getElementById("sub-rubriek-nav-2-" + rubrieknummer).innerHTML = html;
         }
 
@@ -141,15 +151,17 @@ function getSubSubSubRubriekRub(rubrieknummer){
             var data = JSON.parse(this.responseText);
             var html = "<ul class='menu vertical sublevel-3'>";
             var icon = "fi-folder-add";
-            for(var a = 0; a < data.length; a++){
-                /*if(data[a].rubriekAantal == 0){
-                  icon = "fi-page";
-                }*/
+
+            if(data.length == 0){
+              location.replace("rubriekenpagina.php?id="+ rubrieknummer)
+            }else{
+              for(var a = 0; a < data.length; a++){
                 html += "<li><a class='addressClick4 "+icon+"' id="+data[a].rubrieknummer+">"+ data[a].rubrieknaam +"</a></li>";
                 html += "<div class='4-rub' id='sub-rubriek-nav-4-"+data[a].rubrieknummer+"' ></div>";
             }
             html += "</ul>";
-          
+            }
+            
             document.getElementById("sub-rubriek-nav-3-" + rubrieknummer).innerHTML = html;
         }
 
@@ -180,13 +192,17 @@ function getSubSubSubSubRubriekRub(rubrieknummer){
             var data = JSON.parse(this.responseText);
             var html = "<ul class='menu vertical sublevel-4'>";
             var icon = "fi-folder-add";
-            for(var a = 0; a < data.length; a++){
-               
-                html += "<li><a class='addressClick5 "+icon+"' id="+data[a].rubrieknummer+">"+ data[a].rubrieknaam +"</a></li>";
-                html += "<div id='sub-rubriek-nav-5-"+data[a].rubrieknummer+"' ></div>";
+
+            if(data.length == 0){
+              location.replace("rubriekenpagina.php?id="+ rubrieknummer)
+            }else{
+              for(var a = 0; a < data.length; a++){
+                
+                  html += "<li><a class='addressClick5 "+icon+"' id="+data[a].rubrieknummer+">"+ data[a].rubrieknaam +"</a></li>";
+                  html += "<div id='sub-rubriek-nav-5-"+data[a].rubrieknummer+"' ></div>";
+              }
+              html += "</ul>";
             }
-            html += "</ul>";
-      
             document.getElementById("sub-rubriek-nav-4-" + rubrieknummer).innerHTML = html;
         }
 
