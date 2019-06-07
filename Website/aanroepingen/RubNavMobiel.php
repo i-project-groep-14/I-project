@@ -3,7 +3,7 @@
   <button class="collapsible">Zoeken</button>
   <div class="content">
     <Br>
-    <form action="" method="">
+    <form action="<?php echo $config['pagina'].".php"; ?>" method="">
       <input type="search" placeholder="Zoek Product..."><br>
       <select>
         <option>Rubrieken</option>
