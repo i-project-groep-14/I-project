@@ -16,7 +16,9 @@ drop database EenmaalAndermaal
 /*==============================================================*/
 create database EenmaalAndermaal
 
-
+select * from voorwerp where verkoper='Beheerder'
+select * from [voorwerp in rubriek] where voorwerp = 999598303
+select * from rubriek where rubrieknummer = 1478
 /*
 drop table bestand
 drop table bod
