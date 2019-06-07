@@ -388,13 +388,20 @@ footer{
 
 
 
+
 @media only screen and (max-width: 768px){
   .ProductenContainer{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-
+  .OmschRubProduct{
+    
+    width: 100%;
+  }
+  .FormRubPrijs{
+    width: 100%;
+  }
   
  
   .ZoekProduct{
@@ -441,10 +448,23 @@ footer{
     flex-wrap: wrap;
     height: 100%;
   }
-  
-  .FotoRubProduct{
-    width: fit-content;
+  .RubProduct{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
   }
+  
+  .FormRubPrijs{
+    align-items: center;
+    width: 100%;
+  }
+
+  .FotoRubProduct{
+    width: 100%;
+  }
+ 
+  
   .OmschRubProduct{
     display:none;
   }
@@ -605,37 +625,41 @@ footer{
 
 .RubProduct{
   display: flex;
-  justify-content: space-between;
   margin-bottom: 10px;
   box-shadow: 0 4px 8px 0px;
 }
 .FotoRubProduct{
-	width: 250px;
+	width: 200px;
 	height: 240px;
-
+  
 }
 .InfoRubProduct{
+  
   padding: 10px;
 	height: 100%;
-	max-width: 200px;
+	width: 100%;
 	
 }
+
+.FormRubPrijs{
+display: flex;
+
+  height: fit-content;
+}
+.PrijsRubProduct{
+  width: 200px;
+}
+
+
 .TitelRubProduct{
-	width: 1000px;
+	width: 100%;
 }
 .OmschRubProduct{
   height: auto;
-  width: 200px;
+  width: 100%;
 	
 }
-.PrijsRubProduct{
-  width: 250px;
-	height: 100%;
-  background-color: #F2552C;
-  color: white;
-  padding: 25px;
-  text-align: center;
-}
+
 /*   EINDE RUBRIEKEN PAGINA */
 
 .tab-biedingen-thumb{
@@ -713,6 +737,7 @@ body{
   width: 100%;
   font-size: 18px;
 }
+
 
 .Product button:hover {
   background-color: black;

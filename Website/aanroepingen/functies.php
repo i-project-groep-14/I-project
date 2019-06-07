@@ -269,9 +269,11 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
         </div>
       </div>
       <!--<a href='product.php'>-->
-        <form action='product.php' method='POST'>
+      <div class='FormRubPrijs'>
+        <form action='product.php' method='POST' style='width: 100%;'>
           <button type='submit' value='$voorwerpnummer' name='voorwerp' class='button ProductButton'>
             <div class='PrijsRubProduct'>
+            <p>$gebruikersnaam</p'>
               <h4>€ ";
               if (isset($hoogstebod)) {
                 echo $hoogstebod;
@@ -279,12 +281,12 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
                 echo $startprijs;
               }
               echo"</h4>
-              <p>$gebruikersnaam</p>
-              <p>".$days."d ".$hours."h</p>
               <p>$locatie</p>
+              <p style='font-size:20px'>".$days."d ".$hours."h $mins m</p>
             </div>
           </button>
         </form>
+        </div>
       <!--</a>-->
     </article>
   ";
