@@ -174,6 +174,10 @@ li{
   letter-spacing: 0.05px;
   text-transform: uppercase;
 }
+.content>.collapsible{
+  display: none;
+}
+
 
 
 
@@ -386,7 +390,12 @@ footer{
 }
 
 
-
+.collapsible{
+  display: none;
+}
+.content{
+  display: none;
+}
 
 
 @media only screen and (max-width: 768px){
@@ -395,6 +404,9 @@ footer{
     flex-wrap: wrap;
     justify-content: center;
   }
+
+
+  
   .OmschRubProduct{
     
     width: 100%;
@@ -402,15 +414,21 @@ footer{
   .FormRubPrijs{
     width: 100%;
   }
-  
  
   .ZoekProduct{
     display: none;
     
   }
   .RubNav{
-    /* display: none; */
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
   }
+ 
   .MobileNav{
     display: block;
   
@@ -453,6 +471,7 @@ footer{
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
+    margin-bottom: 100px;
   }
   
   .FormRubPrijs{
@@ -627,7 +646,20 @@ footer{
   display: flex;
   margin-bottom: 10px;
   box-shadow: 0 4px 8px 0px;
+  width: 100%;
 }
+.wrapword{
+  white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+  white-space: -webkit-pre-wrap; /*Chrome & Safari */ 
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  white-space: pre-wrap;       /* css-3 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  word-break: break-all;
+  white-space: normal;
+  }
+
+
 .FotoRubProduct{
 	width: 200px;
 	height: 240px;

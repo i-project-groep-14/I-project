@@ -8,40 +8,6 @@
         $_SESSION['voorwerp'] = $_POST['voorwerp'];
       }
 
-      if (isset($_POST['bodgeplaatst'])) {
-        $voorwerpnummer = $_SESSION['voorwerp'];
-        $bod = (float) $_POST['bod'];
-        $gebruiker = $_SESSION['gebruikersnaam'];
-
-        $melding = "  
-        <div data-closable class='callout alert-callout-border success'>
-          <strong>Yay!</strong> - Uw bieding is geplaatst.
-          <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
-            <span aria-hidden='true'>&times;</span>
-          </button>
-        </div>";
-        
-        //echo $bod;
-
-        $sql = "INSERT INTO bod VALUES (:voorwerpnummer, :bodbedrag, :gebruiker, GETDATE(), CONVERT(TIME,GETDATE()))";
-        $query = $dbh->prepare($sql);
-        $query -> execute(array(
-          ':voorwerpnummer' => $voorwerpnummer,
-          ':bodbedrag' => $bod,
-          ':gebruiker' => $gebruiker
-        ));
-
-          $sql = "UPDATE voorwerp
-                SET verkoopprijs = :bod
-                WHERE voorwerpnummer = :voorwerpnummer";
-         $query = $dbh->prepare($sql);
-         $query -> execute(array(
-           ':bod' => $bod,
-           ':voorwerpnummer' => $voorwerpnummer
-         ));
-
-      }
-
       $sql = "SELECT veilingGesloten, looptijdeindeDag, looptijdeindeTijdstip FROM voorwerp
               WHERE voorwerpnummer = :voorwerpnummer";
       $query = $dbh->prepare($sql);
@@ -82,11 +48,52 @@
         ));
         $row = $query -> fetch();
 
-        include_once 'aanroepingen/EindeveilingMail.php';
+        // include_once 'aanroepingen/EindeveilingMail.php';
         
       }
 
+      $sql = "SELECT veilingGesloten FROM voorwerp
+            WHERE voorwerpnummer = :voorwerpnummer";
+      $query = $dbh->prepare($sql);
+      $query -> execute(array(
+        ':voorwerpnummer' => $_SESSION['voorwerp']
+      ));
+      $row = $query -> fetch();
 
+      if (isset($_POST['bodgeplaatst']) && $row['veilingGesloten'] == 'niet') {
+      // echo "test";
+      $voorwerpnummer = $_SESSION['voorwerp'];
+      $bod = (float) $_POST['bod'];
+      $gebruiker = $_SESSION['gebruikersnaam'];
+
+      $melding = "  
+      <div data-closable class='callout alert-callout-border success'>
+        <strong>Yay!</strong> - Uw bieding is geplaatst.
+        <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>";
+
+      //echo $bod;
+
+      $sql = "INSERT INTO bod VALUES (:voorwerpnummer, :bodbedrag, :gebruiker, GETDATE(), CONVERT(TIME,GETDATE()))";
+      $query = $dbh->prepare($sql);
+      $query -> execute(array(
+        ':voorwerpnummer' => $voorwerpnummer,
+        ':bodbedrag' => $bod,
+        ':gebruiker' => $gebruiker
+      ));
+
+        $sql = "UPDATE voorwerp
+              SET verkoopprijs = :bod
+              WHERE voorwerpnummer = :voorwerpnummer";
+      $query = $dbh->prepare($sql);
+      $query -> execute(array(
+        ':bod' => $bod,
+        ':voorwerpnummer' => $voorwerpnummer
+      ));
+
+      }
 
     ?>
         
@@ -170,7 +177,7 @@
           <!--Toevoegen informatie aan de rechterkant-->
           <div class="medium-6 large-5 columns lijn">
             <?php
-              $sql = "SELECT titel, verkoper, beschrijving, plaatsnaam, startprijs, verkoopprijs,verzendkosten, betalingswijze,betalingsinstructie, verzendinstructies, looptijdeindeDag, looptijdeindeTijdstip  FROM voorwerp
+              $sql = "SELECT titel, verkoper, beschrijving, plaatsnaam, startprijs, verkoopprijs,verzendkosten, betalingswijze,betalingsinstructie, verzendinstructies, looptijdeindeDag, looptijdeindeTijdstip, veilingGesloten FROM voorwerp
                       WHERE voorwerpnummer like :voorwerpnummer";
               $query = $dbh->prepare($sql);
               $query -> execute(array(
@@ -193,6 +200,7 @@
               $verzendinstructies = strip_tags($row['verzendinstructies']);
               $verzendkosten = strip_tags($row['verzendkosten']);
               $betalingsinstructie = strip_tags($row['betalingsinstructie']);
+              $veilinggesloten = $row['veilingGesloten'];
                 
               $looptijdeindeDag = $row['looptijdeindeDag'];
               $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
@@ -223,15 +231,16 @@
               $minimalebod = $hoogstebod + $stapbieding;
               // bieding
               echo"
-            <h3>$titel</h3>
+            <h3 class='wrapword'>$titel</h3>
             <p><i>$verkoper</i></p>
             <div class='row'>
               <div class='small-3 columns'>
-                <p class='middle'>Plaats:</p>
+                <p class='middle'>Land:</p>
               </div>
               <div class='small-9 columns'>
                 <p>$locatie</p>
               </div>
+              
               <div class='small-3 columns'>
                 <p class='middle'>Startprijs:</p>
               </div>
@@ -281,12 +290,14 @@
                 </form>
               </div>";
             }// tabel met top 4 biedingen moet nog dynamisch gemaakt worden
-            if(isset($_SESSION['gebruikersnaam'])) {
-              if ($_SESSION['gebruikersnaam'] != $verkoper) {
+            if ($veilinggesloten == 'niet') {
+              if(isset($_SESSION['gebruikersnaam'])) {
+                if ($_SESSION['gebruikersnaam'] != $verkoper) {
+                  echo"<p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>";
+                }
+              } else {
                 echo"<p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>";
               }
-            } else {
-              echo"<p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>";
             }
             echo "<p>Looptijd:</p>
             <div class='klok'>
@@ -313,7 +324,7 @@
           </ul>
 
         <div class="tab-biedingen tabs-content" data-tabs-content="example-tabs">
-          <div class=" tabs-panel tabs-panelv is-active" id="panel1">
+          <div class=" tabs-panel tabs-panelv is-active wrapword" id="panel1">
             <?php echo $beschrijving; ?>
           </div>
           <div class="tabs-panel tabs-panelv" id="panel2">

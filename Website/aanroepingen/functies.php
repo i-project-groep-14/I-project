@@ -257,15 +257,17 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
     $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
   }
 
-  echo "
+  echo "  
     <article class='RubProduct'>
       <img class='FotoRubProduct' src='$afbeelding' alt='Voorwerpfoto'> 
       <div class='InfoRubProduct'>
         <div class='TitelRubProduct'>
           <h4>$titel</h4><br>
         </div>
-        <div class='OmschRubProduct'>
-          <p>$beschrijving</p>
+        <div class='wrapword'>
+
+          <p class='OmschRubProduct'>$beschrijving</p>
+
         </div>
       </div>
       <!--<a href='product.php'>-->
@@ -550,7 +552,7 @@ function createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mi
     echo"
       <div class='card'>
         <img src='$afbeelding' alt='$titel'>
-        <h4>$titel</h4>
+        <h4 class='wrapword'>$titel</h4>
         <p class='price'>€";
         if (isset($hoogstebod)) {
           echo $hoogstebod;
@@ -639,7 +641,7 @@ function createRandomCode() {
     $i = 0; 
     $code = '';
 
-    while ($i <= 7) { 
+    while ($i <= 20) { 
         $num = rand() % 62; 
         $tmp = substr($chars, $num, 1); 
         $code = $code . $tmp; 
