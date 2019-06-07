@@ -231,15 +231,16 @@
               $minimalebod = $hoogstebod + $stapbieding;
               // bieding
               echo"
-            <h3>$titel</h3>
+            <h3 class='wrapword'>$titel</h3>
             <p><i>$verkoper</i></p>
             <div class='row'>
               <div class='small-3 columns'>
-                <p class='middle'>Plaats:</p>
+                <p class='middle'>Land:</p>
               </div>
               <div class='small-9 columns'>
                 <p>$locatie</p>
               </div>
+              
               <div class='small-3 columns'>
                 <p class='middle'>Startprijs:</p>
               </div>
@@ -323,7 +324,7 @@
           </ul>
 
         <div class="tab-biedingen tabs-content" data-tabs-content="example-tabs">
-          <div class=" tabs-panel tabs-panelv is-active" id="panel1">
+          <div class=" tabs-panel tabs-panelv is-active wrapword" id="panel1">
             <?php echo $beschrijving; ?>
           </div>
           <div class="tabs-panel tabs-panelv" id="panel2">

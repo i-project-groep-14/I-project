@@ -106,29 +106,29 @@
 
                 $looptijd = $_POST['loopdag'];
 
-                $laagste_rubriek = -1;
+                //$laagste_rubriek = -1;
                 $laagste_rubriek = $_POST['rubriek'];
-                if(!empty($_POST['sub-rubriek']) ){
+              /*  if(!empty($_POST['sub-rubriek']) ){
                     $laagste_rubriek = $_POST['sub-rubriek'];
                     
                 }else{
                     $laagste_rubriek = $_POST['rubriek']; 
-                }
+                }*/
 
-                if(!empty($_POST['sub-sub-rubriek']) ){
-                    $laagste_rubriek = $_POST['sub-sub-rubriek'];
-                }else{
-                    $laagste_rubriek = $_POST['sub-rubriek'];
-                }
+                // if(!empty($_POST['sub-sub-rubriek']) ){
+                //     $laagste_rubriek = $_POST['sub-sub-rubriek'];
+                // }else{
+                //     $laagste_rubriek = $_POST['sub-rubriek'];
+                // }
 
-                if(!empty($_POST['sub-sub-sub-rubriek']) ){
-                    $laagste_rubriek = $_POST['sub-sub-sub-rubriek']; 
-                }
-                else if(empty($_POST['sub-sub-rubriek'])){
-                    $laagste_rubriek = $_POST['sub-rubriek'];
-                }else{
-                    $laagste_rubriek = $_POST['sub-sub-rubriek'];
-                }
+                // if(!empty($_POST['sub-sub-sub-rubriek']) ){
+                //     $laagste_rubriek = $_POST['sub-sub-sub-rubriek']; 
+                // }
+                // else if(empty($_POST['sub-sub-rubriek'])){
+                //     $laagste_rubriek = $_POST['sub-rubriek'];
+                // }else{
+                //     $laagste_rubriek = $_POST['sub-sub-rubriek'];
+                // }
                 // echo $laagste_rubriek;
 
 
@@ -169,7 +169,7 @@
                 ));
 
                 //FOTOS UPLOADEN
-           
+
                     $len = count($_FILES['upfile']['name']);
                     for($i = 0; $i < $len; $i++){
 
@@ -212,7 +212,7 @@
                     $filenaam = sprintf('.\Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]),  $ext);
                     $aantal = 1;
                     while (file_exists($filenaam)) {
-                        $filenaam = sprintf('.\Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]).$aantal,  $ext);
+                        $filenaam = sprintf('.\Images\no'.$i.'%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]).$aantal,  $ext);
                         $aantal++;
                         if($aantal == 150) {
                             $aantal = 1;
@@ -220,17 +220,20 @@
                         }
                     }
 
-                    if (!$filenaam){
+                    //print_r($_FILES);
+
+                    if (!$filenaam = sprintf('.\Images\no'.$i.'%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]),  $ext)){
                         throw new RuntimeException('Kan bestand niet in de database zetten.');
                     }
 
                     if(!move_uploaded_file($_FILES['upfile']['tmp_name'][$i],$filenaam)){
                         //throw new RuntimeException('Kan bestand niet verplaatsen.');
+                        echo"kan bestand niet verplaatsen";
                     }
 
-                    if($i == 4){
+                    /*if($i > 3){
                         echo"Kan niet meer dan 4 bestanden toevoegen";
-                    }
+                    }*/
                         
                     
 
@@ -248,16 +251,18 @@
 
                     $sql_foto = "INSERT INTO bestand (filenaam, voorwerp) VALUES (:filenaam, :voorwerp)";
                     $query_foto = $dbh->prepare($sql_foto);
-                    $query_foto -> execute(array(':filenaam' => $filenaam, ':voorwerp' => $row['voorwerpnummer']));
+                    $query_foto -> execute(array(
+                        ':filenaam' => $filenaam, 
+                        ':voorwerp' => $row['voorwerpnummer']
+                    ));
 
                     $sql_rubriek = "INSERT INTO [voorwerp in rubriek] VALUES (:voorwerp, :laagste_rubriek)";
                     $query_rubriek = $dbh->prepare($sql_rubriek);
                     $query_rubriek -> execute(array(':voorwerp' => $row['voorwerpnummer'], ':laagste_rubriek' => $laagste_rubriek ));
                     //
-                    echo "<script> window.location.href = 'index.php' </script>";
-                }
-            
+                   echo "<script> window.location.href = 'index.php' </script>";
 
+                }
             }
         }
     } catch (RuntimeException $e) {
@@ -288,7 +293,7 @@
                             <label>Rubriek: </label>
                             
                             <select id="rubrieken" name="rubriek"  onchange="getSubRubriek(this.value);">
-                                <option value="-1" selected>Kies een rubriek</option>
+                                <option disabled selected>Kies een rubriek</option>
                             <?php 
                                 while($data = $query -> fetch()){
                                    echo"<option value='".$data['rubrieknummer']."'>".$data['rubrieknaam']."</option>";
@@ -327,7 +332,7 @@
                                 <tbody>
                                     <tr class="add_row">
                                         <td id="no" width="5%">#</td>
-                                        <td width="75%"><input class="file" name="upfile[]" type='file' multiple required/></td>
+                                        <td width="75%"><input class="file" name="upfile[]" type="file" required/></td>
                                         <td width="20%"></td>
                                     </tr>
                                 </tbody>
@@ -409,7 +414,7 @@
     $("#add").click(function(){
         bestand++;
         if(bestand <= max){ 
-            $("tbody").append('<tr class="add_row"><td>#</td><td><input name="upfile[]" type="file" multiple></td><td class="text-center"><button type="button" class="btn button btn-sm" id="delete" title="Verwijder bestand">Verwijder bestand</button></td><tr>');
+            $("tbody").append('<tr class="add_row"><td>#</td><td><input class="file" name="upfile[]" type="file" required></td><td class="text-center"><button type="button" class="btn button btn-sm" id="delete" title="Verwijder bestand">Verwijder bestand</button></td><tr>');
         }
         if(bestand == max){
             $("#add").css("visibility", "hidden");
@@ -440,8 +445,12 @@ function getSubRubriek(rubrieknummer){
     ajax.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200){
             var data = JSON.parse(this.responseText);
-            var html = "";
-                
+            if(data.length == 0){
+                 var html = "";
+            }else{
+                var html = "<option disabled selected> Kies een subrubriek </option>";
+            }
+
             for(var a = 0; a < data.length; a++){
                 html += "<option value='" + data[a].rubrieknummer + "'>"+ data[a].rubrieknaam +"</option>";
             }
@@ -461,7 +470,11 @@ function getSubSubRubriek(rubrieknummer){
     ajax.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200){
             var data = JSON.parse(this.responseText);
-            var html = "";//"<option > Kies een subsubrubriek </option>";
+            if(data.length == 0){
+                 var html = "";
+            }else{
+                var html = "<option disabled selected> Kies een subsubrubriek </option>";//"";
+            }
                 
             for(var a = 0; a < data.length; a++){
                 html += "<option value='" + data[a].rubrieknummer + "'>"+ data[a].rubrieknaam +"</option>";
@@ -482,7 +495,12 @@ function getSubSubSubRubriek(rubrieknummer){
     ajax.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200){
             var data = JSON.parse(this.responseText);
-            var html = "";//"<option > Kies een subsubsubrubriek </option>";
+            if(data.length == 0){
+                 var html = "";
+            }else{
+                var html = "<option disabled selected> Kies een subsubsubrubriek </option>";
+            }
+           //"<option disabled selected> Kies een subsubsubrubriek </option>";
            
                 for(var a = 0; a < data.length; a++){
                  html += "<option value='" + data[a].rubrieknummer + "'>"+ data[a].rubrieknaam +"</option>";

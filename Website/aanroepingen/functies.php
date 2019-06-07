@@ -257,15 +257,17 @@ function createVoorwerpInRubriekItem($actueleplek, $rubrieknummer) {
     $afbeelding = strip_tags("http://iproject14.icasites.nl/pics/".$row['filenaam']);
   }
 
-  echo "
+  echo "  
     <article class='RubProduct'>
       <img class='FotoRubProduct' src='$afbeelding' alt='Voorwerpfoto'> 
       <div class='InfoRubProduct'>
         <div class='TitelRubProduct'>
           <h4>$titel</h4><br>
         </div>
-        <div class='OmschRubProduct'>
-          <p>$beschrijving</p>
+        <div class='wrapword'>
+
+          <p class='OmschRubProduct'>$beschrijving</p>
+
         </div>
       </div>
       <!--<a href='product.php'>-->
@@ -354,35 +356,39 @@ function createZoekVoorwerpen($voorwerpnummer) {
   }
 
   echo "
-    <article class='RubProduct'>
-      <img class='FotoRubProduct' src='$afbeelding' alt='Voorwerpfoto'> 
-      <div class='InfoRubProduct'>
-        <div class='TitelRubProduct'>
-          <h4>$titel</h4><br>
+  <article class='RubProduct'>
+  <img class='FotoRubProduct' src='$afbeelding' alt='Voorwerpfoto'> 
+  <div class='InfoRubProduct'>
+    <div class='TitelRubProduct'>
+      <h4>$titel</h4><br>
+    </div>
+    <div class='wrapword'>
+
+      <p class='OmschRubProduct'>$beschrijving</p>
+
+    </div>
+  </div>
+  <!--<a href='product.php'>-->
+  <div class='FormRubPrijs'>
+    <form action='product.php' method='POST' style='width: 100%;'>
+      <button type='submit' value='$voorwerpnummer' name='voorwerp' class='button ProductButton'>
+        <div class='PrijsRubProduct'>
+        <p>$gebruikersnaam</p'>
+          <h4>€ ";
+          if (isset($hoogstebod)) {
+            echo $hoogstebod;
+          } else {
+            echo $startprijs;
+          }
+          echo"</h4>
+          <p>$locatie</p>
+          <p style='font-size:20px'>".$days."d ".$hours."h $mins m</p>
         </div>
-        <div class='OmschRubProduct'>
-          <p>$beschrijving</p>
-        </div>
-      </div>
-      <!--<a href='product.php'>-->
-        <form action='product.php' method='POST'>
-          <button type='submit' value='$voorwerpnummer' name='voorwerp' class='button ProductButton'>
-            <div class='PrijsRubProduct'>
-              <h4>€ ";
-              if (isset($hoogstebod)) {
-                echo $hoogstebod;
-              } else {
-                echo $startprijs;
-              }
-              echo"</h4>
-              <p>$gebruikersnaam</p>
-              <p>".$days."d ".$hours."h</p>
-              <p>$locatie</p>
-            </div>
-          </button>
-        </form>
-      <!--</a>-->
-    </article>
+      </button>
+    </form>
+    </div>
+  <!--</a>-->
+</article>
   ";
 }
 
@@ -550,7 +556,7 @@ function createHomepageCard($afbeelding, $titel, $hoogstebod, $days, $hours, $mi
     echo"
       <div class='card'>
         <img src='$afbeelding' alt='$titel'>
-        <h4>$titel</h4>
+        <h4 class='wrapword'>$titel</h4>
         <p class='price'>€";
         if (isset($hoogstebod)) {
           echo $hoogstebod;
