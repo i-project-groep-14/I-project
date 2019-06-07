@@ -639,7 +639,7 @@ function createRandomCode() {
     $i = 0; 
     $code = '';
 
-    while ($i <= 7) { 
+    while ($i <= 20) { 
         $num = rand() % 62; 
         $tmp = substr($chars, $num, 1); 
         $code = $code . $tmp; 
