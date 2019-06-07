@@ -209,15 +209,15 @@
               
               // bieding moet nog gefixed worden
               if($hoogstebod > 1 && $hoogstebod <= 50) {
-                $stapbieding  =  1; //stond op .50
-              } else if($hoogstebod > 50 && $hoogstebod <= 100) {
+                $stapbieding  = .50;
+              } else if($hoogstebod > 50 && $hoogstebod <= 500) {
                 $stapbieding = 1;
-              } else if($hoogstebod > 100 && $hoogstebod <= 500) {
+              } else if($hoogstebod > 500 && $hoogstebod <= 1000) {
+                $stapbieding = 5;
+              } else if($hoogstebod > 1000 && $hoogstebod <= 5000) {
                 $stapbieding = 10;
-              } else if($hoogstebod > 500 && $hoogstebod <= 2000) {
-                $stapbieding = 100;
               } else {
-                $stapbieding = 1;
+                $stapbieding = 50;
               }
               // echo $stapbieding;
               $minimalebod = $hoogstebod + $stapbieding;
@@ -281,7 +281,11 @@
                 </form>
               </div>";
             }// tabel met top 4 biedingen moet nog dynamisch gemaakt worden
-            if($_SESSION['gebruikersnaam'] != $verkoper) {
+            if(isset($_SESSION['gebruikersnaam'])) {
+              if ($_SESSION['gebruikersnaam'] != $verkoper) {
+                echo"<p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>";
+              }
+            } else {
               echo"<p><button class='button large expanded' data-open='exampleModal1'>Bieden</button></p>";
             }
             echo "<p>Looptijd:</p>
