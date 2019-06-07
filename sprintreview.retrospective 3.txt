@@ -1,0 +1,24 @@
+Eerste agendapunt:
+	Converiescript vraag of meeste rubrieken leeg zijn
+
+Volgende agendapunt:
+	Vraag of hij die top 4 bieders nog wil op productpagina
+	Contactpagina
+	Postcode API Check
+
+3e agendapunt:
+	Productpagina foto's
+	Meldingen
+	Wachtwoord vergeten pagina
+	Profielpagina
+	Mail na veilingsluiten
+	Gebruikers blokkeren
+	Voorwerp plaatsen
+
+4e agendapunt: (Post-game wat doen we?)
+	Vraag: producten sluiten alleen op de product pagina. is dat heel erg? 
+		Ja (moet dus voor de post-game) -> vragen hoe
+		Nee -> top, niks meer aan doen
+	Dingen die niet af zijn: 
+		Zoeken
+		Constraints registratie
