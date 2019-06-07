@@ -759,10 +759,19 @@ function createProfBiedingen($actueleplek) {
           <td>€ ".strip_tags($row['verkoopprijs'])."</td>
           <td>".strip_tags($row['looptijdbeginDag'])."</td>
           <td>".strip_tags($row['looptijdeindeDag'])."</td>
-          <td";if ($row['veilingGesloten'] == 'wel') { 
+          <td";
+          if ($row['veilingGesloten'] == 'wel') { 
             echo" class='profveilinggesloten'";
+          } else {
+            echo" class='profveilingopen'";
           }
-          echo" class='profveilingopen'>$row[veilingGesloten]</td>
+        echo">";
+          if ($row['veilingGesloten'] == 'wel') {
+            $veiling = 'gesloten';
+          } else {
+            $veiling = 'open';
+          }
+        echo "$veiling</td>
         </tr>";
 
 return $volgendeplek;
