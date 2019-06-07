@@ -1,0 +1,48 @@
+conversie script {
+
+TO =  hoeveel is er overgezet
+
+keuzes opschrijven:
+wat doen we met items als er geen gebruiker voor is
+hoe hebben wij HTML uit SQL gehaald.
+
+}
+productpagina {
+als er nog tijd is top 4 bij producten pagina toevoegen.
+mail{
+als er niet op de veiling wordt gesloten mail {
+				geen biedingen = er is niks op geboden;
+				koper moet een mail krijgen;
+				}
+	}
+}
+contact pagina{
+link kan blijven om mail te sturen
+formulieer bij toevoegen om berich te sturen
+}
+
+breadcrums {
+catalous 
+}
+
+rubriekpagina {
+zoeken {
+	laten voor wat het is
+	}
+
+}
+
+wachtwoord vergeten {
+vraag moet uitgeladen worden uit de database
+}
+
+beheerderspagina {
+deblokkeren van gebruikers
+veilingen van gebruiker verwijderen als die is geblokkeerd
+}
+
+
+voorwerpplaatsenpagina {
+2 afbeeldingen worden naar de database gestuurd => naar 4
+
+}
