@@ -48,7 +48,7 @@
         ));
         $row = $query -> fetch();
 
-        // include_once 'aanroepingen/EindeveilingMail.php';
+        include_once 'aanroepingen/EindeveilingMail.php';
         
       }
 
