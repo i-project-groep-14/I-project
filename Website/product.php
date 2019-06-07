@@ -290,16 +290,13 @@
             }
             echo "<p>Looptijd:</p>
             <div class='klok'>
-            
             <div id='clockdiv'>
               <div>
                 <span class='days' id='countdown'></span>
-                
               </div>
             </div>
             <!--<p><i style='font-size: 10px;'>(Dagen / Uren / Minuten / Seconden)</i></p>-->
             </div>
-            
               ";
               $_SESSION['hoogstebod'] = $hoogstebod;
             ?>
