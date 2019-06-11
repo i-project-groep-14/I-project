@@ -93,7 +93,7 @@ $(".addressClick").click(function () {
 
 }
 klik2=0;
-$("#menuRubriek").on("click", ".addressClick2", function() {//Op dit moment moet je dus 2x klikken voordat hij het laat zien
+$("#menuRubriek").on("click", ".addressClick2", function() {
    
       var addressValue = $(this).attr("id");
         klik2++;
