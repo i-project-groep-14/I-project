@@ -45,6 +45,33 @@
                     </button>
                     </div>
                     ";
+            } else if (!isset($_POST['rubriek'])) {
+                $melding = "
+                <div data-closable class='callout alert-callout-border alert radius'>
+                    <strong>Error</strong> - U heeft geen rubriek ingegeven.
+                    <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+                        <span aria-hidden='true'>&times;</span>
+                    </button>
+                </div>
+                ";
+            } else if (isset($_POST['rubriek']) && !isset($_POST['sub-rubriek'])) {
+                $melding = "
+                <div data-closable class='callout alert-callout-border alert radius'>
+                    <strong>Error</strong> - U heeft geen geldige rubriek ingegeven.
+                    <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+                        <span aria-hidden='true'>&times;</span>
+                    </button>
+                </div>
+                ";
+            } else if (isset($_POST['rubriek']) && isset($_POST['sub-rubriek']) && heeftSubriek($_POST['sub-rubriek']) && !isset($_POST['sub-sub-rubriek'])) {
+                $melding = "
+                <div data-closable class='callout alert-callout-border alert radius'>
+                    <strong>Error</strong> - U heeft geen geldige rubriek ingegeven.
+                    <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+                        <span aria-hidden='true'>&times;</span>
+                    </button>
+                </div>
+                ";
             } else if (strlen($_POST['beschrijving_product']) > 500) {
                 $melding = "
                 <div data-closable class='callout alert-callout-border alert radius'>
@@ -72,7 +99,7 @@
                 </button>
                 </div>
                 ";
-            }else {
+            } else {
                 $titel_product = strip_tags($_POST['titel_product']);
                 //$foto_product = $_POST['fileToUpload'];
 
@@ -106,6 +133,38 @@
 
                 $looptijd = $_POST['loopdag'];
 
+                $laagste_rubriek = 1;
+                if (isset($_POST['rubriek'])) { 
+                    $laagste_rubriek = $_POST['rubriek'];
+                } //else {
+                //     $laagste_rubriek = 1;
+                // }
+                // $laagste_rubriek = $_POST['rubriek'];
+                if(!empty($_POST['sub-rubriek']) ) {
+                    $laagste_rubriek = $_POST['sub-rubriek'];
+                } //else{
+                //     if (isset($_POST['rubriek'])) {
+                //         $laagste_rubriek = $_POST['rubriek'];
+                //     } else {
+                //         $laagste_rubriek = -1;
+                //     }
+                //     // $laagste_rubriek = $_POST['rubriek']; 
+                // }
+
+                if(!empty($_POST['sub-sub-rubriek']) ){
+                    $laagste_rubriek = $_POST['sub-sub-rubriek'];
+                }//else{
+                //     $laagste_rubriek = $_POST['sub-rubriek'];
+                // }
+
+                if(!empty($_POST['sub-sub-sub-rubriek']) ){
+                    $laagste_rubriek = $_POST['sub-sub-sub-rubriek']; 
+                } //else if(empty($_POST['sub-sub-rubriek'])){
+                    //$laagste_rubriek = $_POST['sub-rubriek'];
+                //} else{
+                    //$laagste_rubriek = $_POST['sub-sub-rubriek'];
+                //}
+                // echo $laagste_rubriek;
 
                 $laagste_rubriek = $_POST['rubriek'];
                 
@@ -250,7 +309,13 @@
 	<h2 class="InlogpaginaKopje center">Voorwerp Plaatsen</h2>
 		<div class="">
             <p class="center">Op deze pagina kan er een voorwerp worden geplaatst, vul a.u.b. alle gegevens in.</p>
-
+                <?php 
+                    if(isset($melding)) {
+						echo "<br>";
+						echo $melding; 
+						echo "<br>";
+                    }
+                ?>
 			<form action="Voorwerpplaatsenpagina.php" method="post" enctype="multipart/form-data">
 				<div class="grid-container">
 					<div class="grid-x grid-padding-x">
@@ -263,7 +328,7 @@
                             <label>Rubriek: </label>
                             
                             <select id="rubrieken" name="rubriek"  onchange="getSubRubriek(this.value);">
-                                
+                                <option disabled selected>Kies een rubriek</option>
                             <?php 
                                 while($data = $query -> fetch()){
                                    echo"<option value='".$data['rubrieknummer']."'>".$data['rubrieknaam']."</option>";
@@ -271,13 +336,13 @@
                             ?>
                             </select>
 
-                            <select id="sub-rubriek" name="sub-rubriek"  onchange="getSubSubRubriek(this.value);"> 
+                            <select id="sub-rubriek" name="sub-rubriek"  onchange="getSubSubRubriek(this.value);">
                             </select>
 
-                            <select id="sub-sub-rubriek" name="sub-sub-rubriek" onchange="getSubSubSubRubriek(this.value);" >
+                            <select id="sub-sub-rubriek" name="sub-sub-rubriek" onchange="getSubSubSubRubriek(this.value);">
                             </select>
 
-                            <select id="sub-sub-sub-rubriek" name="sub-sub-sub-rubriek" >        
+                            <select id="sub-sub-sub-rubriek" name="sub-sub-sub-rubriek">        
                             </select>
                             
                         </div>
