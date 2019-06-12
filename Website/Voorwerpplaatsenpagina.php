@@ -248,21 +248,19 @@
                     ));
 
                     $row = $query -> fetch();
-
-                    $sql_foto = "INSERT INTO bestand (filenaam, voorwerp) VALUES (:filenaam, :voorwerp)";
+                    try{
+                        $sql_foto = "INSERT INTO bestand (filenaam, voorwerp) VALUES (:filenaam, :voorwerp)";
                     $query_foto = $dbh->prepare($sql_foto);
                     $query_foto -> execute(array(
                         ':filenaam' => $filenaam, 
                         ':voorwerp' => $row['voorwerpnummer']
                     ));
 
-                    $sql_rubriek = "INSERT INTO [voorwerp in rubriek] VALUES (:voorwerp, :laagste_rubriek)";
-                    $query_rubriek = $dbh->prepare($sql_rubriek);
-                    $query_rubriek -> execute(array(':voorwerp' => $row['voorwerpnummer'], ':laagste_rubriek' => $laagste_rubriek ));
-                    //
-                   echo "<script> window.location.href = 'index.php' </script>";
-
                 }
+                $sql_rubriek = "INSERT INTO [voorwerp in rubriek] VALUES (:voorwerp, :laagste_rubriek)";
+                $query_rubriek = $dbh->prepare($sql_rubriek);
+                $query_rubriek -> execute(array(':voorwerp' => $row['voorwerpnummer'], ':laagste_rubriek' => $laagste_rubriek ));
+                echo "<script> window.location.href = 'index.php' </script>";
             }
         }
     } catch (RuntimeException $e) {
