@@ -108,7 +108,7 @@
 
                 //$laagste_rubriek = -1;
                 $laagste_rubriek = $_POST['rubriek'];
-              /*  if(!empty($_POST['sub-rubriek']) ){
+                if(!empty($_POST['sub-rubriek']) ){
                     $laagste_rubriek = $_POST['sub-rubriek'];
                     
                 }else{
