@@ -1,15 +1,15 @@
 # I-project groep 14 | EenmaalAndermaal
 
 <h1> Database </h1>
-<h2> stap 1: </h2>
-<p> Voer het createscript(I-project/Database/Createscript.sql) uit om de database met tabellen aan te maken  </p>
-<h2> stap 2: </h2>
-<p> Voer het createscript(I-project/Database/SQL/CREATE Tables.sql) en (I-project/Database/SQL/CREATE categorieen.sql) uit om de conversie database aan te maken met de tabellen</p>
-<h2> stap 3: </h2>
-<p> Installeer: http://architectshack.com/GetFile.aspx?Page=PoorMansTSqlFormatter&File=PoorMansTSqlFormatterSSMSPackage.Setup.1.6.11.msi
+<h2> Stap 1: </h2>
+<p> Voer het createscript (I-project/Database/Createscript.sql) uit om de database met tabellen aan te maken  </p>
+<h2> Stap 2: </h2>
+<p> Voer de scripts (I-project/Database/SQL/CREATE Tables.sql) en (I-project/Database/SQL/CREATE categorieen.sql) uit om de conversie database aan te maken met de tabellen</p>
+<h2> Stap 3: </h2>
+<p> Installeer: <a href="http://architectshack.com/GetFile.aspx?Page=PoorMansTSqlFormatter&File=PoorMansTSqlFormatterSSMSPackage.Setup.1.6.11.msi">Installatie pakket</a>
     Dit negeert de HTML code die in de SQL bestanden zit. </p>
 <h2> Stap 4: </h2>
-<p> Voer alle scripts uit (I-project/database/SQL/9800-Auto's motoren en boten,
+<p> Voer alle scripts uit die in deze mappen zitten: (I-project/database/SQL/9800-Auto's motoren en boten,
                                                         /11232-film en dvd,
                                                         /12081-Baby)
 <h2> Stap 5: </h2>
