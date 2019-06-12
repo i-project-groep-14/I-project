@@ -47,8 +47,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <meta name='description' content='EenmaalAndermaal - Groep14'>
-    <!-- <link rel='icon' href='images/LogoIcoon.png' type='image/x-icon'/> -->
-    <link rel='icon' href='images/fiets.jpg' type='image/x-icon'/>
+    <link rel='icon' href='images/LogoIcoon.png' type='image/x-icon'/>
     <title>EenmaalAndermaal</title>
     
     <link rel='stylesheet' href='css/foundation.min.css'>

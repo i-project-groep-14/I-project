@@ -627,7 +627,7 @@ function createBiedingen($actueleplek) {
     echo "
     <div class='tab-biedingen media-object stack-for-small'>
       <!--<div class='media-object-section'>
-        <img class='tab-biedingen-thumb thumbnail' src='$profielfoto' alt='profielfoto'>
+        
       </div>-->
       <div class='media-object-section'>
         <p>$gebruiker Geboden: €$bod</p>
