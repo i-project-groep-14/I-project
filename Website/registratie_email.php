@@ -24,8 +24,8 @@
           $_SESSION['email'] = strip_tags($_POST['email']);
           
           $code = 
-                  // createRandomCode();
-                  'f';
+                  createRandomCode();
+                  // 'f';
           $_SESSION['code'] = $code;
           include_once 'aanroepingen/Reg_email_opmaak.php';
         }
