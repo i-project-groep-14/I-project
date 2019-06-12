@@ -16,9 +16,6 @@ drop database EenmaalAndermaal
 /*==============================================================*/
 create database EenmaalAndermaal
 
-select * from voorwerp where verkoper='Beheerder'
-select * from [voorwerp in rubriek] where voorwerp = 999598303
-select * from rubriek where rubrieknummer = 1478
 /*
 drop table bestand
 drop table bod
@@ -51,8 +48,7 @@ create table gebruiker (
    wachtwoord					varchar(255)		not null,
    vraag						numeric(2)			not null,
    antwoordtekst				varchar(50)			not null,
-   rol							numeric(1)			not null,
-   profielfoto					varchar(255)		null
+   rol							numeric(1)			not null
    constraint pk_gebruiker_gebruikersnaam primary key (gebruikersnaam),
    --CONSTRAINT CHK_Postcode CHECK (  (land = 'Nederland' AND postcode like '[0-9][0-9][0-9][0-9][A-Z][A-Z]') OR (postcode like '%[0-9]%') ),
    --CONSTRAINT CHK_email CHECK (mailadres LIKE '%@%.%')
@@ -108,19 +104,19 @@ create table voorwerp (
 	voorwerpnummer				int					identity(1,1) not null,
 	titel						varchar(30)			not null,
 	beschrijving				varchar(500)		not null,
-	startprijs					numeric(10,2)			not null,
+	startprijs					numeric(10,2)		not null,
 	betalingswijze				varchar(20)			not null,
 	betalingsinstructie			varchar(30)			null,
 	plaatsnaam					varchar(20)			not null,
 	land						varchar(20)			not null,
 	looptijd					numeric(3)			not null,
 	looptijdbeginDag			date				not null,
-	looptijdbeginTijdstip		time			not null,
+	looptijdbeginTijdstip		time				not null,
 	verzendkosten				varchar(10)			null,
 	verzendinstructies			varchar(100)		null,
 	verkoper					varchar(20)			not null,
 	koper						varchar(20)			null,
-	looptijdeindeDag			AS  (dateadd(day,[looptijd],[looptijdbeginDag])),
+	looptijdeindeDag			AS (dateadd(day,[looptijd],[looptijdbeginDag])),
 	looptijdeindeTijdstip		time				not null,
 	veilingGesloten				varchar(4)			not null,
 	verkoopprijs				varchar(10)			null
@@ -128,11 +124,7 @@ create table voorwerp (
 	constraint fk_voorwerp_verkoper foreign key (verkoper) references verkoper (gebruiker),
 	constraint fk_voorwerp_koper foreign key (koper) references gebruiker (gebruikersnaam) on update cascade on delete no action
 
-	/* bij rubriek een foreign key naar voorwerpnummer */
 	/*
-	AF 1	Tabel Voorwerp, kolom LooptijdeindeDag:
-	Kolom LooptijdeindeDag heeft de datum van LooptijdbeginDag + het aantal dagen dat Looptijd aangeeft.
-
 	AF 2	Tabel Voorwerp, kolom LooptijdeindeTijdstip:
 	Kolom LooptijdeindeTijdstip heeft dezelfde waarde als kolom LooptijdbeginTijdstip.
 
@@ -155,8 +147,8 @@ alter table voorwerp
 	constraint ck_voorwerp_startprijs check (startprijs > 0),
 	constraint ck_voorwerp_veilingGesloten check (veilingGesloten IN ('wel', 'niet')),
 	constraint ck_voorwerp_verkoopprijs_negatief check (verkoopprijs >= startprijs),
-	constraint ck_voorwerp_verkoper_geen_koper check (verkoper != koper)--,
-	--CONSTRAINT ck_looptijd CHECK ( looptijd IN (1,3,5,7,10) )
+	constraint ck_voorwerp_verkoper_geen_koper check (verkoper != koper),
+	CONSTRAINT ck_looptijd CHECK ( looptijd IN (1,3,5,7,10) )
 
 /*==============================================================*/
 /* Table: Bestand												*/
@@ -172,9 +164,9 @@ create table bestand (
 /* Table: Rubriek												*/
 /*==============================================================*/
 create table rubriek (
-	rubrieknummer				int			not null,
+	rubrieknummer				int					not null,
 	rubrieknaam					varchar(50)			not null,
-	rubriek						int			null
+	rubriek						int					null
 	constraint pk_rubriek_rubrieknummer primary key (rubrieknummer),
 	constraint fk_rubriek_rubriek foreign key (rubriek) references rubriek (rubrieknummer) on update no action on delete no action
 )
@@ -189,6 +181,7 @@ create table [voorwerp in rubriek] (
 	constraint fk_voorwerpinrubriek_voorwerp foreign key (voorwerp) references voorwerp (voorwerpnummer) on update cascade on delete no action,
 	constraint fk_voorwerpinrubriek_rubriekoplaagsteniveau foreign key ([rubriek op laagste niveau]) references rubriek (rubrieknummer) on update no action on delete no action
 )
+
 /*==============================================================*/
 /* Table: Bod													*/
 /*==============================================================*/
@@ -207,6 +200,8 @@ create table bod (
 
 
 
+
+
 /*			Weghalen		*/
 insert into vraag values ('1', 'In welke straat ben je geboren?')
 insert into vraag values ('2', 'Wat is de meisjesnaam van je moeder?')
@@ -215,7 +210,7 @@ insert into vraag values ('4', 'Hoe heet je oudste zusje?')
 insert into vraag values ('5', 'Hoe heet je huisdier?')
 
 insert into gebruiker values ('Beheerder', 'Danny', 'Hageman', 'Onbekend', null, '0000AA', 's-Heerenberg', 'Nederland', '11/09/2000', 
-								'mehmet.batal@hotmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 5, null)/*
+								'mehmet.batal@hotmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 5)/*
 insert into gebruiker values ('Test', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 
 								'dannyhageman1109@gmail.com', '$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK', 1, 'f', 2, null)
 insert into gebruiker values ('Boom', 'Danny', 'Hageman', 'Onbekend', null, 'Unknown', 's-Heerenberg', 'Nederland', '11/09/2000', 

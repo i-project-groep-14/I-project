@@ -622,13 +622,13 @@ function createBiedingen($actueleplek) {
     $dag = strip_tags($row['boddag']);
     $tijd = strip_tags($row['bodtijdstip']);
 
-    $profielfoto = 'images/profielfotoPlaceholder.png';
+    // $profielfoto = 'images/profielfotoPlaceholder.png';
     
     echo "
     <div class='tab-biedingen media-object stack-for-small'>
-      <div class='media-object-section'>
+      <!--<div class='media-object-section'>
         <img class='tab-biedingen-thumb thumbnail' src='$profielfoto' alt='profielfoto'>
-      </div>
+      </div>-->
       <div class='media-object-section'>
         <p>$gebruiker Geboden: €$bod</p>
       </div>

@@ -14,8 +14,7 @@ INSERT INTO EenmaalAndermaal.dbo.gebruiker
 	left('$2y$10$N3OV4ufDLSmmUo7plcUezePdhPwXDQZHn9tnLLkOkalNkNNjXIGFK',255) AS wachtwoord,
 	cast('1' AS int) AS vraag,
 	cast('f'AS char) AS antwoordtekst,
-	cast('2'AS int) AS rol,
-	NULL AS profielfoto
+	cast('2'AS int) AS rol
 FROM nepebay.dbo.Users
 
 INSERT INTO EenmaalAndermaal.dbo.rubriek

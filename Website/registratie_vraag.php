@@ -62,8 +62,7 @@
           $vraag = $_POST['veiligheidsvraag'];
           $antwoord = strip_tags($_POST['veiligheidsvraag_antwoord']);
     
-          $sql = "INSERT INTO gebruiker VALUES
-                  (:gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :postcode, :plaatsnaam, :land, :geboortedatum, :mailadres,:wachtwoord, :vraag, :antwoordtekst, :rol, :profielfoto)";
+          $sql = "INSERT INTO gebruiker VALUES (:gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :postcode, :plaatsnaam, :land, :geboortedatum, :mailadres,:wachtwoord, :vraag, :antwoordtekst, :rol)";
           $query = $dbh->prepare($sql);
           $query -> execute(array(
             ':gebruikersnaam' => $gebruikersnaam,
@@ -79,8 +78,8 @@
             ':wachtwoord' => password_hash($wachtwoord, PASSWORD_DEFAULT),
             ':vraag' => $vraag,
             ':antwoordtekst' => $antwoord,
-            ':rol' => $rol,
-            ':profielfoto' => NULL
+            ':rol' => $rol//,
+            //':profielfoto' => NULL
             )
           );
     

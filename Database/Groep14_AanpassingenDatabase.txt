@@ -16,15 +16,12 @@ Tabel gebruiker:
 	vraag						van integer(2) 	naar numeric(2)
 	antwoordtekst				van char(6) 	naar varchar(50)
 	verkoper 					veranderd naar 'rol' met een numeric(1) ipv char. De volgende lijst met nummers wordt hiervoor gebruikt:
-		0:      geblokkeerd
-		1:      te verifiëren (nieuwe gebruiker)
+		1:      geblokkeerd
 		2:      actieve gebruiker
 		3:      verkoper
-		4:      beheerder
+		5:      beheerder
 
-	kolom toegevoegd genaamd 'profielfoto' met een datatype van varchar(255) en hij mag null zijn.
-
-	3 constraints toegevoegd; geboortedatum mag niet na vandaag zijn, wachtwoord moet langer zijn dan 7 karakters en minimaal 1 letter en 1 nummer bevatten
+	3 constraints toegevoegd; geboortedatum mag niet na vandaag zijn, wachtwoord moet langer zijn dan 7 karakters, en het wachtwoord moet minimaal 1 letter en 1 nummer bevatten
 
 	fk op vraag -> on update restrict, on delete restrict
 
@@ -37,10 +34,10 @@ Tabel vraag:
 
 Tabel gebruikerstelefoon:
 
-	volgnr						van integer(2)	naar numeric(3)
+	volgnr						van integer(2)	naar numeric(3), identity toegevoegd
 	gebruiker					van char(10)	naar varchar(20)
-	telefoon					
-	alttelefoon
+
+	kolom toegevoegt; alttelefoon met een char(11) die null mag zijn
 
 	fk op gebuiker -> on update cascade, on delete restrict
 
@@ -61,7 +58,7 @@ Tabel voorwerp:
 	voorwerpnummer				van numeric(10)	naar int
 	titel						van char(18)	naar varchar(30)
 	beschrijving				van char(22)	naar varchar(500)
-	startprijs					van char(5)		naar varchar(10) 	naar numeric(10,2) -> dit is zodat als mensen 12 erin voegen wordt dat automatisch 12,00
+	startprijs					van char(5)		naar numeric(10,2) -> dit is zodat als mensen 12 erin voegen wordt dat automatisch 12,00
 	betalingswijze				van char(9)		naar varchar(20)
 	betalingsinstructie			van char(23)	naar varchar(30)
 	plaatsnaam					van char(12)	naar varchar(20)
@@ -73,17 +70,21 @@ Tabel voorwerp:
 	verzendinstructies			van char(27)	naar varchar(100)
 	verkoper					van char(10)	naar varchar(20)
 	koper						van char(10)	naar varchar(20)
-	looptijdeindeDag			van char(10)	naar date naar 	AS  (dateadd(day,[looptijd],[looptijdbeginDag])), -> computed column dat de einddatum automatisch veranderd
-	looptijdeindeTijdstip 		van char(7) 	naar time (het is een tijdstip)
+	looptijdeindeDag			van char(10)	naar AS (dateadd(day,[looptijd],[looptijdbeginDag])), -> computed column dat de einddatum automatisch veranderd
+	looptijdeindeTijdstip 		van char(7) 	naar time
 	veilinggesloten?			veranderd naar 'veilingGesloten' met een varchar(4) ipv char(3)
 	verkoopprijs				van char(5)		naar varchar(10)
 
 
 	fk op koper -> on update cascade, on delete restrict
 
-	5 constraints bij toegevoegd; betalingswijze staat alleen 4 manieren toe zodat hier geen verschil inkomt met schrijven. 
-	De startprijs mag niet negatief zijn en veilingGesloten staat alleen wel of niet toe. Voor het geval andere inputs erin komen.
-	De verkooppijs kan niet negatief zijn en ook niet kleineer zijn dan de startprijs en de koper mag niet de verkoper zijn.
+	5 constraints bij toegevoegd; 
+		-De betalingswijze staat alleen 4 manieren toe zodat hier geen verschil inkomt met schrijven
+		-De startprijs mag niet negatief zijn
+		-veilingGesloten moet 'niet' of 'wel' zijn
+		-De verkooppijs kan niet negatief zijn en ook niet kleiner zijn dan de startprijs
+		-De koper mag niet de verkoper zijn.
+		-De looptijd moet 1, 3, 5, 7 of 10 zijn.
 
 
 Tabel bestand:
@@ -91,15 +92,16 @@ Tabel bestand:
 	filenaam					van char(13)	naar varchar(200)
 	voorwerp					van numeric(10)	naar int
 
-	fk op voorwerp -> on update restrict, on delete restrict
+	fk op voorwerp -> on update cascade, on delete restrict
 
 
 Tabel rubriek:
 
-	rubrieknummer				van integer(3)	naar numeric(3)
+	rubrieknummer				van integer(3)	naar int
 	rubrieknaam					van char(24) 	naar varchar(50)
-	rubriek						van integer(3)	naar numeric(3)
-	volgnr						van integer(2)	naar numeric(3)
+	rubriek						van integer(3)	naar int
+	
+	kolom volgnr weggehaald
 
 	fk op rubriek -> on update restrict, on delete restrict
 
@@ -107,7 +109,7 @@ Tabel rubriek:
 Tabel voorwerp in rubriek:
 
 	voorwerp					van numeric(10)	naar int
-	rubriek op laagste niveau	van integer(3)	naar numeric(3)
+	rubriek op laagste niveau	van integer(3)	naar int
 
 	fk op voorwerp -> on update cascade, on delete restrict	
 	fk op rubriek op laagste niveau -> on update restrict, on delete restrict
@@ -123,73 +125,3 @@ Tabel bod:
 	
 	fk op voorwerpnummer -> on update restrict, on delete restrict
 	fk op gebruiker -> on update cascade, on delete restrict
-
-
-
-
-
-
-
-
-
-Streven naar 100% conversersie
-Default verkoper (onbekend) aanmaken
-
-database maken van puur vuile data 
-Script 	|
-	   	|
-	   \/
-Nieuwe database
-
-
-
-bodMoment -> datetime	not null default getdate()
-
-land-> varchar(56) maken
-
-
-voorwerp -> database laten bereken hoelang
-
-
-create function fnWieIsVerkoper (@voorwerpNummer INT) 	
-RETURNS varchar(20)
-as
-begin
-	return
-		( Select verkoper from voorwerp where voorwerpnummer = @voorwerpNummer)\
-end
-
-alter table bod
-add constraint ck_bod_nietBiedenEigenProduct check (dbo.fnWieIsVerkoper(voorwerpNummer) <> gebruikersNaam)
-
-
-
-
-create function fnveilingisgesloten (@voorwerpnummer INT) returns bit 
-as
-begin
-return(
-	select veilinggesloten
-	from voorwerp
-	where voorwerpnummer = @voorwerpNummer
-)
-
-alter table bod
-add constraint .. check (functie(ding)=0)
-
-
-
-
-hoogstebieder @voornummer integerreturn varchar 20
-return (
-	select TOP 1 b.gebruikersnaam
-	from voorwerp v
-	inner join bod B on v.voorwerpnummer = b.voorwerpnummer
-	where v.voorwerpnummer = @voorwerpNummer and veilinggesloten - 1
-	group by 1 ding
-)
-
-
-
-raiserror
-throw
