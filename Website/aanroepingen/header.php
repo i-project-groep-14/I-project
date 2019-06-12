@@ -81,7 +81,7 @@
                                 
                             <div class='dropdown-pane' data-position='bottom' data-alignment='right'  id='example-dropdown-bottom-right' data-dropdown data-auto-focus='true'>
                               <!-- Onderdelen van de dropdown komen hier te staan -->
-                                <img src='images/profielfotoplaceholder.png' width='150px'>
+                                <!--<img src='images/profielfotoplaceholder.png' width='150px'>-->
                                 <p>Naam: ".$_SESSION['voornaam']."</p>
                                 <p>Aantal actieve veilingen: ".$_SESSION['aantaleigenveilingen']."</p>";
                                 if($_SESSION['rol'] == 3 || $_SESSION['rol'] == 5) {
