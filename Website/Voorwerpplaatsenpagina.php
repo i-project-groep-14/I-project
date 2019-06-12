@@ -286,7 +286,7 @@
                             <label>Rubriek: </label>
                             
                             <select id="rubrieken" name="rubriek"  onchange="getSubRubriek(this.value);">
-                                <option disabled selected>Kies een rubriek</option>
+                                
                             <?php 
                                 while($data = $query -> fetch()){
                                    echo"<option value='".$data['rubrieknummer']."'>".$data['rubrieknaam']."</option>";
