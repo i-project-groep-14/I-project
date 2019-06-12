@@ -166,6 +166,8 @@
                 //}
                 // echo $laagste_rubriek;
 
+                $laagste_rubriek = $_POST['rubriek'];
+                
 
                 $sql = "SELECT gebruiker FROM verkoper WHERE gebruiker = :gebruiker ";
                 $query = $dbh->prepare($sql);
@@ -226,10 +228,9 @@
                         throw new RuntimeException('Onbekende foutmelding');
                     }
 
-                    //hoe groot het bestand kan zijn, in dit geval 1 mb
-                    if ($_FILES['upfile']['size'][$i] > 1000000) {
-                        //throw new RuntimeException('Het bestand is te groot.');
-                        echo"<script>alert('Het bestand is te groot. Kies a.u.b. een bestand die kleiner is dan 1MB');</script>";
+                   //hoe groot het bestand kan zijn, in dit geval 2 mb
+                   if ($_FILES['upfile']['size'][$i] > 20000000) {
+                    throw new RuntimeException('Het bestand is te groot.');
                     }
                     
                     //Welke bestanden worden geaccepteert, gecheckt of deze eraan voldoen
@@ -366,7 +367,7 @@
                                 <tbody>
                                     <tr class="add_row">
                                         <td id="no" width="5%">#</td>
-                                        <td width="75%"><input class="file" name="upfile[]" type="file" required/></td>
+                                        <td width="75%"><input class="file" onchange="ValidateFile(this)" name="upfile[]" type="file" required/></td>
                                         <td width="20%"></td>
                                     </tr>
                                 </tbody>
@@ -448,7 +449,7 @@
     $("#add").click(function(){
         bestand++;
         if(bestand <= max){ 
-            $("tbody").append('<tr class="add_row"><td>#</td><td><input class="file" name="upfile[]" type="file" required></td><td class="text-center"><button type="button" class="btn button btn-sm" id="delete" title="Verwijder bestand">Verwijder bestand</button></td><tr>');
+            $("tbody").append('<tr class="add_row"><td>#</td><td><input class="file"  onchange="ValidateFile(this)" name="upfile[]" type="file" required></td><td class="text-center"><button type="button" class="btn button btn-sm" id="delete" title="Verwijder bestand">Verwijder bestand</button></td><tr>');
         }
         if(bestand == max){
             $("#add").css("visibility", "hidden");
@@ -466,6 +467,22 @@
 
     });
 }); 
+
+
+function ValidateFile(file) {
+        var FileSize = file.files[0].size / 1024 / 1024; // in MB
+        if (FileSize > 2) {
+            alert('Bestand is groter dn 2MB. Geef a.u.b een kleiner bestand.');
+            $(file).val(''); 
+        } 
+        var file = file.files[0];
+        var fileType = file["type"];
+        var validImageTypes = ["image/gif", "image/jpeg", "image/png"];
+        if ($.inArray(fileType, validImageTypes) < 0) {
+            alert('Bestand is niet geldig');
+            $(file).val(''); 
+        }
+    }
 </script>
 
 <script type="text/javascript"> 
