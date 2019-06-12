@@ -108,28 +108,28 @@
 
                 //$laagste_rubriek = -1;
                 $laagste_rubriek = $_POST['rubriek'];
-              /*  if(!empty($_POST['sub-rubriek']) ){
+                if(!empty($_POST['sub-rubriek']) ){
                     $laagste_rubriek = $_POST['sub-rubriek'];
                     
                 }else{
                     $laagste_rubriek = $_POST['rubriek']; 
-                }*/
+                }
 
-                // if(!empty($_POST['sub-sub-rubriek']) ){
-                //     $laagste_rubriek = $_POST['sub-sub-rubriek'];
-                // }else{
-                //     $laagste_rubriek = $_POST['sub-rubriek'];
-                // }
+                if(!empty($_POST['sub-sub-rubriek']) ){
+                    $laagste_rubriek = $_POST['sub-sub-rubriek'];
+                }else{
+                    $laagste_rubriek = $_POST['sub-rubriek'];
+                }
 
-                // if(!empty($_POST['sub-sub-sub-rubriek']) ){
-                //     $laagste_rubriek = $_POST['sub-sub-sub-rubriek']; 
-                // }
-                // else if(empty($_POST['sub-sub-rubriek'])){
-                //     $laagste_rubriek = $_POST['sub-rubriek'];
-                // }else{
-                //     $laagste_rubriek = $_POST['sub-sub-rubriek'];
-                // }
-                // echo $laagste_rubriek;
+                if(!empty($_POST['sub-sub-sub-rubriek']) ){
+                    $laagste_rubriek = $_POST['sub-sub-sub-rubriek']; 
+                }
+                else if(empty($_POST['sub-sub-rubriek'])){
+                    $laagste_rubriek = $_POST['sub-rubriek'];
+                }else{
+                    $laagste_rubriek = $_POST['sub-sub-rubriek'];
+                }
+                echo $laagste_rubriek;
 
 
                 $sql = "SELECT gebruiker FROM verkoper WHERE gebruiker = :gebruiker ";
@@ -193,7 +193,8 @@
 
                     //hoe groot het bestand kan zijn, in dit geval 1 mb
                     if ($_FILES['upfile']['size'][$i] > 1000000) {
-                        throw new RuntimeException('Het bestand is te groot.');
+                        //throw new RuntimeException('Het bestand is te groot.');
+                        echo"<script>alert('Het bestand is te groot. Kies a.u.b. een bestand die kleiner is dan 1MB');</script>";
                     }
                     
                     //Welke bestanden worden geaccepteert, gecheckt of deze eraan voldoen
@@ -220,7 +221,6 @@
                         }
                     }
 
-                    //print_r($_FILES);
 
                     if (!$filenaam = sprintf('.\Images\no'.$i.'%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]),  $ext)){
                         throw new RuntimeException('Kan bestand niet in de database zetten.');
@@ -231,11 +231,6 @@
                         echo"kan bestand niet verplaatsen";
                     }
 
-                    /*if($i > 3){
-                        echo"Kan niet meer dan 4 bestanden toevoegen";
-                    }*/
-                        
-                    
 
                     $sql = "SELECT voorwerpnummer FROM voorwerp 
                             WHERE titel = :titel AND beschrijving = :beschrijving AND startprijs = :startprijs AND betalingswijze = :betalingswijze";
@@ -248,21 +243,19 @@
                     ));
 
                     $row = $query -> fetch();
-
+                   
                     $sql_foto = "INSERT INTO bestand (filenaam, voorwerp) VALUES (:filenaam, :voorwerp)";
                     $query_foto = $dbh->prepare($sql_foto);
                     $query_foto -> execute(array(
                         ':filenaam' => $filenaam, 
                         ':voorwerp' => $row['voorwerpnummer']
                     ));
-
-                    $sql_rubriek = "INSERT INTO [voorwerp in rubriek] VALUES (:voorwerp, :laagste_rubriek)";
-                    $query_rubriek = $dbh->prepare($sql_rubriek);
-                    $query_rubriek -> execute(array(':voorwerp' => $row['voorwerpnummer'], ':laagste_rubriek' => $laagste_rubriek ));
-                    //
-                   echo "<script> window.location.href = 'index.php' </script>";
-
                 }
+                
+                $sql_rubriek = "INSERT INTO [voorwerp in rubriek] VALUES (:voorwerp, :laagste_rubriek)";
+                $query_rubriek = $dbh->prepare($sql_rubriek);
+                $query_rubriek -> execute(array(':voorwerp' => $row['voorwerpnummer'], ':laagste_rubriek' => $laagste_rubriek ));
+                echo "<script> window.location.href = 'index.php' </script>";
             }
         }
     } catch (RuntimeException $e) {

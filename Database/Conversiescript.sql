@@ -27,7 +27,7 @@ INSERT INTO EenmaalAndermaal.dbo.verkoper
 	SELECT distinct LEFT(verkoper,20) as gebruiker,
 	null as bank,
 	null as bankrekening,
-	LEFT('Post',20) as controleoptie,
+	CAST('Post' as char) as controleoptie,
 	null as creditcard
 FROM nepebay.dbo.items
 
