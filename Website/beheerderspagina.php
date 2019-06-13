@@ -14,7 +14,18 @@
           )
         );
       }
+
+      if($_SESSION['rol'] != 5) {
+        $message = "U heeft de rechten niet om deze pagina te gebruiken!";
+        echo ("<script 
+            LANGUAGE='JavaScript'>
+            window.alert('$message');
+            window.location.href='index.php';
+        </script>");
+    }
     ?>
+
+    
     
     <div class="holy-grail-middle">
       <h3 class="InlogpaginaKopje"> Beheerders Pagina </h3>
