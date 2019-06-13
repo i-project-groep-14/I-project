@@ -164,7 +164,7 @@
                 } else{
                     $laagste_rubriek = $_POST['sub-sub-rubriek'];
                 }
-                echo $laagste_rubriek;
+                //echo $laagste_rubriek;
 
                 //$laagste_rubriek = $_POST['rubriek'];
           
@@ -281,7 +281,7 @@
                 $sql_rubriek = "INSERT INTO [voorwerp in rubriek] VALUES (:voorwerp, :laagste_rubriek)";
                 $query_rubriek = $dbh->prepare($sql_rubriek);
                 $query_rubriek -> execute(array(':voorwerp' => $row['voorwerpnummer'], ':laagste_rubriek' => $laagste_rubriek ));
-                //echo "<script> window.location.href = 'index.php' </script>";
+                echo "<script> window.location.href = 'index.php' </script>";
             }
         }
     } catch (RuntimeException $e) {
