@@ -20,7 +20,7 @@
       $icon = "";
 
       while($row = $query -> fetch()){ 
-        if(heeftSubriek($row['rubrieknummer'])){
+        if(heeftsubrubriek($row['rubrieknummer'])){
           $icon="fi-folder-add";
         }else{
           $icon="subitem fi-page";

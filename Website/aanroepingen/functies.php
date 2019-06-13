@@ -14,18 +14,18 @@ function createRubriek($actueleplek) {
   echo "
     <li>
       <a href='rubriekenpagina.php'><i class='";
-      if (heeftSubriek($row['rubrieknummer'])) { echo"fi-folder-add"; } else { echo"fi-page"; }
+      if (heeftsubrubriek($row['rubrieknummer'])) { echo"fi-folder-add"; } else { echo"fi-page"; }
       echo "'></i> ".strip_tags($row['rubrieknaam']).", ".strip_tags($row['rubrieknummer'])."</a>
   ";
 
-  if (heeftSubriek($row['rubrieknummer'])) {
+  if (heeftsubrubriek($row['rubrieknummer'])) {
     echo "
       <ul class='menu vertical sublevel-$sublevel'>
     ";
 
-    $aantalSubrieken = selectAantalSubRubrieken($row['rubrieknummer']);
+    $aantalsubrubrieken = selectAantalSubRubrieken($row['rubrieknummer']);
   
-    for($i = 0; $i < $aantalSubrieken; $i++) {
+    for($i = 0; $i < $aantalsubrubrieken; $i++) {
       $subplek = createSubRubrieken($row['rubrieknummer'], $sublevel+1, $subplek);
     }
     
@@ -43,11 +43,11 @@ function createRubriek($actueleplek) {
 }
 
 function createSubRubrieken($parentRubriekNummer, $sublevel, $subplek) {
-  $aantalSubrieken = selectAantalSubRubrieken($parentRubriekNummer);
+  $aantalsubrubrieken = selectAantalSubRubrieken($parentRubriekNummer);
   global $subsubplek;
   $subsubplek = 0;
   
-  for($i = 0; $i < $aantalSubrieken; $i++) {
+  for($i = 0; $i < $aantalsubrubrieken; $i++) {
     $subrubrieknaam = selectSubRubriekNaam($subplek, $parentRubriekNummer);
     $subrubrieknummer = selectSubRubriekNummer($subplek, $parentRubriekNummer);
     
@@ -65,20 +65,20 @@ function createSubRubrieken($parentRubriekNummer, $sublevel, $subplek) {
       <li>
         <a href='rubriekenpagina.php?id=$row[rubriek]'>
           <i class='";
-            if (heeftSubriek($subrubrieknummer)) { echo"fi-folder-add"; } else { echo"subitem fi-page"; }
+            if (heeftsubrubriek($subrubrieknummer)) { echo"fi-folder-add"; } else { echo"subitem fi-page"; }
             echo    "'>
           </i> ".strip_tags($subrubrieknaam).", ".strip_tags($row['rubriek'])."
         </a>
     ";
 
-    if (heeftSubriek($subrubrieknummer)) {
+    if (heeftsubrubriek($subrubrieknummer)) {
       echo "
         <ul class='menu vertical sublevel-$sublevel'>
       ";
 
-      $aantalSubrieken = selectAantalSubRubrieken($subrubrieknummer);
+      $aantalsubrubrieken = selectAantalSubRubrieken($subrubrieknummer);
 
-      for($i = 0; $i < $aantalSubrieken; $i++) {
+      for($i = 0; $i < $aantalsubrubrieken; $i++) {
         $subsubplek = createSubRubrieken($subrubrieknummer, $sublevel+1, $subsubplek);
       }
       
@@ -95,7 +95,7 @@ function createSubRubrieken($parentRubriekNummer, $sublevel, $subplek) {
   }
 }
 
-function heeftSubriek($rubrieknummer) {
+function heeftsubrubriek($rubrieknummer) {
   global $dbh;
   $sql = "SELECT COUNT(*) as aantalSubRubrieken FROM rubriek
           WHERE rubriek like :rubrieknummer";
@@ -480,7 +480,7 @@ function selectRubriekNaam($rubrieknummer) {
 //         echo strip_tags($naam)."</li>
 //       ";
 
-//       if (heeftSubriek($rubrieknummer)) {
+//       if (heeftsubrubriek($rubrieknummer)) {
 //         $subrubrieknummer = selectSubRubriekNummerZonderPlek($rubrieknummer);
 //         createProductRubrieken($subrubrieknummer);
 //       }
@@ -498,7 +498,7 @@ function createProductRubrieken($rubrieknummer) {
   
   echo"
     <li";
-    if(!heeftSubriek($rubrieknummer)) {
+    if(!heeftsubrubriek($rubrieknummer)) {
       echo"><span class='show-for-sr'></span>";
     } else {
       echo " class='disabled'>";
