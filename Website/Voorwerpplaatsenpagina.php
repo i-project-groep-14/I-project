@@ -133,41 +133,41 @@
 
                 $looptijd = $_POST['loopdag'];
 
-               // $laagste_rubriek = 1;
-                //if (isset($_POST['rubriek'])) { 
-                //    $laagste_rubriek = $_POST['rubriek'];
-                //} //else {
-                //     $laagste_rubriek = 1;
-                // }
-                // $laagste_rubriek = $_POST['rubriek'];
-                //if(!empty($_POST['sub-rubriek']) ) {
-                    //$laagste_rubriek = $_POST['sub-rubriek'];
-                //} //else{
-                //     if (isset($_POST['rubriek'])) {
-                //         $laagste_rubriek = $_POST['rubriek'];
-                //     } else {
-                //         $laagste_rubriek = -1;
-                //     }
-                //     // $laagste_rubriek = $_POST['rubriek']; 
-                // }
-
-               // if(!empty($_POST['sub-sub-rubriek']) ){
-                    //$laagste_rubriek = $_POST['sub-sub-rubriek'];
-                //}//else{
-                //     $laagste_rubriek = $_POST['sub-rubriek'];
-                // }
-
-                //if(!empty($_POST['sub-sub-sub-rubriek']) ){
-                    //$laagste_rubriek = $_POST['sub-sub-sub-rubriek']; 
-                //} //else if(empty($_POST['sub-sub-rubriek'])){
-                    //$laagste_rubriek = $_POST['sub-rubriek'];
-                //} else{
-                    //$laagste_rubriek = $_POST['sub-sub-rubriek'];
-                //}
-                // echo $laagste_rubriek;
-
+               $laagste_rubriek = 1;
+                if (isset($_POST['rubriek'])) { 
+                   $laagste_rubriek = $_POST['rubriek'];
+                } else {
+                    $laagste_rubriek = 1;
+                }
                 $laagste_rubriek = $_POST['rubriek'];
-                echo"<script>alert".$laagste_rubriek."</script>";
+                if(!empty($_POST['sub-rubriek']) ) {
+                    $laagste_rubriek = $_POST['sub-rubriek'];
+                } else{
+                    if (isset($_POST['rubriek'])) {
+                        $laagste_rubriek = $_POST['rubriek'];
+                    } else {
+                        $laagste_rubriek = -1;
+                    }
+                    // $laagste_rubriek = $_POST['rubriek']; 
+                }
+
+               if(!empty($_POST['sub-sub-rubriek']) ){
+                    $laagste_rubriek = $_POST['sub-sub-rubriek'];
+                }else{
+                    $laagste_rubriek = $_POST['sub-rubriek'];
+                }
+
+                if(!empty($_POST['sub-sub-sub-rubriek']) ){
+                    $laagste_rubriek = $_POST['sub-sub-sub-rubriek']; 
+                } else if(empty($_POST['sub-sub-rubriek'])){
+                    $laagste_rubriek = $_POST['sub-rubriek'];
+                } else{
+                    $laagste_rubriek = $_POST['sub-sub-rubriek'];
+                }
+                //echo $laagste_rubriek;
+
+                //$laagste_rubriek = $_POST['rubriek'];
+          
 
                 $sql = "SELECT gebruiker FROM verkoper WHERE gebruiker = :gebruiker ";
                 $query = $dbh->prepare($sql);
@@ -246,19 +246,7 @@
                     }
                     //Verplaatsen van afbeeldingen, hier wordt ook de lange unieke naam gegenergeerd met sha1_file en samengevoegd met sprintf
                         
-                    $filenaam = sprintf('Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]).time(),  $ext);
-                    $aantal = 0;
-                    
-                    while (file_exists($filenaam)) {
-                        $filenaam = sprintf('Images\no'.$i.'%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]).$aantal,  $ext);
-                        $aantal++;
-                        if($aantal == 150) {
-                            $aantal = 1;
-                            echo"Geef een andere naam aan het bestand!";
-                        }
-                        echo"<script>alert('DUBBEL');</script>";
-                    }
-
+                    $filenaam = sprintf('.\Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]).time(),  $ext);
 
                     if (!$filenaam){
                         throw new RuntimeException('Kan bestand niet in de database zetten.');
@@ -329,8 +317,8 @@
   
                             <label>Rubriek: </label>
                             
-                            <select id="rubrieken" class="select" name="rubriek"  onchange="getSubRubriek(this.value);">
-                                <option disabled selected>Kies een rubriek</option>
+                            <select id="rubrieken" class="select" name="rubriek"  onchange="getSubRubriek(this.value);" required>
+                                <option value="" disabled selected>Kies een rubriek</option>
                             <?php 
                                 while($data = $query -> fetch()){
                                    echo"<option value='".$data['rubrieknummer']."'>".$data['rubrieknaam']."</option>";
@@ -338,14 +326,16 @@
                             ?>
                             </select>
 
-                            <select id="sub-rubriek" class="select" name="sub-rubriek"  onchange="getSubSubRubriek(this.value);">
-                            </select>
 
-                            <select id="sub-sub-rubriek" class="select" name="sub-sub-rubriek" onchange="getSubSubSubRubriek(this.value);">
-                            </select>
+                            <div id="sub-rubriek">
+                            </div>
 
-                            <select id="sub-sub-sub-rubriek" class="select" name="sub-sub-sub-rubriek">        
-                            </select>
+                            <div id="sub-sub-rubriek">
+                            </div>
+
+                            <div id="sub-sub-sub-rubriek" >
+                            </div>
+
                             
                         </div>
 
@@ -434,13 +424,11 @@
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script>
+
     $(document).ready(function(){
     // Valideren
     $('.submit').click(function(){
-        if($("#select").attr("selectedIndex") == 0) {
-            alert('no option is selected');
-            return false;
-        }
+        
         var file_val = $('.file').val();
         if(file_val == "")
         {
@@ -502,22 +490,30 @@ function getSubRubriek(rubrieknummer){
     ajax.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200){
             var data = JSON.parse(this.responseText);
+            var html="";
             if(data.length == 0){
-                 var html = "";
+                  html = "";
             }else{
-                var html = "<option disabled selected> Kies een subrubriek </option>";
+                 html ="<select  class='select' name='sub-rubriek'  onchange='getSubSubRubriek(this.value);' required>";
+                            
+                 html += "<option value='' disabled selected > Kies een subrubriek </option>"; 
+                 
+                 for(var a = 0; a < data.length; a++){
+                
+                    html += "<option value='" + data[a].rubrieknummer + "'>"+ data[a].rubrieknaam +"</option>";
+                }
+            
+                html += "</select>";
             }
 
-            for(var a = 0; a < data.length; a++){
-                html += "<option value='" + data[a].rubrieknummer + "'>"+ data[a].rubrieknaam +"</option>";
-            }
-            
+           
             document.getElementById("sub-rubriek").innerHTML = html;
         }
 
     };
 
 }
+
 
 function getSubSubRubriek(rubrieknummer){
     var ajax = new XMLHttpRequest();
@@ -527,15 +523,22 @@ function getSubSubRubriek(rubrieknummer){
     ajax.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200){
             var data = JSON.parse(this.responseText);
+            var html ="";
             if(data.length == 0){
-                 var html = "";
+                 html = "";
             }else{
-                var html = "<option disabled selected> Kies een subsubrubriek </option>";//"";
+                 html ="<select  class='select' name='sub-sub-rubriek'  onchange='getSubSubSubRubriek(this.value);' required>";
+
+                 html += "<option value='' disabled selected > Kies een subsubrubriek </option>";//"";
+
+                for(var a = 0; a < data.length; a++){
+                    html += "<option value='" + data[a].rubrieknummer + "'>"+ data[a].rubrieknaam +"</option>";
+                }
+
+                html += "</select>";
             }
                 
-            for(var a = 0; a < data.length; a++){
-                html += "<option value='" + data[a].rubrieknummer + "'>"+ data[a].rubrieknaam +"</option>";
-            }
+            
             
             document.getElementById("sub-sub-rubriek").innerHTML = html;
         }
@@ -552,17 +555,23 @@ function getSubSubSubRubriek(rubrieknummer){
     ajax.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200){
             var data = JSON.parse(this.responseText);
+            var html = "";
             if(data.length == 0){
-                 var html = "";
+                 html = "";
             }else{
-                var html = "<option disabled selected> Kies een subsubsubrubriek </option>";
-            }
-           //"<option disabled selected> Kies een subsubsubrubriek </option>";
-           
+                html = "<select class='select' required name='sub-sub-sub-rubriek'>";
+
+                 html += "<option value='' disabled selected > Kies een subsubsubrubriek </option>";
+
                 for(var a = 0; a < data.length; a++){
-                 html += "<option value='" + data[a].rubrieknummer + "'>"+ data[a].rubrieknaam +"</option>";
-                
+                    html += "<option value='" + data[a].rubrieknummer + "'>"+ data[a].rubrieknaam +"</option>";
+                }
+
+                html += "</select>";
+
             }
+           
+
 
             document.getElementById("sub-sub-sub-rubriek").innerHTML = html;
         }
