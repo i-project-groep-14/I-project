@@ -849,7 +849,7 @@ function createGebruikers($actueleplek) {
       <td>
         <form action='beheerderspagina.php' method='post'>
           <button type='submit' value='".strip_tags($gebruiker)."' name='gebruiker' class='button'>Blokkeren</button>
-          </div>
+<!--          </div>-->
         </form>
       </td>
     </tr>
