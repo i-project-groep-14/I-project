@@ -110,6 +110,22 @@
           <nav aria-label="You are here:">
             <ul class="breadcrumbs">
               <?php
+                // $sql = "SELECT [rubriek op laagste niveau] as rubriek FROM [voorwerp in rubriek]
+                //         WHERE voorwerp like :voorwerpnummer";
+                // $query = $dbh->prepare($sql);
+                // $query -> execute(array(
+                //     ':voorwerpnummer' => $_SESSION['voorwerp']
+                // ));
+                // $row = $query -> fetch();
+                
+                // $actueleRubriek = $row['rubriek'];
+                // $actueleParentRubriek = selectParentRubriekNummer($actueleRubriek);
+                
+                // if (heeftParentRubriek($actueleRubriek)) {
+                //   $nietBovenaan = true;
+                //   createProductRubrieken($actueleRubriek);
+                // }
+
                 $sql = "SELECT [rubriek op laagste niveau] as rubriek FROM [voorwerp in rubriek]
                         WHERE voorwerp like :voorwerpnummer";
                 $query = $dbh->prepare($sql);
@@ -117,19 +133,11 @@
                     ':voorwerpnummer' => $_SESSION['voorwerp']
                 ));
                 $row = $query -> fetch();
-                
-                $actueleRubriek = $row['rubriek'];
-                $actueleParentRubriek = selectParentRubriekNummer($actueleRubriek);
-                
-                if (heeftParentRubriek($actueleRubriek)) {
-                  $nietBovenaan = true;
-                  createProductRubrieken($actueleRubriek);
+
+                if (heeftParentRubriek($row['rubriek'])) {
+                  createProductRubrieken($row['rubriek']);
                 }
               ?>
-              <!-- <li><a href="#">Home</a></li>
-              <li><a href="#">Features</a></li>
-              <li class="disabled">Gene Splicing</li>
-              <li><span class="show-for-sr">Current: </span> Cloning</li> -->
             </ul>
           </nav>
         </div>

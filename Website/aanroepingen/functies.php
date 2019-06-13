@@ -451,45 +451,70 @@ function selectRubriekNaam($rubrieknummer) {
   return $row['rubrieknaam'];
 }
 
+// function createProductRubrieken($rubrieknummer) {
+//   global $nietBovenaan;
+
+//   // echo $rubrieknummer;
+
+//   if ($nietBovenaan) {
+//     if (heeftParentRubriek($rubrieknummer)) {
+//       $parentRubriekNummer = selectParentRubriekNummer($rubrieknummer);
+//       if ($parentRubriekNummer != 0) {
+//         global $test;
+//         $test = $parentRubriekNummer;
+//       }
+//       createProductRubrieken($parentRubriekNummer);
+//     } else {
+//       $nietBovenaan = false;
+//       global $test;
+//       createProductRubrieken($test);
+//     }
+//   } else {
+//     $naam = selectRubriekNaam($rubrieknummer);
+
+//     global $actueleRubriek;
+//     global $actueleParentRubriek;
+//     if (selectParentRubriekNummer($rubrieknummer) != $actueleParentRubriek) {
+//       echo"
+//         <li class='disabled'>";
+//         echo strip_tags($naam)."</li>
+//       ";
+
+//       if (heeftSubriek($rubrieknummer)) {
+//         $subrubrieknummer = selectSubRubriekNummerZonderPlek($rubrieknummer);
+//         createProductRubrieken($subrubrieknummer);
+//       }
+//     } else {
+//       $naam = selectRubriekNaam($actueleRubriek);
+//       echo"<li><span class='show-for-sr'></span>";
+//       echo strip_tags($naam)."</li>";
+//     }
+//   }
+// }
+
+
 function createProductRubrieken($rubrieknummer) {
-  global $nietBovenaan;
-
-  // echo $rubrieknummer;
-
-  if ($nietBovenaan) {
-    if (heeftParentRubriek($rubrieknummer)) {
-      $parentRubriekNummer = selectParentRubriekNummer($rubrieknummer);
-      if ($parentRubriekNummer != 0) {
-        global $test;
-        $test = $parentRubriekNummer;
-      }
-      createProductRubrieken($parentRubriekNummer);
+  $naam = selectParentRubriekNaam($rubrieknummer);
+  
+  echo"
+    <li";
+    if(!heeftSubriek($rubrieknummer)) {
+      echo"><span class='show-for-sr'></span>";
     } else {
-      $nietBovenaan = false;
-      global $test;
-      createProductRubrieken($test);
+      echo " class='disabled'>";
     }
-  } else {
-    $naam = selectRubriekNaam($rubrieknummer);
+    echo"$naam</li>
+  ";
 
-    global $actueleRubriek;
-    global $actueleParentRubriek;
-    if (selectParentRubriekNummer($rubrieknummer) != $actueleParentRubriek) {
-      echo"
-        <li class='disabled'>";
-        echo strip_tags($naam)."</li>
-      ";
-
-      if (heeftSubriek($rubrieknummer)) {
-        $subrubrieknummer = selectSubRubriekNummerZonderPlek($rubrieknummer);
-        createProductRubrieken($subrubrieknummer);
-      }
-    } else {
-      $naam = selectRubriekNaam($actueleRubriek);
-      echo"<li><span class='show-for-sr'></span>";
-      echo strip_tags($naam)."</li>";
-    }
+  if (heeftParentRubriek($rubrieknummer)) {
+    $parentRubriekNummer = selectParentRubriekNummer($rubrieknummer);
+    createProductRubrieken($parentRubriekNummer);
   }
+  
+  // <li><a href="#">Home</a></li>
+  // <li><a href="#">Features</a></li>
+  // <li class="disabled">Gene Splicing</li>
+  // <li><span class="show-for-sr">Current: </span> Cloning</li>
 }
 
 
