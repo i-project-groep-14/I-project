@@ -19,7 +19,7 @@
       
         
     if($_SESSION['rol'] == 2) {
-        $message = "U heeft de rechten niet om deze pagina te gebruiken!".$_SESSION['rol'];
+        $message = "U heeft de rechten niet om deze pagina te gebruiken!";
         echo ("<script 
             LANGUAGE='JavaScript'>
             window.alert('$message');
