@@ -811,16 +811,7 @@ return $volgendeplek;
 
 }
 
-if (isset($_POST['gebruiker'])) {
-  $melding = "
-  <div data-closable class='callout alert-callout-border success'>
-    <strong>Yay!</strong> - $_POST[gebruiker] is succesvol geblokkeerd.
-    <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
-    <span aria-hidden='true'>&times;</span>
-    </button>
-    </div>
-    ";
-}
+
 
 function createGebruikers($actueleplek) {
   global $dbh;
