@@ -133,41 +133,41 @@
 
                 $looptijd = $_POST['loopdag'];
 
-               // $laagste_rubriek = 1;
-                //if (isset($_POST['rubriek'])) { 
-                //    $laagste_rubriek = $_POST['rubriek'];
-                //} //else {
-                //     $laagste_rubriek = 1;
-                // }
-                // $laagste_rubriek = $_POST['rubriek'];
-                //if(!empty($_POST['sub-rubriek']) ) {
-                    //$laagste_rubriek = $_POST['sub-rubriek'];
-                //} //else{
-                //     if (isset($_POST['rubriek'])) {
-                //         $laagste_rubriek = $_POST['rubriek'];
-                //     } else {
-                //         $laagste_rubriek = -1;
-                //     }
-                //     // $laagste_rubriek = $_POST['rubriek']; 
-                // }
-
-               // if(!empty($_POST['sub-sub-rubriek']) ){
-                    //$laagste_rubriek = $_POST['sub-sub-rubriek'];
-                //}//else{
-                //     $laagste_rubriek = $_POST['sub-rubriek'];
-                // }
-
-                //if(!empty($_POST['sub-sub-sub-rubriek']) ){
-                    //$laagste_rubriek = $_POST['sub-sub-sub-rubriek']; 
-                //} //else if(empty($_POST['sub-sub-rubriek'])){
-                    //$laagste_rubriek = $_POST['sub-rubriek'];
-                //} else{
-                    //$laagste_rubriek = $_POST['sub-sub-rubriek'];
-                //}
-                // echo $laagste_rubriek;
-
+               $laagste_rubriek = 1;
+                if (isset($_POST['rubriek'])) { 
+                   $laagste_rubriek = $_POST['rubriek'];
+                } else {
+                    $laagste_rubriek = 1;
+                }
                 $laagste_rubriek = $_POST['rubriek'];
-                echo"<script>alert".$laagste_rubriek."</script>";
+                if(!empty($_POST['sub-rubriek']) ) {
+                    $laagste_rubriek = $_POST['sub-rubriek'];
+                } else{
+                    if (isset($_POST['rubriek'])) {
+                        $laagste_rubriek = $_POST['rubriek'];
+                    } else {
+                        $laagste_rubriek = -1;
+                    }
+                    // $laagste_rubriek = $_POST['rubriek']; 
+                }
+
+               if(!empty($_POST['sub-sub-rubriek']) ){
+                    $laagste_rubriek = $_POST['sub-sub-rubriek'];
+                }else{
+                    $laagste_rubriek = $_POST['sub-rubriek'];
+                }
+
+                if(!empty($_POST['sub-sub-sub-rubriek']) ){
+                    $laagste_rubriek = $_POST['sub-sub-sub-rubriek']; 
+                } else if(empty($_POST['sub-sub-rubriek'])){
+                    $laagste_rubriek = $_POST['sub-rubriek'];
+                } else{
+                    $laagste_rubriek = $_POST['sub-sub-rubriek'];
+                }
+                echo $laagste_rubriek;
+
+                //$laagste_rubriek = $_POST['rubriek'];
+          
 
                 $sql = "SELECT gebruiker FROM verkoper WHERE gebruiker = :gebruiker ";
                 $query = $dbh->prepare($sql);
@@ -281,7 +281,7 @@
                 $sql_rubriek = "INSERT INTO [voorwerp in rubriek] VALUES (:voorwerp, :laagste_rubriek)";
                 $query_rubriek = $dbh->prepare($sql_rubriek);
                 $query_rubriek -> execute(array(':voorwerp' => $row['voorwerpnummer'], ':laagste_rubriek' => $laagste_rubriek ));
-                echo "<script> window.location.href = 'index.php' </script>";
+                //echo "<script> window.location.href = 'index.php' </script>";
             }
         }
     } catch (RuntimeException $e) {
