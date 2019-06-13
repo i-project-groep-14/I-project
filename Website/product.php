@@ -185,7 +185,7 @@
           <!--Toevoegen informatie aan de rechterkant-->
           <div class="medium-6 large-5 columns lijn">
             <?php
-              $sql = "SELECT titel, verkoper, beschrijving, plaatsnaam, startprijs, verkoopprijs,verzendkosten, betalingswijze,betalingsinstructie, verzendinstructies, looptijdeindeDag, looptijdeindeTijdstip, veilingGesloten FROM voorwerp
+              $sql = "SELECT titel, verkoper, beschrijving, land, startprijs, verkoopprijs,verzendkosten, betalingswijze,betalingsinstructie, verzendinstructies, looptijdeindeDag, looptijdeindeTijdstip, veilingGesloten FROM voorwerp
                       WHERE voorwerpnummer like :voorwerpnummer";
               $query = $dbh->prepare($sql);
               $query -> execute(array(
@@ -197,7 +197,7 @@
               $titel = strip_tags($row['titel']);
               $verkoper = strip_tags($row['verkoper']);
               $beschrijving = strip_tags($row['beschrijving']);
-              $locatie = strip_tags($row['plaatsnaam']);
+              $locatie = strip_tags($row['land']);
               $startprijs = $row['startprijs'];
               if($row['verkoopprijs'] == NULL) {
                 $hoogstebod = $startprijs;
