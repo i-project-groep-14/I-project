@@ -54,7 +54,7 @@
                     </button>
                 </div>
                 ";
-            } else if (isset($_POST['rubriek']) && !isset($_POST['sub-rubriek'])) {
+            }/* else if (isset($_POST['rubriek']) && !isset($_POST['sub-rubriek'])) {
                 $melding = "
                 <div data-closable class='callout alert-callout-border alert radius'>
                     <strong>Error</strong> - U heeft geen geldige rubriek ingegeven.
@@ -72,7 +72,7 @@
                     </button>
                 </div>
                 ";
-            } else if (strlen($_POST['beschrijving_product']) > 500) {
+            }*/ else if (strlen($_POST['beschrijving_product']) > 500) {
                 $melding = "
                 <div data-closable class='callout alert-callout-border alert radius'>
                 <strong>Error</strong> - Het aantal karakters van de product beschrijving is te groot. Het maximale toegestane aantal karakters is 500.
@@ -133,16 +133,16 @@
 
                 $looptijd = $_POST['loopdag'];
 
-                $laagste_rubriek = 1;
-                if (isset($_POST['rubriek'])) { 
-                    $laagste_rubriek = $_POST['rubriek'];
-                } //else {
+               // $laagste_rubriek = 1;
+                //if (isset($_POST['rubriek'])) { 
+                //    $laagste_rubriek = $_POST['rubriek'];
+                //} //else {
                 //     $laagste_rubriek = 1;
                 // }
                 // $laagste_rubriek = $_POST['rubriek'];
-                if(!empty($_POST['sub-rubriek']) ) {
-                    $laagste_rubriek = $_POST['sub-rubriek'];
-                } //else{
+                //if(!empty($_POST['sub-rubriek']) ) {
+                    //$laagste_rubriek = $_POST['sub-rubriek'];
+                //} //else{
                 //     if (isset($_POST['rubriek'])) {
                 //         $laagste_rubriek = $_POST['rubriek'];
                 //     } else {
@@ -151,15 +151,15 @@
                 //     // $laagste_rubriek = $_POST['rubriek']; 
                 // }
 
-                if(!empty($_POST['sub-sub-rubriek']) ){
-                    $laagste_rubriek = $_POST['sub-sub-rubriek'];
-                }//else{
+               // if(!empty($_POST['sub-sub-rubriek']) ){
+                    //$laagste_rubriek = $_POST['sub-sub-rubriek'];
+                //}//else{
                 //     $laagste_rubriek = $_POST['sub-rubriek'];
                 // }
 
-                if(!empty($_POST['sub-sub-sub-rubriek']) ){
-                    $laagste_rubriek = $_POST['sub-sub-sub-rubriek']; 
-                } //else if(empty($_POST['sub-sub-rubriek'])){
+                //if(!empty($_POST['sub-sub-sub-rubriek']) ){
+                    //$laagste_rubriek = $_POST['sub-sub-sub-rubriek']; 
+                //} //else if(empty($_POST['sub-sub-rubriek'])){
                     //$laagste_rubriek = $_POST['sub-rubriek'];
                 //} else{
                     //$laagste_rubriek = $_POST['sub-sub-rubriek'];
@@ -167,7 +167,7 @@
                 // echo $laagste_rubriek;
 
                 $laagste_rubriek = $_POST['rubriek'];
-                
+                echo"<script>alert".$laagste_rubriek."</script>";
 
                 $sql = "SELECT gebruiker FROM verkoper WHERE gebruiker = :gebruiker ";
                 $query = $dbh->prepare($sql);
@@ -229,7 +229,7 @@
                     }
 
                    //hoe groot het bestand kan zijn, in dit geval 2 mb
-                   if ($_FILES['upfile']['size'][$i] > 20000000) {
+                   if ($_FILES['upfile']['size'][$i] > 2097152) {
                     throw new RuntimeException('Het bestand is te groot.');
                     }
                     
@@ -246,8 +246,9 @@
                     }
                     //Verplaatsen van afbeeldingen, hier wordt ook de lange unieke naam gegenergeerd met sha1_file en samengevoegd met sprintf
                         
-                    $filenaam = sprintf('Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]),  $ext);
-                    $aantal = 1;
+                    $filenaam = sprintf('Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]).time(),  $ext);
+                    $aantal = 0;
+                    
                     while (file_exists($filenaam)) {
                         $filenaam = sprintf('Images\no'.$i.'%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]).$aantal,  $ext);
                         $aantal++;
@@ -255,10 +256,11 @@
                             $aantal = 1;
                             echo"Geef een andere naam aan het bestand!";
                         }
+                        echo"<script>alert('DUBBEL');</script>";
                     }
 
 
-                    if (!$filenaam = sprintf('.\Images\no'.$i.'%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]),  $ext)){
+                    if (!$filenaam){
                         throw new RuntimeException('Kan bestand niet in de database zetten.');
                     }
 
@@ -327,7 +329,7 @@
   
                             <label>Rubriek: </label>
                             
-                            <select id="rubrieken" name="rubriek"  onchange="getSubRubriek(this.value);">
+                            <select id="rubrieken" class="select" name="rubriek"  onchange="getSubRubriek(this.value);">
                                 <option disabled selected>Kies een rubriek</option>
                             <?php 
                                 while($data = $query -> fetch()){
@@ -336,13 +338,13 @@
                             ?>
                             </select>
 
-                            <select id="sub-rubriek" name="sub-rubriek"  onchange="getSubSubRubriek(this.value);">
+                            <select id="sub-rubriek" class="select" name="sub-rubriek"  onchange="getSubSubRubriek(this.value);">
                             </select>
 
-                            <select id="sub-sub-rubriek" name="sub-sub-rubriek" onchange="getSubSubSubRubriek(this.value);">
+                            <select id="sub-sub-rubriek" class="select" name="sub-sub-rubriek" onchange="getSubSubSubRubriek(this.value);">
                             </select>
 
-                            <select id="sub-sub-sub-rubriek" name="sub-sub-sub-rubriek">        
+                            <select id="sub-sub-sub-rubriek" class="select" name="sub-sub-sub-rubriek">        
                             </select>
                             
                         </div>
@@ -435,6 +437,10 @@
     $(document).ready(function(){
     // Valideren
     $('.submit').click(function(){
+        if($("#select").attr("selectedIndex") == 0) {
+            alert('no option is selected');
+            return false;
+        }
         var file_val = $('.file').val();
         if(file_val == "")
         {
