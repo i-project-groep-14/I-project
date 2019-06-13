@@ -3,6 +3,15 @@
 
       require_once 'aanroepingen/connectie.php';
       include_once 'aanroepingen/header.php';
+      
+      if($_SESSION['rol'] == NULL) {
+        $message = "U heeft de rechten niet om deze pagina te gebruiken!";
+        echo ("<script 
+            LANGUAGE='JavaScript'>
+            window.alert('$message');
+            window.location.href='index.php';
+        </script>");
+    }
 
       $sql = "SELECT gebruikersnaam, mailadres, voornaam, achternaam, adresregel1, adresregel2, postcode, land, geboortedatum FROM gebruiker 
               WHERE gebruikersnaam = :gebruiker";

@@ -7,6 +7,15 @@
         session_start();
       }
 
+      if($_SESSION['voornaam'] == NULL) {
+				$message = "U heeft de rechten niet om deze pagina te gebruiken!";
+				echo ("<script 
+					LANGUAGE='JavaScript'>
+					window.alert('$message');
+					window.location.href='registratie_persoonsgegevens.php';
+				</script>");
+			}
+
       if(isset($_POST['register']) && isset($_POST['veiligheidsvraag'])) {
         if (strlen($_POST['veiligheidsvraag_antwoord']) > 50) {
           $melding = "
