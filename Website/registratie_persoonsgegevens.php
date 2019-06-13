@@ -6,6 +6,15 @@
 			if(!isset($_SESSION)) {
 				session_start();
 			}
+
+			if($_SESSION['email'] == NULL) {
+				$message = "U heeft de rechten niet om deze pagina te gebruiken!";
+				echo ("<script 
+					LANGUAGE='JavaScript'>
+					window.alert('$message');
+					window.location.href='registratie_email.php';
+				</script>");
+			}
 			
 			if(isset($_POST['verzenden_pers'])){
 				$sql = "SELECT gebruikersnaam FROM gebruiker 
