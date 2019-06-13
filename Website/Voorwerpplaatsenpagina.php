@@ -63,7 +63,7 @@
                     </button>
                 </div>
                 ";
-            } else if (isset($_POST['rubriek']) && isset($_POST['sub-rubriek']) && heeftSubriek($_POST['sub-rubriek']) && !isset($_POST['sub-sub-rubriek'])) {
+            } else if (isset($_POST['rubriek']) && isset($_POST['sub-rubriek']) && heeftsubrubriek($_POST['sub-rubriek']) && !isset($_POST['sub-sub-rubriek'])) {
                 $melding = "
                 <div data-closable class='callout alert-callout-border alert radius'>
                     <strong>Error</strong> - U heeft geen geldige rubriek ingegeven.
