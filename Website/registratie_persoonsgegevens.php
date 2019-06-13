@@ -219,7 +219,7 @@
 									</button>
 								</div>";
 								$verkopermelding = true;
-							} else if ($_POST['controle'] == 'creditcard' && !preg_match('/[0-9]/', $_POST['controle'])) {
+							} else if ($_POST['controle'] == 'creditcard' && !preg_match('/[0-9]/', $_POST['creditcardnummer'])) {
 								$melding = "
 								<div data-closable class='callout alert-callout-border alert radius'>
 									<strong>Error</strong> - Uw creditcard moet een nummer bevatten.
@@ -228,10 +228,10 @@
 									</button>
 								</div>";
 								$verkopermelding = true;
-							} else if ($_POST['controle'] == 'creditcard' && strlen($_POST['controle']) < 16) {
+							} else if ($_POST['controle'] == 'creditcard' && strlen($_POST['creditcardnummer']) < 16) {
 								$melding = "
 								<div data-closable class='callout alert-callout-border alert radius'>
-									<strong>Error</strong> - Uw creditcard moet een nummer bevatten.
+									<strong>Error</strong> - Het aantal karakters van uw creditcardnummer is te klein. Het minimale aantal karakters is 16.
 									<button class='close-button' aria-label='Dismiss alert' type='button' data-close>
 										<span aria-hidden='true'>&times;</span>
 									</button>

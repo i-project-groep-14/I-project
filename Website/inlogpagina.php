@@ -15,7 +15,7 @@
     if($row['rol'] == 1) {
       $melding = "
       <div data-closable class='callout alert-callout-border alert radius'>
-      <strong> Error </strong> U bent geblokkeerd, neem <a href='contact.php'> contact </a> met ons op voor meer informatie.
+      <strong> Error </strong> - U bent geblokkeerd, neem <a href='contact.php'> contact </a> met ons op voor meer informatie.
   <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
     <span aria-hidden='true'>&times;</span>
   </button>
