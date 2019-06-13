@@ -85,7 +85,7 @@
                   // Van plek veranderen + betere css?
                 ?>
               <div class="medium-12 cell">
-                <input type="email" placeholder="E-mail" name="email" maxlength="50" value="<?php if(isset($_POST['email']) && !$mailverzonden) { echo htmlentities($_POST['email']);} ?>" required> 
+                <input type="email" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" maxlength="50" value="<?php if(isset($_POST['email']) && !$mailverzonden) { echo htmlentities($_POST['email']);} ?>" required> 
                 <input class="button" type="submit" value="Verzenden" name="verzenden_email">
               </div>
             </div>
