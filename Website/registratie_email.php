@@ -74,7 +74,13 @@
             <div class="grid-x grid-padding-x">
                 <?php 
                   if(isset($mailverzonden) && $mailverzonden) {
-                    echo"<p>Uw mail is verzonden. Het kan even duren voordat u hem ontvangt.</p>";
+                    echo"
+                    <div data-closable class='callout alert-callout-border success'>
+                      Uw mail is verzonden. Het kan even duren voordat u hem ontvangt.
+                      <button class='close-button' aria-label='Dismiss alert' type='button' data-close>
+                        <span aria-hidden='true'>&times;</span>
+                      </button>
+                    </div>";
                   }
                   // Van plek veranderen + betere css?
                 ?>

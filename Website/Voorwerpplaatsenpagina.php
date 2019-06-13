@@ -246,10 +246,10 @@
                     }
                     //Verplaatsen van afbeeldingen, hier wordt ook de lange unieke naam gegenergeerd met sha1_file en samengevoegd met sprintf
                         
-                    $filenaam = sprintf('.\Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]),  $ext);
+                    $filenaam = sprintf('Images\%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]),  $ext);
                     $aantal = 1;
                     while (file_exists($filenaam)) {
-                        $filenaam = sprintf('.\Images\no'.$i.'%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]).$aantal,  $ext);
+                        $filenaam = sprintf('Images\no'.$i.'%s.%s', sha1_file($_FILES['upfile']['tmp_name'][$i]).$aantal,  $ext);
                         $aantal++;
                         if($aantal == 150) {
                             $aantal = 1;
