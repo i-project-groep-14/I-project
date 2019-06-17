@@ -164,7 +164,7 @@
             echo"
             <div class='row align-center'>
               <div class='product-image-gallery'>
-            <img id='main-product-image' class='thumbnail img-product' src=$afbeelding alt='afbeelding' >
+            <img id='main-product-image' class='thumbnail img-product' src=$afbeelding alt=' ' >
             
             <table>
             ";
