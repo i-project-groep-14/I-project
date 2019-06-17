@@ -386,7 +386,7 @@
 						
 						<div class="medium-12 cell">
 							<label>Verzendkosten: (Optioneel)</label>
-							<input type="number" name="verzendkosten" value="0" min="0" max="10000.00" step="0.01">
+							<input type="number" name="verzendkosten" min="0" max="10000.00" step="0.01">
 						</div>
 						
 						<div class="medium-12 cell">
