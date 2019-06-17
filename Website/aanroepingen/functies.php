@@ -655,7 +655,7 @@ function createBiedingen($actueleplek) {
         
       </div>-->
       <div class='media-object-section'>
-        <p>$gebruiker Geboden: €$bod</p>
+        <p>$gebruiker geboden: €$bod</p>
       </div>
     </div>";
     global $plek;
