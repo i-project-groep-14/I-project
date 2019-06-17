@@ -1,8 +1,8 @@
  <?php
       $config = ['pagina' => 'Profielpagina'];
 
-      require_once 'aanroepingen/connectie.php';
-      include_once 'aanroepingen/header.php';
+        require_once 'aanroepingen/connectie.php';
+        include_once 'aanroepingen/header.php';
       
       if($_SESSION['rol'] == NULL) {
         $message = "U heeft de rechten niet om deze pagina te gebruiken!";
@@ -170,12 +170,12 @@
           </button>
           </div>";
         } else {
-          $_SESSION['rekeningnummer'] = strip_tags($_POST['verkoopgegevens-rekeningnr']);
-          $_SESSION['bank'] = strip_tags($_POST['verkoopgegevens-bank']);
-          $_SESSION['controlepost'] = strip_tags($_POST['controle']);
+          $rekening = strip_tags($_POST['verkoopgegevens-rekeningnr']);
+          $bank = strip_tags($_POST['verkoopgegevens-bank']);
+          $controle = strip_tags($_POST['controle']);
           if(isset($_POST['creditcardnummer'])) {
-            $_SESSION['creditcardnummer'] = strip_tags($_POST['creditcardnummer']);
-          } 
+            $creditcard = strip_tags($_POST['creditcardnummer']);
+          }
           
           $sql = "UPDATE gebruiker 
                   SET rol = 3
@@ -184,6 +184,32 @@
           $query -> execute(array(
             ':gebruikersnaam' => $gebruiker
           ));
+
+          
+
+          if (isset($_POST['creditcardnummer'])) {
+            $sql = "INSERT INTO verkoper
+                    VALUES (:gebruikersnaam, :bank, :bankrekening, :controle, :creditcard)";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+              ':gebruikersnaam' => $gebruiker,
+            ':bank' => $bank,
+            ':bankrekening' => $rekening,
+            ':controle' => $controle,
+            ':creditcard' => $creditcard
+            ));
+
+          } else {
+            $sql = "INSERT INTO verkoper (gebruiker, bank, bankrekening, controleoptie)
+                    VALUES (:gebruikersnaam, :bank, :bankrekening, :controle)";
+            $query = $dbh->prepare($sql);
+            $query -> execute(array(
+              ':gebruikersnaam' => $gebruiker,
+              ':bank' => $bank,
+              ':bankrekening' => $rekening,
+              ':controle' => $controle
+            ));
+          }
 
           $_SESSION['rol'] = 3;
         }

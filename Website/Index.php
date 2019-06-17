@@ -32,7 +32,7 @@
               $gebruikersnaam = $_SESSION['gebruikersnaam'];
               for($i = 0; $i < $aantalveilingen; $i++) {
                 createHomepageItem("SELECT titel, verkoopprijs, looptijdeindeDag, looptijdeindeTijdstip, voorwerpnummer, startprijs FROM voorwerp 
-                                    WHERE verkoper like '%$gebruikersnaam%' and veilingGesloten = 'niet' ORDER BY titel", $plek);
+                                    WHERE verkoper = '$gebruikersnaam' and veilingGesloten = 'niet' ORDER BY titel", $plek);
               }
               echo "</div>";
             }

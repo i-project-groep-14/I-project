@@ -178,7 +178,7 @@
                 $row = $query -> rowCount();
 
                 if($row == 0) {
-                    $message = "U heeft de rechten niet om deze pagina te gebruiken!".$_SESSION['rol'];
+                    $message = "U heeft de rechten niet om deze pagina te gebruiken!";
                     echo ("<script LANGUAGE='JavaScript'>
                     window.alert('$message');
                     window.location.href='index.php';
