@@ -31,37 +31,6 @@
 <!-- BEGIN FILTER -->
       <div class="ContainerRubriekenfilter">
         <div class="FilterContainer">
-          <div class="FilterPrijs">
-            <h3>Prijs:</h3>
-            <label>Vanaf:</label>
-            <input type="text" class="FilterPrijsLaag">
-            <label>Tot:</label>
-            <input type="text" class="FilterPrijsLaag">
-          </div>
-          
-          <div class="FilterLocatie">
-            <h3>Locatie</h3>
-            <br>
-            <select class="Filtermeerkeuzevak"> 
-              <option>Kies een plaats</option>
-              <option>Den Haag</option>
-              <option>Amsterdam</option>
-              <option>Rotterdam</option>
-              <option>Arnhem</option>
-            </select>
-          </div>
-                  
-          <div class="FilterSorteer">
-            <h3>Sorteer op:</h3>
-            <br>
-            <select class="Filtermeerkeuzevak"> 
-              <option>Standaard</option>
-              <option>Datum (nieuw-oud)</option>
-              <option>Datum (oud-nieuw)</option>
-              <option>Sluittijd (kort-lang)</option>
-              <option>Sluittijd (lang-kort)</option>
-            </select>
-          </div>
 
           <div class="FilterZoek">
             <h3>Zoeken</h3>
