@@ -282,7 +282,12 @@
             $row = $query -> fetch();
             $vraag = $row['tekstvraag'];
 
-            echo $vraag;
+            echo "
+            <div class='medium-12 cell'>
+              <h5>Uw vraag is: </h5>
+              <input type='text' value='$vraag' name='antwoordtekst' disabled>
+              <br>
+            </div>";
           ?>
 
           <h5>Antwoord op uw veiligheidsvraag</h5>
