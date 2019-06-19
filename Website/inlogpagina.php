@@ -63,6 +63,8 @@ $melding = "
   }}
 
   include_once 'aanroepingen/header.php';
+
+  $_SESSION['stap'] = 1;
 ?>
 
     <div class="holy-grail-middle">
