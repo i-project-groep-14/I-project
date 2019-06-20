@@ -1,7 +1,7 @@
 <?php 
 $to = $row['mailadres'];
 $from = "Noreply-EenmaalAndermaal@icasites.nl";
-$subject = "Uw veiling ".$row['titel']. " is afgelopen!!!!";
+$subject = "Uw veiling ".$row['titel']. " is afgelopen!";
 
 //begin of HTML message 
 $message ="
@@ -17,7 +17,16 @@ $message ="
     </div>
     
     <div style='font-family:Calibri;'>
-    <p>Uw veiling '".$row['titel']."' is verlopen en verwijderd. De veiling is gewonnen door '".$row['koper']."' met als hoogste bod: ".$row['verkoopprijs']." . Wij hopen dat u het artikel met succes heeft verkocht. De artikel ter inzage beschikbaar op uw profielpagina </p><Br><br>
+    <p>Uw veiling '".$row['titel']."' is verlopen en verwijderd.";
+
+if (isset($row['koper'])) {
+    $message.=" De veiling is gewonnen door '".$row['koper']."' met als hoogste bod: ".$row['verkoopprijs']." euro. ";
+} else {
+    $message.=" Niemand heeft op uw veiling geboden, dus helaas is uw item niet verkocht.";
+}
+
+    $message.="
+    Het artikel blijft beschikbaar op uw profielpagina.</p><Br><br>
 
         </div>
         Wij zien u graag terug op EenmaalAndermaal <br>

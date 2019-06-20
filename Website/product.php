@@ -19,7 +19,6 @@
       $looptijdeindeDag = $row['looptijdeindeDag'];
       $looptijdeindeTijdstip = $row['looptijdeindeTijdstip'];
       $combinedDT = date('Y-m-d H:i:s', strtotime("$looptijdeindeDag $looptijdeindeTijdstip"));
-
       if($row['veilingGesloten'] = 'niet' && timeDiff(date("Y-m-d H:i:s"),$combinedDT) <= 0) {
         $sql = "UPDATE voorwerp
                 SET veilingGesloten = 'wel'
@@ -29,15 +28,23 @@
             ':voorwerpnummer' => $_SESSION['voorwerp']
         ));
         
+        $sql = "SELECT gebruiker FROM bod 
+                WHERE voorwerpnummer like :voorwerpnummer";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(
+            ':voorwerpnummer' => $_SESSION['voorwerp']
+        ));
 
-        // $sql = "UPDATE voorwerp
-        //         SET koper = :gebruiker
-        //         WHERE voorwerpnummer = :voorwerpnummer";
-        // $query = $dbh->prepare($sql);
-        // $query -> execute(array(
-        //     ':gebruiker' => $_SESSION['gebruikersnaam'],
-        //     ':voorwerpnummer' => $_SESSION['voorwerp']
-        // ));
+        $row = $query -> fetch();
+
+        $sql = "UPDATE voorwerp
+                SET koper = :gebruiker
+                WHERE voorwerpnummer = :voorwerpnummer";
+        $query = $dbh->prepare($sql);
+        $query -> execute(array(
+            ':gebruiker' => $row['gebruiker'],
+            ':voorwerpnummer' => $_SESSION['voorwerp']
+        ));
         
         $sql = "SELECT v.verkoper, g.mailadres,v.titel,v.verkoopprijs,v.koper
                 FROM voorwerp v inner join gebruiker g on v.verkoper = g.gebruikersnaam
